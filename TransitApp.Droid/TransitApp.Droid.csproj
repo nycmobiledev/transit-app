@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AF4487D-0C3E-4384-BA68-62CB1680C648}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TransitApp.Droid</RootNamespace>
+    <AssemblyName>TransitApp.Droid</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cirrious.MvvmCross">
+      <HintPath>C:\Program Files %28x86%29\Scorchio Limited\Ninja Coder for MvvmCross\MvvmCross\Assemblies\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Droid">
+      <HintPath>C:\Program Files %28x86%29\Scorchio Limited\Ninja Coder for MvvmCross\MvvmCross\Assemblies\Cirrious.MvvmCross.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Messenger">
+      <HintPath>C:\Program Files %28x86%29\Scorchio Limited\Ninja Coder for MvvmCross\MvvmCross\Assemblies\Cirrious.MvvmCross.Plugins.Messenger.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net">
+      <HintPath>..\packages\MvvmCross.PortableSupport.3.1.1\lib\MonoAndroid\System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows">
+      <HintPath>..\packages\MvvmCross.PortableSupport.3.1.1\lib\MonoAndroid\System.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Serialization">
+      <HintPath>..\packages\MvvmCross.PortableSupport.3.1.1\lib\MonoAndroid\System.Xml.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.CrossCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.CrossCore.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.CrossCore.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Binding.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization">
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite">
+      <HintPath>..\packages\MvvmCross.Community.Plugin.Sqlite.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Community.Plugins.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite.Droid">
+      <HintPath>..\packages\MvvmCross.Community.Plugin.Sqlite.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Community.Plugins.Sqlite.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Location">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Location.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Location.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Location.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Location.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Location.Droid.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="SplashScreen.cs" />
+    <Compile Include="Views\HomeView.cs" />
+    <Compile Include="Bootstrap\CommunitySqlitePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\LocationPluginBootstrap.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <AndroidResource Include="Resources\Layout\SplashScreen.axml" />
+    <AndroidResource Include="Resources\Layout\HomeView.axml" />
+    <None Include="packages.config" />
+    <AndroidResource Include="Resources\Raw\Subway.db" />
+    <AndroidResource Include="Resources\Layout\Item_Stop.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\MvxBindingAttributes.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransitApp.Core\TransitApp.Core.csproj">
+      <Project>{747706F4-ECBF-4D50-8D72-B0DDCC18395C}</Project>
+      <Name>TransitApp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup />
+  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Resources\Raw\" />
+  </ItemGroup>
+</Project>
