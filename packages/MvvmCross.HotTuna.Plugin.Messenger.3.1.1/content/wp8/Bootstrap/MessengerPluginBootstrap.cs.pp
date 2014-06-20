@@ -1,6 +1,6 @@
 using Cirrious.CrossCore.Plugins;
 
-namespace TransitApp.Droid.Bootstrap
+namespace $rootnamespace$.Bootstrap
 {
     public class MessengerPluginBootstrap
         : MvxPluginBootstrapAction<Cirrious.MvvmCross.Plugins.Messenger.PluginLoader>

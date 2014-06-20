@@ -1,14 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TransitApp.Droid\Bootstrap\CommunitySqlitePluginBootstrap.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TransitApp.Core\Models\Stop.cs">
     <Files>
       <File FileName="TransitApp.Core\swp8\Bootstrap\CommunitySqlitePluginBootstrap.cs" Line="1" Column="1" />
-      <File FileName="TransitApp.Core\Services\GtfsService.cs" Line="5" Column="22" />
-      <File FileName="TransitApp.Core\ViewModels\HomeViewModel.cs" Line="9" Column="22" />
-      <File FileName="TransitApp.Core\Services\IGtfsService.cs" Line="5" Column="22" />
+      <File FileName="TransitApp.Core\Services\GtfsService.cs" Line="1" Column="1" />
+      <File FileName="TransitApp.Core\ViewModels\HomeViewModel.cs" Line="1" Column="1" />
+      <File FileName="TransitApp.Core\Services\IGtfsService.cs" Line="14" Column="26" />
       <File FileName="TransitApp.Droid\Bootstrap\MessengerPluginBootstrap.cs" Line="1" Column="1" />
       <File FileName="TransitApp.Droid\Bootstrap\LocationPluginBootstrap.cs" Line="1" Column="1" />
-      <File FileName="TransitApp.Droid\Bootstrap\CommunitySqlitePluginBootstrap.cs" Line="1" Column="1" />
+      <File FileName="TransitApp.Droid\Bootstrap\CommunitySqlitePluginBootstrap.cs" Line="6" Column="86" />
+      <File FileName="TransitApp.Core\Models\Stop.cs" Line="37" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

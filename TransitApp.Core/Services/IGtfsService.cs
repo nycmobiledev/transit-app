@@ -10,4 +10,9 @@ namespace TransitApp.Core.Services
     {
 		List<Stop> GetNearbyStops(double lat,double lon);
     }
+
+	public interface ILocalRpository
+	{
+		List<Stop> GetNearbyStops(double lat,double lon);
+	}
 }

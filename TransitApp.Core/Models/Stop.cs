@@ -22,5 +22,24 @@ namespace TransitApp.Core.Models
 
 		[Ignore]
 		public double Distance { get; set; }
-    }   
+    } 
+
+	[Table("Follows")]
+	public class Follow
+	{
+		public string StopId { get; set; }
+
+		public string Name { get; set; }
+
+		public double Latitude { get; set; }
+
+		public double Longitude { get; set; }
+
+		public string ParentStopId { get; set; }
+
+		public string LocationType { get; set; }
+
+		[Ignore]
+		public double Distance { get; set; }
+	}
 }
