@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Services\GtfsService.cs" />
+    <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="Services\IGtfsService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
@@ -73,10 +74,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
