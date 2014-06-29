@@ -35,7 +35,6 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Services\GtfsService.cs" />
-    <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="Services\IGtfsService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

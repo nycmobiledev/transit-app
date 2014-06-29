@@ -1,19 +1,22 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <summary>
-//    Defines the FirstView.xaml type.
+//    Defines the HomeView.xaml type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
+using Cirrious.MvvmCross.WindowsPhone.Views;
+
 namespace TransitApp.WindowsPhone.Views
 {
     /// <summary>
-    ///    Defines the FirstView.xaml type.
+    ///    Defines the HomeView.xaml type.
     /// </summary>
-    public partial class FirstView
+    public partial class HomeView:BaseView
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="FirstView"/> class.
+        /// Initializes a new instance of the <see cref="HomeView"/> class.
         /// </summary>
-        public FirstView()
+        public HomeView()
         {
             this.InitializeComponent();
         }
