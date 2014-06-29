@@ -22,6 +22,9 @@
     <MtouchLink>None</MtouchLink>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>full</DebugType>
@@ -130,6 +133,30 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\mtalines\.DS_Store" />
+    <BundleResource Include="Resources\mtalines\1_36px.png" />
+    <BundleResource Include="Resources\mtalines\2_36px.png" />
+    <BundleResource Include="Resources\mtalines\3_36px.png" />
+    <BundleResource Include="Resources\mtalines\4_36px.png" />
+    <BundleResource Include="Resources\mtalines\5_36px.png" />
+    <BundleResource Include="Resources\mtalines\6_36px.png" />
+    <BundleResource Include="Resources\mtalines\7_36px.png" />
+    <BundleResource Include="Resources\mtalines\a_36px.png" />
+    <BundleResource Include="Resources\mtalines\b_36px.png" />
+    <BundleResource Include="Resources\mtalines\c_36px.png" />
+    <BundleResource Include="Resources\mtalines\d_36px.png" />
+    <BundleResource Include="Resources\mtalines\e_36px.png" />
+    <BundleResource Include="Resources\mtalines\f_36px.png" />
+    <BundleResource Include="Resources\mtalines\g_36px.png" />
+    <BundleResource Include="Resources\mtalines\j_36px.png" />
+    <BundleResource Include="Resources\mtalines\l_36px.png" />
+    <BundleResource Include="Resources\mtalines\m_36px.png" />
+    <BundleResource Include="Resources\mtalines\n_36px.png" />
+    <BundleResource Include="Resources\mtalines\q_36px.png" />
+    <BundleResource Include="Resources\mtalines\r_36px.png" />
+    <BundleResource Include="Resources\mtalines\s_36px.png" />
+    <BundleResource Include="Resources\mtalines\z_36px.png" />
+    <BundleResource Include="Resources\icons\Cog%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -143,7 +170,6 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="DebugTrace.cs" />
-    <Compile Include="Views\FirstView.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Bootstrap\LocationPluginBootstrap.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
@@ -155,5 +181,13 @@
       <Project>{747706F4-ECBF-4D50-8D72-B0DDCC18395C}</Project>
       <Name>TransitApp.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="Resources\mtalines\" />
+    <Folder Include="Resources\icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Views\MainStoryboard.storyboard" />
   </ItemGroup>
 </Project>

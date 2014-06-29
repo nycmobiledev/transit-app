@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9F7F97ED-FEE8-4162-8C73-DE919FE95273}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -39,7 +37,6 @@
     </Reference>
     <Reference Include="Cirrious.MvvmCross">
       <HintPath>..\..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\net45\Cirrious.MvvmCross.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Localization">
       <HintPath>..\..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\net45\Cirrious.MvvmCross.Localization.dll</HintPath>
@@ -49,24 +46,19 @@
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Wpf">
       <HintPath>..\..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\net45\Cirrious.MvvmCross.Wpf.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Windows" />
     <Reference Include="Moq">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="NSubstitute">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\NSubstitute.dll</HintPath>
     </Reference>
   </ItemGroup>

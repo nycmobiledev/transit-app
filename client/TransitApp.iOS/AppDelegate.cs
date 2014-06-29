@@ -16,6 +16,9 @@ namespace TransitApp.iOS
 		// class-level declarations
 		UIWindow window;
 
+		public static UIStoryboard Storyboard = UIStoryboard.FromName ("MainStoryboard", null); 
+		public static UIViewController initialViewController;
+
 		//
 		// This method is invoked when the application has loaded and is ready to run. In this
 		// method you should instantiate the window, load the UI into it and then make the window
@@ -30,7 +33,9 @@ namespace TransitApp.iOS
 			
 			// If you have defined a root view controller, set it here:
 			// window.RootViewController = myViewController;
-			
+			initialViewController = Storyboard.InstantiateInitialViewController () as UIViewController;
+			window.RootViewController = initialViewController;
+						
 			// make the window visible
 			window.MakeKeyAndVisible ();
 			
