@@ -1,3 +1,4 @@
 bin
 obj
-/TransitApp.WebServices
+service/Azure_Mobile_Services/transit-app/transit-app/Properties/PublishProfiles/
+
