@@ -180,10 +180,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\TodoItemController.cs" />
-    <Compile Include="DataObjects\TodoItem.cs" />
+    <Compile Include="Controllers\TrainController.cs" />
+    <Compile Include="DataObjects\Train.cs" />
     <Compile Include="Models\transit_appContext.cs" />
-    <Compile Include="ScheduledJobs\SampleJob.cs" />
+    <Compile Include="ScheduledJobs\RefreshMTAData.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

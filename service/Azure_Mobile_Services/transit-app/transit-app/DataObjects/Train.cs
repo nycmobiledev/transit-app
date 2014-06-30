@@ -2,10 +2,10 @@
 
 namespace transit_app.DataObjects
 {
-    public class TodoItem : EntityData
+    public class Train : EntityData
     {
         public string Text { get; set; }
 
-        public bool Complete { get; set; }
+        public bool InService { get; set; }
     }
 }

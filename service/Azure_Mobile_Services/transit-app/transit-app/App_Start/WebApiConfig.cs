@@ -15,14 +15,14 @@ namespace transit_app
         {
             // Use this class to set configuration options for your mobile service
             ConfigOptions options = new ConfigOptions();
-
+            
             // Use this class to set WebAPI configuration options
             HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
-
+       
             // To display errors in the browser during development, uncomment the following
             // line. Comment it out again when you deploy your service for production use.
-            // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
-
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            
             Database.SetInitializer(new transit_appInitializer());
         }
     }
@@ -31,15 +31,15 @@ namespace transit_app
     {
         protected override void Seed(transit_appContext context)
         {
-            List<TodoItem> todoItems = new List<TodoItem>
+            List<Train> trains = new List<Train>
             {
-                new TodoItem { Id = "1", Text = "First item", Complete = false },
-                new TodoItem { Id = "2", Text = "Second item", Complete = false },
+                new Train { Id = "1", Text = "First train", InService = false },
+                new Train { Id = "2", Text = "Second train", InService = false },
             };
 
-            foreach (TodoItem todoItem in todoItems)
+            foreach (Train Train in trains)
             {
-                context.Set<TodoItem>().Add(todoItem);
+                context.Set<Train>().Add(Train);
             }
 
             base.Seed(context);
