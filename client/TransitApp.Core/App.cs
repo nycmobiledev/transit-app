@@ -19,7 +19,7 @@ namespace TransitApp.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            //// Start the app with the First View Model.
+            //// Start the app with the First View Model.                       
             this.RegisterAppStart<HomeViewModel>();
         }
 
