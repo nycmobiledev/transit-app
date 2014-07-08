@@ -1,5 +1,6 @@
 using Cirrious.CrossCore.IoC;
 using Cirrious.MvvmCross.ViewModels;
+using TransitApp.Core.Services;
 using TransitApp.Core.ViewModels;
 
 namespace TransitApp.Core
@@ -18,6 +19,12 @@ namespace TransitApp.Core
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
+
+#if DEBUG
+            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService,MockWebService>();
+#else
+            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService,WebService>();   
+#endif
 
             //// Start the app with the First View Model.                       
             this.RegisterAppStart<HomeViewModel>();

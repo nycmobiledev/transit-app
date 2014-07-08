@@ -7,7 +7,7 @@ using Cirrious.MvvmCross.Community.Plugins.Sqlite;
 
 namespace TransitApp.Core.Services
 {
-	public class GtfsService : IGtfsService, IDisposable
+	public class _GtfsService : _IGtfsService, IDisposable
     {
 		private ISQLiteConnectionFactory _factory;
 		private ISQLiteConnection _connection;
@@ -22,7 +22,7 @@ namespace TransitApp.Core.Services
 			}
 		}
 
-        public GtfsService(ISQLiteConnectionFactory factory)
+        public _GtfsService(ISQLiteConnectionFactory factory)
         {   
 			this._factory = factory;
         }    

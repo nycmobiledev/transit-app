@@ -8,8 +8,8 @@
     <ProjectGuid>{747706F4-ECBF-4D50-8D72-B0DDCC18395C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhereIsMySub.Core</RootNamespace>
-    <AssemblyName>WhereIsMySub.Core</AssemblyName>
+    <RootNamespace>TransitApp.Core</RootNamespace>
+    <AssemblyName>TransitApp.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile158</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -34,9 +34,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Services\GtfsService.cs" />
+    <Compile Include="Models\Alert.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\AlartsViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
+    <None Include="Services\_GtfsService.cs" />
+    <Compile Include="Services\IFollowService.cs" />
+    <Compile Include="Services\FollowService.cs" />
+    <Compile Include="Services\ILocalDbService.cs" />
+    <Compile Include="Services\LocalDbService.cs" />
+    <Compile Include="Services\IWebService.cs" />
+    <Compile Include="Services\MockWebService.cs" />
+    <Compile Include="Models\Station.cs" />
+    <Compile Include="Services\WebService.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="Services\IGtfsService.cs" />
+    <None Include="Services\_IGtfsService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Stop.cs" />

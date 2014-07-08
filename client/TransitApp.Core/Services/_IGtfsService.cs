@@ -6,7 +6,7 @@ using TransitApp.Core.Models;
 
 namespace TransitApp.Core.Services
 {
-    public interface IGtfsService
+    public interface _IGtfsService
     {
 		List<Stop> GetNearbyStops(double lat,double lon);
     }

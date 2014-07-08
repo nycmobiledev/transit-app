@@ -7,54 +7,91 @@ using System.Text;
 using TransitApp.Core.Services;
 using Cirrious.MvvmCross.Plugins.Location;
 using TransitApp.Core.Models;
+using System.Windows.Input;
 
 namespace TransitApp.Core.ViewModels
 {
-	public class HomeViewModel : BaseViewModel
-	{
-		private readonly IGtfsService _gtfsService;
-		private readonly IMvxLocationWatcher _watcher;
-		private MvxGeoLocation _mylocation;
-		private List<Stop> _stops;
+    public class HomeViewModel : BaseViewModel
+    {
+        public enum Section
+        {
+            Unknown,
+            Alarts,
+            Search,
+            Setting,
+            About
+        }
 
-		public HomeViewModel (IGtfsService gtfsService, IMvxLocationWatcher locationWatcher)
-		{
-			_gtfsService = gtfsService;
+        public HomeViewModel()
+        {
+            this.m_MenuItems = new List<MenuViewModel>
+                              {
+                                  new MenuViewModel{Section = Section.About,Title = "About"},
+                                  new MenuViewModel{Section = Section.Alarts,Title = "Alarts"},
+                                  new MenuViewModel{Section = Section.Search,Title = "Search"},
+                                  new MenuViewModel{Section = Section.Setting,Title = "Setting"}
+                              };
+        }
 
-			//default location which near TimeSquare
-			_mylocation = new MvxGeoLocation (){ Coordinates=new MvxCoordinates(){Latitude=40.758651, Longitude=-73.984616 } };
-
-			_watcher = locationWatcher;		
-			_watcher.Start (new MvxLocationOptions (), OnSuccess, OnError);
-		}
-
-		public List<Stop> Stops
-		{
-			get { return _stops; }
-			set { _stops = value; RaisePropertyChanged(() => Stops); }
-		}
-
-		public MvxGeoLocation MyLocation
-		{
-			get { return _mylocation; }
-			set { _mylocation = value; RaisePropertyChanged(() => MyLocation); }
-		}
-
-		public IMvxCommand SearchNearbyStops{ get{ return new MvxCommand(SearchNearByStopsAction); } }
+        private List<MenuViewModel> m_MenuItems;
+        public List<MenuViewModel> MenuItems
+        {
+            get { return this.m_MenuItems; }
+            set { this.m_MenuItems = value; this.RaisePropertyChanged(() => this.MenuItems); }
+        }
 
 
-		private void OnSuccess (MvxGeoLocation location)
-		{
-			MyLocation = location;
-		}
+        private MvxCommand<MenuViewModel> m_SelectMenuItemCommand;
+        public ICommand SelectMenuItemCommand
+        {
+            get
+            {
+                return this.m_SelectMenuItemCommand ?? (this.m_SelectMenuItemCommand = new MvxCommand<MenuViewModel>(this.ExecuteSelectMenuItemCommand));
+            }
+        }
 
-		private void OnError (MvxLocationError error)
-		{
-			Mvx.Warning ("Error seen during location {0}", error.Code);
-		}
+        private void ExecuteSelectMenuItemCommand(MenuViewModel item)
+        {
+            //navigate if we have to, pass the id so we can grab from cache... or not
+            switch (item.Section)
+            {
 
-		private void SearchNearByStopsAction(){
-			Stops = _gtfsService.GetNearbyStops(_mylocation.Coordinates.Latitude, _mylocation.Coordinates.Longitude);
-		}
-	}
+                case Section.About:
+                    this.ShowViewModel<AboutViewModel>(new { item.Id });
+                    break;
+                case Section.Alarts:
+                    this.ShowViewModel<AlartsViewModel>(new { item.Id });
+                    break;
+                case Section.Search:
+                    this.ShowViewModel<SearchViewModel>(new { item.Id });
+                    break;
+                case Section.Setting:
+                    this.ShowViewModel<SettingViewModel>(new { item.Id });
+                    break;
+
+            }
+
+        }
+
+        public Section GetSectionForViewModelType(Type type)
+        {
+
+            if (type == typeof(AboutViewModel))
+                return Section.About;
+
+            if (type == typeof(AlartsViewModel))
+                return Section.Alarts;
+
+            if (type == typeof(SearchViewModel))
+                return Section.Search;
+
+            if (type == typeof(SettingViewModel))
+                return Section.Setting;
+
+
+            return Section.Unknown;
+        }
+
+
+    }
 }
