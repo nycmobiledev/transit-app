@@ -3,6 +3,11 @@
 //    Defines the Setup type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+using TransitApp.Droid.Helpers;
+using Cirrious.CrossCore;
+using Cirrious.MvvmCross.Droid.Views;
+
+
 namespace TransitApp.Droid
 {
     using Android.Content;
@@ -32,5 +37,12 @@ namespace TransitApp.Droid
         {
 			return new Core.App();
         }
+
+		protected override IMvxAndroidViewPresenter CreateViewPresenter()
+		{
+			var customPresenter = new CustomPresenter();
+			Mvx.RegisterSingleton<ICustomPresenter>(customPresenter);
+			return customPresenter;
+		}
     }
 }

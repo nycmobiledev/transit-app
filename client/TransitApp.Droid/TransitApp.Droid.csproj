@@ -14,7 +14,9 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +28,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <UseVSHostingProcess>true</UseVSHostingProcess>
+    <AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +38,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidStoreUncompressedFileExtensions>
+    </AndroidStoreUncompressedFileExtensions>
+    <JavaMaximumHeapSize>
+    </JavaMaximumHeapSize>
+    <JavaOptions>
+    </JavaOptions>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -88,6 +97,16 @@
     <Reference Include="Cirrious.MvvmCross.Droid">
       <HintPath>..\..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\Components\xamandroidsupportv4-18-4.19.0.1\lib\android\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Droid.Fragging">
+      <HintPath>..\packages\MvvmCross.HotTuna.Droid.Fragging.3.1.1\lib\MonoAndroid\Cirrious.MvvmCross.Droid.Fragging.dll</HintPath>
+    </Reference>
+    <Reference Include="DK.Ostebaronen.Droid.ViewPagerIndicator">
+      <HintPath>..\packages\DK.Ostebaronen.Droid.ViewPagerIndicator.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android.Export" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
@@ -99,14 +118,49 @@
     <Compile Include="Bootstrap\CommunitySqlitePluginBootstrap.cs" />
     <Compile Include="Bootstrap\LocationPluginBootstrap.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Helpers\CustomPresenter.cs" />
+    <Compile Include="Helpers\MvxSquareImageView.cs" />
+    <Compile Include="Helpers\MyActionBarDrawerToggle.cs" />
+    <Compile Include="Views\Adapters\MvxViewPagerFragmentAdapter.cs" />
+    <Compile Include="Views\Fragments\AboutView.cs" />
+    <Compile Include="Views\Fragments\SettingView.cs" />
+    <Compile Include="Views\Fragments\SearchView.cs" />
+    <Compile Include="Views\Fragments\AlertsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <AndroidResource Include="Resources\Layout\SplashScreen.axml" />
-    <AndroidResource Include="Resources\Layout\HomeView.axml" />
     <None Include="packages.config" />
-    <AndroidResource Include="Resources\Raw\Subway.db" />
-    <AndroidResource Include="Resources\Layout\Item_Stop.axml" />
+    <AndroidResource Include="Resources\Layout\page_home_view.axml" />
+    <AndroidResource Include="Resources\Layout\item_menu.axml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\drawer_shadow_dark.9.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\drawer_shadow_light.9.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_drawer_dark.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_refresh.png" />
+    <AndroidResource Include="Resources\Drawable\background_card.9.png" />
+    <AndroidResource Include="Resources\Drawable\background_card_inverse.9.png" />
+    <AndroidResource Include="Resources\Drawable\splash.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\drawer_shadow_dark.9.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\drawer_shadow_light.9.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_drawer_dark.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_menu_refresh.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\drawer_shadow_dark.9.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\drawer_shadow_light.9.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_drawer_dark.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_drawer_light.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_menu_refresh.png" />
+    <AndroidResource Include="Resources\Values\colors.xml" />
+    <AndroidResource Include="Resources\Values\integers.xml" />
+    <AndroidResource Include="Resources\Values\styles.xml" />
+    <AndroidResource Include="Resources\Values-land\integers.xml" />
+    <AndroidResource Include="Resources\Values-v11\styles.xml" />
+    <AndroidResource Include="Resources\Values-v14\styles.xml" />
+    <AndroidResource Include="Resources\Layout\fragment_about.axml" />
+    <AndroidResource Include="Resources\Layout\fragment_setting.axml" />
+    <AndroidResource Include="Resources\Layout\fragment_search.axml" />
+    <AndroidResource Include="Resources\Layout\fragment_alerts.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -136,8 +190,17 @@
   -->
   <ItemGroup />
   <ItemGroup />
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Resources\Raw\" />
+    <XamarinComponentReference Include="xamandroidsupportv4-18">
+      <Version>4.19.0.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Resources\Drawable-hdpi\" />
+    <Folder Include="Views\Fragments\" />
+    <Folder Include="Views\Adapters\" />
   </ItemGroup>
 </Project>

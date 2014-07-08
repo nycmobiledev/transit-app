@@ -36,7 +36,6 @@
     <Compile Include="App.cs" />
     <Compile Include="Models\Alert.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
-    <Compile Include="ViewModels\AlartsViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
@@ -57,6 +56,7 @@
     <Compile Include="Converters\GeoLocationConverter.cs" />
     <Compile Include="Converters\RoundConverter.cs" />
     <Compile Include="swp8\Bootstrap\CommunitySqlitePluginBootstrap.cs" />
+    <Compile Include="ViewModels\AlertsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">

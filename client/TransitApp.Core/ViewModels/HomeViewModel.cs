@@ -26,10 +26,10 @@ namespace TransitApp.Core.ViewModels
         {
             this.m_MenuItems = new List<MenuViewModel>
                               {
-                                  new MenuViewModel{Section = Section.About,Title = "About"},
-                                  new MenuViewModel{Section = Section.Alarts,Title = "Alarts"},
+								  new MenuViewModel{Section = Section.Alarts,Title = "Alarts"},
                                   new MenuViewModel{Section = Section.Search,Title = "Search"},
-                                  new MenuViewModel{Section = Section.Setting,Title = "Setting"}
+                                  new MenuViewModel{Section = Section.Setting,Title = "Setting"},
+				                  new MenuViewModel{Section = Section.About,Title = "About"}
                               };
         }
 
@@ -60,7 +60,7 @@ namespace TransitApp.Core.ViewModels
                     this.ShowViewModel<AboutViewModel>(new { item.Id });
                     break;
                 case Section.Alarts:
-                    this.ShowViewModel<AlartsViewModel>(new { item.Id });
+                    this.ShowViewModel<AlertsViewModel>(new { item.Id });
                     break;
                 case Section.Search:
                     this.ShowViewModel<SearchViewModel>(new { item.Id });
@@ -79,7 +79,7 @@ namespace TransitApp.Core.ViewModels
             if (type == typeof(AboutViewModel))
                 return Section.About;
 
-            if (type == typeof(AlartsViewModel))
+            if (type == typeof(AlertsViewModel))
                 return Section.Alarts;
 
             if (type == typeof(SearchViewModel))

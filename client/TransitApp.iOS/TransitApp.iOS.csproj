@@ -183,11 +183,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Resources\mtalines\" />
-    <Folder Include="Resources\icons\" />
-  </ItemGroup>
-  <ItemGroup>
     <InterfaceDefinition Include="Views\MainStoryboard.storyboard" />
   </ItemGroup>
 </Project>

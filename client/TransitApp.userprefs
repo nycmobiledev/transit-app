@@ -1,9 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.1" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TransitApp.Droid\Views\HomeView.cs">
+    <Files>
+      <File FileName="TransitApp.Droid\Views\HomeView.cs" Line="89" Column="45" />
+      <File FileName="TransitApp.Droid\Resources\values\styles.xml" Line="16" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.WhereIsMySubway.Droid MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" AndroidDeviceId-Debug="emulator-5554" />
+  <DisabledProjects>
+    <String>TransitApp.Core.Tests\TransitApp.Core.Tests.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.ItemProperties.TransitApp.Droid MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
 </Properties>

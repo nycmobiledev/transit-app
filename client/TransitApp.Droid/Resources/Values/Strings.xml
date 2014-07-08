@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">MvvmCross.Droid</string>
+	<string name="ApplicationName">Where Is My Train</string>
+	<string name="drawer_open">Open</string>
+	<string name="drawer_close">Close</string>
+	<string name="menu_refresh">Refresh</string>
 </resources>

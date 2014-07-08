@@ -23,29 +23,5 @@ namespace TransitApp.Droid
             : base(Resource.Layout.SplashScreen)
         {
         }
-
-		protected override void OnCreate (Android.OS.Bundle bundle)
-		{
-			base.OnCreate (bundle);
-
-			//capy db file
-			var db = this.GetFileStreamPath("Subway.db");
-
-			if (!db.Exists ()) {
-
-				var readerStream = this.Resources.OpenRawResource (Resource.Raw.Subway);
-				var writerStream = this.OpenFileOutput ("Subway.db", FileCreationMode.Append);
-
-				byte[] buffer = new byte[1024];
-				int length;
-				while ((length = readerStream.Read (buffer, 0, 1024)) > 0) {
-					writerStream.Write (buffer, 0, length);
-				}
-				writerStream.Flush ();
-
-				readerStream.Close ();
-				writerStream.Close ();
-			}
-		}
     }
 }
