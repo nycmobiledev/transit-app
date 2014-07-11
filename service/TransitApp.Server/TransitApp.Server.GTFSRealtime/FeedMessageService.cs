@@ -7,7 +7,8 @@ using TransitApp.Server.GTFSRealtime.Entities;
 
 namespace TransitApp.Server.GTFSRealtime
 {
-    public class FeedMessageRepository
+    public class FeedMessageService
     {
+        
     }
 }
