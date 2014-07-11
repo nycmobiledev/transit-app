@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C15B9B36-86CC-4B3D-A69C-F2334BEE99C1}</ProjectGuid>
+    <ProjectGuid>{EEF8DDB7-E927-4649-812D-CC8F9E5599DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TransitApp.Server.GTFSRealtime</RootNamespace>
-    <AssemblyName>TransitApp.Server.GTFSRealtime</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>TransitApp.Server.IntegrationTests</RootNamespace>
+    <AssemblyName>TransitApp.Server.IntegrationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="protobuf-net">
       <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
@@ -43,27 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Alert.cs" />
-    <Compile Include="Entities\EntitySelector.cs" />
-    <Compile Include="Entities\FeedEntity.cs" />
-    <Compile Include="Entities\FeedHeader.cs" />
-    <Compile Include="Entities\FeedMessage.cs" />
-    <Compile Include="Entities\NyctFeedHeader.cs" />
-    <Compile Include="Entities\NyctStopTimeUpdate.cs" />
-    <Compile Include="Entities\NyctTripDescriptor.cs" />
-    <Compile Include="Entities\Position.cs" />
-    <Compile Include="Entities\TimeRange.cs" />
-    <Compile Include="Entities\TranslatedString.cs" />
-    <Compile Include="Entities\TripDescriptor.cs" />
-    <Compile Include="Entities\TripReplacementPeriod.cs" />
-    <Compile Include="Entities\TripUpdate.cs" />
-    <Compile Include="Entities\VehicleDescriptor.cs" />
-    <Compile Include="Entities\VehiclePosition.cs" />
-    <Compile Include="FeedMessageService.cs" />
+    <Compile Include="FeedMessageRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TransitApp.Server.GTFSRealtime\TransitApp.Server.GTFSRealtime.csproj">
+      <Project>{c15b9b36-86cc-4b3d-a69c-f2334bee99c1}</Project>
+      <Name>TransitApp.Server.GTFSRealtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
