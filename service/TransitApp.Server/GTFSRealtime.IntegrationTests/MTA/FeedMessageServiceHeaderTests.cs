@@ -3,7 +3,7 @@ using NUnit.Framework;
 using TransitApp.Server.GTFSRealtime.Core.DTO;
 using TransitApp.Server.GTFSRealtime.Core.Model;
 
-namespace TransitApp.Server.GTFSRealtime.IntegrationTests
+namespace TransitApp.Server.GTFSRealtime.IntegrationTests.MTA
 {
     internal class FeedMessageServiceHeaderTests : FeedMessageServiceTestsBase
     {

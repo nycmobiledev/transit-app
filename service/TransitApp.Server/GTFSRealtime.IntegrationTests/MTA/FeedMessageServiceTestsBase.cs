@@ -5,7 +5,7 @@ using TransitApp.Server.GTFSRealtime.Core.DTO;
 using TransitApp.Server.GTFSRealtime.Core.Model;
 using TransitApp.Server.GTFSRealtime.Infrastructure.MTA;
 
-namespace TransitApp.Server.GTFSRealtime.IntegrationTests
+namespace TransitApp.Server.GTFSRealtime.IntegrationTests.MTA
 {
     [TestFixture]
     internal abstract class FeedMessageServiceTestsBase

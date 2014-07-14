@@ -46,9 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeedMessageServiceEntityTests.cs" />
-    <Compile Include="FeedMessageServiceHeaderTests.cs" />
-    <Compile Include="FeedMessageServiceTestsBase.cs" />
+    <Compile Include="MTA\FeedMessageServiceEntityTests.cs" />
+    <Compile Include="MTA\FeedMessageServiceHeaderTests.cs" />
+    <Compile Include="MTA\FeedMessageServiceTestsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
