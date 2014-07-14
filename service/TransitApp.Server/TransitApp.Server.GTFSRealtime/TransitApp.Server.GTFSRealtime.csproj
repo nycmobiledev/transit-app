@@ -61,6 +61,7 @@
     <Compile Include="DTO\VehicleDescriptor.cs" />
     <Compile Include="DTO\VehiclePosition.cs" />
     <Compile Include="FeedMessageService.cs" />
+    <Compile Include="IFeedMessageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

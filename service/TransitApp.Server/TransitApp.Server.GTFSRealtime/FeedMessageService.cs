@@ -7,7 +7,7 @@ using TransitApp.Server.GTFSRealtime.DTO;
 
 namespace TransitApp.Server.GTFSRealtime
 {
-    public class FeedMessageService
+    public class FeedMessageService : IFeedMessageService
     {
         //http://datamine.mta.info/mta_esi.php?key=80730fbe1b42c61fc060da055cb33334&feed_id=1
         //http://datamine.mta.info/mta_esi.php?key={0}&feed_id={1}
