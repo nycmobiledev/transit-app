@@ -5,12 +5,12 @@ using TransitApp.Server.GTFSRealtime.DTO;
 
 namespace TransitApp.Server.IntegrationTests
 {
-    public class FeedMessageServiceHeaderTests : FeedMessageServiceTestsBase
+    internal class FeedMessageServiceHeaderTests : FeedMessageServiceTestsBase
     {
         [Test]
         public async void Should_Return_L_Train_Dataset()
         {
-            var msg = await Service.GetCurrentRealtimeFeedMessage(SubwayLines.L);
+            var msg = await MtaFeedService.GetCurrentRealtimeFeedMessage(SubwayLines.L);
 
             Assert.That(msg.Header.DataIncrementality, Is.EqualTo(FeedHeader.Incrementality.FULL_DATASET));
             Assert.That(msg.Header.NyctFeedHeader.TripReplacementPeriod.Count, Is.EqualTo(1));
@@ -22,13 +22,13 @@ namespace TransitApp.Server.IntegrationTests
                 Assert.That(result, Is.EqualTo(1800));
             }
 
-            DumpHeader(msg.Header);
+            PrintHeader(msg.Header);
         }
 
         [Test]
         public async void Should_Return_RED_GREEN_S_Train_Dataset()
         {
-            var msg = await Service.GetCurrentRealtimeFeedMessage(SubwayLines.RED_GREEN_S);
+            var msg = await MtaFeedService.GetCurrentRealtimeFeedMessage(SubwayLines.RED_GREEN_S);
 
             Assert.That(msg.Header.DataIncrementality, Is.EqualTo(FeedHeader.Incrementality.FULL_DATASET));
             Assert.That(msg.Header.NyctFeedHeader.TripReplacementPeriod.Count, Is.EqualTo(7));
@@ -42,7 +42,7 @@ namespace TransitApp.Server.IntegrationTests
                 Assert.That(result, Is.EqualTo(1800));
             }
 
-            DumpHeader(msg.Header);
+            PrintHeader(msg.Header);
         }
     }
 }
