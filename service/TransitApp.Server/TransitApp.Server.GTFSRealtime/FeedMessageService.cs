@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using ProtoBuf;
-using TransitApp.Server.GTFSRealtime.Entities;
+using TransitApp.Server.GTFSRealtime.DTO;
 
 namespace TransitApp.Server.GTFSRealtime
 {
@@ -27,7 +23,6 @@ namespace TransitApp.Server.GTFSRealtime
             var requestUrl = _baseUrl + (int) lines;
             var resultStream = await GetUrlContents(requestUrl);
             return Serializer.Deserialize<FeedMessage>(resultStream);
-
         }
 
         private static async Task<Stream> GetUrlContents(string url)
