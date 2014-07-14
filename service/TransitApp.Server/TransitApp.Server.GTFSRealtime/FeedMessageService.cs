@@ -6,13 +6,15 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using ProtoBuf;
 using TransitApp.Server.GTFSRealtime.Entities;
 
 namespace TransitApp.Server.GTFSRealtime
 {
     public class FeedMessageService
     {
-        //http://datamine.mta.info/mta_esi.php?key=80730fbe1b42c61fc060da055cb33334&feed_id={0}
+        //http://datamine.mta.info/mta_esi.php?key=80730fbe1b42c61fc060da055cb33334&feed_id=1
+        //http://datamine.mta.info/mta_esi.php?key={0}&feed_id={1}
         private readonly string _baseUrl;
 
         public FeedMessageService(string baseUrl)
@@ -22,14 +24,17 @@ namespace TransitApp.Server.GTFSRealtime
 
         public async Task<FeedMessage> GetCurrentRealtimeFeedMessage(SubwayLines lines)
         {
-            //var requestUrl = string.Format(_baseUrl, (int) lines);
-            throw new NotImplementedException();
+            var requestUrl = _baseUrl + (int) lines;
+            var resultStream = await GetUrlContents(requestUrl);
+            return Serializer.Deserialize<FeedMessage>(resultStream);
+
         }
 
-        private async Task<byte[]> GetUrlContents(string url)
+        private static async Task<Stream> GetUrlContents(string url)
         {
-            var client = new HttpClient {MaxResponseContentBufferSize = 1000000};
-            return await client.GetByteArrayAsync(url);
+            using (var client = new HttpClient {MaxResponseContentBufferSize = 1000000}) {
+                return await client.GetStreamAsync(url);
+            }
         }
     }
 
