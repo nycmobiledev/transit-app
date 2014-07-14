@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using ProtoBuf;
 
-namespace TransitApp.Server.GTFSRealtime.Entities
+namespace TransitApp.Server.GTFSRealtime.DTO
 {
     [Serializable, ProtoContract(Name = @"FeedMessage")]
     public class FeedMessage : IExtensible

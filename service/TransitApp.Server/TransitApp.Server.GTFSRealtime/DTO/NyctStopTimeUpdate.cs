@@ -6,7 +6,7 @@ using System;
 using System.ComponentModel;
 using ProtoBuf;
 
-namespace TransitApp.Server.GTFSRealtime.Entities
+namespace TransitApp.Server.GTFSRealtime.DTO
 {
     [Serializable, ProtoContract(Name = @"NyctStopTimeUpdate")]
     public class NyctStopTimeUpdate : IExtensible

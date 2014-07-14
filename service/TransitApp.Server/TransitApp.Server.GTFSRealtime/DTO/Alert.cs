@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using ProtoBuf;
 
-namespace TransitApp.Server.GTFSRealtime.Entities
+namespace TransitApp.Server.GTFSRealtime.DTO
 {
     [Serializable, ProtoContract(Name = @"Alert")]
     public class Alert : IExtensible
