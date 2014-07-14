@@ -50,8 +50,22 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.MTA
             if (feedEntity.Alert == null) {
                 return;
             }
+            Console.WriteLine("Cause: {0}", feedEntity.Alert.Cause.ToString());
+            Console.WriteLine("Effect: {0}", feedEntity.Alert.Effect.ToString());
+            Console.WriteLine("Url: {0}", feedEntity.Alert.Url);
+            Console.WriteLine("=========================================");
+            Console.WriteLine("Trips Affected");
+            Console.WriteLine("=========================================");
+            foreach (var selector in feedEntity.Alert.InformedEntity) {
+                PrintTripDescriptor(selector.Trip);
+            }
 
-            Console.WriteLine("Header Text: {0}", feedEntity.Alert.HeaderText.Translations[0].Text);
+            Console.WriteLine("=========================================");
+            Console.WriteLine("Alert Text");
+            Console.WriteLine("=========================================");
+            foreach (var text in feedEntity.Alert.HeaderText.Translations) {
+                Console.WriteLine("Message: {0}", text.Text);
+            }
         }
 
         protected static void PrintVehiclePosition(FeedEntity feedEntity)
@@ -103,9 +117,11 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.MTA
         {
             Console.WriteLine("Trip ID: {0}", trip.TripId);
             Console.WriteLine("Route ID: {0}", trip.RouteId);
-            Console.WriteLine("Start Date: {0:F}",
-                new DateTime(int.Parse(trip.StartDate.Substring(0, 4)), int.Parse(trip.StartDate.Substring(4, 2)),
-                    int.Parse(trip.StartDate.Substring(6, 2))));
+            if (!string.IsNullOrWhiteSpace(trip.StartDate)) {
+                Console.WriteLine("Start Date: {0:F}",
+                    new DateTime(int.Parse(trip.StartDate.Substring(0, 4)), int.Parse(trip.StartDate.Substring(4, 2)),
+                        int.Parse(trip.StartDate.Substring(6, 2))));
+            }
             Console.WriteLine("Schedule Relationship: {0}", trip.ScheduleRelationship);
 
             if (trip.NyctTripDescriptor != null) {
