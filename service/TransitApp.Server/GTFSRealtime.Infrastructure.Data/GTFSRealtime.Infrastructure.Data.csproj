@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CC97C6A6-9AF4-467D-832C-8AA38DBE1C03}</ProjectGuid>
+    <ProjectGuid>{680528DD-4E0A-42EA-8539-72E8609CB9FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TransitApp.Server.GTFSRealtime.Core</RootNamespace>
-    <AssemblyName>TransitApp.Server.GTFSRealtime.Core</AssemblyName>
+    <RootNamespace>TransitApp.Server.GTFSRealtime.Infrastructure.Data</RootNamespace>
+    <AssemblyName>TransitApp.Server.GTFSRealtime.Infrastructure.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="protobuf-net">
-      <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,40 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\Alert.cs" />
-    <Compile Include="DTO\EntitySelector.cs" />
-    <Compile Include="DTO\FeedEntity.cs" />
-    <Compile Include="DTO\FeedHeader.cs" />
-    <Compile Include="DTO\FeedMessage.cs" />
-    <Compile Include="DTO\NyctFeedHeader.cs" />
-    <Compile Include="DTO\NyctStopTimeUpdate.cs" />
-    <Compile Include="DTO\NyctTripDescriptor.cs" />
-    <Compile Include="DTO\Position.cs" />
-    <Compile Include="DTO\TimeRange.cs" />
-    <Compile Include="DTO\TranslatedString.cs" />
-    <Compile Include="DTO\TripDescriptor.cs" />
-    <Compile Include="DTO\TripReplacementPeriod.cs" />
-    <Compile Include="DTO\TripUpdate.cs" />
-    <Compile Include="DTO\VehicleDescriptor.cs" />
-    <Compile Include="DTO\VehiclePosition.cs" />
-    <Compile Include="Interfaces\IFeedMessageService.cs" />
-    <Compile Include="Interfaces\IAlertRepository.cs" />
-    <Compile Include="Interfaces\IModelFactory.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Model\Alert.cs" />
-    <Compile Include="Model\StopTimeUpdate.cs" />
-    <Compile Include="Model\SubwayLines.cs" />
-    <Compile Include="Model\Trip.cs" />
-    <Compile Include="Model\VehiclePosition.cs" />
+    <Compile Include="AlertRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AlertFactory.cs" />
-    <Compile Include="Services\ModelFactoryBase.cs" />
-    <Compile Include="Services\StopTimeUpdateFactory.cs" />
-    <Compile Include="Services\TripFactory.cs" />
-    <Compile Include="Services\VehiclePositionFactory.cs" />
+    <Compile Include="RepositoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\GTFSRealtime.Core\GTFSRealtime.Core.csproj">
+      <Project>{cc97c6a6-9af4-467d-832c-8aa38dbe1c03}</Project>
+      <Name>GTFSRealtime.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
