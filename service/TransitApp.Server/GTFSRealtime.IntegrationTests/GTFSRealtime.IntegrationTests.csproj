@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLoader\DataLoaderTests.cs" />
     <Compile Include="MTA\FeedMessageServiceEntityTests.cs" />
     <Compile Include="MTA\FeedMessageServiceHeaderTests.cs" />
     <Compile Include="MTA\FeedMessageServiceTestsBase.cs" />
@@ -58,6 +59,10 @@
     <ProjectReference Include="..\GTFSRealtime.Core\GTFSRealtime.Core.csproj">
       <Project>{cc97c6a6-9af4-467d-832c-8aa38dbe1c03}</Project>
       <Name>GTFSRealtime.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTFSRealtime.Infrastructure.Data\GTFSRealtime.Infrastructure.Data.csproj">
+      <Project>{680528dd-4e0a-42ea-8539-72e8609cb9ff}</Project>
+      <Name>GTFSRealtime.Infrastructure.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\GTFSRealtime.Infrastructure.MTA\GTFSRealtime.Infrastructure.MTA.csproj">
       <Project>{c15b9b36-86cc-4b3d-a69c-f2334bee99c1}</Project>

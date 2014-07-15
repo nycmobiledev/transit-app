@@ -23,7 +23,7 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 
         protected void PurgeTable()
         {
-            var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", TableName));
+            var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", TableName), Connection);
             try {
                 Connection.Open();
                 cmd.ExecuteNonQuery();

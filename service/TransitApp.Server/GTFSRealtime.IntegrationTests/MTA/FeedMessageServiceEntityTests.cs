@@ -13,7 +13,7 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.MTA
             var msg = await MtaFeedService.GetCurrentRealtimeFeedMessage(lines);
             Assert.That(msg.Entity.Count, Is.GreaterThan(0));
 
-            PrintEntityList(lines, msg);
+            //PrintEntityList(lines, msg);
         }
     }
 }
