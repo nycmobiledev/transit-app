@@ -43,6 +43,9 @@
     <Compile Include="AlertRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryBase.cs" />
+    <Compile Include="StopTimeUpdateRepository.cs" />
+    <Compile Include="TripRepository.cs" />
+    <Compile Include="VehiclePositionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GTFSRealtime.Core\GTFSRealtime.Core.csproj">

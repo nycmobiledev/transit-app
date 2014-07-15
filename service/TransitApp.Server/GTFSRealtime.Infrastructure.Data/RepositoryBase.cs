@@ -9,6 +9,7 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
         protected SqlConnection Connection;
         protected string TableName;
         private bool _disposed;
+        protected string InsertCmdText;
 
         protected RepositoryBase(string connectionString)
         {

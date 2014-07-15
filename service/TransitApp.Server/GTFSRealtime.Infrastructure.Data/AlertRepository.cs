@@ -7,24 +7,18 @@ using TransitApp.Server.GTFSRealtime.Core.Model;
 
 namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
-    public class AlertRepository: RepositoryBase, IAlertRepository
+    public class AlertRepository: RepositoryBase, IRepository<Alert>
     {
-        private readonly string _insertCmdText;
         public AlertRepository(string connectionString) : base(connectionString)
         {
             TableName = "dbo.realtime_alerts";
-            _insertCmdText = string.Format("INSERT INTO {0} (trip_id, alert_text) VALUES (@tripid, @alertText)", TableName);
-        }
-
-        public void Add(Alert item)
-        {
-            throw new NotImplementedException();
+            InsertCmdText = string.Format("INSERT INTO {0} (trip_id, alert_text) VALUES (@tripid, @alertText)", TableName);
         }
 
         public void AddRange(IEnumerable<Alert> items)
         {
             Connection.Open();
-            var cmd = new SqlCommand(_insertCmdText, Connection);
+            var cmd = new SqlCommand(InsertCmdText, Connection);
             cmd.Parameters.Add("@tripid", SqlDbType.NVarChar, 128);
             cmd.Parameters.Add("@alertText", SqlDbType.NVarChar, 128);
             foreach (var alert in items) {
