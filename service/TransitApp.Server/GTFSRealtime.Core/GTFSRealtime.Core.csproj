@@ -60,7 +60,6 @@
     <Compile Include="DTO\VehicleDescriptor.cs" />
     <Compile Include="DTO\VehiclePosition.cs" />
     <Compile Include="Interfaces\IFeedMessageService.cs" />
-    <Compile Include="Interfaces\IAlertRepository.cs" />
     <Compile Include="Interfaces\IModelFactory.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Model\Alert.cs" />

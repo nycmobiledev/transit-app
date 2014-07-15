@@ -7,7 +7,7 @@ using TransitApp.Server.GTFSRealtime.Core.Interfaces;
 
 namespace TransitApp.Server.GTFSRealtime.Core.Services
 {
-    public class AlertFactory : IModelFactory<Model.Alert>
+    public class AlertFactory : ModelFactoryBase, IModelFactory<Model.Alert>
     {
         public IEnumerable<Model.Alert> CreateItemsFromFeedMessage(FeedMessage msg)
         {
