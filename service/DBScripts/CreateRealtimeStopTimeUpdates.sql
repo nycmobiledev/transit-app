@@ -53,15 +53,19 @@ BEGIN TRANSACTION
 GO
 PRINT N'Creating [dbo].[realtime_stop_time_updates]...';
 
-CREATE TABLE [dbo].[realtime_stop_time_updates] (
-    [trip_id]         NVARCHAR (128) NOT NULL,
-    [arrival]         DATETIME       NULL,
-    [departure]       DATETIME       NULL,
-    [stop_id]         NVARCHAR (8)   NOT NULL,
-    [scheduled_track] NVARCHAR (4)   NULL,
-    [actual_track]    NVARCHAR (4)   NULL,
-    PRIMARY KEY CLUSTERED ([trip_id] ASC)
-);
+CREATE TABLE [dbo].[realtime_stop_time_updates](
+	[trip_id] [NVARCHAR](128) NOT NULL,
+	[arrival] [DATETIME] NULL,
+	[departure] [DATETIME] NULL,
+	[stop_id] [NVARCHAR](8) NOT NULL,
+	[scheduled_track] [NVARCHAR](4) NULL,
+	[actual_track] [NVARCHAR](4) NULL,
+ CONSTRAINT [PK_realtime_stop_time_updates] PRIMARY KEY CLUSTERED 
+(
+	[trip_id] ASC,
+	[stop_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
 
 GO
 IF @@ERROR <> 0
