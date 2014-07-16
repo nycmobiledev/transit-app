@@ -9,6 +9,8 @@ namespace TransitApp.Core.Services
 {
     public interface ILocalDbService
     {
-        ITableQuery<Station> Stations { get; }        
+        ITableQuery<Station> Stations { get; }  
+
+		ICollection<Station> GetStations(string searchQuery);
     }
 }
