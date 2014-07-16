@@ -38,5 +38,11 @@ namespace TransitApp.Core.Services
                 return _connection.Table<Station>();
             }
         }      
+
+        public ICollection<Station> GetStations(string searchQuery)
+        {
+            //Search for stations
+            return null;
+        }
     }
 }

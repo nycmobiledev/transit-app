@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using TransitApp.Core.Services;
 using TransitApp.Core.Models;
+using System.Windows.Input;
+using Cirrious.MvvmCross.ViewModels;
 
 namespace TransitApp.Core.ViewModels
 {
@@ -28,6 +30,20 @@ namespace TransitApp.Core.ViewModels
 			_localDbService = localDbService;
 		}
 
+        private string _searchText;
+
+        public string SearchText
+        {
+            get { return _searchText; }
+            set { _searchText = value; }
+        }
+
+
+        public void Search(string searchText)
+        {
+            List<Station> stationResults = _localDbService.GetStations(searchText).ToList();
+            stationsSearchResults = stationResults;
+        }
 
 		private List<Station> stationsSearchResults;
 
@@ -37,11 +53,22 @@ namespace TransitApp.Core.ViewModels
 			set { this.stationsSearchResults = value; this.RaisePropertyChanged(() => this.StationsSearchResults); }
 		}
 
-		public void Search(string searchQuery)
-		{
-			List<Station> stationResults = _localDbService.GetStations (searchQuery).ToList();
-			stationsSearchResults = stationResults;
-		}
+        private MvxCommand _selectStationCommand;
+
+        public IMvxCommand SelectStationCommand
+        {
+            get
+            {
+                return _selectStationCommand ?? (_selectStationCommand = new MvxCommand(() => ExecuteSelectStationCommand()));
+            }
+        }
+
+        private void ExecuteSelectStationCommand()
+        {
+            //do something
+        }
+
+
 
 
 
