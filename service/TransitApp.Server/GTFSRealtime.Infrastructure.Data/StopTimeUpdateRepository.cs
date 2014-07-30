@@ -1,58 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
+using System.Linq;
 using TransitApp.Server.GTFSRealtime.Core.Interfaces;
 using TransitApp.Server.GTFSRealtime.Core.Model;
 
 namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
-    public class StopTimeUpdateRepository : RepositoryBase, IRepository<StopTimeUpdate>
+    public class StopTimeUpdateRepository : RepositoryBase<StopTimeUpdate>, IRepository<StopTimeUpdate>
     {
-        public StopTimeUpdateRepository(string connectionString) : base(connectionString)
-        {
-            TableName = "dbo.realtime_stop_time_updates";
-            InsertCmdText =
-                string.Format(
-                    "INSERT INTO {0} ([trip_id],[arrival],[departure],[stop_id],[scheduled_track],[actual_track]) VALUES (@tripid,@arrival,@departure,@stopid,@scheduledtrack,@actualtrack)",
-                    TableName);
-        }
+        public StopTimeUpdateRepository(string connectionString)
+            : base(
+                connectionString, "dbo.realtime_stop_time_updates",
+                new List<ColumnMapping>
+                {
+                    new ColumnMapping("trip_id", typeof (string)),
+                    new ColumnMapping("arrival", typeof (DateTime)),
+                    new ColumnMapping("departure", typeof (DateTime)),
+                    new ColumnMapping("stop_id", typeof (string)),
+                    new ColumnMapping("scheduled_track", typeof (string)),
+                    new ColumnMapping("actual_track", typeof (string))
+                })
+        {}
 
         public void AddRange(IEnumerable<StopTimeUpdate> items)
         {
-            Connection.Open();
-            var cmd = new SqlCommand(InsertCmdText, Connection);
-            cmd.Parameters.Add("@tripid", SqlDbType.NVarChar, 128);
-            cmd.Parameters.Add("@arrival", SqlDbType.DateTime);
-            cmd.Parameters.Add("@departure", SqlDbType.DateTime);
-            cmd.Parameters.Add("@stopid", SqlDbType.NVarChar, 8);
-            cmd.Parameters.Add("@scheduledtrack", SqlDbType.NVarChar, 4);
-            cmd.Parameters.Add("@actualtrack", SqlDbType.NVarChar, 4);
-
-            foreach (var stop in items) {
-                cmd.Parameters["@tripid"].Value = stop.TripId;
-                if (stop.Arrival.HasValue) {
-                    cmd.Parameters["@arrival"].Value = stop.Arrival.GetValueOrDefault();
-                } else {
-                    cmd.Parameters["@arrival"].Value = DBNull.Value;
-                }
-
-                if (stop.Departure.HasValue) {
-                    cmd.Parameters["@departure"].Value = stop.Departure.GetValueOrDefault();
-                } else {
-                    cmd.Parameters["@departure"].Value = DBNull.Value;
-                }
-                cmd.Parameters["@stopid"].Value = stop.StopId;
-                cmd.Parameters["@scheduledtrack"].Value = stop.ScheduledTrack;
-                cmd.Parameters["@actualtrack"].Value = stop.ActualTrack;
-                cmd.ExecuteNonQuery();
-            }
-            Connection.Close();
+            SqlBulkInsertTable(items);
         }
 
         public void ClearAll()
         {
             PurgeTable();
+        }
+
+        public override void CreateDataTableFromItems(IEnumerable<StopTimeUpdate> items)
+        {
+            var stopTimeUpdates = items as IList<StopTimeUpdate> ?? items.ToList();
+            base.CreateDataTableFromItems(stopTimeUpdates);
+
+            foreach (var item in stopTimeUpdates) {
+                var row = InsertDataTable.Rows.Add(item.TripId, item.Arrival.GetValueOrDefault(),
+                    item.Departure.GetValueOrDefault(), item.StopId, item.ScheduledTrack, item.ActualTrack);
+
+                if (!item.Arrival.HasValue) {
+                    row["arrival"] = DBNull.Value;
+                }
+
+                if (!item.Departure.HasValue)
+                {
+                    row["departure"] = DBNull.Value;
+                }
+            }
         }
     }
 }

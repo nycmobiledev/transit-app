@@ -1,32 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
+using System.Linq;
 using TransitApp.Server.GTFSRealtime.Core.Interfaces;
 using TransitApp.Server.GTFSRealtime.Core.Model;
 
 namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
-    public class AlertRepository: RepositoryBase, IRepository<Alert>
+    public class AlertRepository : RepositoryBase<Alert>, IRepository<Alert>
     {
-        public AlertRepository(string connectionString) : base(connectionString)
-        {
-            TableName = "dbo.realtime_alerts";
-            InsertCmdText = string.Format("INSERT INTO {0} (trip_id, alert_text) VALUES (@tripid, @alertText)", TableName);
-        }
+        public AlertRepository(string connectionString)
+            : base(
+                connectionString, "dbo.realtime_alerts",
+                new[]
+                {
+                    new ColumnMapping("trip_id", typeof(string)),
+                    new ColumnMapping("alert_text", typeof(string))
+                    
+                })
+        {}
 
         public void AddRange(IEnumerable<Alert> items)
         {
-            Connection.Open();
-            var cmd = new SqlCommand(InsertCmdText, Connection);
-            cmd.Parameters.Add("@tripid", SqlDbType.NVarChar, 128);
-            cmd.Parameters.Add("@alertText", SqlDbType.NVarChar, 128);
-            foreach (var alert in items) {
-                cmd.Parameters["@tripid"].Value = alert.TripId;
-                cmd.Parameters["@alertText"].Value = alert.Message;
-                cmd.ExecuteNonQuery();
+            SqlBulkInsertTable(items);
+        }
+
+        public override void CreateDataTableFromItems(IEnumerable<Alert> items)
+        {
+            var alerts = items as IList<Alert> ?? items.ToList();
+            base.CreateDataTableFromItems(alerts);
+
+            foreach (var item in alerts) {
+                InsertDataTable.Rows.Add(item.TripId, item.Message);
             }
-            Connection.Close();
         }
 
         public void ClearAll()

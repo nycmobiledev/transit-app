@@ -1,37 +1,64 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
-    public abstract class RepositoryBase : IDisposable
+    public abstract class RepositoryBase<T> : IDisposable
     {
-        protected SqlConnection Connection;
-        protected string TableName;
+        private readonly string _tableName;
+        private readonly IList<ColumnMapping> _columnMappings;
         private bool _disposed;
-        protected string InsertCmdText;
+        private readonly string _connectionString;
+        protected DataTable InsertDataTable;
 
-        protected RepositoryBase(string connectionString)
+        protected RepositoryBase(string connectionString, string tableName, IList<ColumnMapping> columnMappings)
         {
-            Connection = new SqlConnection(connectionString);
+            _connectionString = connectionString;
+            _tableName = tableName;
+            _columnMappings = columnMappings;
+        }
+
+        public virtual void CreateDataTableFromItems(IEnumerable<T> items)
+        {
+            InsertDataTable = new DataTable();
+            foreach (var columnMapping in _columnMappings)
+            {
+                InsertDataTable.Columns.Add(columnMapping.DataTableColumnName, columnMapping.DataTableColumnType);
+            }
+        }
+
+        public virtual Dictionary<string, string> CreateMappingDictionary()
+        {
+            return _columnMappings.ToDictionary(columnMapping => columnMapping.DatabaseColumnName, columnMapping => columnMapping.DataTableColumnName);
+        }
+
+        protected void SqlBulkInsertTable(IEnumerable<T> items)
+        {
+            CreateDataTableFromItems(items);
+            var map = CreateMappingDictionary();
+            var bulk = new BulkWriter(_tableName, map, _connectionString);
+            bulk.WriteWithRetries(InsertDataTable);
+        }
+
+        protected void PurgeTable()
+        {
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", _tableName), conn))
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        protected void PurgeTable()
-        {
-            var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", TableName), Connection);
-            try {
-                Connection.Open();
-                cmd.ExecuteNonQuery();
-            } finally {
-                cmd.Dispose();
-                Connection.Close();
-            }
         }
 
         ~RepositoryBase()
@@ -48,10 +75,7 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
             if (disposing) {
                 // free other managed objects that implement
                 // IDisposable only
-                if (Connection.State == ConnectionState.Open) {
-                    Connection.Close();
-                }
-                Connection.Dispose();
+                
             }
 
             // release any unmanaged objects
