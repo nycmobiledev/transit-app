@@ -38,8 +38,17 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
             base.CreateDataTableFromItems(stopTimeUpdates);
 
             foreach (var item in stopTimeUpdates) {
-                InsertDataTable.Rows.Add(item.TripId, item.Arrival.GetValueOrDefault(),
+                var row = InsertDataTable.Rows.Add(item.TripId, item.Arrival.GetValueOrDefault(),
                     item.Departure.GetValueOrDefault(), item.StopId, item.ScheduledTrack, item.ActualTrack);
+
+                if (!item.Arrival.HasValue) {
+                    row["arrival"] = DBNull.Value;
+                }
+
+                if (!item.Departure.HasValue)
+                {
+                    row["departure"] = DBNull.Value;
+                }
             }
         }
     }
