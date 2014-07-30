@@ -6,6 +6,7 @@ using TransitApp.Core.Services;
 using TransitApp.Core.Models;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace TransitApp.Core.ViewModels
 {
@@ -16,16 +17,7 @@ namespace TransitApp.Core.ViewModels
 
 		public SearchViewModel(IWebService webService, ILocalDbService localDbService)
 		{
-			if (webService == null) //add other parameters that indicate no web connection?
-			{ 
-				//no connection, do something?
-			}
 			_webService = webService;
-
-			if (localDbService == null) 
-			{
-				throw new ArgumentNullException ("localDbService");
-			}
 
 			_localDbService = localDbService;
 		}
@@ -35,37 +27,43 @@ namespace TransitApp.Core.ViewModels
         public string SearchText
         {
             get { return _searchText; }
-            set { _searchText = value; }
+            set { _searchText = value; this.RaisePropertyChanged(() => this.SearchText); Search(value); }
         }
-
-
+        
         public void Search(string searchText)
         {
-            List<Station> stationResults = _localDbService.GetStations(searchText).ToList();
+			ObservableCollection<Station> stationResults = new ObservableCollection<Station> (_localDbService.GetStations(searchText));
             stationsSearchResults = stationResults;
         }
 
-		private List<Station> stationsSearchResults;
+		private ObservableCollection<Station> stationsSearchResults;
 
-		public List<Station> StationsSearchResults
+		public ObservableCollection<Station> StationsSearchResults
 		{
 			get { return this.StationsSearchResults; }
 			set { this.stationsSearchResults = value; this.RaisePropertyChanged(() => this.StationsSearchResults); }
 		}
 
-        private MvxCommand _selectStationCommand;
+        private MvxCommand<Station> _selectStationCommand;
 
-        public IMvxCommand SelectStationCommand
+        public ICommand SelectStationCommand
         {
             get
             {
-                return _selectStationCommand ?? (_selectStationCommand = new MvxCommand(() => ExecuteSelectStationCommand()));
+                return _selectStationCommand ?? (_selectStationCommand = new MvxCommand<Station>(this.ExecuteSelectStationCommand));
             }
         }
 
-        private void ExecuteSelectStationCommand()
+        private void ExecuteSelectStationCommand(Station station)
         {
-            //do something
+            if (station.IsFollowing)
+            {
+                station.IsFollowing = false;
+            }
+            else
+            {
+                station.IsFollowing = true;
+            }
         }
 
 

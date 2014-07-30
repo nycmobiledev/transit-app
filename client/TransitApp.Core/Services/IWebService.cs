@@ -8,9 +8,9 @@ namespace TransitApp.Core.Services
 {
     public interface IWebService
     {
-        IList<Station> FindStationsByName(string name);
+        ICollection<Station> FindStationsByName(string name);
 
-        IList<Alert> GetAlertsForStations(int[] ids);
+        ICollection<Alert> GetAlertsForStations(int[] ids);
     }
 
 

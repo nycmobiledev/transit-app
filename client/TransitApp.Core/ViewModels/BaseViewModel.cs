@@ -68,5 +68,10 @@ namespace TransitApp.Core.ViewModels
             get { return this.m_Title; }
             set { this.m_Title = value; this.RaisePropertyChanged(() => this.Title); }
         }
+
+        public override void Start()
+        {
+            //Connect to webservice here?
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Cirrious.MvvmCross.Community.Plugins.Sqlite;
 using TransitApp.Core.Models;
+using System.Collections.ObjectModel;
 
 namespace TransitApp.Core.Services
 {
@@ -41,8 +42,8 @@ namespace TransitApp.Core.Services
 
         public ICollection<Station> GetStations(string searchQuery)
         {
-            //Search for stations
-            return null;
+            ObservableCollection<Station> stationResults = new ObservableCollection<Station>(_connection.Table<Station>().Where(t => t.StationName.Contains(searchQuery)));
+            return stationResults;
         }
     }
 }

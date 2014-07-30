@@ -26,7 +26,7 @@ namespace TransitApp.Core.ViewModels
         {
             this.m_MenuItems = new List<MenuViewModel>
                               {
-								  new MenuViewModel{Section = Section.Alarts,Title = "Alarts"},
+								  new MenuViewModel{Section = Section.Alarts,Title = "Alerts"},
                                   new MenuViewModel{Section = Section.Search,Title = "Search"},
                                   new MenuViewModel{Section = Section.Setting,Title = "Setting"},
 				                  new MenuViewModel{Section = Section.About,Title = "About"}

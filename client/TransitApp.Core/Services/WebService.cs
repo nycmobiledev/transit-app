@@ -13,12 +13,12 @@ namespace TransitApp.Core.Services
 
         }
 
-        public IList<Station> FindStationsByName(string name)
+        public ICollection<Station> FindStationsByName(string name)
         {
             //todo 
             throw new NotImplementedException();
         }
-        public IList<Alert> GetAlertsForStations(int[] ids)
+        public ICollection<Alert> GetAlertsForStations(int[] ids)
         {
             //todo 
             throw new NotImplementedException();
