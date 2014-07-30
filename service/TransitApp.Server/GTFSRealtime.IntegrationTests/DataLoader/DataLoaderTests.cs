@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
 using TransitApp.Server.GTFSRealtime.Core.Model;
 using TransitApp.Server.GTFSRealtime.Core.Services;
@@ -19,8 +15,10 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.DataLoader
         private const string ApiKey = "80730fbe1b42c61fc060da055cb33334";
         private const string Url = "http://datamine.mta.info/mta_esi.php?key={0}&feed_id=";
 
-        private const string DbConnStr =
+        /*private const string DbConnStr =
             "Server=tcp:tei624ww1k.database.windows.net,1433;Database=mta_nyc_subway;User ID=nymobile.net@tei624ww1k;Password=NYCm0b1l3;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
+        */
+        private const string DbConnStr = @"Server=localhost\SQLEXPRESS;Database=mta_nyc_subway;User ID=nymobile.net@tei624ww1k;Password=NYCm0b1l3";
 
         [TestFixtureSetUp]
         public void SetupTestFixture()

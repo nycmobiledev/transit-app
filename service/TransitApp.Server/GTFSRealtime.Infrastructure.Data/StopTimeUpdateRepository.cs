@@ -7,19 +7,18 @@ using TransitApp.Server.GTFSRealtime.Core.Model;
 
 namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
-    public class StopTimeUpdateRepository : RepositoryBase, IRepository<StopTimeUpdate>
+    public class StopTimeUpdateRepository : RepositoryBase<StopTimeUpdate>, IRepository<StopTimeUpdate>
     {
         public StopTimeUpdateRepository(string connectionString) : base(connectionString)
         {
             TableName = "dbo.realtime_stop_time_updates";
-            InsertCmdText =
-                string.Format(
-                    "INSERT INTO {0} ([trip_id],[arrival],[departure],[stop_id],[scheduled_track],[actual_track]) VALUES (@tripid,@arrival,@departure,@stopid,@scheduledtrack,@actualtrack)",
-                    TableName);
+            
         }
 
         public void AddRange(IEnumerable<StopTimeUpdate> items)
         {
+            SqlBulkInsertTable(items);
+
             Connection.Open();
             var cmd = new SqlCommand(InsertCmdText, Connection);
             cmd.Parameters.Add("@tripid", SqlDbType.NVarChar, 128);
@@ -53,6 +52,36 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
         public void ClearAll()
         {
             PurgeTable();
+        }
+
+        public override DataTable CreateDataTableFromItems(IEnumerable<StopTimeUpdate> items)
+        {
+            var dt = new DataTable();
+            dt.Columns.Add("trip_id", typeof (string));
+            dt.Columns.Add("arrival", typeof (DateTime));
+            dt.Columns.Add("departure", typeof (DateTime));
+            dt.Columns.Add("stop_id", typeof (string));
+            dt.Columns.Add("scheduled_track", typeof (string));
+            dt.Columns.Add("actual_track", typeof (string));
+
+            foreach (var item in items) {
+                dt.Rows.Add(item.TripId, item.Arrival.GetValueOrDefault(), item.Departure.GetValueOrDefault(),
+                    item.StopId, item.ScheduledTrack, item.ActualTrack);
+            }
+
+            return dt;
+        }
+
+        public override Dictionary<string, string> CreateMappingDictionary()
+        {
+            return new Dictionary<string, string> {
+                {"trip_id", "trip_id"},
+                {"arrival", "arrival"},
+                {"departure", "departure"},
+                {"stop_id", "stop_id"},
+                {"scheduled_track", "scheduled_track"},
+                {"actual_track", "actual_track"}
+            };
         }
     }
 }

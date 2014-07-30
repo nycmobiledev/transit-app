@@ -1,37 +1,50 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
-    public abstract class RepositoryBase : IDisposable
+    public abstract class RepositoryBase<T> : IDisposable
     {
-        protected SqlConnection Connection;
         protected string TableName;
         private bool _disposed;
         protected string InsertCmdText;
+        private readonly string _connectionString;
 
         protected RepositoryBase(string connectionString)
         {
-            Connection = new SqlConnection(connectionString);
+            _connectionString = connectionString;
+        }
+
+        public abstract DataTable CreateDataTableFromItems(IEnumerable<T> items);
+
+        public abstract Dictionary<string, string> CreateMappingDictionary();
+
+        protected void SqlBulkInsertTable(IEnumerable<T> items)
+        {
+            var table = CreateDataTableFromItems(items);
+            var map = CreateMappingDictionary();
+            var bulk = new BulkWriter(TableName, map, _connectionString);
+            bulk.WriteWithRetries(table);
+        }
+
+        protected void PurgeTable()
+        {
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", TableName), conn))
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        protected void PurgeTable()
-        {
-            var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", TableName), Connection);
-            try {
-                Connection.Open();
-                cmd.ExecuteNonQuery();
-            } finally {
-                cmd.Dispose();
-                Connection.Close();
-            }
         }
 
         ~RepositoryBase()
@@ -48,10 +61,7 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
             if (disposing) {
                 // free other managed objects that implement
                 // IDisposable only
-                if (Connection.State == ConnectionState.Open) {
-                    Connection.Close();
-                }
-                Connection.Dispose();
+                
             }
 
             // release any unmanaged objects
