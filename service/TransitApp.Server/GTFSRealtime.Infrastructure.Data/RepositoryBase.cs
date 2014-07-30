@@ -8,11 +8,11 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
     public abstract class RepositoryBase<T> : IDisposable
     {
-        private readonly string _tableName;
         private readonly IList<ColumnMapping> _columnMappings;
-        private bool _disposed;
         private readonly string _connectionString;
+        private readonly string _tableName;
         protected DataTable InsertDataTable;
+        private bool _disposed;
 
         protected RepositoryBase(string connectionString, string tableName, IList<ColumnMapping> columnMappings)
         {
@@ -21,18 +21,24 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
             _columnMappings = columnMappings;
         }
 
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
         public virtual void CreateDataTableFromItems(IEnumerable<T> items)
         {
             InsertDataTable = new DataTable();
-            foreach (var columnMapping in _columnMappings)
-            {
+            foreach (var columnMapping in _columnMappings) {
                 InsertDataTable.Columns.Add(columnMapping.DataTableColumnName, columnMapping.DataTableColumnType);
             }
         }
 
         public virtual Dictionary<string, string> CreateMappingDictionary()
         {
-            return _columnMappings.ToDictionary(columnMapping => columnMapping.DatabaseColumnName, columnMapping => columnMapping.DataTableColumnName);
+            return _columnMappings.ToDictionary(columnMapping => columnMapping.DatabaseColumnName,
+                columnMapping => columnMapping.DataTableColumnName);
         }
 
         protected void SqlBulkInsertTable(IEnumerable<T> items)
@@ -45,20 +51,12 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 
         protected void PurgeTable()
         {
-            using (var conn = new SqlConnection(_connectionString))
-            {
-                using (var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", _tableName), conn))
-                {
+            using (var conn = new SqlConnection(_connectionString)) {
+                using (var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", _tableName), conn)) {
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         ~RepositoryBase()
@@ -75,7 +73,6 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
             if (disposing) {
                 // free other managed objects that implement
                 // IDisposable only
-                
             }
 
             // release any unmanaged objects

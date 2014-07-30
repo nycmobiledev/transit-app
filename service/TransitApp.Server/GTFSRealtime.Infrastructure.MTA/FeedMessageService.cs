@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using ProtoBuf;
@@ -23,14 +22,9 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.MTA
         public async Task<FeedMessage> GetCurrentRealtimeFeedMessage(SubwayLines lines)
         {
             var requestUrl = _baseUrl + (int) lines;
-            var resultStream = await GetUrlContents(requestUrl);
-            return Serializer.Deserialize<FeedMessage>(resultStream);
-        }
-
-        private static async Task<Stream> GetUrlContents(string url)
-        {
             using (var client = new HttpClient {MaxResponseContentBufferSize = 1000000}) {
-                return await client.GetStreamAsync(url);
+                var resultStream = client.GetStreamAsync(requestUrl);
+                return Serializer.Deserialize<FeedMessage>(await resultStream);
             }
         }
     }

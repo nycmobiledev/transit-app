@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TransitApp.Server.GTFSRealtime.Core.DTO;
 
 namespace TransitApp.Server.GTFSRealtime.Core.Interfaces

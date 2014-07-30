@@ -13,9 +13,9 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
         private const int MaxRetry = 5;
         private const int DelayMs = 100;
 
-        private readonly string _tableName;
-        private readonly Dictionary<string, string> _tableMap;
         private readonly string _connString;
+        private readonly Dictionary<string, string> _tableMap;
+        private readonly string _tableName;
 
         public BulkWriter(string tableName, Dictionary<string, string> tableMap, string connString)
         {
@@ -47,8 +47,7 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
         private void Write(DataTable datatable)
         {
             // connect to SQL
-            using (var connection =
-                new SqlConnection(_connString)) {
+            using (var connection = new SqlConnection(_connString)) {
                 var bulkCopy = MakeSqlBulkCopy(connection);
 
                 // set the destination table name
@@ -58,38 +57,28 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
                     bulkCopy.WriteToServer(dataTableReader);
                 }
 
-                connection.Close();
+                //connection.Close();
             }
         }
 
         private RetryPolicy<SqlDatabaseTransientErrorDetectionStrategy> MakeRetryPolicy()
         {
             var fromMilliseconds = TimeSpan.FromMilliseconds(DelayMs);
-            var policy = new RetryPolicy<SqlDatabaseTransientErrorDetectionStrategy>
-                (MaxRetry, fromMilliseconds);
+            var policy = new RetryPolicy<SqlDatabaseTransientErrorDetectionStrategy>(MaxRetry, fromMilliseconds);
             return policy;
         }
 
         private SqlBulkCopy MakeSqlBulkCopy(SqlConnection connection)
         {
-            var bulkCopy =
-                new SqlBulkCopy
-                    (
-                    connection,
-                    SqlBulkCopyOptions.TableLock |
-                    SqlBulkCopyOptions.FireTriggers |
-                    SqlBulkCopyOptions.UseInternalTransaction,
-                    null
-                    ) {
-                        DestinationTableName = _tableName,
-                        EnableStreaming = true
-                    };
+            var bulkCopy = new SqlBulkCopy(connection,
+                SqlBulkCopyOptions.TableLock | SqlBulkCopyOptions.FireTriggers |
+                SqlBulkCopyOptions.UseInternalTransaction, null)
+            {
+                DestinationTableName = _tableName,
+                EnableStreaming = true
+            };
 
-            _tableMap
-                .ToList()
-                .ForEach(kp => bulkCopy
-                    .ColumnMappings
-                    .Add(kp.Key, kp.Value));
+            _tableMap.ToList().ForEach(kp => bulkCopy.ColumnMappings.Add(kp.Key, kp.Value));
             return bulkCopy;
         }
     }

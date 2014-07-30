@@ -45,8 +45,7 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
                     row["arrival"] = DBNull.Value;
                 }
 
-                if (!item.Departure.HasValue)
-                {
+                if (!item.Departure.HasValue) {
                     row["departure"] = DBNull.Value;
                 }
             }

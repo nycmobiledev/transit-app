@@ -13,12 +13,11 @@ namespace TransitApp.Server.GTFSRealtime.Core.Services
         {
             var results = new List<StopTimeUpdate>();
 
-            if (msg == null || msg.Entity.Count(e => e.TripUpdate != null) == 0)
-            {
+            if (msg == null || msg.Entity.Count(e => e.TripUpdate != null) == 0) {
                 return results;
             }
 
-            var tripList = msg.Entity.Where(e => e.TripUpdate!= null);
+            var tripList = msg.Entity.Where(e => e.TripUpdate != null);
             foreach (var entity in tripList) {
                 var tripId = entity.TripUpdate.Trip.TripId;
                 foreach (var update in entity.TripUpdate.StopTimeUpdates) {
@@ -33,9 +32,8 @@ namespace TransitApp.Server.GTFSRealtime.Core.Services
                     if (update.Arrival != null) {
                         stopUpdate.Arrival = UnixTimeStampToDateTime((ulong) update.Arrival.Time);
                     }
-                    if (update.Departure != null)
-                    {
-                        stopUpdate.Departure = UnixTimeStampToDateTime((ulong)update.Departure.Time);
+                    if (update.Departure != null) {
+                        stopUpdate.Departure = UnixTimeStampToDateTime((ulong) update.Departure.Time);
                     }
                     results.Add(stopUpdate);
                 }

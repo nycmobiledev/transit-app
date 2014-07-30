@@ -38,8 +38,8 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
             base.CreateDataTableFromItems(trips);
 
             foreach (var item in trips) {
-                var row = InsertDataTable.Rows.Add(item.TripId, item.StartDate.GetValueOrDefault(), item.RouteId, item.IsAssigned,
-                    item.Direction, item.TrainId.Trim());
+                var row = InsertDataTable.Rows.Add(item.TripId, item.StartDate.GetValueOrDefault(), item.RouteId,
+                    item.IsAssigned, item.Direction, item.TrainId.Trim());
 
                 if (!item.StartDate.HasValue) {
                     row["start_date"] = DBNull.Value;

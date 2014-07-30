@@ -18,7 +18,9 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.DataLoader
         /*private const string DbConnStr =
             "Server=tcp:tei624ww1k.database.windows.net,1433;Database=mta_nyc_subway;User ID=nymobile.net@tei624ww1k;Password=NYCm0b1l3;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
         */
-        private const string DbConnStr = @"Server=localhost\SQLEXPRESS;Database=mta_nyc_subway;User ID=nymobile.net@tei624ww1k;Password=NYCm0b1l3";
+
+        private const string DbConnStr =
+            @"Server=localhost\SQLEXPRESS;Database=mta_nyc_subway;User ID=nymobile.net@tei624ww1k;Password=NYCm0b1l3";
 
         [TestFixtureSetUp]
         public void SetupTestFixture()
@@ -61,8 +63,7 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.DataLoader
             var alertsIrt = alertFactory.CreateItemsFromFeedMessage(msgIrt);
             var alertsL = alertFactory.CreateItemsFromFeedMessage(msgL);
 
-            using (var alertRepos = new AlertRepository(DbConnStr))
-            {
+            using (var alertRepos = new AlertRepository(DbConnStr)) {
                 // Clear Tables
                 alertRepos.ClearAll();
 
@@ -74,8 +75,7 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.DataLoader
             var stopsIrt = stopTimeFactory.CreateItemsFromFeedMessage(msgIrt);
             var stopsL = stopTimeFactory.CreateItemsFromFeedMessage(msgL);
 
-            using (var stopsRepos = new StopTimeUpdateRepository(DbConnStr))
-            {
+            using (var stopsRepos = new StopTimeUpdateRepository(DbConnStr)) {
                 // Clear Tables
                 stopsRepos.ClearAll();
 
@@ -87,8 +87,7 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.DataLoader
             var tripsIrt = tripFactory.CreateItemsFromFeedMessage(msgIrt);
             var tripsL = tripFactory.CreateItemsFromFeedMessage(msgL);
 
-            using (var tripsRepos = new TripRepository(DbConnStr))
-            {
+            using (var tripsRepos = new TripRepository(DbConnStr)) {
                 // Clear Tables
                 tripsRepos.ClearAll();
 
@@ -100,8 +99,7 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.DataLoader
             var vehiclesIrt = vehicleFactory.CreateItemsFromFeedMessage(msgIrt);
             var vehiclesL = vehicleFactory.CreateItemsFromFeedMessage(msgL);
 
-            using (var vehiclesRepos = new VehiclePositionRepository(DbConnStr))
-            {
+            using (var vehiclesRepos = new VehiclePositionRepository(DbConnStr)) {
                 // Clear Tables
                 vehiclesRepos.ClearAll();
 
