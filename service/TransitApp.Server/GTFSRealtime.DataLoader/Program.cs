@@ -7,11 +7,11 @@ using TransitApp.Server.GTFSRealtime.Core.Services;
 using TransitApp.Server.GTFSRealtime.Infrastructure.Data;
 using TransitApp.Server.GTFSRealtime.Infrastructure.MTA;
 
-namespace GTFSRealtime.DataLoader
+namespace TransitApp.Server.GTFSRealtime.DataLoader
 {
     internal class Program
     {
-        protected const string ApiKey = "80730fbe1b42c61fc060da055cb33334";
+        protected const string ApiKey = "<INSERT API KEY>";
         protected const string Url = "http://datamine.mta.info/mta_esi.php?key={0}&feed_id=";
 
         // ReSharper disable once UnusedParameter.Local

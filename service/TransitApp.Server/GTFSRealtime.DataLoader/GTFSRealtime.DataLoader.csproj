@@ -7,7 +7,7 @@
     <ProjectGuid>{82152F59-6D4D-4B2C-944E-1EAF59874ACD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GTFSRealtime.DataLoader</RootNamespace>
+    <RootNamespace>TransitApp.Server.GTFSRealtime.DataLoader</RootNamespace>
     <AssemblyName>GTFSRealtime.DataLoader</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

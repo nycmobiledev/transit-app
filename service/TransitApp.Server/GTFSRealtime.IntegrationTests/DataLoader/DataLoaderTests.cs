@@ -12,7 +12,7 @@ namespace TransitApp.Server.GTFSRealtime.IntegrationTests.DataLoader
     {
         private string _combinedUrl;
         private FeedMessageService _mtaFeedService;
-        private const string ApiKey = "80730fbe1b42c61fc060da055cb33334";
+        private const string ApiKey = "<INSERT API KEY>";
         private const string Url = "http://datamine.mta.info/mta_esi.php?key={0}&feed_id=";
 
         /*private const string DbConnStr =

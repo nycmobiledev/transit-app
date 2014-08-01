@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSRealtime.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSRealtime.DataLoader", "GTFSRealtime.DataLoader\GTFSRealtime.DataLoader.csproj", "{82152F59-6D4D-4B2C-944E-1EAF59874ACD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobileServices", "MobileServices", "{30CAC799-242E-4DA0-93EB-498E0780D230}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
