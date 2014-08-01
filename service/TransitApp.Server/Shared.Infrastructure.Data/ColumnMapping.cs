@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
+namespace TransitApp.Server.Shared.Infrastructure.Data
 {
     public class ColumnMapping
     {

@@ -68,6 +68,10 @@
       <Project>{c15b9b36-86cc-4b3d-a69c-f2334bee99c1}</Project>
       <Name>GTFSRealtime.Infrastructure.MTA</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Shared.Infrastructure.Data\Shared.Infrastructure.Data.csproj">
+      <Project>{f448e10c-3c84-42ce-a32f-7c2d64854c82}</Project>
+      <Name>Shared.Infrastructure.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

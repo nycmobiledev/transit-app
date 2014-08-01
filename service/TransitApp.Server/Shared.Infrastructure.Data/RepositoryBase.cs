@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
+namespace TransitApp.Server.Shared.Infrastructure.Data
 {
     public abstract class RepositoryBase<T> : IDisposable
     {
