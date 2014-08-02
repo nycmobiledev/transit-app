@@ -206,6 +206,8 @@
     <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Models\ServerAPIContext.cs" />
+    <Compile Include="ScheduledJobs\LoadGTFSRealtimeJob.cs" />
+    <Compile Include="ScheduledJobs\LoadGTFSStaticJob.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -227,6 +229,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTFSRealtime.Core\GTFSRealtime.Core.csproj">
+      <Project>{cc97c6a6-9af4-467d-832c-8aa38dbe1c03}</Project>
+      <Name>GTFSRealtime.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTFSRealtime.Infrastructure.Data\GTFSRealtime.Infrastructure.Data.csproj">
+      <Project>{680528dd-4e0a-42ea-8539-72e8609cb9ff}</Project>
+      <Name>GTFSRealtime.Infrastructure.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTFSRealtime.Infrastructure.MTA\GTFSRealtime.Infrastructure.MTA.csproj">
+      <Project>{c15b9b36-86cc-4b3d-a69c-f2334bee99c1}</Project>
+      <Name>GTFSRealtime.Infrastructure.MTA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared.Infrastructure.Data\Shared.Infrastructure.Data.csproj">
+      <Project>{f448e10c-3c84-42ce-a32f-7c2d64854c82}</Project>
+      <Name>Shared.Infrastructure.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
