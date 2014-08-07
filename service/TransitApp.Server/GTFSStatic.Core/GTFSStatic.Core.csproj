@@ -41,6 +41,14 @@
   <ItemGroup>
     <Compile Include="Interfaces\IStaticFileService.cs" />
     <Compile Include="Model\Agency.cs" />
+    <Compile Include="Model\Calendar.cs" />
+    <Compile Include="Model\CalendarDate.cs" />
+    <Compile Include="Model\Route.cs" />
+    <Compile Include="Model\Shape.cs" />
+    <Compile Include="Model\Stop.cs" />
+    <Compile Include="Model\StopTime.cs" />
+    <Compile Include="Model\Transfer.cs" />
+    <Compile Include="Model\Trip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
