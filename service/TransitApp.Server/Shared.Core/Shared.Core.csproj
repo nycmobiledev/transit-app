@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{680528DD-4E0A-42EA-8539-72E8609CB9FF}</ProjectGuid>
+    <ProjectGuid>{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TransitApp.Server.GTFSRealtime.Infrastructure.Data</RootNamespace>
-    <AssemblyName>TransitApp.Server.GTFSRealtime.Infrastructure.Data</AssemblyName>
+    <RootNamespace>TransitApp.Server.Shared.Core</RootNamespace>
+    <AssemblyName>TransitApp.Server.Shared.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,26 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlertRepository.cs" />
+    <Compile Include="Interfaces\IGTFSRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StopTimeUpdateRepository.cs" />
-    <Compile Include="TripRepository.cs" />
-    <Compile Include="VehiclePositionRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GTFSRealtime.Core\GTFSRealtime.Core.csproj">
-      <Project>{cc97c6a6-9af4-467d-832c-8aa38dbe1c03}</Project>
-      <Name>GTFSRealtime.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Shared.Core\Shared.Core.csproj">
-      <Project>{e779bec0-529f-4c4d-badf-84b81c0aea0a}</Project>
-      <Name>Shared.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Shared.Infrastructure.Data\Shared.Infrastructure.Data.csproj">
-      <Project>{f448e10c-3c84-42ce-a32f-7c2d64854c82}</Project>
-      <Name>Shared.Infrastructure.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

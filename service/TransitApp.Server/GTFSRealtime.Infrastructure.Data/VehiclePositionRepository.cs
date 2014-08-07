@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using TransitApp.Server.GTFSRealtime.Core.Interfaces;
 using TransitApp.Server.GTFSRealtime.Core.Model;
+using TransitApp.Server.Shared.Core.Interfaces;
 using TransitApp.Server.Shared.Infrastructure.Data;
 
 namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
-    public class VehiclePositionRepository : RepositoryBase<VehiclePosition>, IRepository<VehiclePosition>
+    public class VehiclePositionRepository : RepositoryBase<VehiclePosition>, IGTFSRepository<VehiclePosition>
     {
         public VehiclePositionRepository(string connectionString)
             : base(
