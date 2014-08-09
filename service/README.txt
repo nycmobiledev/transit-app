@@ -1,1 +1,0 @@
-directory for web service .net azure solutions
