@@ -18,7 +18,7 @@ namespace TransitApp.Core.Services
             //todo 
             throw new NotImplementedException();
         }
-        public IList<Alert> GetAlertsForStations(int[] ids)
+        public IList<Alert> GetAlerts(Follow[] follows)
         {
             //todo 
             throw new NotImplementedException();

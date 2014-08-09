@@ -4,4 +4,6 @@
 	<string name="drawer_open">Open</string>
 	<string name="drawer_close">Close</string>
 	<string name="menu_refresh">Refresh</string>
+	<string name="menu_edit">Edit</string>
+	<string name="menu_new">New</string>
 </resources>

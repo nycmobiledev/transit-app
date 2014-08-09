@@ -17,8 +17,8 @@ namespace TransitApp.Core.ViewModels
         {
             Unknown,
             Alarts,
-            Search,
-            Setting,
+            //Search,
+            //Setting,
             About
         }
 
@@ -27,8 +27,8 @@ namespace TransitApp.Core.ViewModels
             this.m_MenuItems = new List<MenuViewModel>
                               {
 								  new MenuViewModel{Section = Section.Alarts,Title = "Alarts"},
-                                  new MenuViewModel{Section = Section.Search,Title = "Search"},
-                                  new MenuViewModel{Section = Section.Setting,Title = "Setting"},
+                                  //new MenuViewModel{Section = Section.Search,Title = "Search"},
+                                  //new MenuViewModel{Section = Section.Setting,Title = "Setting"},
 				                  new MenuViewModel{Section = Section.About,Title = "About"}
                               };
         }
@@ -62,12 +62,12 @@ namespace TransitApp.Core.ViewModels
                 case Section.Alarts:
                     this.ShowViewModel<AlertsViewModel>(new { item.Id });
                     break;
-                case Section.Search:
-                    this.ShowViewModel<SearchViewModel>(new { item.Id });
-                    break;
-                case Section.Setting:
-                    this.ShowViewModel<SettingViewModel>(new { item.Id });
-                    break;
+//                case Section.Search:
+//                    this.ShowViewModel<SearchViewModel>(new { item.Id });
+//                    break;
+                //case Section.Setting:
+                //    this.ShowViewModel<SettingViewModel>(new { item.Id });
+                //    break;
 
             }
 
@@ -82,16 +82,13 @@ namespace TransitApp.Core.ViewModels
             if (type == typeof(AlertsViewModel))
                 return Section.Alarts;
 
-            if (type == typeof(SearchViewModel))
-                return Section.Search;
-
-            if (type == typeof(SettingViewModel))
-                return Section.Setting;
-
+//            if (type == typeof(SearchViewModel))
+//                return Section.Search;
+//
+//            if (type == typeof(SettingViewModel))
+//                return Section.Setting;
 
             return Section.Unknown;
         }
-
-
     }
 }

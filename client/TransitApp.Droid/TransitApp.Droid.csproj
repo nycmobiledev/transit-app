@@ -17,6 +17,9 @@
     <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <MandroidI18n />
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -126,13 +129,13 @@
     <Compile Include="Views\Fragments\SettingView.cs" />
     <Compile Include="Views\Fragments\SearchView.cs" />
     <Compile Include="Views\Fragments\AlertsView.cs" />
+    <Compile Include="Converters\TrainIdToImagePathConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <AndroidResource Include="Resources\Layout\SplashScreen.axml" />
     <None Include="packages.config" />
     <AndroidResource Include="Resources\Layout\page_home_view.axml" />
-    <AndroidResource Include="Resources\Layout\item_menu.axml" />
     <AndroidResource Include="Resources\Drawable-hdpi\drawer_shadow_dark.9.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\drawer_shadow_light.9.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_drawer_dark.png" />
@@ -161,6 +164,18 @@
     <AndroidResource Include="Resources\Layout\fragment_setting.axml" />
     <AndroidResource Include="Resources\Layout\fragment_search.axml" />
     <AndroidResource Include="Resources\Layout\fragment_alerts.axml" />
+    <AndroidResource Include="Resources\Menu\alert.xml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_edit.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_menu_edit.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_menu_edit.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_overflow.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_action_overflow.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_overflow.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_action_new.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_action_new.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_new.png" />
+    <AndroidResource Include="Resources\Layout\item_alert.axml" />
+    <AndroidResource Include="Resources\Layout\item_menu.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -173,6 +188,31 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\Drawable\Train_7x.png" />
+    <AndroidResource Include="Resources\Drawable\Train_A.png" />
+    <AndroidResource Include="Resources\Drawable\Train_C.png" />
+    <AndroidResource Include="Resources\Drawable\Train_E.png" />
+    <AndroidResource Include="Resources\Drawable\Train_F.png" />
+    <AndroidResource Include="Resources\Drawable\Train_1.png" />
+    <AndroidResource Include="Resources\Drawable\Train_Z.png" />
+    <AndroidResource Include="Resources\Drawable\Train_2.png" />
+    <AndroidResource Include="Resources\Drawable\Train_3.png" />
+    <AndroidResource Include="Resources\Drawable\Train_4.png" />
+    <AndroidResource Include="Resources\Drawable\Train_5.png" />
+    <AndroidResource Include="Resources\Drawable\Train_5X.png" />
+    <AndroidResource Include="Resources\Drawable\Train_6.png" />
+    <AndroidResource Include="Resources\Drawable\Train_6X.png" />
+    <AndroidResource Include="Resources\Drawable\Train_7.png" />
+    <AndroidResource Include="Resources\Drawable\Train_B.png" />
+    <AndroidResource Include="Resources\Drawable\Train_D.png" />
+    <AndroidResource Include="Resources\Drawable\Train_G.png" />
+    <AndroidResource Include="Resources\Drawable\Train_J.png" />
+    <AndroidResource Include="Resources\Drawable\Train_L.png" />
+    <AndroidResource Include="Resources\Drawable\Train_M.png" />
+    <AndroidResource Include="Resources\Drawable\Train_N.png" />
+    <AndroidResource Include="Resources\Drawable\Train_Q.png" />
+    <AndroidResource Include="Resources\Drawable\Train_R.png" />
+    <AndroidResource Include="Resources\Drawable\Train_S.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TransitApp.Core\TransitApp.Core.csproj">
@@ -197,10 +237,14 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Resources\Drawable-hdpi\" />
-    <Folder Include="Views\Fragments\" />
-    <Folder Include="Views\Adapters\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
 </Project>

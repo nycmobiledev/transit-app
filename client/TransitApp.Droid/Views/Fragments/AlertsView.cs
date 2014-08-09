@@ -14,8 +14,14 @@ namespace TransitApp.Droid.Views.Fragments
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Android.OS.Bundle savedInstanceState)
 		{
+			this.HasOptionsMenu = true;
 			var ignored = base.OnCreateView(inflater, container, savedInstanceState);
 			return this.BindingInflate(Resource.Layout.fragment_alerts, null);
+		}
+
+		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
+		{
+			inflater.Inflate(Resource.Menu.alert, menu);
 		}
 	}
 }

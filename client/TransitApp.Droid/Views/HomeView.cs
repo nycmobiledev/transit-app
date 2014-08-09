@@ -132,28 +132,28 @@ namespace TransitApp.Droid.Views
                             title = "Alerts";
                         }
                         break;
-                    case HomeViewModel.Section.Search:
-                        {
-						if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as SearchView != null)
-                            {
-                                return true;
-                            }
+                    //case HomeViewModel.Section.Search:
+                    //    {
+                    //    if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as SearchView != null)
+                    //        {
+                    //            return true;
+                    //        }
 
-							frag = new SearchView();
-							title = "Search";
-                        }
-                        break;
-					case HomeViewModel.Section.Setting:
-						{
-						if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as SettingView != null)
-							{
-								return true;
-							}
+                    //        frag = new SearchView();
+                    //        title = "Search";
+                    //    }
+                    //    break;
+                    //case HomeViewModel.Section.Setting:
+                    //    {
+                    //    if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as SettingView != null)
+                    //        {
+                    //            return true;
+                    //        }
 
-							frag = new SettingView();
-							title = "Setting";
-						}
-						break;
+                    //        frag = new SettingView();
+                    //        title = "Setting";
+                    //    }
+                    //    break;
                 }
 
                 var loaderService = Mvx.Resolve<IMvxViewModelLoader>();

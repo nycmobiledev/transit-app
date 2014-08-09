@@ -12,7 +12,7 @@ namespace TransitApp.Core.Tests.ViewModels
     /// Defines the TestFirstViewModel type.
     /// </summary>
     [TestFixture]
-    public class TestFirstViewModel : BaseTest
+    public class TestFollowService : BaseTest
     {
         /// <summary>
         /// The FirstViewModel.

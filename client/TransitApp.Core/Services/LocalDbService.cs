@@ -15,18 +15,16 @@ namespace TransitApp.Core.Services
         public LocalDbService(ISQLiteConnectionFactory factory)
         {
             this._factory = factory;
+            _connection = _factory.Create("TransitApp.db");
+            _connection.CreateTable<Station>();
+            _connection.CreateTable<Follow>();                   
+
         }
 
         private ISQLiteConnection Connection
         {
             get
             {
-                if (_connection == null)
-                {
-                    _connection = _factory.Create("local.db");
-                    _connection.CreateTable<Station>();                   
-                }
-
                 return _connection;
             }
         }
@@ -35,8 +33,16 @@ namespace TransitApp.Core.Services
         {
             get
             {
-                return _connection.Table<Station>();
+                return Connection.Table<Station>();
             }
-        }      
+        }
+
+        public ITableQuery<Follow> Follows
+        {
+            get
+            {
+                return Connection.Table<Follow>();
+            }
+        } 
     }
 }

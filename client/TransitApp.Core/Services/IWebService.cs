@@ -10,8 +10,6 @@ namespace TransitApp.Core.Services
     {
         IList<Station> FindStationsByName(string name);
 
-        IList<Alert> GetAlertsForStations(int[] ids);
+        IList<Alert> GetAlerts(Follow[] follows);
     }
-
-
 }
