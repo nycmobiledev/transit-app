@@ -2,7 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
-VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransitApp.Droid", "TransitApp.Droid\TransitApp.Droid.csproj", "{4AF4487D-0C3E-4384-BA68-62CB1680C648}"
 EndProject
@@ -64,28 +63,12 @@ Global
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|iPhone.ActiveCfg = Release|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|x86.ActiveCfg = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Ad-Hoc|ARM.ActiveCfg = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Ad-Hoc|x86.ActiveCfg = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|Any CPU.Build.0 = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|Any CPU.Deploy.0 = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|ARM.ActiveCfg = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|iPhone.Build.0 = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.AppStore|x86.ActiveCfg = Debug|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|Any CPU.Build.0 = Release|Any CPU
@@ -93,9 +76,6 @@ Global
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|ARM.ActiveCfg = Release|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|iPhone.Build.0 = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{4AF4487D-0C3E-4384-BA68-62CB1680C648}.Release|x86.ActiveCfg = Release|Any CPU
 		{747706F4-ECBF-4D50-8D72-B0DDCC18395C}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{747706F4-ECBF-4D50-8D72-B0DDCC18395C}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU

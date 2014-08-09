@@ -192,3 +192,5 @@ UpgradeLog*.htm
 FakesAssemblies/
 /client/*.userprefs
 /docs
+*.suo
+*.userprefs

@@ -1,27 +1,14 @@
 ﻿<Properties>
-<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.NexusS4.0" />
-  <MonoDevelop.Ide.Workbench />
-=======
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AndroidEmulator19" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TransitApp.Core\ViewModels\SearchViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TransitApp.Core\Services\MockWebService.cs">
     <Files>
-      <File FileName="TransitApp.Droid\Views\HomeView.cs" Line="1" Column="1" />
-      <File FileName="TransitApp.Droid\Resources\values\styles.xml" Line="1" Column="1" />
-      <File FileName="TransitApp.Core\ViewModels\SearchViewModel.cs" Line="46" Column="3" />
-      <File FileName="TransitApp.Core\ViewModels\AboutViewModel.cs" Line="1" Column="1" />
-      <File FileName="TransitApp.Core\ViewModels\AlertsViewModel.cs" Line="1" Column="1" />
-      <File FileName="TransitApp.Core\ViewModels\BaseViewModel.cs" Line="1" Column="1" />
-      <File FileName="..\..\..\..\..\..\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" Line="267" Column="2" />
-      <File FileName="TransitApp.Core\ViewModels\HomeViewModel.cs" Line="36" Column="1" />
-      <File FileName="TransitApp.Core\Services\IWebService.cs" Line="1" Column="1" />
-      <File FileName="TransitApp.Core\Services\ILocalDbService.cs" Line="14" Column="54" />
+      <File FileName="TransitApp.Core\Models\Alert.cs" Line="1" Column="1" />
+      <File FileName="TransitApp.Core\Services\MockWebService.cs" Line="14" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
->>>>>>> origin/master
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" line="268" column="2" />
+      <Breakpoint file="E:\Projects\transit-app\client\TransitApp.Core\Converters\TrainIdToImagePathConverter.cs" line="12" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -30,4 +17,5 @@
     <String>TransitApp.Core.Tests\TransitApp.Core.Tests.csproj</String>
     <String>TransitApp.iOS\TransitApp.iOS.csproj</String>
   </DisabledProjects>
+  <MonoDevelop.Ide.ItemProperties.TransitApp.Droid MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" />
 </Properties>

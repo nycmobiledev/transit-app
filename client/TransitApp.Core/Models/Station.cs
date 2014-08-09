@@ -20,5 +20,7 @@ namespace TransitApp.Core.Models
         [Ignore]
         public IList<Line> Routes { get; set; }
 
+        [Obsolete]
+        public bool IsFollowing { get; set; }
     }
 }

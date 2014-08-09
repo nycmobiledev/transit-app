@@ -12,7 +12,7 @@ namespace TransitApp.Core.Services
         {
 
         }
-        public IList<Station> GetFollows()
+        public ICollection<Station> GetFollows()
         {
             throw new NotImplementedException();
         }

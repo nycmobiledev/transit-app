@@ -11,14 +11,14 @@ namespace TransitApp.Core.ViewModels
     {
         private readonly IAlertService _Service;
 
-        private IList<Alert> _Alerts;
+        private ICollection<Alert> _Alerts;
         public AlertsViewModel(IAlertService service)
         {
             _Service = service;
             _Alerts = service.GetAlerts();
         }
 
-        public IList<Alert> Alerts
+        public ICollection<Alert> Alerts
         {
             get
             {

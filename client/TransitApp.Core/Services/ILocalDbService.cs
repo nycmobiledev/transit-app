@@ -11,5 +11,7 @@ namespace TransitApp.Core.Services
     {
         ITableQuery<Station> Stations { get; }
         ITableQuery<Follow> Follows { get; }
+
+        ICollection<Station> GetStations(string searchQuery);
     }
 }

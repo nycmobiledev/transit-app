@@ -16,7 +16,7 @@ namespace TransitApp.Core.Services
             _LocalDbService = localDbService;
         }
 
-        public IList<Alert> GetAlerts()
+        public ICollection<Alert> GetAlerts()
         {            
             var follows = _LocalDbService.Follows.ToArray();            
          

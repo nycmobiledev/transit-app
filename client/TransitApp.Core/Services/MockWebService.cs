@@ -8,13 +8,13 @@ namespace TransitApp.Core.Services
 {
     public class MockWebService : IWebService
     {
-        public IList<Station> FindStationsByName(string name)
+        public ICollection<Station> FindStationsByName(string name)
         {
             var list = new List<Station>();
 
             return list;
         }
-        public IList<Alert> GetAlerts(Follow[] follows)
+        public ICollection<Alert> GetAlerts(Follow[] follows)
         {
             var list = new List<Alert>();
 
