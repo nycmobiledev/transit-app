@@ -1,8 +1,28 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.NexusS4.0" />
   <MonoDevelop.Ide.Workbench />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AndroidEmulator19" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TransitApp.Core\ViewModels\SearchViewModel.cs">
+    <Files>
+      <File FileName="TransitApp.Droid\Views\HomeView.cs" Line="1" Column="1" />
+      <File FileName="TransitApp.Droid\Resources\values\styles.xml" Line="1" Column="1" />
+      <File FileName="TransitApp.Core\ViewModels\SearchViewModel.cs" Line="46" Column="3" />
+      <File FileName="TransitApp.Core\ViewModels\AboutViewModel.cs" Line="1" Column="1" />
+      <File FileName="TransitApp.Core\ViewModels\AlertsViewModel.cs" Line="1" Column="1" />
+      <File FileName="TransitApp.Core\ViewModels\BaseViewModel.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\..\..\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" Line="267" Column="2" />
+      <File FileName="TransitApp.Core\ViewModels\HomeViewModel.cs" Line="36" Column="1" />
+      <File FileName="TransitApp.Core\Services\IWebService.cs" Line="1" Column="1" />
+      <File FileName="TransitApp.Core\Services\ILocalDbService.cs" Line="14" Column="54" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> origin/master
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Program Files (x86)\MSBuild\Xamarin\Android\Xamarin.Android.Common.targets" line="268" column="2" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.WhereIsMySubway.Droid MonoForAntroid.PreferredDevice="3.7&quot; WVGA (Nexus One)" AndroidDeviceId-Debug="emulator-5554" />
