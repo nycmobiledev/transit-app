@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TransitApp.Core.ViewModels
 {
-	public class AboutViewModel : BaseViewModel
+    public class FollowsViewModel : BaseViewModel
     {
     }
 }

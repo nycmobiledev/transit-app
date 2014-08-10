@@ -12,6 +12,5 @@ namespace TransitApp.Core
 			return (date - DateTime.Now).TotalMinutes.ToString ("N0");
 		}
 	}
-
 }
 

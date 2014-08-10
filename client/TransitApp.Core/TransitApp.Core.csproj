@@ -40,7 +40,6 @@
     <Compile Include="Services\IAlertService.cs" />
     <Compile Include="Services\AlertService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
-    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
     <None Include="Services\_GtfsService.cs" />
@@ -62,6 +61,8 @@
     <Compile Include="swp8\Bootstrap\CommunitySqlitePluginBootstrap.cs" />
     <Compile Include="ViewModels\AlertsViewModel.cs" />
     <Compile Include="Converters\ArriveTimeConverter.cs" />
+    <Compile Include="ViewModels\FollowsViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">

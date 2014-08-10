@@ -130,6 +130,7 @@
     <Compile Include="Views\Fragments\SearchView.cs" />
     <Compile Include="Views\Fragments\AlertsView.cs" />
     <Compile Include="Converters\TrainIdToImagePathConverter.cs" />
+    <Compile Include="Views\FollowsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -176,6 +177,7 @@
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_new.png" />
     <AndroidResource Include="Resources\Layout\item_alert.axml" />
     <AndroidResource Include="Resources\Layout\item_menu.axml" />
+    <AndroidResource Include="Resources\Layout\page_follows_view.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
