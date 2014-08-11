@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSStatic.Infrastructure.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Core", "Shared.Core\Shared.Core.csproj", "{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSStatic.InfrastructureTests", "GTFSStatic.InfrastructureTests\GTFSStatic.InfrastructureTests.csproj", "{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{14B3C430-3375-44DB-9F84-D384B9929769} = {117AF31D-30AB-4673-8023-E7F2560C2AD0}
 		{6A63A027-4855-43B8-97A7-5BF9E7934866} = {117AF31D-30AB-4673-8023-E7F2560C2AD0}
 		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A} = {8D4F98D4-F716-4F76-8DCE-E087B4705289}
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5} = {117AF31D-30AB-4673-8023-E7F2560C2AD0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45
