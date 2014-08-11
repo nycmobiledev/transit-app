@@ -17,12 +17,15 @@ namespace TransitApp.Core.Services
         {
             this._factory = factory;
             _connection = _factory.Create("TransitApp.db");
+            // All of data get from internet, but only alert no local cache
             _connection.CreateTable<Station>();
-            _connection.CreateTable<Follow>();                   
+            _connection.CreateTable<Line>();
 
+            // users' settings
+            _connection.CreateTable<Follow>();
         }
 
-        private ISQLiteConnection Connection
+        public ISQLiteConnection Connection
         {
             get
             {
@@ -30,20 +33,26 @@ namespace TransitApp.Core.Services
             }
         }
 
-        public ITableQuery<Station> Stations
+        public T Get<T>(object id) where T : new()
         {
-            get
+            return Connection.Get<T>(id);
+        }
+
+        public ICollection<Line> GetLines(IEnumerable<string> ids)
+        {
+            if (ids == null || ids.Count() == 0)
             {
-                return Connection.Table<Station>();
+                return Connection.Table<Line>().ToList();
+            }
+            else
+            {
+                return Connection.Table<Line>().Where(x => ids.Contains(x.Id)).ToList();
             }
         }
 
-        public ITableQuery<Follow> Follows
+        public ICollection<Follow> GetFollows()
         {
-            get
-            {
-                return Connection.Table<Follow>();
-            }
+            return Connection.Table<Follow>().ToList();
         }
 
         public ICollection<Station> GetStations(string searchQuery)

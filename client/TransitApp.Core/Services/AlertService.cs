@@ -18,7 +18,7 @@ namespace TransitApp.Core.Services
 
         public ICollection<Alert> GetAlerts()
         {            
-            var follows = _LocalDbService.Follows.ToArray();            
+            var follows = _LocalDbService.GetFollows();            
          
             return _WebService.GetAlerts(follows);
         }

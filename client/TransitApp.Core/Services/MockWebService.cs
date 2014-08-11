@@ -6,37 +6,39 @@ using TransitApp.Core.Models;
 
 namespace TransitApp.Core.Services
 {
-	public class MockWebService : IWebService
-	{
-		private Random _random = new Random (1);
+    public class MockWebService : IWebService
+    {
+        private Random _random = new Random(1);
+        private readonly ILocalDbService _localDbService;
 
-		public ICollection<Station> FindStationsByName (string name)
-		{
-			var list = new List<Station> ();
+        public MockWebService(ILocalDbService localDbService)
+        {
+            _localDbService = localDbService;
+        }
 
-			return list;
-		}
+        public ICollection<Station> FindStationsByName(string name)
+        {
+            var list = new List<Station>();
 
-		public ICollection<Alert> GetAlerts (Follow[] follows)
-		{
-			var list = new List<Alert> ();
+            return list;
+        }
 
+        public ICollection<Alert> GetAlerts(IEnumerable<Follow> follows)
+        {
+            var list = new List<Alert>();
 
-			list.Add (new Alert () {
-				TrainId = "1234",
-				ArriveTime = DateTime.Now.AddMinutes (_random.Next(20)),
-				Station = new Station () { Id = "717", Name = "Main Street" },
-				Line = new Line () { Id = "7", Start = "Manhattan", End = "Queens", Name = "7" }
-			});
+            foreach (var follow in follows)
+            {
+                list.Add(new Alert()
+                {
+                    TrainId = _random.Next(20).ToString(),
+                    ArriveTime = DateTime.Now.AddMinutes(_random.Next(20)),
+                    Station = _localDbService.Get<Station>(follow.StationId),
+                    Line = _localDbService.Get<Line>(follow.LineId)
+                });
+            }
 
-			list.Add (new Alert () {
-				TrainId = "4567",
-				ArriveTime = DateTime.Now.AddMinutes (_random.Next(20)),
-				Station = new Station () { Id = "555", Name = "Bronx - Flushing" },
-				Line = new Line () { Id = "5X", Start = "Bronx", End = "Brooklyn", Name = "7" }
-			});
-
-			return list;
-		}
-	}
+            return list;
+        }
+    }
 }

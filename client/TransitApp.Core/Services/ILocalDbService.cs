@@ -9,9 +9,14 @@ namespace TransitApp.Core.Services
 {
     public interface ILocalDbService
     {
-        ITableQuery<Station> Stations { get; }
-        ITableQuery<Follow> Follows { get; }
+        ISQLiteConnection Connection { get; }
+        
+        T Get<T>(object id) where T : new();         
 
+        ICollection<Follow> GetFollows();
+
+        ICollection<Line> GetLines(IEnumerable<string> ids);
+        
         ICollection<Station> GetStations(string searchQuery);
     }
 }

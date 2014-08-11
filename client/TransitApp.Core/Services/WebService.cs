@@ -18,7 +18,7 @@ namespace TransitApp.Core.Services
             //todo 
             throw new NotImplementedException();
         }
-        public ICollection<Alert> GetAlerts(Follow[] follows)
+        public ICollection<Alert> GetAlerts(IEnumerable<Follow> follows)
         {
             //todo 
             throw new NotImplementedException();

@@ -22,8 +22,12 @@ namespace TransitApp.Core
 
 #if DEBUG
             Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService,MockWebService>();
+            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<ILocalDbService, MockLocalDbService>();
+
 #else
             Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService,WebService>();   
+            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<ILocalDbService,LocalDbService>();   
+
 #endif
 
             //// Start the app with the First View Model.                       

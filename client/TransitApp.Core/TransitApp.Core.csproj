@@ -39,6 +39,7 @@
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Services\IAlertService.cs" />
     <Compile Include="Services\AlertService.cs" />
+    <Compile Include="Services\LocalDbService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
@@ -46,7 +47,7 @@
     <Compile Include="Services\IFollowService.cs" />
     <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\ILocalDbService.cs" />
-    <Compile Include="Services\LocalDbService.cs" />
+    <Compile Include="Services\MockLocalDbService.cs" />
     <Compile Include="Services\IWebService.cs" />
     <Compile Include="Services\MockWebService.cs" />
     <Compile Include="Models\Station.cs" />

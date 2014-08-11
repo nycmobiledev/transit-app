@@ -8,6 +8,7 @@ namespace TransitApp.Core.Models
 	[Table("Lines")]
     public class Line
     {
+        [PrimaryKey]
         public virtual string Id { get; set; }
 
         public virtual string Name { get; set; }

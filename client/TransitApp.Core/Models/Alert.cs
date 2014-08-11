@@ -24,9 +24,9 @@ namespace TransitApp.Core.Models
 		public string Destination { 
 			get { 
 				if (Direction == 1) {
-					return Line.Start + " To " + Line.End;
+                    return String.Format("{0} To {1}", Line.Start, Line.End);
 				} else {
-					return Line.End + " To " + Line.Start;
+                    return String.Format("{0} To {1}", Line.End, Line.Start);
 				}
 			}
 		}

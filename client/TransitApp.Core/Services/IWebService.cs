@@ -10,6 +10,6 @@ namespace TransitApp.Core.Services
     {
         ICollection<Station> FindStationsByName(string name);
 
-        ICollection<Alert> GetAlerts(Follow[] follows);
+        ICollection<Alert> GetAlerts(IEnumerable<Follow> follows);
     }
 }
