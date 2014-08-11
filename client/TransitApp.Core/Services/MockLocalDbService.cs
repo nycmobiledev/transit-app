@@ -18,19 +18,19 @@ namespace TransitApp.Core.Services
 
         private void MockData()
         {
-            this.Connection.Insert(new Station() { Id = "701", Name = "Flushing - Main St", LineIds = "7,7X" });
-            this.Connection.Insert(new Station() { Id = "501", Name = "Eastchester - Dyre Av", LineIds = "4,5,6,5X,6X" });
+			this.Connection.InsertOrReplace(new Station() { Id = "701", Name = "Flushing - Main St", LineIds = "7,7X" });
+			this.Connection.InsertOrReplace(new Station() { Id = "501", Name = "Eastchester - Dyre Av", LineIds = "4,5,6,5X,6X" });
 
-            this.Connection.Insert(new Line() { Id = "4", Start = "Bronx", End = "Brooklyn", Name = "4" });
-            this.Connection.Insert(new Line() { Id = "5", Start = "Bronx", End = "Brooklyn", Name = "5" });
-            this.Connection.Insert(new Line() { Id = "5X", Start = "Bronx", End = "Brooklyn", Name = "5 Express" });
-            this.Connection.Insert(new Line() { Id = "6", Start = "Bronx", End = "Brooklyn", Name = "6" });
-            this.Connection.Insert(new Line() { Id = "6X", Start = "Bronx", End = "Brooklyn", Name = "6 Express" });
-            this.Connection.Insert(new Line() { Id = "7", Start = "Manhattan", End = "Queens", Name = "7" });
-            this.Connection.Insert(new Line() { Id = "7X", Start = "Manhattan", End = "Queens", Name = "7 Express" });
+			this.Connection.InsertOrReplace(new Line() { Id = "4", Start = "Bronx", End = "Brooklyn", Name = "4" });
+			this.Connection.InsertOrReplace(new Line() { Id = "5", Start = "Bronx", End = "Brooklyn", Name = "5" });
+			this.Connection.InsertOrReplace(new Line() { Id = "5X", Start = "Bronx", End = "Brooklyn", Name = "5 Express" });
+			this.Connection.InsertOrReplace(new Line() { Id = "6", Start = "Bronx", End = "Brooklyn", Name = "6" });
+			this.Connection.InsertOrReplace(new Line() { Id = "6X", Start = "Bronx", End = "Brooklyn", Name = "6 Express" });
+			this.Connection.InsertOrReplace(new Line() { Id = "7", Start = "Manhattan", End = "Queens", Name = "7" });
+			this.Connection.InsertOrReplace(new Line() { Id = "7X", Start = "Manhattan", End = "Queens", Name = "7 Express" });
 
-            this.Connection.Insert(new Follow() { LineId = "7", StationId = "701" });
-            this.Connection.Insert(new Follow() { LineId = "5X", StationId = "501" });
+			this.Connection.InsertOrReplace(new Follow() { LineId = "7", StationId = "701" });
+			this.Connection.InsertOrReplace(new Follow() { LineId = "5X", StationId = "501" });
         }
     }
 }

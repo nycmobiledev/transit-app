@@ -11,29 +11,29 @@ namespace TransitApp.Core.ViewModels
 {
 	public class AlertsViewModel : BaseViewModel
 	{
-		private readonly IAlertService _Service;
-		private ICollection<Alert> _Alerts;
-		private MvxCommand _RefreshCommand;
+		private readonly IAlertService _service;
+		private ICollection<Alert> _alerts;
+		private MvxCommand _refreshCommand;
 
 		public AlertsViewModel (IAlertService service)
 		{
-			_Service = service;
+			_service = service;
 			ExecuteRefreshCommand ();
 		}
 
 		public ICollection<Alert> Alerts {
 			get {
-				return _Alerts;
+				return _alerts;
 			}
 			set {
-				this._Alerts = value;
+				this._alerts = value;
 				this.RaisePropertyChanged (() => this.Alerts);
 			}
 		}
 
 		public ICommand RefreshCommand {
 			get {
-				return _RefreshCommand ?? (_RefreshCommand = new MvxCommand (this.ExecuteRefreshCommand));
+				return _refreshCommand ?? (_refreshCommand = new MvxCommand (this.ExecuteRefreshCommand));
 			}
 		}
 
@@ -45,7 +45,7 @@ namespace TransitApp.Core.ViewModels
 
 		private void ExecuteRefreshCommand ()
 		{
-			Alerts = _Service.GetAlerts ();
+			Alerts = _service.GetAlerts ();
 		}
 	}
 }

@@ -63,6 +63,13 @@
     <Reference Include="NSubstitute">
       <HintPath>Lib\NSubstitute.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite">
+      <HintPath>..\packages\MvvmCross.Community.Plugin.Sqlite.3.1.1\lib\net45\Cirrious.MvvmCross.Community.Plugins.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite.Wpf">
+      <HintPath>..\packages\MvvmCross.Community.Plugin.Sqlite.3.1.1\lib\net45\Cirrious.MvvmCross.Community.Plugins.Sqlite.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
@@ -71,6 +78,7 @@
     <Compile Include="Services\TestFollowService.cs" />
     <Compile Include="TestTrace.cs" />
     <Compile Include="ViewModels\TestFirstViewModel.cs" />
+    <Compile Include="Bootstrap\CommunitySqlitePluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TransitApp.Core\TransitApp.Core.csproj">
@@ -80,6 +88,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="app.config" />
+    <None Include="sqlite3.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

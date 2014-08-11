@@ -178,6 +178,7 @@
     <AndroidResource Include="Resources\Layout\item_alert.axml" />
     <AndroidResource Include="Resources\Layout\item_menu.axml" />
     <AndroidResource Include="Resources\Layout\page_follows_view.axml" />
+    <AndroidResource Include="Resources\Layout\item_follow.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

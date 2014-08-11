@@ -9,9 +9,10 @@ namespace TransitApp.Core.Services
 {
     public interface IFollowService
     {
-        ICollection<Station> GetFollows();
-        void AddFollow(Station station);
+        ICollection<Follow> GetFollows();
 
-        void DeleteFollow(Station station);
+        void AddFollows(string stationId, string[] lineIds);
+
+        void DeleteFollows(string stationId, string[] lineIds);
     }
 }

@@ -3,6 +3,13 @@
 //    Defines the BaseTest type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+using TransitApp.Core.Services;
+using Cirrious.MvvmCross.Community.Plugins.Sqlite;
+using TransitApp.Core.Tests.Bootstrap;
+using Cirrious.CrossCore.Plugins;
+using Cirrious.MvvmCross.Community.Plugins.Sqlite.Wpf;
+
+
 namespace TransitApp.Core.Tests
 {
     using Cirrious.CrossCore.Core;
@@ -38,6 +45,17 @@ namespace TransitApp.Core.Tests
             Ioc.RegisterSingleton<IMvxMainThreadDispatcher>(this.mockDispatcher);
             Ioc.RegisterSingleton<IMvxTrace>(new TestTrace());
             Ioc.RegisterSingleton<IMvxSettings>(new MvxSettings());
+
+
+
+			IMvxPluginManager pluginManager = new MvxFilePluginManager(".wpf", string.Empty);
+			Ioc.RegisterSingleton( pluginManager );
+
+			var sqlitePluginBootstrap = new SqlitePluginBootstrap();
+			sqlitePluginBootstrap.Run();
+
+			Ioc.RegisterSingleton<ISQLiteConnectionFactory> (new MvxWpfSqLiteConnectionFactory());
+			Ioc.RegisterType<ILocalDbService, MockLocalDbService> ();
 
             this.Initialize();
             this.CreateTestableObject();

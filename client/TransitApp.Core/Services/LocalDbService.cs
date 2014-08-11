@@ -16,7 +16,9 @@ namespace TransitApp.Core.Services
         public LocalDbService(ISQLiteConnectionFactory factory)
         {
             this._factory = factory;
+
             _connection = _factory.Create("TransitApp.db");
+
             // All of data get from internet, but only alert no local cache
             _connection.CreateTable<Station>();
             _connection.CreateTable<Line>();
