@@ -2,7 +2,7 @@
 
 namespace TransitApp.Server.GTFSStatic.Core.Model
 {
-    internal class Calendar
+    public class Calendar
     {
         public string ServiceId { get; set; }
         public bool RunOnMonday { get; set; }

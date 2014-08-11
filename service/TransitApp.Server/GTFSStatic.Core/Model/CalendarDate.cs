@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TransitApp.Server.GTFSStatic.Core.Model
 {
-    class CalendarDate
+    public class CalendarDate
     {
         public string ServiceId { get; set; }
         public DateTime Date { get; set; }

@@ -2,7 +2,7 @@
 
 namespace TransitApp.Server.GTFSStatic.Core.Model
 {
-    class Trip
+    public class Trip
     {
         public string RouteId { get; set; } 
         public string TripId { get; set; }

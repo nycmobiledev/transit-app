@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TransitApp.Server.GTFSStatic.Core.Model
 {
-    class Stop
+    public class Stop
     {
         public string StopId { get; set; }
         public string Name { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TransitApp.Server.GTFSStatic.Core.Model
 {
-    class Route
+    public class Route
     {
         public string AgencyId { get; set; }
         public string RouteId { get; set; }

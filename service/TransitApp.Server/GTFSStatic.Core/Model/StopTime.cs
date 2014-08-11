@@ -2,7 +2,7 @@
 
 namespace TransitApp.Server.GTFSStatic.Core.Model
 {
-    class StopTime
+    public class StopTime
     {
         public string TripId { get; set; }
         public string StopId { get; set; }

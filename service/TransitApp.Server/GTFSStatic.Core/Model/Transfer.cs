@@ -2,7 +2,7 @@
 
 namespace TransitApp.Server.GTFSStatic.Core.Model
 {
-    class Transfer
+    public class Transfer
     {
         public string FromStopId { get; set; } 
         public string ToStopId { get; set; }

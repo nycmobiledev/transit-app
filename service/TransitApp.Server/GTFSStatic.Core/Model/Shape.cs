@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TransitApp.Server.GTFSStatic.Core.Model
 {
-    class Shape
+    public class Shape
     {
         public string ShapeId { get; set; }
         public int Sequence { get; set; }
