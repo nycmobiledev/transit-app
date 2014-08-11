@@ -11,15 +11,66 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
 {
     class StaticFileService: IStaticFileService
     {
-        private readonly string _fileUrl;
+        private readonly IStaticFileDownloader _downloader;
         private ZipArchive _gtfsArchive;
 
-        public StaticFileService(string fileUrl)
+        public StaticFileService(IStaticFileDownloader downloader)
         {
-            _fileUrl = fileUrl;
+            _downloader = downloader;
+        }
+
+        private async Task LoadZipFile()
+        {
+            if (_gtfsArchive != null) {
+                _gtfsArchive =
+                    await
+                        _downloader.DownloadZipFileFromUrl(
+                            "http://web.mta.info/developers/data/nyct/subway/google_transit.zip");
+            }
         }
 
         public IList<Agency> GetAgencies()
+        {
+            throw new NotImplementedException();
+
+        }
+
+        public IList<Calendar> GetCalendars()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<CalendarDate> GetCalendarDates()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Route> GetRoutes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Shape> GetShapes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Stop> GetStops()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<StopTime> GetStopTimes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Transfer> GetTransfers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Trip> GetTrips()
         {
             throw new NotImplementedException();
         }
