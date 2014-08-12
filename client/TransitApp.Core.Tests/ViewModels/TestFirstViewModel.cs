@@ -11,13 +11,13 @@ namespace TransitApp.Core.Tests.ViewModels
     /// <summary>
     /// Defines the TestFirstViewModel type.
     /// </summary>
-    [TestFixture]
+    //[TestFixture]
 	public class TestFirstViewModel : BaseTest
     {
         /// <summary>
         /// The FirstViewModel.
         /// </summary>
-        private HomeViewModel firstViewModel;
+        //private HomeViewModel firstViewModel;
 
         /// <summary>
         /// Creates an instance of the object to test.

@@ -30,4 +30,19 @@ namespace TransitApp.Core.Models
         [Ignore]
         public Line Line { get; set; }
     }
+
+
+    public class FollowStation
+    {
+        public Station Station { get; set; }
+
+        public ICollection<FollowLine> Lines { get; set; }
+    }
+
+    public class FollowLine
+    {           
+        public Line Line { get; set; }
+
+        public bool IsFollow { get; set; }
+    }
 }

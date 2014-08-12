@@ -5,95 +5,115 @@
 // --------------------------------------------------------------------------------------------------------------------
 namespace TransitApp.Core.Tests.Services
 {
-	using System.Linq;
-	using Core.ViewModels;
-	using NUnit.Framework;
+    using System.Linq;
+    using Core.ViewModels;
+    using NUnit.Framework;
 
-	using TransitApp.Core.Services;
+    using TransitApp.Core.Services;
 
-	/// <summary>
-	/// Defines the TestFirstViewModel type.
-	/// </summary>
-	[TestFixture]
-	public class TestFollowService : BaseTest
-	{
-		FollowService followService;
+    /// <summary>
+    /// Defines the TestFirstViewModel type.
+    /// </summary>
+    [TestFixture]
+    public class TestFollowService : BaseTest
+    {
+        FollowService followService;
 
-		public override void CreateTestableObject ()
-		{
-			this.followService = new FollowService (Ioc.Resolve<ILocalDbService> ());
-		}
+        public override void CreateTestableObject()
+        {
+            this.followService = new FollowService(Ioc.Resolve<ILocalDbService>());
+        }
 
-		[Test]
-		public void TestGetFollows ()
-		{
-			var follows = this.followService.GetFollows ();
+        [Test]
+        public void TestGetFollows()
+        {
+            var follows = this.followService.GetFollows();
 
-			Assert.AreEqual ("7", follows.First (x => x.Id == "701-7").LineId);
-		}
+            Assert.AreEqual("7", follows.First(x => x.Id == "701-7").LineId);
+        }
 
-		[Test]
-		public void TestAddFollows ()
-		{
-			this.followService.AddFollows ("101", new string[] { "1", "2", "3" });
+        [Test]
+        public void TestAddFollows()
+        {
+            this.followService.AddFollows("501", new string[] { "4", "5", "6" });
 
-			Assert.IsTrue (this.followService.GetFollows ().Any (x => x.LineId == "1" && x.StationId == "101"));
-		}
+            Assert.IsTrue(this.followService.GetFollows().Any(x => x.LineId == "4" && x.StationId == "501"));
 
-		[Test]
-		public void TestDeleteFollows ()
-		{
-			this.followService.AddFollows ("101", new string[] { "1", "2", "3" });
-			this.followService.DeleteFollows ("101", null);
+            this.followService.DeleteFollows("501");
+        }
 
-			Assert.IsFalse (this.followService.GetFollows ().Any (x => x.StationId == "101"));
-		}
+        [Test]
+        public void TestDeleteFollows()
+        {
+            this.followService.AddFollows("501", new string[] { "4", "5", "6" });
+            this.followService.DeleteFollows("501");
 
-		[Test]
-		public void TestDeleteFollow ()
-		{
-			this.followService.AddFollows ("101", new string[] { "1", "2", "3" });
-			this.followService.DeleteFollows ("101", new string[] { "1" });
+            Assert.IsFalse(this.followService.GetFollows().Any(x => x.StationId == "501"));
+        }
 
-			Assert.AreEqual (2, this.followService.GetFollows ().Count (x => x.StationId == "101"));
-		}
+        [Test]
+        public void TestDeleteFollow()
+        {
+            this.followService.AddFollows("501", new string[] { "4", "5X", "6" });
+            this.followService.DeleteFollows("501", new string[] { "4" });
 
-		///// <summary>
-		///// Tests my property.
-		///// </summary>
-		//[Test]
-		//public void TestMyProperty()
-		//{
-		//    //// arrange
-		//    bool changed = false;
+            Assert.AreEqual(2, this.followService.GetFollows().Count(x => x.StationId == "501"));
 
-		//    this.firstViewModel.PropertyChanged += (sender, args) =>
-		//        {
-		//            if (args.PropertyName == "MyProperty")
-		//            {
-		//                changed = true;
-		//            }
-		//        };
+            this.followService.DeleteFollows("501");
 
-		//    //// act
-		//    this.firstViewModel.MyProperty = "Hello MvvmCross";
+        }
 
-		//    //// assert
-		//    Assert.AreEqual(changed, true);
-		//}
+        [Test]
+        public void TestGetFollowsGroupByStation()
+        {
+            this.followService.AddFollows("501", new string[] { "4", "6" });
+            this.followService.AddFollows("701", new string[] { "7" });
 
-		///// <summary>
-		///// Tests my command.
-		///// </summary>
-		//[Test]
-		//public void TestMyCommand()
-		//{
-		//    //// arrange
+            var follows = this.followService.GetFollowsGroupByStation();
 
-		//    //// act
-		//    this.firstViewModel.MyCommand.Execute(null);
+            Assert.AreEqual(2, follows.Count);
 
-		//    //// assert
-		//}
-	}
+            Assert.IsFalse(follows.First(x => x.Station.Id == "701").Lines.First(x => x.Line.Id == "7X").IsFollow);
+
+            Assert.IsFalse(follows.First(x => x.Station.Id == "501").Lines.First(x => x.Line.Id == "5").IsFollow);
+        }
+
+        ///// <summary>
+        ///// Tests my property.
+        ///// </summary>
+        //[Test]
+        //public void TestMyProperty()
+        //{
+        //    //// arrange
+        //    bool changed = false;
+
+        //    this.firstViewModel.PropertyChanged += (sender, args) =>
+        //        {
+        //            if (args.PropertyName == "MyProperty")
+        //            {
+        //                changed = true;
+        //            }
+        //        };
+
+        //    //// act
+        //    this.firstViewModel.MyProperty = "Hello MvvmCross";
+
+        //    //// assert
+        //    Assert.AreEqual(changed, true);
+        //}
+
+        ///// <summary>
+        ///// Tests my command.
+        ///// </summary>
+        //[Test]
+        //public void TestMyCommand()
+        //{
+        //    //// arrange
+
+        //    //// act
+        //    this.firstViewModel.MyCommand.Execute(null);
+
+        //    //// assert
+        //}
+    }
 }

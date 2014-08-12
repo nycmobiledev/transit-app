@@ -18,8 +18,8 @@ namespace TransitApp.Core.Services
 
         private void MockData()
         {
-			this.Connection.InsertOrReplace(new Station() { Id = "701", Name = "Flushing - Main St", LineIds = "7,7X" });
-			this.Connection.InsertOrReplace(new Station() { Id = "501", Name = "Eastchester - Dyre Av", LineIds = "4,5,6,5X,6X" });
+			this.Connection.InsertOrReplace(new Station() { Id = "701", Name = "Flushing - Main St", LineIds = "7,7X" , Area="Queens" });
+            this.Connection.InsertOrReplace(new Station() { Id = "501", Name = "Eastchester - Dyre Av", LineIds = "4,5,6,5X,6X", Area = "Bronx" });
 
 			this.Connection.InsertOrReplace(new Line() { Id = "4", Start = "Bronx", End = "Brooklyn", Name = "4" });
 			this.Connection.InsertOrReplace(new Line() { Id = "5", Start = "Bronx", End = "Brooklyn", Name = "5" });

@@ -37,7 +37,14 @@ namespace TransitApp.Core.Services
 
         public T Get<T>(object id) where T : new()
         {
-            return Connection.Get<T>(id);
+            var obj = Connection.Get<T>(id);
+
+            if (obj is Station)
+            {
+                LoadLines(obj as Station);
+            }
+
+            return obj;
         }
 
         public ICollection<Line> GetLines(IEnumerable<string> ids)
@@ -54,7 +61,15 @@ namespace TransitApp.Core.Services
 
         public ICollection<Follow> GetFollows()
         {
-            return Connection.Table<Follow>().ToList();
+            var follows = Connection.Table<Follow>().ToList();
+
+            foreach (var follow in follows)
+            {
+                follow.Line = this.Get<Line>(follow.LineId);
+                follow.Station = this.Get<Station>(follow.StationId);
+            }
+
+            return follows;
         }
 
         public ICollection<Station> GetStations(string searchQuery)
@@ -63,6 +78,18 @@ namespace TransitApp.Core.Services
             return null;
             ObservableCollection<Station> stationResults = new ObservableCollection<Station>(_connection.Table<Station>().Where(t => t.Name.Contains(searchQuery)));
             return stationResults;
+        }
+
+        private void LoadLines(Station station) {
+            var lineIds = station.LineIds.Split(',');
+            var lines = new List<Line>();
+
+            foreach (var lineId in lineIds)
+            {
+                lines.Add(this.Connection.Get<Line>(lineId));
+            }
+
+            station.Lines = lines;
         }
     }
 }

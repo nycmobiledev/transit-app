@@ -14,6 +14,8 @@ namespace TransitApp.Core.Models
 
         public string Name { get; set; }
 
+        public string Area { get; set; }
+
         public double Latitude { get; set; }
 
         public double Longitude { get; set; }
@@ -26,5 +28,23 @@ namespace TransitApp.Core.Models
 
         [Obsolete]
         public bool IsFollowing { get; set; }
+
+        public override int GetHashCode()
+        {
+            return ("Station-" + Id).GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is Station)
+            {
+                return this.Id == (obj as Station).Id;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

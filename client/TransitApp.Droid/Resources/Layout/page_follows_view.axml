@@ -7,11 +7,9 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp">
     <Mvx.MvxGridView
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        local:MvxBind="ItemsSource Follows; ItemClick GoToFollowEditCommand"
+        local:MvxBind="ItemsSource Follows; ItemClick EditCommand"
         local:MvxItemTemplate="@layout/item_follow"
         android:numColumns="@integer/item_columns"
         android:longClickable="true"

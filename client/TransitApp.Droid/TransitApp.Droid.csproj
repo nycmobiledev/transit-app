@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="Helpers\LineIcon.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Views\Fragments\AlertsView.cs" />
     <Compile Include="Converters\TrainIdToImagePathConverter.cs" />
     <Compile Include="Views\FollowsView.cs" />
+    <Compile Include="Converters\FollowLinesConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -179,6 +181,8 @@
     <AndroidResource Include="Resources\Layout\item_menu.axml" />
     <AndroidResource Include="Resources\Layout\page_follows_view.axml" />
     <AndroidResource Include="Resources\Layout\item_follow.axml" />
+    <AndroidResource Include="Resources\Drawable\border.xml" />
+    <AndroidResource Include="Resources\Layout\item_lineIcon.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -247,7 +251,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
 </Project>
