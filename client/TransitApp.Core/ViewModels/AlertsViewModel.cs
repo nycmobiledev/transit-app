@@ -37,7 +37,7 @@ namespace TransitApp.Core.ViewModels
 			}
 		}
 
-		public ICommand EditCommand {
+		public ICommand GoToEditCommand {
 			get {
 				return new MvxCommand (() => ShowViewModel<FollowsViewModel> ()); 
 			}

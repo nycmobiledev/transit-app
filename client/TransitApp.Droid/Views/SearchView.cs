@@ -1,42 +1,29 @@
-using Android.App;
+﻿using Android.App;
 using Android.Support.V4.App;
 using Android.Views;
-
-using Cirrious.MvvmCross.Binding;
-using Cirrious.MvvmCross.Binding.BindingContext;
+using Cirrious.MvvmCross.Binding.Droid.BindingContext;
+using Cirrious.MvvmCross.Droid.Fragging.Fragments;
 using Cirrious.MvvmCross.Droid.Views;
-
-using TransitApp.Core.ViewModels;
 
 namespace TransitApp.Droid.Views
 {
-    [Activity(Label = "Follows", Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(HomeView))]
-	[MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.HomeView")]
-    public class FollowsView : MvxActivity
-    {
+    [Activity(Label = "Search", Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
+    [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.FollowsView")]
+    public class SearchView : MvxActivity
+	{
         protected override void OnViewModelSet()
         {
             base.OnViewModelSet();
-            SetContentView(Resource.Layout.page_follows_view);
+            SetContentView(Resource.Layout.page_search);
 
             ActionBar.SetDisplayHomeAsUpEnabled(true);
             ActionBar.SetHomeButtonEnabled(true);            
         }
 
-		public override bool OnCreateOptionsMenu (IMenu menu)
-		{
-			this.MenuInflater.Inflate (Resource.Menu.follows,menu);
-			return base.OnCreateOptionsMenu (menu);
-		}
-     
-
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
-            {
-                case Resource.Id.menu_new:
-                    ((FollowsViewModel)this.ViewModel).GoToAddCommand.Execute(null);
-                    return true;                    
+            {                
                 case Android.Resource.Id.Home:
                     //Wrong:
                     //var intent = new Intent(this, typeof(HomeView));
@@ -63,5 +50,7 @@ namespace TransitApp.Droid.Views
 
             return base.OnOptionsItemSelected(item);
         }
-    }
+
+	}
 }
+

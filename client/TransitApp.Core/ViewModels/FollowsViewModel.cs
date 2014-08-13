@@ -33,11 +33,19 @@ namespace TransitApp.Core.ViewModels
             }
         }
 
-        public ICommand EditCommand
+        public ICommand GoToEditCommand
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<FollowEditsViewModel>());
+                return new MvxCommand(() => ShowViewModel<FollowEditViewModel>());
+            }
+        }
+
+        public ICommand GoToAddCommand
+        {
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<SearchViewModel>());
             }
         }
 
@@ -45,5 +53,6 @@ namespace TransitApp.Core.ViewModels
         {
             Follows = _service.GetFollowsGroupByStation();
         }
+
     }
 }

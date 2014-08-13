@@ -3,27 +3,23 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp">
+    android:layout_height="fill_parent">
     <Mvx.MvxGridView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        local:MvxBind="ItemsSource Follows; ItemClick EditCommand"
+        local:MvxBind="ItemsSource Follows;ItemClick EditCommand"
         local:MvxItemTemplate="@layout/item_follow"
         android:numColumns="@integer/item_columns"
-        android:longClickable="true"
         android:stretchMode="columnWidth"
-        android:drawSelectorOnTop="true"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:horizontalSpacing="8dp"
-        android:verticalSpacing="8dp"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="5dp"
         android:gravity="center"
         android:fastScrollEnabled="true"
-        android:fastScrollAlwaysVisible="true"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbars="vertical"
         android:scrollbarStyle="outsideInset"
-        android:smoothScrollbar="true" />
+        android:smoothScrollbar="true"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp" />
 </LinearLayout>

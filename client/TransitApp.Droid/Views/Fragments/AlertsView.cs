@@ -32,7 +32,7 @@ namespace TransitApp.Droid.Views.Fragments
 				((AlertsViewModel)this.ViewModel).RefreshCommand.Execute (null);
 				return true;
 			case Resource.Id.menu_edit:
-				((AlertsViewModel)this.ViewModel).EditCommand.Execute (null);
+				((AlertsViewModel)this.ViewModel).GoToEditCommand.Execute (null);
 				return true;
 			}
 

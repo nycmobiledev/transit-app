@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <item
           android:id="@+id/menu_edit"
-          android:icon="@drawable/ic_action_new"
+          android:icon="@drawable/ic_menu_edit"
           android:showAsAction="ifRoom"
-          android:title="@string/menu_new" />
+          android:title="@string/menu_edit" />
   <item
         android:id="@+id/empty"
         android:orderInCategory="101"

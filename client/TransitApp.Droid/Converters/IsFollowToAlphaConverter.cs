@@ -8,9 +8,11 @@ using System.Collections.Generic;
 
 namespace TransitApp.Droid
 {
-    public class LineIcon
-    {
-        public string Icon { get; set; }
-        public string Alpha { get; set; }
-    }
+	public class IsFollowToAlphaConverter : MvxValueConverter<bool, int>
+	{
+		protected override int Convert(bool isFollow, Type targetType, object parameter, CultureInfo culture)
+		{
+            return isFollow ? 255 : 127;
+		}
+	}
 }

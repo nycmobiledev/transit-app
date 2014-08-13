@@ -623,6 +623,9 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f04000c
 			public const int menu_edit = 2130968588;
 			
+			// aapt resource value: 0x7f04000f
+			public const int menu_new = 2130968591;
+			
 			// aapt resource value: 0x7f04000e
 			public const int menu_refresh = 2130968590;
 			
@@ -692,22 +695,22 @@ namespace TransitApp.Droid
 			public const int fragment_alerts = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int fragment_search = 2130903042;
+			public const int fragment_setting = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int fragment_setting = 2130903043;
+			public const int item_alert = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int item_alert = 2130903044;
+			public const int item_follow = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int item_follow = 2130903045;
+			public const int item_lineIcon = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int item_lineIcon = 2130903046;
+			public const int item_menu = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int item_menu = 2130903047;
+			public const int page_followEdit = 2130903047;
 			
 			// aapt resource value: 0x7f030008
 			public const int page_follows_view = 2130903048;
@@ -716,7 +719,10 @@ namespace TransitApp.Droid
 			public const int page_home_view = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int SplashScreen = 2130903050;
+			public const int page_search = 2130903050;
+			
+			// aapt resource value: 0x7f03000b
+			public const int SplashScreen = 2130903051;
 			
 			static Layout()
 			{
@@ -733,6 +739,9 @@ namespace TransitApp.Droid
 			
 			// aapt resource value: 0x7f0b0000
 			public const int alert = 2131427328;
+			
+			// aapt resource value: 0x7f0b0001
+			public const int follows = 2131427329;
 			
 			static Menu()
 			{

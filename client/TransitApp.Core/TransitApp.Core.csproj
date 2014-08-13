@@ -41,7 +41,7 @@
     <Compile Include="Services\AlertService.cs" />
     <Compile Include="Services\LocalDbService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
-    <Compile Include="ViewModels\FollowLinesViewModel.cs" />
+    <Compile Include="ViewModels\FollowEditViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
     <None Include="Services\_GtfsService.cs" />

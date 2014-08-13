@@ -5,8 +5,11 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/border"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    android:minHeight="25px"
+    android:paddingTop="3dp"
+    android:paddingRight="3dp"
+    android:paddingBottom="3dp"
+    android:paddingLeft="3dp">
     <TextView
         android:text="StationName"
         android:textAppearance="?android:attr/textAppearanceMedium"

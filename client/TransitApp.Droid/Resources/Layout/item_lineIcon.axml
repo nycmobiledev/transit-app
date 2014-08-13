@@ -8,5 +8,5 @@
         android:layout_width="12dp"
         android:layout_height="12dp"
         android:layout_margin="1dp"
-        local:MvxBind="DrawableName Line.Id, Converter=TrainIdToImagePath" />
+        local:MvxBind="DrawableName Line.Id, Converter=TrainIdToImagePath;Alpha IsFollow, Converter=IsFollowToAlpha" />
 </LinearLayout>

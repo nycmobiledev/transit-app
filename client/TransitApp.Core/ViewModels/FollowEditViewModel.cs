@@ -9,12 +9,15 @@ using TransitApp.Core.Services;
 
 namespace TransitApp.Core.ViewModels
 {
-    public class FollowEditsViewModel : BaseViewModel
+    public class FollowEditViewModel : BaseViewModel
     {
         private readonly IFollowService _service;
-        public FollowEditsViewModel(IFollowService service)
+
+        public FollowEditViewModel(IFollowService service)
         {
             _service = service;
         }
+
+        public Station Station { get; set; }
     }
 }

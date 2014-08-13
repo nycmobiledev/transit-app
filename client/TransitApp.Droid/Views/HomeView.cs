@@ -88,8 +88,8 @@ namespace TransitApp.Droid.Views
         {
             var customPresenter = Mvx.Resolve<ICustomPresenter>();
 			customPresenter.Register(typeof(AlertsViewModel), this);
-            customPresenter.Register(typeof(SearchViewModel), this);
-			customPresenter.Register(typeof(SettingViewModel), this);
+            //customPresenter.Register(typeof(SearchViewModel), this);
+			//customPresenter.Register(typeof(SettingViewModel), this);
 			customPresenter.Register(typeof(AboutViewModel), this);
         }
 

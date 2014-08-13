@@ -6,6 +6,7 @@
 using TransitApp.Droid.Helpers;
 using Cirrious.CrossCore;
 using Cirrious.MvvmCross.Droid.Views;
+using Cirrious.MvvmCross.Binding.Bindings.Target.Construction;
 
 
 namespace TransitApp.Droid
@@ -14,6 +15,7 @@ namespace TransitApp.Droid
 
     using Cirrious.MvvmCross.Droid.Platform;
     using Cirrious.MvvmCross.ViewModels;
+    using Android.Widget;
 
     /// <summary>
     ///    Defines the Setup type.
@@ -44,5 +46,8 @@ namespace TransitApp.Droid
 			Mvx.RegisterSingleton<ICustomPresenter>(customPresenter);
 			return customPresenter;
 		}
+        protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
+        {
+            registry.RegisterCustomBindingFactory<ImageView>("Alpha", v => new ImageViewAlphaTargetBinding(v)); base.FillTargetFactories(registry);}
     }
 }
