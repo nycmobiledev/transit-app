@@ -13,7 +13,7 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
         public AlertRepository(string connectionString)
             : base(
                 connectionString, "dbo.realtime_alerts",
-                new[] {new ColumnMapping("trip_id", typeof (string)), new ColumnMapping("alert_text", typeof (string))})
+                    new[] { new ColumnMapping("trip_id", typeof(string)), new ColumnMapping("alert_text", typeof(string)) })
         {}
 
         public void AddRange(IEnumerable<Alert> items)
