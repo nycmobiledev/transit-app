@@ -6,14 +6,14 @@ namespace TransitApp.Server.GTFSStatic.Core.Interfaces
 {
     public interface IStaticFileService
     {
-        IList<Agency> GetAgencies();
-        IList<Calendar> GetCalendars();
-        IList<CalendarDate> GetCalendarDates();
-        IList<Route> GetRoutes();
-        IList<Shape> GetShapes();
-        IList<Stop> GetStops();
-        IList<StopTime> GetStopTimes();
-        IList<Transfer> GetTransfers();
-        IList<Trip> GetTrips();
+        IEnumerable<Agency> GetAgencies();
+        IEnumerable<Calendar> GetCalendars();
+        IEnumerable<CalendarDate> GetCalendarDates();
+        IEnumerable<Route> GetRoutes();
+        IEnumerable<Shape> GetShapes();
+        IEnumerable<Stop> GetStops();
+        IEnumerable<StopTime> GetStopTimes();
+        IEnumerable<Transfer> GetTransfers();
+        IEnumerable<Trip> GetTrips();
     }
 }
