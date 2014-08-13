@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
+using System.Linq;
 using System.Threading.Tasks;
 using LINQtoCSV;
 using TransitApp.Server.GTFSStatic.Core.Interfaces;
 using TransitApp.Server.GTFSStatic.Core.Model;
+using Ionic.Zip;
 
 namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
 {
     public class StaticFileService : IStaticFileService
     {
         private readonly IStaticFileDownloader _downloader;
-        private ZipArchive _gtfsArchive;
+        private ZipFile _gtfsArchive;
         private readonly CsvFileDescription _inputFileDescription;
 
         public StaticFileService(IStaticFileDownloader downloader)
@@ -83,30 +84,27 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
         {
             IEnumerable<T> list = null;
             StreamReader reader = null;
-            Stream fileStream = null;
             var memoryStream = new MemoryStream();
 
             try {
                 Task.WaitAll(LoadZipFile());
-                fileStream = _gtfsArchive.GetEntry(fileName).Open();
-                fileStream.CopyTo(memoryStream);
+                var zipEntry = _gtfsArchive.Entries.SingleOrDefault(z => z.FileName == fileName);
+                zipEntry.Extract(memoryStream);
+                memoryStream.Position = 0;
+                
                 //Map CSV to Classes
                 var csvcontext = new CsvContext();
                 reader = new StreamReader(memoryStream);
-                list = csvcontext.Read<T>(reader, _inputFileDescription);
+                list = csvcontext.Read<T>(reader, _inputFileDescription).ToList();
             } catch (Exception ex) {
-
                 Console.WriteLine(ex.Message);
             } finally {
                 //Close Stream
                 if (reader != null) {
                     reader.Close();
                 }
+                
                 memoryStream.Dispose();
-
-                if (fileStream != null) {
-                    fileStream.Dispose();
-                }
             }
 
             return list;

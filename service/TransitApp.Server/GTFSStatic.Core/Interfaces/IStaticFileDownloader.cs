@@ -1,11 +1,11 @@
 ﻿using System;
-using System.IO.Compression;
 using System.Threading.Tasks;
+using Ionic.Zip;
 
 namespace TransitApp.Server.GTFSStatic.Core.Interfaces
 {
     public interface IStaticFileDownloader
     {
-        Task<ZipArchive> DownloadZipFileFromUrl(string url);
+        Task<ZipFile> DownloadZipFileFromUrl(string url);
     }
 }

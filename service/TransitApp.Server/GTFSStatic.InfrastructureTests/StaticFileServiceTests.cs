@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Ionic.Zip;
 using Moq;
 using NUnit.Framework;
 using TransitApp.Server.GTFSStatic.Core.Interfaces;
@@ -13,15 +9,15 @@ using TransitApp.Server.GTFSStatic.Infrastructure.MTA;
 namespace TransitApp.Server.GTFSStatic.InfrastructureTests
 {
     [TestFixture]
-    class StaticFileServiceTests
+    internal class StaticFileServiceTests
     {
-        private Moq.Mock<IStaticFileDownloader> _downloadMock;
-        private ZipArchive _archive;
+        private Mock<IStaticFileDownloader> _downloadMock;
+        private ZipFile _archive;
 
         [TestFixtureSetUp]
         public void SetupFixture()
         {
-            _archive = new ZipArchive(File.OpenRead("google_transit.zip"), ZipArchiveMode.Read);
+            _archive = ZipFile.Read("google_transit.zip");
             _downloadMock = new Mock<IStaticFileDownloader>(MockBehavior.Default);
             _downloadMock.Setup(d => d.DownloadZipFileFromUrl(It.IsAny<string>())).ReturnsAsync(_archive);
         }
@@ -30,9 +26,10 @@ namespace TransitApp.Server.GTFSStatic.InfrastructureTests
         public void Should_Return_One_Agency()
         {
             var service = new StaticFileService(_downloadMock.Object);
-            var list = service.GetAgencies().ToList();
-            Assert.That(list.Count, Is.EqualTo(1));
-            var agency = list[0];
+            var list = service.GetAgencies();
+            Assert.That(list.Count(), Is.EqualTo(1));
+
+            var agency = list.First();
             Assert.That(agency.Id, Is.EqualTo("MTA NYCT"));
             Assert.That(agency.Name, Is.EqualTo("MTA New York City Transit"));
             Assert.That(agency.Url, Is.EqualTo("http://www.mta.info"));
