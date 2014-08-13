@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSRealtime.Infrastructure.MTA", "GTFSRealtime.Infrastructure.MTA\GTFSRealtime.Infrastructure.MTA.csproj", "{C15B9B36-86CC-4B3D-A69C-F2334BEE99C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSRealtime.IntegrationTests", "GTFSRealtime.IntegrationTests\GTFSRealtime.IntegrationTests.csproj", "{EEF8DDB7-E927-4649-812D-CC8F9E5599DC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSRealtime.UnitTests", "GTFSRealtime.UnitTests\GTFSRealtime.UnitTests.csproj", "{051EEE47-4FD6-4672-BFB5-88E59D1AB041}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GTFSRealtime", "GTFSRealtime", "{DCFE495E-6DA5-4861-83F9-7F7A9CC4B4A5}"
 EndProject
@@ -18,6 +16,20 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSRealtime.Infrastructure.Data", "GTFSRealtime.Infrastructure.Data\GTFSRealtime.Infrastructure.Data.csproj", "{680528DD-4E0A-42EA-8539-72E8609CB9FF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSRealtime.DataLoader", "GTFSRealtime.DataLoader\GTFSRealtime.DataLoader.csproj", "{82152F59-6D4D-4B2C-944E-1EAF59874ACD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{8D4F98D4-F716-4F76-8DCE-E087B4705289}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Infrastructure.Data", "Shared.Infrastructure.Data\Shared.Infrastructure.Data.csproj", "{F448E10C-3C84-42CE-A32F-7C2D64854C82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSStatic.Core", "GTFSStatic.Core\GTFSStatic.Core.csproj", "{14B3C430-3375-44DB-9F84-D384B9929769}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSStatic.Infrastructure.MTA", "GTFSStatic.Infrastructure.MTA\GTFSStatic.Infrastructure.MTA.csproj", "{6A63A027-4855-43B8-97A7-5BF9E7934866}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Core", "Shared.Core\Shared.Core.csproj", "{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSStatic.InfrastructureTests", "GTFSStatic.InfrastructureTests\GTFSStatic.InfrastructureTests.csproj", "{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSStatic.Infrastructure.Data", "GTFSStatic.Infrastructure.Data\GTFSStatic.Infrastructure.Data.csproj", "{C1B8286B-980D-43C7-B915-44080647AF8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +45,6 @@ Global
 		{EEF8DDB7-E927-4649-812D-CC8F9E5599DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEF8DDB7-E927-4649-812D-CC8F9E5599DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEF8DDB7-E927-4649-812D-CC8F9E5599DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{051EEE47-4FD6-4672-BFB5-88E59D1AB041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{051EEE47-4FD6-4672-BFB5-88E59D1AB041}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{051EEE47-4FD6-4672-BFB5-88E59D1AB041}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{051EEE47-4FD6-4672-BFB5-88E59D1AB041}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC97C6A6-9AF4-467D-832C-8AA38DBE1C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC97C6A6-9AF4-467D-832C-8AA38DBE1C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC97C6A6-9AF4-467D-832C-8AA38DBE1C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,6 +57,30 @@ Global
 		{82152F59-6D4D-4B2C-944E-1EAF59874ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82152F59-6D4D-4B2C-944E-1EAF59874ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82152F59-6D4D-4B2C-944E-1EAF59874ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F448E10C-3C84-42CE-A32F-7C2D64854C82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F448E10C-3C84-42CE-A32F-7C2D64854C82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F448E10C-3C84-42CE-A32F-7C2D64854C82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F448E10C-3C84-42CE-A32F-7C2D64854C82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14B3C430-3375-44DB-9F84-D384B9929769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14B3C430-3375-44DB-9F84-D384B9929769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14B3C430-3375-44DB-9F84-D384B9929769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14B3C430-3375-44DB-9F84-D384B9929769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A63A027-4855-43B8-97A7-5BF9E7934866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A63A027-4855-43B8-97A7-5BF9E7934866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A63A027-4855-43B8-97A7-5BF9E7934866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A63A027-4855-43B8-97A7-5BF9E7934866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1B8286B-980D-43C7-B915-44080647AF8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1B8286B-980D-43C7-B915-44080647AF8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1B8286B-980D-43C7-B915-44080647AF8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1B8286B-980D-43C7-B915-44080647AF8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,10 +88,15 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C15B9B36-86CC-4B3D-A69C-F2334BEE99C1} = {DCFE495E-6DA5-4861-83F9-7F7A9CC4B4A5}
 		{EEF8DDB7-E927-4649-812D-CC8F9E5599DC} = {DCFE495E-6DA5-4861-83F9-7F7A9CC4B4A5}
-		{051EEE47-4FD6-4672-BFB5-88E59D1AB041} = {DCFE495E-6DA5-4861-83F9-7F7A9CC4B4A5}
 		{CC97C6A6-9AF4-467D-832C-8AA38DBE1C03} = {DCFE495E-6DA5-4861-83F9-7F7A9CC4B4A5}
 		{680528DD-4E0A-42EA-8539-72E8609CB9FF} = {DCFE495E-6DA5-4861-83F9-7F7A9CC4B4A5}
 		{82152F59-6D4D-4B2C-944E-1EAF59874ACD} = {DCFE495E-6DA5-4861-83F9-7F7A9CC4B4A5}
+		{F448E10C-3C84-42CE-A32F-7C2D64854C82} = {8D4F98D4-F716-4F76-8DCE-E087B4705289}
+		{14B3C430-3375-44DB-9F84-D384B9929769} = {117AF31D-30AB-4673-8023-E7F2560C2AD0}
+		{6A63A027-4855-43B8-97A7-5BF9E7934866} = {117AF31D-30AB-4673-8023-E7F2560C2AD0}
+		{E779BEC0-529F-4C4D-BADF-84B81C0AEA0A} = {8D4F98D4-F716-4F76-8DCE-E087B4705289}
+		{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5} = {117AF31D-30AB-4673-8023-E7F2560C2AD0}
+		{C1B8286B-980D-43C7-B915-44080647AF8F} = {117AF31D-30AB-4673-8023-E7F2560C2AD0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45

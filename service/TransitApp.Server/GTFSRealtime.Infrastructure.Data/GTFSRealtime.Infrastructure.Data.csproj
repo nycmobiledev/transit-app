@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling">
-      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data">
-      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,10 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlertRepository.cs" />
-    <Compile Include="BulkWriter.cs" />
-    <Compile Include="ColumnMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryBase.cs" />
     <Compile Include="StopTimeUpdateRepository.cs" />
     <Compile Include="TripRepository.cs" />
     <Compile Include="VehiclePositionRepository.cs" />
@@ -60,9 +51,14 @@
       <Project>{cc97c6a6-9af4-467d-832c-8aa38dbe1c03}</Project>
       <Name>GTFSRealtime.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Shared.Core\Shared.Core.csproj">
+      <Project>{e779bec0-529f-4c4d-badf-84b81c0aea0a}</Project>
+      <Name>Shared.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared.Infrastructure.Data\Shared.Infrastructure.Data.csproj">
+      <Project>{f448e10c-3c84-42ce-a32f-7c2d64854c82}</Project>
+      <Name>Shared.Infrastructure.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

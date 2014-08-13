@@ -7,7 +7,7 @@
     <ProjectGuid>{82152F59-6D4D-4B2C-944E-1EAF59874ACD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GTFSRealtime.DataLoader</RootNamespace>
+    <RootNamespace>TransitApp.Server.GTFSRealtime.DataLoader</RootNamespace>
     <AssemblyName>GTFSRealtime.DataLoader</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -66,6 +66,14 @@
     <ProjectReference Include="..\GTFSRealtime.Infrastructure.MTA\GTFSRealtime.Infrastructure.MTA.csproj">
       <Project>{c15b9b36-86cc-4b3d-a69c-f2334bee99c1}</Project>
       <Name>GTFSRealtime.Infrastructure.MTA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared.Core\Shared.Core.csproj">
+      <Project>{e779bec0-529f-4c4d-badf-84b81c0aea0a}</Project>
+      <Name>Shared.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared.Infrastructure.Data\Shared.Infrastructure.Data.csproj">
+      <Project>{f448e10c-3c84-42ce-a32f-7c2d64854c82}</Project>
+      <Name>Shared.Infrastructure.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
