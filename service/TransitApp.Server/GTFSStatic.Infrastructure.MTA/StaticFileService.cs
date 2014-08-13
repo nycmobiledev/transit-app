@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Ionic.Zip;
 using LINQtoCSV;
 using TransitApp.Server.GTFSStatic.Core.Interfaces;
 using TransitApp.Server.GTFSStatic.Core.Model;
-using Ionic.Zip;
 
 namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
 {
-    public class StaticFileService : IStaticFileService
+    public class StaticFileService : IStaticFileService, IDisposable
     {
         private readonly IStaticFileDownloader _downloader;
-        private ZipFile _gtfsArchive;
         private readonly CsvFileDescription _inputFileDescription;
+        private bool _disposed;
+        private ZipFile _gtfsArchive;
 
         public StaticFileService(IStaticFileDownloader downloader)
         {
             _downloader = downloader;
-            _inputFileDescription = new CsvFileDescription {
-                SeparatorChar = ',',
-                FirstLineHasColumnNames = true
-            };
+            _inputFileDescription = new CsvFileDescription {SeparatorChar = ',', FirstLineHasColumnNames = true};
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public IEnumerable<Agency> GetAgencies()
@@ -80,9 +84,9 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
             }
         }
 
-        private IEnumerable<T> GetObjectsFromCsv<T>(string fileName) where T : class, new()
+        private IList<T> GetObjectsFromCsv<T>(string fileName) where T : class, new()
         {
-            IEnumerable<T> list = null;
+            IList<T> list = null;
             StreamReader reader = null;
             var memoryStream = new MemoryStream();
 
@@ -90,8 +94,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
                 Task.WaitAll(LoadZipFile());
                 var zipEntry = _gtfsArchive.Entries.SingleOrDefault(z => z.FileName == fileName);
                 zipEntry.Extract(memoryStream);
-                memoryStream.Position = 0;
-                
+                //memoryStream.Position = 0;
+
                 //Map CSV to Classes
                 var csvcontext = new CsvContext();
                 reader = new StreamReader(memoryStream);
@@ -103,11 +107,32 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
                 if (reader != null) {
                     reader.Close();
                 }
-                
+
                 memoryStream.Dispose();
             }
 
             return list;
+        }
+
+        ~StaticFileService()
+        {
+            Dispose(false);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) {
+                return;
+            }
+
+            if (disposing) {
+                _gtfsArchive.Dispose();
+            }
+
+            // release any unmanaged objects
+            // set the object references to null
+
+            _disposed = true;
         }
     }
 }
