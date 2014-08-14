@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSRealtime.Infrastructure.MTA", "GTFSRealtime.Infrastructure.MTA\GTFSRealtime.Infrastructure.MTA.csproj", "{C15B9B36-86CC-4B3D-A69C-F2334BEE99C1}"
 EndProject
@@ -30,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSStatic.InfrastructureTests", "GTFSStatic.InfrastructureTests\GTFSStatic.InfrastructureTests.csproj", "{FC2F3C21-7921-4A47-BDAF-4F35EB15E9B5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTFSStatic.Infrastructure.Data", "GTFSStatic.Infrastructure.Data\GTFSStatic.Infrastructure.Data.csproj", "{C1B8286B-980D-43C7-B915-44080647AF8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{86447A4C-9B97-4664-870F-59C251185613}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{C1B8286B-980D-43C7-B915-44080647AF8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1B8286B-980D-43C7-B915-44080647AF8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1B8286B-980D-43C7-B915-44080647AF8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86447A4C-9B97-4664-870F-59C251185613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86447A4C-9B97-4664-870F-59C251185613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86447A4C-9B97-4664-870F-59C251185613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86447A4C-9B97-4664-870F-59C251185613}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
