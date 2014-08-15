@@ -3,6 +3,10 @@
 //    Defines the BaseViewModel type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+using System.Windows.Input;
+using System.Threading.Tasks;
+
+
 namespace TransitApp.Core.ViewModels
 {
     using System;
@@ -73,5 +77,69 @@ namespace TransitApp.Core.ViewModels
         {
             //Connect to webservice here?
         }
+    }
+
+    public abstract class BaseViewModel<TData> : BaseViewModel where TData : new()
+    {
+
+        private bool _isBusy;
+
+        public bool IsBusy {
+            get { return _isBusy; }
+            set {
+                _isBusy = value;
+                RaisePropertyChanged (() => IsBusy);
+            }
+        }
+
+
+        private TData _data;
+
+        public TData Data {
+            get { return _data; }
+            set { 
+                _data = value;
+                RaisePropertyChanged (() => Data);
+            }
+        }
+
+
+        protected BaseViewModel () : base ()
+        {
+            _data = new TData ();
+        }
+
+
+        private ICommand _loadCommand;
+
+        public ICommand LoadCommand {
+            get {
+                return _loadCommand ?? (_loadCommand = new MvxCommand (async () => {
+                    IsBusy = true;
+                    await ExecuteLoadCommand ();
+                    IsBusy = false;
+                }
+                ));
+            }
+        }
+
+
+
+        protected abstract Task ExecuteLoadCommand();
+
+        protected virtual async Task FetchData ()
+        {
+            await ProcessData ();
+
+        }
+
+        protected virtual async Task ProcessData ()
+        {
+
+        }
+
+
+
+
     }
 }
