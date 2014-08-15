@@ -21,7 +21,7 @@ namespace TransitApp.Core.Tests.Services
 
         public override void CreateTestableObject()
         {
-            this.followService = new FollowService(Ioc.Resolve<ILocalDbService>());
+            this.followService = new FollowService(Ioc.Resolve<ILocalDataService>());
         }
 
         [Test]

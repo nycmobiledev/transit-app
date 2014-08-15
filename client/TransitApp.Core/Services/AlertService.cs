@@ -8,17 +8,17 @@ namespace TransitApp.Core.Services
 {
     public class AlertService : IAlertService
     {
-        private readonly ILocalDbService _LocalDbService;
+        private readonly IFollowService _followService;
         private readonly IWebService _WebService;
-        public AlertService(ILocalDbService localDbService, IWebService webService)
+        public AlertService(IFollowService followService, IWebService webService)
         {
             _WebService = webService;
-            _LocalDbService = localDbService;
+            _followService = followService;
         }
 
         public ICollection<Alert> GetAlerts()
         {            
-            var follows = _LocalDbService.GetFollows();            
+            var follows = _followService.GetFollows();            
          
             return _WebService.GetAlerts(follows);
         }

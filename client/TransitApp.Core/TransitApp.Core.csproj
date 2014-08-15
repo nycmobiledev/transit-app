@@ -37,18 +37,21 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\FollowLine.cs" />
+    <Compile Include="Models\FollowStation.cs" />
     <Compile Include="Services\IAlertService.cs" />
     <Compile Include="Services\AlertService.cs" />
-    <Compile Include="Services\LocalDbService.cs" />
+    <Compile Include="Services\LocalDataService.cs" />
+    <Compile Include="Services\MockFollowService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\FollowEditViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
+    <EmbeddedResource Include="LocalData.json" />
     <None Include="Services\_GtfsService.cs" />
     <Compile Include="Services\IFollowService.cs" />
     <Compile Include="Services\FollowService.cs" />
-    <Compile Include="Services\ILocalDbService.cs" />
-    <Compile Include="Services\MockLocalDbService.cs" />
+    <Compile Include="Services\ILocalDataService.cs" />
     <Compile Include="Services\IWebService.cs" />
     <Compile Include="Services\MockWebService.cs" />
     <Compile Include="Models\Station.cs" />
@@ -60,7 +63,6 @@
     <Compile Include="Models\Follow.cs" />
     <Compile Include="Converters\GeoLocationConverter.cs" />
     <Compile Include="Converters\RoundConverter.cs" />
-    <Compile Include="swp8\Bootstrap\CommunitySqlitePluginBootstrap.cs" />
     <Compile Include="ViewModels\AlertsViewModel.cs" />
     <Compile Include="Converters\ArriveTimeConverter.cs" />
     <Compile Include="ViewModels\FollowsViewModel.cs" />
@@ -76,14 +78,14 @@
     <Reference Include="Cirrious.MvvmCross">
       <HintPath>..\..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite">
-      <HintPath>..\..\packages\MvvmCross.Community.Plugin.Sqlite.3.1.1\lib\portable-win+net45+MonoAndroid+MonoTouch+sl5+wp8\Cirrious.MvvmCross.Community.Plugins.Sqlite.dll</HintPath>
-    </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.Location">
       <HintPath>..\..\packages\MvvmCross.HotTuna.Plugin.Location.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Plugins.Location.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.Messenger">
       <HintPath>..\..\packages\MvvmCross.HotTuna.Plugin.Messenger.3.1.1\lib\portable-win+net45+sl50+wp8+MonoAndroid+MonoTouch\Cirrious.MvvmCross.Plugins.Messenger.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup />

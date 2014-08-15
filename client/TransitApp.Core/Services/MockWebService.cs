@@ -9,9 +9,9 @@ namespace TransitApp.Core.Services
     public class MockWebService : IWebService
     {
         private Random _random = new Random(1);
-        private readonly ILocalDbService _localDbService;
+        private readonly ILocalDataService _localDbService;
 
-        public MockWebService(ILocalDbService localDbService)
+        public MockWebService(ILocalDataService localDbService)
         {
             _localDbService = localDbService;
         }
@@ -33,8 +33,8 @@ namespace TransitApp.Core.Services
                 {
                     TrainId = _random.Next(20).ToString(),
                     ArriveTime = DateTime.Now.AddMinutes(_random.Next(20)),
-                    Station = _localDbService.Get<Station>(follow.StationId),
-                    Line = _localDbService.Get<Line>(follow.LineId)
+                    Station = _localDbService.GetStation(follow.StationId),
+                    Line = _localDbService.GetLine(follow.LineId)
                 });
             }
 

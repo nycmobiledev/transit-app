@@ -194,7 +194,9 @@
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_action_new.png" />
     <AndroidResource Include="Resources\Layout\item_alert.axml" />
     <AndroidResource Include="Resources\Layout\item_menu.axml" />
-    <AndroidResource Include="Resources\Layout\page_follows_view.axml" />
+    <AndroidResource Include="Resources\Layout\page_follows_view.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\Layout\item_follow.axml" />
     <AndroidResource Include="Resources\Drawable\border.xml" />
     <AndroidResource Include="Resources\Layout\item_lineIcon.axml" />

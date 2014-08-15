@@ -1,4 +1,3 @@
-using Cirrious.MvvmCross.Community.Plugins.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +6,10 @@ using TransitApp.Core.Models;
 
 namespace TransitApp.Core.Services
 {
-    public interface ILocalDbService
+    public interface ILocalDataService
     {
-        ISQLiteConnection Connection { get; }
-        
-        T Get<T>(object id) where T : new();         
-
-        ICollection<Follow> GetFollows();
+        Station GetStation(string id);
+        Line GetLine(string id);
 
         ICollection<Line> GetLines(IEnumerable<string> ids);
         

@@ -46,17 +46,6 @@ namespace TransitApp.Core.Tests
             Ioc.RegisterSingleton<IMvxTrace>(new TestTrace());
             Ioc.RegisterSingleton<IMvxSettings>(new MvxSettings());
 
-
-
-			IMvxPluginManager pluginManager = new MvxFilePluginManager(".wpf", string.Empty);
-			Ioc.RegisterSingleton( pluginManager );
-
-			var sqlitePluginBootstrap = new SqlitePluginBootstrap();
-			sqlitePluginBootstrap.Run();
-
-			Ioc.RegisterSingleton<ISQLiteConnectionFactory> (new MvxWpfSqLiteConnectionFactory());
-			Ioc.RegisterType<ILocalDbService, MockLocalDbService> ();
-
             this.Initialize();
             this.CreateTestableObject();
         }

@@ -13,9 +13,9 @@ namespace TransitApp.Core.ViewModels
     public class SearchViewModel : BaseViewModel
     {
 		private IWebService _webService;
-		private ILocalDbService _localDbService;
+		private ILocalDataService _localDbService;
 
-		public SearchViewModel(IWebService webService, ILocalDbService localDbService)
+		public SearchViewModel(IWebService webService, ILocalDataService localDbService)
 		{
 			_webService = webService;
 
