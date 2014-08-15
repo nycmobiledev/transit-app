@@ -710,7 +710,7 @@ namespace TransitApp.Droid
 			public const int item_menu = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int page_followEdit = 2130903047;
+			public const int page_followEdit_view = 2130903047;
 			
 			// aapt resource value: 0x7f030008
 			public const int page_follows_view = 2130903048;

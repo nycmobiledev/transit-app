@@ -9,50 +9,49 @@ using TransitApp.Core.Services;
 
 namespace TransitApp.Core.ViewModels
 {
-    public class FollowsViewModel : BaseViewModel
-    {
-        private readonly IFollowService _service;
-        private ICollection<FollowStation> _follows;
+	public class FollowsViewModel : BaseViewModel
+	{
+		private readonly IFollowService _service;
+		private ICollection<FollowStation> _follows;
 
-        public FollowsViewModel(IFollowService service)
-        {
-            _service = service;
-            RefleshFollows();
-        }
+		public FollowsViewModel (IFollowService service)
+		{
+			_service = service;
+			RefleshFollows ();
+		}
 
-        public ICollection<FollowStation> Follows
-        {
-            get
-            {
-                return _follows;
-            }
-            set
-            {
-                this._follows = value;
-                this.RaisePropertyChanged(() => this.Follows);
-            }
-        }
+		public ICollection<FollowStation> Follows {
+			get {
+				return _follows;
+			}
+			set {
+				this._follows = value;
+				this.RaisePropertyChanged (() => this.Follows);
+			}
+		}
 
-        public ICommand GoToEditCommand
-        {
-            get
-            {
-                return new MvxCommand(() => ShowViewModel<FollowEditViewModel>());
-            }
-        }
+		private Cirrious.MvvmCross.ViewModels.MvxCommand<FollowStation> _goToEditCommandg;
 
-        public ICommand GoToAddCommand
-        {
-            get
-            {
-                return new MvxCommand(() => ShowViewModel<SearchViewModel>());
-            }
-        }
+		public ICommand GoToEditCommand {
+			get {
+				_goToEditCommandg = _goToEditCommandg ?? new MvxCommand<FollowStation> ((x) => 
+					ShowViewModel<FollowEditViewModel> (x.Station)
+				);
 
-        private void RefleshFollows()
-        {
-            Follows = _service.GetFollowsGroupByStation();
-        }
+				return _goToEditCommandg;
+			}
+		}
 
-    }
+		public ICommand GoToAddCommand {
+			get {
+				return new MvxCommand (() => ShowViewModel<SearchViewModel> ());
+			}
+		}
+
+		private void RefleshFollows ()
+		{
+			Follows = _service.GetFollowsGroupByStation ();
+		}
+
+	}
 }

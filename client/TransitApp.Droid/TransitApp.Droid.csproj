@@ -198,7 +198,7 @@
     <AndroidResource Include="Resources\Layout\item_follow.axml" />
     <AndroidResource Include="Resources\Drawable\border.xml" />
     <AndroidResource Include="Resources\Layout\item_lineIcon.axml" />
-    <AndroidResource Include="Resources\Layout\page_followEdit.axml" />
+    <AndroidResource Include="Resources\Layout\page_followEdit_view.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

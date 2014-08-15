@@ -8,8 +8,8 @@ using TransitApp.Core.ViewModels;
 
 namespace TransitApp.Droid.Views
 {
-    [Activity(Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(HomeView))]
-    [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.HomeView")]
+	[Activity(Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
+    [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.FollowsView")]
     public class FollowEditView : MvxActivity
 	{
         protected override void OnViewModelSet()
@@ -17,7 +17,7 @@ namespace TransitApp.Droid.Views
             base.OnViewModelSet();
 
             this.Title = ((FollowEditViewModel)this.ViewModel).Station.Name;
-            SetContentView(Resource.Layout.page_search);
+            SetContentView(Resource.Layout.page_followEdit_view);
 
             ActionBar.SetDisplayHomeAsUpEnabled(true);
             ActionBar.SetHomeButtonEnabled(true);            

@@ -9,7 +9,8 @@
     android:paddingTop="3dp"
     android:paddingRight="3dp"
     android:paddingBottom="3dp"
-    android:paddingLeft="3dp">
+    android:paddingLeft="3dp"
+    android:descendantFocusability="blocksDescendants">
     <TextView
         android:text="StationName"
         android:textAppearance="?android:attr/textAppearanceMedium"
