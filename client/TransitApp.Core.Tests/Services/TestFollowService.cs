@@ -10,6 +10,7 @@ namespace TransitApp.Core.Tests.Services
     using NUnit.Framework;
 
     using TransitApp.Core.Services;
+    using Cirrious.MvvmCross.Plugins.File;
 
     /// <summary>
     /// Defines the TestFirstViewModel type.
@@ -21,7 +22,7 @@ namespace TransitApp.Core.Tests.Services
 
         public override void CreateTestableObject()
         {
-            this.followService = new FollowService(Ioc.Resolve<ILocalDataService>());
+            this.followService = new MockFollowService(Ioc.Resolve<IMvxFileStore>(), Ioc.Resolve<ILocalDataService>());
         }
 
         [Test]
@@ -76,44 +77,6 @@ namespace TransitApp.Core.Tests.Services
             Assert.IsFalse(follows.First(x => x.Station.Id == "701").Lines.First(x => x.Line.Id == "7X").IsFollow);
 
             Assert.IsFalse(follows.First(x => x.Station.Id == "501").Lines.First(x => x.Line.Id == "5").IsFollow);
-        }
-
-        ///// <summary>
-        ///// Tests my property.
-        ///// </summary>
-        //[Test]
-        //public void TestMyProperty()
-        //{
-        //    //// arrange
-        //    bool changed = false;
-
-        //    this.firstViewModel.PropertyChanged += (sender, args) =>
-        //        {
-        //            if (args.PropertyName == "MyProperty")
-        //            {
-        //                changed = true;
-        //            }
-        //        };
-
-        //    //// act
-        //    this.firstViewModel.MyProperty = "Hello MvvmCross";
-
-        //    //// assert
-        //    Assert.AreEqual(changed, true);
-        //}
-
-        ///// <summary>
-        ///// Tests my command.
-        ///// </summary>
-        //[Test]
-        //public void TestMyCommand()
-        //{
-        //    //// arrange
-
-        //    //// act
-        //    this.firstViewModel.MyCommand.Execute(null);
-
-        //    //// assert
-        //}
+        }        
     }
 }

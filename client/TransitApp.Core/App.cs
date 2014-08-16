@@ -15,6 +15,8 @@ namespace TransitApp.Core
         /// </summary>
         public override void Initialize()
         {
+            Cirrious.MvvmCross.Plugins.File.PluginLoader.Instance.EnsureLoaded();
+
             this.CreatableTypes()
                 .EndingWith("Service")
                 .AsInterfaces()

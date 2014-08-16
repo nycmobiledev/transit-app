@@ -4,11 +4,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 using TransitApp.Core.Services;
-using Cirrious.MvvmCross.Community.Plugins.Sqlite;
-using TransitApp.Core.Tests.Bootstrap;
 using Cirrious.CrossCore.Plugins;
-using Cirrious.MvvmCross.Community.Plugins.Sqlite.Wpf;
-
 
 namespace TransitApp.Core.Tests
 {
@@ -19,6 +15,8 @@ namespace TransitApp.Core.Tests
     using Cirrious.MvvmCross.Views;
     using Mocks;
     using NUnit.Framework;
+    using Cirrious.MvvmCross.Plugins.File;
+    using Cirrious.MvvmCross.Plugins.File.Wpf;
 
     /// <summary>
     /// Defines the BaseTest type.
@@ -40,11 +38,15 @@ namespace TransitApp.Core.Tests
             this.ClearAll();
 
             this.mockDispatcher = new MockDispatcher();
-
+            
             Ioc.RegisterSingleton<IMvxViewDispatcher>(this.mockDispatcher);
             Ioc.RegisterSingleton<IMvxMainThreadDispatcher>(this.mockDispatcher);
             Ioc.RegisterSingleton<IMvxTrace>(new TestTrace());
             Ioc.RegisterSingleton<IMvxSettings>(new MvxSettings());
+
+            Ioc.RegisterSingleton<IMvxFileStore>(new MvxWpfFileStore());
+
+            Ioc.RegisterType<ILocalDataService, LocalDataService>();                        
 
             this.Initialize();
             this.CreateTestableObject();

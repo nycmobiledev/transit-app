@@ -1,3 +1,6 @@
+using Cirrious.CrossCore;
+using Cirrious.MvvmCross.Plugins.File;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,84 +12,111 @@ namespace TransitApp.Core.Services
     public class FollowService : IFollowService
     {
         private readonly ILocalDataService _localDbService;
+        private IMvxFileStore _fileService;
+        private HashSet<Follow> _follows;
+        private const string _customerFollowFilePath = "CustomerFollow.json";
 
-        public FollowService(ILocalDataService localDbService)
+
+
+        public FollowService(IMvxFileStore fileService, ILocalDataService localDbService)
         {
             _localDbService = localDbService;
+            _fileService = fileService;
+
+            ReadFollows();
         }
 
         public ICollection<Follow> GetFollows()
         {
-            //var follows = _localDbService.GetFollows();
-
-            //return follows;
-
-            throw new NotImplementedException();
+            return _follows;
         }
 
-        //public ICollection<Follow> GetFollows()
-        //{
-        //    var follows = Connection.Table<Follow>().ToList();
-
-        //    foreach (var follow in follows)
-        //    {
-        //        follow.Line = this.Get<Line>(follow.LineId);
-        //        follow.Station = this.Get<Station>(follow.StationId);
-        //    }
-
-        //    return follows;
-        //}
-
+                
         public ICollection<FollowStation> GetFollowsGroupByStation()
         {
-            throw new NotImplementedException();
+            //Match Station.Lines and User.Follows.Lines
 
-            //var follows = _localDbService.GetFollows();
-            //var followStations = new List<FollowStation>();
+            var followStations = new List<FollowStation>();            
 
-            //var i = follows.GroupBy(x => x.Station).Count();
+            foreach (var followGroup in _follows.GroupBy(x => x.Station))
+            {
+                var fs = new FollowStation() { Station = followGroup.Key };
+                fs.Lines = new List<FollowLine>();
 
-            //foreach (var followGroup in follows.GroupBy(x => x.Station))
-            //{
-            //    var fs = new FollowStation() { Station = followGroup.Key };
-            //    fs.Lines = new List<FollowLine>();
+                foreach (var line in followGroup.Key.Lines)
+                {
+                    fs.Lines.Add(new FollowLine()
+                    {
+                        Line = line,
+                        IsFollow = followGroup.Any(x => x.LineId == line.Id)
+                    });
+                }
 
-            //    foreach (var line in followGroup.Key.Lines)
-            //    {
-            //        fs.Lines.Add(new FollowLine()
-            //        {
-            //            Line = line,
-            //            IsFollow = followGroup.Any(x => x.LineId == line.Id)
-            //        });
-            //    }
+                followStations.Add(fs);
+            }
 
-            //    followStations.Add(fs);
-            //}
-
-            //return followStations;
+            return followStations;
         }
 
         public void AddFollows(string stationId, string[] lineIds)
         {
             foreach (var lineId in lineIds)
             {
-                //_localDbService.Connection.InsertOrReplace(new Follow() { StationId = stationId, LineId = lineId });
+                _follows.Add(new Follow()
+                {
+                    StationId = stationId,
+                    Station = _localDbService.GetStation(stationId),
+                    LineId = lineId,
+                    Line = _localDbService.GetLine(lineId)
+                });
             }
+
+            WriteFollows();
         }
 
         public void DeleteFollows(string stationId, string[] lineIds = null)
         {
             if (lineIds == null || lineIds.Length == 0)
             {
-                //_localDbService.Connection.Execute("DELETE FROM Follows WHERE StationId=@1", stationId);
+                foreach (var follow in _follows.Where(x => x.StationId == stationId).ToArray())
+                {
+                    _follows.Remove(follow);
+                }
             }
             else
             {
-                foreach (var lineId in lineIds)
+                foreach (var follow in _follows.Where(x => x.StationId == stationId && lineIds.Contains(x.LineId)).ToArray())
                 {
-                    //_localDbService.Connection.Delete(new Follow() { StationId = stationId, LineId = lineId });
+                    _follows.Remove(follow);
                 }
             }
+
+            WriteFollows();
+        }
+
+        private void ReadFollows()
+        {
+            string json;
+            if (_fileService.TryReadTextFile(_customerFollowFilePath, out json))
+            {
+                _follows = JsonConvert.DeserializeObject<HashSet<Follow>>(json);
+
+                foreach (var item in _follows)
+                {
+                    item.Station = _localDbService.GetStation(item.StationId);
+                    item.Line = _localDbService.GetLine(item.LineId);
+                }
+            }
+            else
+            {
+                _follows = new HashSet<Follow>();
+            }
+        }
+
+        private void WriteFollows()
+        {
+            var json = JsonConvert.SerializeObject(_follows);
+            _fileService.WriteFile(_customerFollowFilePath, json);
         }
     }
 }
