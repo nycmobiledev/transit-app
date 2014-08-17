@@ -18,11 +18,11 @@ namespace TransitApp.Core.Tests.Services
     [TestFixture]
     public class TestFollowService : BaseTest
     {
-        FollowService followService;
+        IFollowService followService;
 
         public override void CreateTestableObject()
         {
-            this.followService = new MockFollowService(Ioc.Resolve<IMvxFileStore>(), Ioc.Resolve<ILocalDataService>());
+            this.followService = Ioc.Resolve<IFollowService>();
         }
 
         [Test]

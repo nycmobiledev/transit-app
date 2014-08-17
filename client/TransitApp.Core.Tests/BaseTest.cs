@@ -17,6 +17,7 @@ namespace TransitApp.Core.Tests
     using NUnit.Framework;
     using Cirrious.MvvmCross.Plugins.File;
     using Cirrious.MvvmCross.Plugins.File.Wpf;
+    using Cirrious.MvvmCross.Plugins.Messenger;
 
     /// <summary>
     /// Defines the BaseTest type.
@@ -46,7 +47,10 @@ namespace TransitApp.Core.Tests
 
             Ioc.RegisterSingleton<IMvxFileStore>(new MvxWpfFileStore());
 
-            Ioc.RegisterType<ILocalDataService, LocalDataService>();                        
+            Ioc.RegisterType<ILocalDataService, LocalDataService>();
+            Ioc.RegisterType<IMvxMessenger, MvxMessengerHub>();
+            Ioc.RegisterType<IFollowService, MockFollowService>();                        
+                       
 
             this.Initialize();
             this.CreateTestableObject();

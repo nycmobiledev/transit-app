@@ -1,4 +1,5 @@
-﻿using Cirrious.MvvmCross.ViewModels;
+﻿using Cirrious.MvvmCross.Plugins.Messenger;
+using Cirrious.MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,18 @@ namespace TransitApp.Core.ViewModels
 {
 	public class FollowsViewModel : BaseViewModel
 	{
+
+        private readonly IMvxMessenger _messenger;
 		private readonly IFollowService _service;
 		private ICollection<FollowStation> _follows;
+        private MvxCommand<FollowStation> _goToEditCommandg;
 
-		public FollowsViewModel (IFollowService service)
+		public FollowsViewModel (IFollowService service, IMvxMessenger messenger)
 		{
-			_service = service;
+            _messenger = messenger;
+            _service = service;
 			RefleshFollows ();
+            _messenger.Subscribe<FollowsChanged>(x => RefleshFollows());
 		}
 
 		public ICollection<FollowStation> Follows {
@@ -30,8 +36,7 @@ namespace TransitApp.Core.ViewModels
 			}
 		}
 
-		private Cirrious.MvvmCross.ViewModels.MvxCommand<FollowStation> _goToEditCommandg;
-
+  
 		public ICommand GoToEditCommand {
 			get {
 				_goToEditCommandg = _goToEditCommandg ?? new MvxCommand<FollowStation> ((x) => 

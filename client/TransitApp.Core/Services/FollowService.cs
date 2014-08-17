@@ -1,5 +1,6 @@
 using Cirrious.CrossCore;
 using Cirrious.MvvmCross.Plugins.File;
+using Cirrious.MvvmCross.Plugins.Messenger;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,13 @@ namespace TransitApp.Core.Services
         private IMvxFileStore _fileService;
         private HashSet<Follow> _follows;
         private const string _customerFollowFilePath = "CustomerFollow.json";
+        private readonly IMvxMessenger _messenger;
+        
 
 
-
-        public FollowService(IMvxFileStore fileService, ILocalDataService localDbService)
+        public FollowService(IMvxFileStore fileService, ILocalDataService localDbService, IMvxMessenger messenger)
         {
+            _messenger = messenger;
             _localDbService = localDbService;
             _fileService = fileService;
 
@@ -117,6 +120,8 @@ namespace TransitApp.Core.Services
         {
             var json = JsonConvert.SerializeObject(_follows);
             _fileService.WriteFile(_customerFollowFilePath, json);
+
+            _messenger.Publish(new FollowsChanged(this));
         }
     }
 }
