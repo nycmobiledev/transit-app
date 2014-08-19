@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using TransitApp.Server.Shared.Core.Interfaces;
 
 namespace TransitApp.Server.Shared.Infrastructure.Data
 {
-    public abstract class RepositoryBase<T> : IDisposable
+    public abstract class RepositoryBase<T> : IDisposable, IGTFSRepository<T>
     {
         private readonly IList<ColumnMapping> _columnMappings;
         private readonly string _connectionString;
@@ -41,24 +42,6 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
                 columnMapping => columnMapping.DataTableColumnName);
         }
 
-        protected void SqlBulkInsertTable(IEnumerable<T> items)
-        {
-            CreateDataTableFromItems(items);
-            var map = CreateMappingDictionary();
-            var bulk = new BulkWriter(_tableName, map, _connectionString);
-            bulk.WriteWithRetries(InsertDataTable);
-        }
-
-        protected void PurgeTable()
-        {
-            using (var conn = new SqlConnection(_connectionString)) {
-                using (var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", _tableName), conn)) {
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
-
         ~RepositoryBase()
         {
             Dispose(false);
@@ -79,6 +62,26 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
             // set the object references to null
 
             _disposed = true;
+        }
+
+        public void AddRange(IEnumerable<T> items)
+        {
+            CreateDataTableFromItems(items);
+            var map = CreateMappingDictionary();
+            var bulk = new BulkWriter(_tableName, map, _connectionString);
+            bulk.WriteWithRetries(InsertDataTable);
+        }
+
+        public void ClearAll()
+        {
+            using (var conn = new SqlConnection(_connectionString))
+            {
+                using (var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", _tableName), conn))
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
