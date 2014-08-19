@@ -40,8 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgencyRepository.cs" />
+    <Compile Include="CalendarDateRepository.cs" />
     <Compile Include="CalendarRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteRepository.cs" />
+    <Compile Include="ShapeRepository.cs" />
+    <Compile Include="StopRepository.cs" />
+    <Compile Include="StopTimeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GTFSStatic.Core\GTFSStatic.Core.csproj">
