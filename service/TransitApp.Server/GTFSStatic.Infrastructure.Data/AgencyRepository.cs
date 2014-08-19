@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using TransitApp.Server.GTFSStatic.Core.Model;
-using TransitApp.Server.Shared.Core.Interfaces;
 using TransitApp.Server.Shared.Infrastructure.Data;
 
 namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 {
-    internal class AgencyRepository : RepositoryBase<Agency>, IGTFSRepository<Agency>
+    public class AgencyRepository : RepositoryBase<Agency>
     {
         public AgencyRepository(string connectionString)
             : base(connectionString, "dbo.agency",
@@ -19,16 +18,6 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
                     new ColumnMapping("agency_lang", typeof (string)),
                     new ColumnMapping("agency_phone", typeof (string))
                 }) {}
-
-        public void AddRange(IEnumerable<Agency> items)
-        {
-            SqlBulkInsertTable(items);
-        }
-
-        public void ClearAll()
-        {
-            PurgeTable();
-        }
 
         public override void CreateDataTableFromItems(IEnumerable<Agency> items)
         {
