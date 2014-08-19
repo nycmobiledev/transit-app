@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TransitApp.Server.GTFSRealtime.Core.Interfaces;
 using TransitApp.Server.GTFSRealtime.Core.Model;
-using TransitApp.Server.Shared.Core.Interfaces;
 using TransitApp.Server.Shared.Infrastructure.Data;
 
 namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
-    public class VehiclePositionRepository : RepositoryBase<VehiclePosition>, IGTFSRepository<VehiclePosition>
+    public class VehiclePositionRepository : RepositoryBase<VehiclePosition>
     {
         public VehiclePositionRepository(string connectionString)
             : base(
@@ -22,16 +20,6 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
                     new ColumnMapping("stop_id", typeof (string))
                 })
         {}
-
-        public void AddRange(IEnumerable<VehiclePosition> items)
-        {
-            SqlBulkInsertTable(items);
-        }
-
-        public void ClearAll()
-        {
-            PurgeTable();
-        }
 
         public override void CreateDataTableFromItems(IEnumerable<VehiclePosition> items)
         {
