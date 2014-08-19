@@ -47,6 +47,8 @@
     <Compile Include="ShapeRepository.cs" />
     <Compile Include="StopRepository.cs" />
     <Compile Include="StopTimeRepository.cs" />
+    <Compile Include="TransferRepository.cs" />
+    <Compile Include="TripRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GTFSStatic.Core\GTFSStatic.Core.csproj">
