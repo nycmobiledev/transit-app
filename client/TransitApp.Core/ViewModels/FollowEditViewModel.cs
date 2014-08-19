@@ -11,28 +11,51 @@ namespace TransitApp.Core.ViewModels
 {
     public class FollowEditViewModel : BaseViewModel
     {
-        private readonly IFollowService _service;
-		private Station _station;
+        private readonly IFollowService _followService;
+        private FollowStation _followStation;
+        private MvxCommand _saveCommand;
 
-        public FollowEditViewModel(IFollowService service)
+
+        public FollowEditViewModel(IFollowService followService)
         {
-            _service = service;
-        }        
+            _followService = followService;
+        }
 
-		public void Init(Station station)
-		{
-			_station = station; // because when it 
+        public void Init(string stationId)
+        {
+            // because when it transfer, it serializes and deserializes,
+            // it loses some property, I need to reget data.            
+            _followStation = _followService.GetFollowStation(stationId);
+        }
 
-		}
+        public Station Station
+        {
+            get
+            {
+                return _followStation.Station;
+            }
+        }
 
-		public Station Station  {
-			get {
-				return _station;
-			}
-			set {
-				this._station = value;
-				this.RaisePropertyChanged (() => this.Station);
-			}
-		}
+        public ICollection<FollowLine> Lines
+        {
+            get
+            {
+                return _followStation.Lines;
+            }
+        }
+
+        public ICommand SaveCommand
+        {
+            get
+            {
+                return _saveCommand ?? (_saveCommand = new MvxCommand(this.ExecuteSaveCommand));
+            }
+        }
+
+        private void ExecuteSaveCommand()
+        {
+            var lineIds = this.Lines.Where(x => x.IsFollowed).Select(x => x.Line.Id).ToArray();
+            _followService.AddFollows(Station.Id, lineIds);
+        }
     }
 }

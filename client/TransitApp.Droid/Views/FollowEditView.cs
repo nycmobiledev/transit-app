@@ -21,15 +21,23 @@ namespace TransitApp.Droid.Views
             SetContentView(Resource.Layout.page_followEdit_view);
 
             ActionBar.SetDisplayHomeAsUpEnabled(true);
-            ActionBar.SetHomeButtonEnabled(true);
+            ActionBar.SetHomeButtonEnabled(true);            
+        }
 
-            ((FollowEditViewModel)this.ViewModel).GetService<IFollowService>().AddFollows("101", new[] { "1", "2" });
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            this.MenuInflater.Inflate(Resource.Menu.followEdit, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
+                case Resource.Id.menu_done:
+                    ((FollowEditViewModel)this.ViewModel).SaveCommand.Execute(null);
+                    NavUtils.NavigateUpFromSameTask(this);
+                    break;
                 case Android.Resource.Id.Home:
                     //Wrong:
                     //var intent = new Intent(this, typeof(HomeView));

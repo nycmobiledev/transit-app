@@ -608,26 +608,32 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f040003
 			public const int bottom = 2130968579;
 			
-			// aapt resource value: 0x7f04000a
-			public const int content_frame = 2130968586;
-			
-			// aapt resource value: 0x7f040009
-			public const int drawer_layout = 2130968585;
-			
-			// aapt resource value: 0x7f04000d
-			public const int empty = 2130968589;
-			
 			// aapt resource value: 0x7f04000b
-			public const int left_drawer = 2130968587;
+			public const int content_frame = 2130968587;
 			
-			// aapt resource value: 0x7f04000c
-			public const int menu_edit = 2130968588;
-			
-			// aapt resource value: 0x7f04000f
-			public const int menu_new = 2130968591;
+			// aapt resource value: 0x7f04000a
+			public const int drawer_layout = 2130968586;
 			
 			// aapt resource value: 0x7f04000e
-			public const int menu_refresh = 2130968590;
+			public const int empty = 2130968590;
+			
+			// aapt resource value: 0x7f040009
+			public const int item_img = 2130968585;
+			
+			// aapt resource value: 0x7f04000c
+			public const int left_drawer = 2130968588;
+			
+			// aapt resource value: 0x7f040010
+			public const int menu_done = 2130968592;
+			
+			// aapt resource value: 0x7f04000d
+			public const int menu_edit = 2130968589;
+			
+			// aapt resource value: 0x7f040011
+			public const int menu_new = 2130968593;
+			
+			// aapt resource value: 0x7f04000f
+			public const int menu_refresh = 2130968591;
 			
 			// aapt resource value: 0x7f040000
 			public const int none = 2130968576;
@@ -704,25 +710,28 @@ namespace TransitApp.Droid
 			public const int item_follow = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int item_lineIcon = 2130903045;
+			public const int item_followLine = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int item_menu = 2130903046;
+			public const int item_lineIcon = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int page_followEdit_view = 2130903047;
+			public const int item_menu = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int page_follows_view = 2130903048;
+			public const int page_followEdit_view = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int page_home_view = 2130903049;
+			public const int page_follows_view = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int page_search = 2130903050;
+			public const int page_home_view = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int SplashScreen = 2130903051;
+			public const int page_search = 2130903051;
+			
+			// aapt resource value: 0x7f03000c
+			public const int SplashScreen = 2130903052;
 			
 			static Layout()
 			{
@@ -741,7 +750,10 @@ namespace TransitApp.Droid
 			public const int alert = 2131427328;
 			
 			// aapt resource value: 0x7f0b0001
-			public const int follows = 2131427329;
+			public const int followEdit = 2131427329;
+			
+			// aapt resource value: 0x7f0b0002
+			public const int follows = 2131427330;
 			
 			static Menu()
 			{
@@ -764,6 +776,9 @@ namespace TransitApp.Droid
 			
 			// aapt resource value: 0x7f0a0001
 			public const int drawer_open = 2131361793;
+			
+			// aapt resource value: 0x7f0a0006
+			public const int menu_done = 2131361798;
 			
 			// aapt resource value: 0x7f0a0004
 			public const int menu_edit = 2131361796;

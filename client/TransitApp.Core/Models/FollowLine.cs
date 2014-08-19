@@ -8,6 +8,6 @@ namespace TransitApp.Core.Models
     {
         public Line Line { get; set; }
 
-        public bool IsFollow { get; set; }
+        public bool IsFollowed { get; set; }
     }
 }

@@ -13,17 +13,17 @@ namespace TransitApp.Core.ViewModels
 	public class FollowsViewModel : BaseViewModel
 	{
 
-        private readonly IMvxMessenger _messenger;
+		private readonly IMvxMessenger _messenger;
 		private readonly IFollowService _service;
 		private ICollection<FollowStation> _follows;
-        private MvxCommand<FollowStation> _goToEditCommandg;
+		private MvxCommand<FollowStation> _goToEditCommandg;
 
 		public FollowsViewModel (IFollowService service, IMvxMessenger messenger)
 		{
-            _messenger = messenger;
-            _service = service;
+			_messenger = messenger;
+			_service = service;
 			RefleshFollows ();
-            _messenger.Subscribe<FollowsChanged>(x => RefleshFollows());
+			_messenger.Subscribe<FollowsChanged> (x => RefleshFollows ());
 		}
 
 		public ICollection<FollowStation> Follows {
@@ -40,7 +40,7 @@ namespace TransitApp.Core.ViewModels
 		public ICommand GoToEditCommand {
 			get {
 				_goToEditCommandg = _goToEditCommandg ?? new MvxCommand<FollowStation> ((x) => 
-					ShowViewModel<FollowEditViewModel> (x.Station)
+					ShowViewModel<FollowEditViewModel> (new {stationId = x.Station.Id})
 				);
 
 				return _goToEditCommandg;
@@ -55,7 +55,7 @@ namespace TransitApp.Core.ViewModels
 
 		private void RefleshFollows ()
 		{
-			Follows = _service.GetFollowsGroupByStation ();
+			Follows = _service.GetFollowsStations ();
 		}
 
 	}

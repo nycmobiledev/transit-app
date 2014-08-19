@@ -8,8 +8,10 @@ namespace TransitApp.Core.Services
 {
     public interface IFollowService
     {
-        ICollection<FollowStation> GetFollowsGroupByStation();
         ICollection<Follow> GetFollows();
+        FollowStation GetFollowStation(string stationId);
+        ICollection<FollowStation> GetFollowsStations();
+
 
         void AddFollows(string stationId, string[] lineIds);
 

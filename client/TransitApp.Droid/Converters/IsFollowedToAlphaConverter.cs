@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace TransitApp.Droid
 {
-	public class IsFollowToAlphaConverter : MvxValueConverter<bool, int>
+	public class IsFollowedToAlphaConverter : MvxValueConverter<bool, int>
 	{
 		protected override int Convert(bool isFollow, Type targetType, object parameter, CultureInfo culture)
 		{

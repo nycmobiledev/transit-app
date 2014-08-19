@@ -70,13 +70,13 @@ namespace TransitApp.Core.Tests.Services
             this.followService.AddFollows("501", new string[] { "4", "6" });
             this.followService.AddFollows("701", new string[] { "7" });
 
-            var follows = this.followService.GetFollowsGroupByStation();
+            var follows = this.followService.GetFollowsStations();
 
             Assert.AreEqual(2, follows.Count);
 
-            Assert.IsFalse(follows.First(x => x.Station.Id == "701").Lines.First(x => x.Line.Id == "7X").IsFollow);
+            Assert.IsFalse(follows.First(x => x.Station.Id == "701").Lines.First(x => x.Line.Id == "7X").IsFollowed);
 
-            Assert.IsFalse(follows.First(x => x.Station.Id == "501").Lines.First(x => x.Line.Id == "5").IsFollow);
+            Assert.IsFalse(follows.First(x => x.Station.Id == "501").Lines.First(x => x.Line.Id == "5").IsFollowed);
         }        
     }
 }

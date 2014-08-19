@@ -17,8 +17,6 @@ namespace TransitApp.Core.Services
         private HashSet<Follow> _follows;
         private const string _customerFollowFilePath = "CustomerFollow.json";
         private readonly IMvxMessenger _messenger;
-        
-
 
         public FollowService(IMvxFileStore fileService, ILocalDataService localDbService, IMvxMessenger messenger)
         {
@@ -34,24 +32,43 @@ namespace TransitApp.Core.Services
             return _follows;
         }
 
-                
-        public ICollection<FollowStation> GetFollowsGroupByStation()
+        public FollowStation GetFollowStation(string stationId)
+        {
+            var fs = new FollowStation() { Station = _localDbService.GetStation(stationId), 
+                Lines = new List<FollowLine>() };
+
+            foreach (var line in fs.Station.Lines)
+            {
+                fs.Lines.Add(new FollowLine()
+                {
+                    Line = line,
+                    IsFollowed = _follows.Any(x => x.StationId == stationId && x.LineId == line.Id)
+                });
+            }
+
+            return fs;
+        }
+
+        public ICollection<FollowStation> GetFollowsStations()
         {
             //Match Station.Lines and User.Follows.Lines
 
-            var followStations = new List<FollowStation>();            
+            var followStations = new List<FollowStation>();
 
             foreach (var followGroup in _follows.GroupBy(x => x.Station))
             {
-                var fs = new FollowStation() { Station = followGroup.Key };
-                fs.Lines = new List<FollowLine>();
+                var fs = new FollowStation()
+                {
+                    Station = followGroup.Key,
+                    Lines = new List<FollowLine>()
+                };
 
                 foreach (var line in followGroup.Key.Lines)
                 {
                     fs.Lines.Add(new FollowLine()
                     {
                         Line = line,
-                        IsFollow = followGroup.Any(x => x.LineId == line.Id)
+                        IsFollowed = followGroup.Any(x => x.LineId == line.Id)
                     });
                 }
 
@@ -61,8 +78,15 @@ namespace TransitApp.Core.Services
             return followStations;
         }
 
+
         public void AddFollows(string stationId, string[] lineIds)
         {
+            //Delete First
+            foreach (var follow in _follows.Where(x => x.StationId == stationId).ToArray())
+            {
+                _follows.Remove(follow);
+            }
+
             foreach (var lineId in lineIds)
             {
                 _follows.Add(new Follow()

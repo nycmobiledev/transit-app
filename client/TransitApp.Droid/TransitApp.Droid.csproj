@@ -140,7 +140,7 @@
     <Compile Include="Views\Fragments\AlertsView.cs" />
     <Compile Include="Converters\TrainIdToImagePathConverter.cs" />
     <Compile Include="Views\FollowsView.cs" />
-    <Compile Include="Converters\IsFollowToAlphaConverter.cs" />
+    <Compile Include="Converters\IsFollowedToAlphaConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -192,8 +192,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\item_follow.axml" />
     <AndroidResource Include="Resources\Drawable\border.xml" />
-    <AndroidResource Include="Resources\Layout\item_lineIcon.axml" />
     <AndroidResource Include="Resources\Layout\page_followEdit_view.axml" />
+    <AndroidResource Include="Resources\Layout\item_followLine.axml" />
+    <AndroidResource Include="Resources\Layout\item_lineIcon.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -232,6 +233,7 @@
     <AndroidResource Include="Resources\Drawable\Train_R.png" />
     <AndroidResource Include="Resources\Drawable\Train_S.png" />
     <AndroidResource Include="Resources\Menu\follows.xml" />
+    <AndroidResource Include="Resources\Menu\followEdit.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TransitApp.Core\TransitApp.Core.csproj">
