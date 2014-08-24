@@ -230,6 +230,40 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\mobile%24WheresMyTrain.pubxml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTFSRealtime.Core\GTFSRealtime.Core.csproj">
+      <Project>{cc97c6a6-9af4-467d-832c-8aa38dbe1c03}</Project>
+      <Name>GTFSRealtime.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTFSRealtime.Infrastructure.Data\GTFSRealtime.Infrastructure.Data.csproj">
+      <Project>{680528dd-4e0a-42ea-8539-72e8609cb9ff}</Project>
+      <Name>GTFSRealtime.Infrastructure.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTFSRealtime.Infrastructure.MTA\GTFSRealtime.Infrastructure.MTA.csproj">
+      <Project>{c15b9b36-86cc-4b3d-a69c-f2334bee99c1}</Project>
+      <Name>GTFSRealtime.Infrastructure.MTA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTFSStatic.Core\GTFSStatic.Core.csproj">
+      <Project>{14b3c430-3375-44db-9f84-d384b9929769}</Project>
+      <Name>GTFSStatic.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTFSStatic.Infrastructure.Data\GTFSStatic.Infrastructure.Data.csproj">
+      <Project>{c1b8286b-980d-43c7-b915-44080647af8f}</Project>
+      <Name>GTFSStatic.Infrastructure.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTFSStatic.Infrastructure.MTA\GTFSStatic.Infrastructure.MTA.csproj">
+      <Project>{6a63a027-4855-43b8-97a7-5bf9e7934866}</Project>
+      <Name>GTFSStatic.Infrastructure.MTA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared.Core\Shared.Core.csproj">
+      <Project>{e779bec0-529f-4c4d-badf-84b81c0aea0a}</Project>
+      <Name>Shared.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared.Infrastructure.Data\Shared.Infrastructure.Data.csproj">
+      <Project>{f448e10c-3c84-42ce-a32f-7c2d64854c82}</Project>
+      <Name>Shared.Infrastructure.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
