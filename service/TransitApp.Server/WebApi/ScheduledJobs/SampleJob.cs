@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.WindowsAzure.Mobile.Service;
 
-namespace WebApi.ScheduledJobs
+namespace TransitApp.Server.WebApi.ScheduledJobs
 {
     // A simple scheduled job which can be invoked manually by submitting an HTTP
     // POST request to the path "/jobs/sample".

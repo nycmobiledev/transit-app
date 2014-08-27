@@ -3,10 +3,10 @@ using Microsoft.WindowsAzure.Mobile.Service;
 
 namespace TransitApp.Server.WebApi.DataObjects
 {
-    public class TodoItem : EntityData
+    public class TransitAlert : EntityData
     {
-        public string Text { get; set; }
+        public string Route { get; set; }
 
-        public bool Complete { get; set; }
+        public string Time { get; set; }
     }
 }

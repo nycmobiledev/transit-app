@@ -1,13 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
-using WebApi.DataObjects;
-using WebApi.Models;
+using TransitApp.Server.WebApi.DataObjects;
+using TransitApp.Server.WebApi.Models;
 
-namespace WebApi.Controllers
+namespace TransitApp.Server.WebApi.Controllers
 {
     public class TodoItemController : TableController<TodoItem>
     {

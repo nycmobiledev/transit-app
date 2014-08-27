@@ -1,11 +1,12 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using Microsoft.WindowsAzure.Mobile.Service;
 using Microsoft.WindowsAzure.Mobile.Service.Tables;
-using WebApi.DataObjects;
+using TransitApp.Server.WebApi.DataObjects;
 
-namespace WebApi.Models
+namespace TransitApp.Server.WebApi.Models
 {
 
     public class MobileServiceContext : DbContext

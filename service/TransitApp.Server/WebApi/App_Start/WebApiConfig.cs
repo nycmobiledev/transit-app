@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Web.Http;
-using WebApi.DataObjects;
-using WebApi.Models;
 using Microsoft.WindowsAzure.Mobile.Service;
+using TransitApp.Server.WebApi.DataObjects;
+using TransitApp.Server.WebApi.Models;
 
-namespace WebApi
+namespace TransitApp.Server.WebApi
 {
     public static class WebApiConfig
     {
