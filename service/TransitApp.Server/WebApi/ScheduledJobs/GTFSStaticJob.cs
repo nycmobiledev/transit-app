@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.WindowsAzure.Mobile.Service;
 
 namespace TransitApp.Server.WebApi.ScheduledJobs
 {
-    public class GTFSRealtimeJob : ScheduledJob
+    public class GTFSStaticJob : ScheduledJob
     {
         /// <summary>
         /// When implemented in a derived class, executes the scheduled job asynchronously. Implementations that want to know whether

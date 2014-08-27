@@ -208,6 +208,7 @@
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="ScheduledJobs\GTFSRealtimeJob.cs" />
+    <Compile Include="ScheduledJobs\GTFSStaticJob.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
