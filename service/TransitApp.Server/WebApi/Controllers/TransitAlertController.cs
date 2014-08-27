@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -30,6 +31,12 @@ namespace TransitApp.Server.WebApi.Controllers
         {
             return Lookup(id);
         }
+
+        // GET tables/TransitAlert
+       /* public IQueryable<TransitAlert> GetTransitAlertsByStation(string[] stationIds)
+        {
+            return Query();
+        }*/
 
         // PATCH tables/TransitAlert/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task<TransitAlert> PatchTransitAlert(string id, Delta<TransitAlert> patch)

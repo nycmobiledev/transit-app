@@ -85,7 +85,7 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
                 vehiclesRepos.AddRange(vehiclesL);
             }
 
-            return Task.FromResult(true);
+            //return Task.FromResult(true);
         }
         
     }
