@@ -1,20 +1,21 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
 using Microsoft.WindowsAzure.Mobile.Service;
-using WebApi.DataObjects;
-using WebApi.Models;
+using TransitApp.Server.WebApi.DataObjects;
+using TransitApp.Server.WebApi.Models;
 
-namespace WebApi.Controllers
+namespace TransitApp.Server.WebApi.Controllers
 {
     public class TodoItemController : TableController<TodoItem>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
-            WebApiContext context = new WebApiContext();
+            MobileServiceContext context = new MobileServiceContext();
             DomainManager = new EntityDomainManager<TodoItem>(context, Request, Services);
         }
 
@@ -36,7 +37,7 @@ namespace WebApi.Controllers
             return UpdateAsync(id, patch);
         }
 
-        // POST tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        // POST tables/TodoItem
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);

@@ -1,6 +1,7 @@
-﻿using Microsoft.WindowsAzure.Mobile.Service;
+﻿using System;
+using Microsoft.WindowsAzure.Mobile.Service;
 
-namespace WebApi.DataObjects
+namespace TransitApp.Server.WebApi.DataObjects
 {
     public class TodoItem : EntityData
     {

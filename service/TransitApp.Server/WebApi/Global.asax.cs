@@ -1,7 +1,6 @@
-﻿using System.Web.Http;
-using System.Web.Routing;
+﻿using System;
 
-namespace WebApi
+namespace TransitApp.Server.WebApi
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

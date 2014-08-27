@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Web.Http;
-using WebApi.DataObjects;
-using WebApi.Models;
 using Microsoft.WindowsAzure.Mobile.Service;
+using TransitApp.Server.WebApi.DataObjects;
+using TransitApp.Server.WebApi.Models;
 
-namespace WebApi
+namespace TransitApp.Server.WebApi
 {
     public static class WebApiConfig
     {
@@ -23,13 +22,13 @@ namespace WebApi
             // line. Comment it out again when you deploy your service for production use.
             // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
-            Database.SetInitializer(new WebApiInitializer());
+            Database.SetInitializer(new MobileServiceInitializer());
         }
     }
 
-    public class WebApiInitializer : DropCreateDatabaseIfModelChanges<WebApiContext>
+    public class MobileServiceInitializer : DropCreateDatabaseIfModelChanges<MobileServiceContext>
     {
-        protected override void Seed(WebApiContext context)
+        protected override void Seed(MobileServiceContext context)
         {
             List<TodoItem> todoItems = new List<TodoItem>
             {
