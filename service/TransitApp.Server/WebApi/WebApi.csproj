@@ -183,6 +183,7 @@
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="DataObjects\TransitAlert.cs" />
     <Compile Include="Models\WebApiContext.cs" />
+    <Compile Include="ScheduledJobs\GetRTTransitInfo.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -195,7 +196,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

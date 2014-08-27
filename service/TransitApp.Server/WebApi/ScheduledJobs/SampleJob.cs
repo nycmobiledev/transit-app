@@ -13,6 +13,7 @@ namespace WebApi.ScheduledJobs
         {
             Services.Log.Info("Hello from scheduled job!");
             return Task.FromResult(true);
+
         }
     }
 }
