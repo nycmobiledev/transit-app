@@ -7,7 +7,7 @@ namespace TransitApp.Server.WebApi.DataObjects
     {
         public string TripId { get; set; }
         public string StationId { get; set; }
-        public int Version { get; set; }
+        public int BatchVersion { get; set; }
         public string RouteId { get; set; }
         public string StationName { get; set; }
         public string RouteName { get; set; }
