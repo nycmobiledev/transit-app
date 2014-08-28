@@ -137,10 +137,15 @@ publish/
 
 # NuGet Packages
 packages/*
+service/TransitApp.Server/packages/*
+client/packages/*
+
 *.nupkg
 ## TODO: If the tool you use requires repositories.config
 ## uncomment the next line
-#!packages/repositories.config
+!packages/repositories.config
+!service/TransitApp.Server/packages/repositories.config
+!client/packages/repositories.config
 
 # Enable "build/" folder in the NuGet Packages folder since
 # NuGet packages use it for MSBuild targets.
