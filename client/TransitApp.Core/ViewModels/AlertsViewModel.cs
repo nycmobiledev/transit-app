@@ -55,9 +55,9 @@ namespace TransitApp.Core.ViewModels
             }
         }
 
-        private void ExecuteRefreshCommand()
+		private async void ExecuteRefreshCommand()
         {
-            Alerts = _service.GetAlerts();
+            Alerts = await _service.GetAlerts();
         }
     }
 }

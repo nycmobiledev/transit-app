@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TransitApp.Core.Models;
+using System.Threading.Tasks;
 
 namespace TransitApp.Core.Services
 {
@@ -16,11 +17,11 @@ namespace TransitApp.Core.Services
             _followService = followService;
         }
 
-        public ICollection<Alert> GetAlerts()
+        public async Task<ICollection<Alert>> GetAlerts()
         {            
             var follows = _followService.GetFollows();            
          
-            return _WebService.GetAlerts(follows);
+            return await _WebService.GetAlerts(follows);
         }
     }
 }

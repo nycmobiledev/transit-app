@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization.Json;
 using Newtonsoft.Json;
 using System.IO;
+using System.Reflection;
 
 namespace TransitApp.Core.Services
 {
@@ -23,8 +24,9 @@ namespace TransitApp.Core.Services
 
         public LocalDataService()
         {
+
             //Get Data From embedded resources
-            var assembly = typeof(LocalDataService).Assembly;
+			var assembly = Assembly.Load(new AssemblyName("TransitApp.Core"));
             var resourceNames = assembly.GetManifestResourceNames();
 
             var resourcePaths = resourceNames

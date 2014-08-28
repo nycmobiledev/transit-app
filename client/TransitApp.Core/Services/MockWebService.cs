@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TransitApp.Core.Models;
+using System.Threading.Tasks;
 
 namespace TransitApp.Core.Services
 {
@@ -16,14 +17,14 @@ namespace TransitApp.Core.Services
             _localDbService = localDbService;
         }
 
-        public ICollection<Station> FindStationsByName(string name)
+        public async Task<ICollection<Station>> FindStationsByName(string name)
         {
             var list = new List<Station>();
 
-            return list;
+			return list;
         }
 
-        public ICollection<Alert> GetAlerts(IEnumerable<Follow> follows)
+		public  async Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows)
         {
             var list = new List<Alert>();
 

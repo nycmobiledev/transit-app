@@ -194,3 +194,4 @@ FakesAssemblies/
 /docs
 *.suo
 *.userprefs
+/client/packages

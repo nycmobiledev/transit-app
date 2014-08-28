@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TransitApp.Core.Models;
+using System.Threading.Tasks;
 
 namespace TransitApp.Core.Services
 {
     public interface IWebService
     {
-        ICollection<Station> FindStationsByName(string name);
+       Task<ICollection<Station>> FindStationsByName(string name);
 
-        ICollection<Alert> GetAlerts(IEnumerable<Follow> follows);
+       Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows);
     }
 }
