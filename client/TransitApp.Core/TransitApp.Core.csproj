@@ -68,6 +68,7 @@
     <Compile Include="Converters\ArriveTimeConverter.cs" />
     <Compile Include="ViewModels\FollowsViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
+    <Compile Include="CoolTimer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite">

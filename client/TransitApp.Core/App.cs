@@ -23,7 +23,7 @@ namespace TransitApp.Core
                 .RegisterAsLazySingleton();
 
 #if DEBUG
-            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService,MockWebService>();
+            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService,WebService>();
             Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IFollowService, MockFollowService>();
 
 #else
