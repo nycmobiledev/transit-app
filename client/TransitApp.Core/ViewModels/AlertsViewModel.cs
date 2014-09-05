@@ -16,14 +16,21 @@ namespace TransitApp.Core.ViewModels
         private readonly IMvxMessenger _messenger;
         private ICollection<Alert> _alerts;
         private MvxCommand _refreshCommand;
+		private CoolTimer _coolTimer;
 
         public AlertsViewModel(IAlertService service, IMvxMessenger messenger)
 		{
             _messenger = messenger;
             _service = service;
 			ExecuteRefreshCommand ();
-
+			_coolTimer = new CoolTimer (DataCallBack, null, 10000, -1);
             _messenger.Subscribe<FollowsChanged>(x => ExecuteRefreshCommand());
+		}
+
+		public void DataCallBack(object state)
+		{
+			 ExecuteRefreshCommand();
+			_coolTimer = new CoolTimer (DataCallBack, null, 10000, -1);
 		}
 
         public ICollection<Alert> Alerts
