@@ -29,49 +29,49 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
             GC.SuppressFinalize(this);
         }
 
-        public IEnumerable<Agency> GetAgencies()
+        public async Task<IEnumerable<Agency>> GetAgencies()
         {
-            return GetObjectsFromCsv<Agency>("agency.txt");
+            return await GetObjectsFromCsv<Agency>("agency.txt");
         }
 
-        public IEnumerable<Calendar> GetCalendars()
+        public async Task<IEnumerable<Calendar>> GetCalendars()
         {
-            return GetObjectsFromCsv<Calendar>("calendar.txt");
+            return await GetObjectsFromCsv<Calendar>("calendar.txt");
         }
 
-        public IEnumerable<CalendarDate> GetCalendarDates()
+        public async Task<IEnumerable<CalendarDate>> GetCalendarDates()
         {
-            return GetObjectsFromCsv<CalendarDate>("calendar_dates.txt");
+            return await GetObjectsFromCsv<CalendarDate>("calendar_dates.txt");
         }
 
-        public IEnumerable<Route> GetRoutes()
+        public async Task<IEnumerable<Route>> GetRoutes()
         {
-            return GetObjectsFromCsv<Route>("routes.txt");
+            return await GetObjectsFromCsv<Route>("routes.txt");
         }
 
-        public IEnumerable<Shape> GetShapes()
+        public async Task<IEnumerable<Shape>> GetShapes()
         {
-            return GetObjectsFromCsv<Shape>("shapes.txt");
+            return await GetObjectsFromCsv<Shape>("shapes.txt");
         }
 
-        public IEnumerable<Stop> GetStops()
+        public async Task<IEnumerable<Stop>> GetStops()
         {
-            return GetObjectsFromCsv<Stop>("stops.txt");
+            return await GetObjectsFromCsv<Stop>("stops.txt");
         }
 
-        public IEnumerable<StopTime> GetStopTimes()
+        public async Task<IEnumerable<StopTime>> GetStopTimes()
         {
-            return GetObjectsFromCsv<StopTime>("stop_times.txt");
+            return await GetObjectsFromCsv<StopTime>("stop_times.txt");
         }
 
-        public IEnumerable<Transfer> GetTransfers()
+        public async Task<IEnumerable<Transfer>> GetTransfers()
         {
-            return GetObjectsFromCsv<Transfer>("transfers.txt");
+            return await GetObjectsFromCsv<Transfer>("transfers.txt");
         }
 
-        public IEnumerable<Trip> GetTrips()
+        public async Task<IEnumerable<Trip>> GetTrips()
         {
-            return GetObjectsFromCsv<Trip>("trips.txt");
+            return await GetObjectsFromCsv<Trip>("trips.txt");
         }
 
         private async Task LoadZipFile()
@@ -84,14 +84,14 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
             }
         }
 
-        private IList<T> GetObjectsFromCsv<T>(string fileName) where T : class, new()
+        private async Task<IList<T>> GetObjectsFromCsv<T>(string fileName) where T : class, new()
         {
             IList<T> list = null;
             StreamReader reader = null;
             var memoryStream = new MemoryStream();
 
             try {
-                Task.WaitAll(LoadZipFile());
+                await LoadZipFile();
                 var zipEntry = _gtfsArchive.Entries.SingleOrDefault(z => z.FileName == fileName);
                 zipEntry.Extract(memoryStream);
                 //memoryStream.Position = 0;

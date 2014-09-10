@@ -27,11 +27,11 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
             base.CreateDataTableFromItems(newItems);
 
             foreach (var item in newItems) {
-                InsertDataTable.Rows.Add(item.ServiceId, ConvertBoolToZeroOneString(item.RunOnMonday),
-                    ConvertBoolToZeroOneString(item.RunOnTuesday), ConvertBoolToZeroOneString(item.RunOnWednesday),
-                    ConvertBoolToZeroOneString(item.RunOnThursday), ConvertBoolToZeroOneString(item.RunOnFriday),
-                    ConvertBoolToZeroOneString(item.RunOnSaturday), ConvertBoolToZeroOneString(item.RunOnSunday),
-                    item.StartDate.ToString("yyyyMMdd"), item.EndDate.ToString("yyyyMMdd"));
+                InsertDataTable.Rows.Add(item.ServiceId, item.RunOnMonday,
+                    item.RunOnTuesday, item.RunOnWednesday,
+                    item.RunOnThursday, item.RunOnFriday,
+                    item.RunOnSaturday, item.RunOnSunday,
+                    item.StartDate, item.EndDate);
             }
         }
 

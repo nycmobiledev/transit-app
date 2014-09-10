@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.WindowsAzure.Mobile.Service;
+using TransitApp.Server.GTFSStatic.Core.Model;
+using TransitApp.Server.GTFSStatic.Infrastructure.Data;
+using TransitApp.Server.GTFSStatic.Infrastructure.MTA;
 
 namespace TransitApp.Server.WebApi.ScheduledJobs
 {
@@ -16,9 +24,107 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
         /// <returns>
         /// A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.
         /// </returns>
-        public override Task ExecuteAsync()
+        public override async Task ExecuteAsync()
         {
-            throw new NotImplementedException();
+            // Load Feed Message
+            var dbConnStr = ConfigurationManager.ConnectionStrings["MTA_DB"].ConnectionString;
+
+            var service = new StaticFileService(new StaticFileDownloader());
+
+
+            StringBuilder sb = new StringBuilder();
+
+            List<string> tableNames = new List<string>()
+            {
+                "agency",
+                "calendar",
+                "calendar_dates",
+                "shapes",
+                "stop_times",
+                "transfers",
+                "trips",
+                "routes",
+                "stops",
+            };
+
+            tableNames.ForEach(s => sb.AppendFormat("TRUNCATE TABLE {0};", s));
+
+            using (var conn = new SqlConnection(dbConnStr))
+            {
+                using (var cmd = new SqlCommand(sb.ToString(), conn))
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+
+            //Agency
+            using (var repository = new AgencyRepository(dbConnStr))
+            {
+                // Load Tables
+                repository.AddRange(await service.GetAgencies());
+            }
+
+//            using (var repository = new CalendarDateRepository(dbConnStr))
+//            {
+//                // Load Tables
+//                repository.AddRange(service.GetCalendarDates());
+//            }
+
+            //Calendars
+            using (var repository = new CalendarRepository(dbConnStr))
+            {
+                // Load Tables
+                repository.AddRange(await service.GetCalendars());
+            }
+            //Route
+            using (var repository = new RouteRepository(dbConnStr))
+            {
+                // Load Tables
+                repository.AddRange(await service.GetRoutes());
+            }
+            //Shape
+            using (var repository = new ShapeRepository(dbConnStr))
+            {
+                // Load Tables
+                repository.AddRange(await service.GetShapes());
+            }
+            //Stop
+            using (var repository = new StopRepository(dbConnStr))
+            {
+                // Load Tables
+                repository.AddRange(await service.GetStops());
+            }
+            //Stop Time
+            using (var repository = new StopTimeRepository(dbConnStr))
+            {
+                // Load Tables
+                repository.AddRange(await service.GetStopTimes());
+            }
+            //Transfer
+            using (var repository = new TransferRepository(dbConnStr))
+            {
+                // Load Tables
+                repository.AddRange(await service.GetTransfers());
+            }
+            //Trip
+            using (var repository = new TripRepository(dbConnStr))
+            {
+                // Load Tables
+                repository.AddRange(await service.GetTrips());
+            }
+
+            // Build Stations
+            using (var conn = new SqlConnection(dbConnStr))
+            {
+                using (var cmd = new SqlCommand("sp_BuildStations", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

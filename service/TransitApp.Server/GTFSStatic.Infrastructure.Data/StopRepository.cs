@@ -14,7 +14,7 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
                 new[]
                 {
                     new ColumnMapping("stop_id", typeof(string)), 
-                    new ColumnMapping("stop_name", typeof(int)), 
+                    new ColumnMapping("stop_name", typeof(string)), 
                     new ColumnMapping("stop_lat", typeof(double)), 
                     new ColumnMapping("stop_lon", typeof(double)),
                     new ColumnMapping("location_type", typeof(int)),
