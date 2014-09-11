@@ -12,10 +12,10 @@ namespace TransitApp.Server.GTFSStatic.Core.Model
         public string StopId { get; set; }
 
         [CsvColumn(FieldIndex = 3, Name = "arrival_time")]
-        public DateTime ArrivalTime { get; set; }
+        public string ArrivalTime { get; set; }
 
         [CsvColumn(FieldIndex = 4, Name = "departure_time")]
-        public DateTime DepartureTime { get; set; }
+        public string DepartureTime { get; set; }
 
         [CsvColumn(FieldIndex = 5, Name = "stop_sequence")]
         public int StopSequence { get; set; }

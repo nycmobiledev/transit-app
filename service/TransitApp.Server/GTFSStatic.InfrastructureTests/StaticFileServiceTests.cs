@@ -23,10 +23,10 @@ namespace TransitApp.Server.GTFSStatic.InfrastructureTests
         }
 
         [Test]
-        public void Should_Return_One_Agency()
+        public async void Should_Return_One_Agency()
         {
             var service = new StaticFileService(_downloadMock.Object);
-            var list = service.GetAgencies();
+            var list = await service.GetAgencies();
             Assert.That(list.Count(), Is.EqualTo(1));
 
             var agency = list.First();

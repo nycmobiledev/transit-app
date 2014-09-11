@@ -30,8 +30,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 
             foreach (var item in newItems)
             {
-                InsertDataTable.Rows.Add(item.TripId, item.StopId, item.ArrivalTime.ToString("HH:mm:ss"),
-                    item.DepartureTime.ToString("HH:mm:ss"));
+                InsertDataTable.Rows.Add(item.TripId, item.StopId, item.ArrivalTime,
+                    item.DepartureTime);
             }
         }
     }

@@ -9,30 +9,30 @@ namespace TransitApp.Server.GTFSStatic.Core.Model
         public string ServiceId { get; set; }
 
         [CsvColumn(FieldIndex = 2, Name = "monday")]
-        public bool RunOnMonday { get; set; }
+        public char RunOnMonday { get; set; }
 
         [CsvColumn(FieldIndex = 3, Name = "tuesday")]
-        public bool RunOnTuesday { get; set; }
+        public char RunOnTuesday { get; set; }
 
         [CsvColumn(FieldIndex = 4, Name = "wednesday")]
-        public bool RunOnWednesday { get; set; }
+        public char RunOnWednesday { get; set; }
 
         [CsvColumn(FieldIndex = 5, Name = "thursday")]
-        public bool RunOnThursday { get; set; }
+        public char RunOnThursday { get; set; }
 
         [CsvColumn(FieldIndex = 6, Name = "friday")]
-        public bool RunOnFriday { get; set; }
+        public char RunOnFriday { get; set; }
 
         [CsvColumn(FieldIndex = 7, Name = "saturday")]
-        public bool RunOnSaturday { get; set; }
+        public char RunOnSaturday { get; set; }
 
         [CsvColumn(FieldIndex = 8, Name = "sunday")]
-        public bool RunOnSunday { get; set; }
+        public char RunOnSunday { get; set; }
 
         [CsvColumn(FieldIndex = 9, Name = "start_date")]
-        public DateTime StartDate { get; set; }
+        public string StartDate { get; set; }
 
         [CsvColumn(FieldIndex = 10, Name = "end_date")]
-        public DateTime EndDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

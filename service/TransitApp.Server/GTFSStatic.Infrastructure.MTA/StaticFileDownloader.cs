@@ -11,9 +11,11 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.MTA
     {
         public async Task<ZipFile> DownloadZipFileFromUrl(string url)
         {
-            using (var client = new HttpClient {MaxResponseContentBufferSize = 1000000}) {
-                var resultStream = client.GetStreamAsync(url);
-                return ZipFile.Read(await resultStream);
+            using (var client = new HttpClient())
+            {
+                var responseMessage = await client.GetAsync(url).ConfigureAwait(false);
+
+                return ZipFile.Read(await responseMessage.Content.ReadAsStreamAsync());
             }
         }
     }

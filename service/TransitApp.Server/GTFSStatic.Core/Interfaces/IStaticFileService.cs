@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TransitApp.Server.GTFSStatic.Core.Model;
 
 namespace TransitApp.Server.GTFSStatic.Core.Interfaces
 {
     public interface IStaticFileService
     {
-        IEnumerable<Agency> GetAgencies();
-        IEnumerable<Calendar> GetCalendars();
-        IEnumerable<CalendarDate> GetCalendarDates();
-        IEnumerable<Route> GetRoutes();
-        IEnumerable<Shape> GetShapes();
-        IEnumerable<Stop> GetStops();
-        IEnumerable<StopTime> GetStopTimes();
-        IEnumerable<Transfer> GetTransfers();
-        IEnumerable<Trip> GetTrips();
+        Task<IEnumerable<Agency>> GetAgencies();
+        Task<IEnumerable<Calendar>> GetCalendars();
+        Task<IEnumerable<CalendarDate>> GetCalendarDates();
+        Task<IEnumerable<Route>> GetRoutes();
+        Task<IEnumerable<Shape>> GetShapes();
+        Task<IEnumerable<Stop>> GetStops();
+        Task<IEnumerable<StopTime>> GetStopTimes();
+        Task<IEnumerable<Transfer>> GetTransfers();
+        Task<IEnumerable<Trip>> GetTrips();
     }
 }
