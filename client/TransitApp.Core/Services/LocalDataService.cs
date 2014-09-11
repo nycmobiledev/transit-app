@@ -66,11 +66,8 @@ namespace TransitApp.Core.Services
         }
 
         public ICollection<Station> GetStations(string searchQuery)
-        {
-            //Search for stations
-            return null;
-            ObservableCollection<Station> stationResults = new ObservableCollection<Station>(_localData.Stations.Where(t => t.Name.Contains(searchQuery)));
-            return stationResults;
+        {            
+			return _localData.Stations.Where(t => t.Name.IndexOf(searchQuery,StringComparison.CurrentCultureIgnoreCase)>=0).ToList();
         }
     }
 }

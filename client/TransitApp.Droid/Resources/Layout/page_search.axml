@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:minWidth="25px"
-    android:minHeight="25px">
-    <TextView
-        android:text="Search"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_height="fill_parent">
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
-</LinearLayout>
+        android:id="@+id/search_text"
+        android:hint="A station name"
+        local:MvxBind="Text SearchText" />
+    <Mvx.MvxListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        local:MvxBind="ItemsSource SearchResults; ItemClick SelectCommand"
+        local:MvxItemTemplate="@layout/item_train"
+        android:layout_below="@+id/search_text" />
+</RelativeLayout>

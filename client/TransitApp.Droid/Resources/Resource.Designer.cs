@@ -614,8 +614,8 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f04000a
 			public const int drawer_layout = 2130968586;
 			
-			// aapt resource value: 0x7f04000e
-			public const int empty = 2130968590;
+			// aapt resource value: 0x7f04000f
+			public const int empty = 2130968591;
 			
 			// aapt resource value: 0x7f040009
 			public const int item_img = 2130968585;
@@ -623,20 +623,23 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f04000c
 			public const int left_drawer = 2130968588;
 			
-			// aapt resource value: 0x7f040010
-			public const int menu_done = 2130968592;
-			
-			// aapt resource value: 0x7f04000d
-			public const int menu_edit = 2130968589;
-			
 			// aapt resource value: 0x7f040011
-			public const int menu_new = 2130968593;
+			public const int menu_done = 2130968593;
 			
-			// aapt resource value: 0x7f04000f
-			public const int menu_refresh = 2130968591;
+			// aapt resource value: 0x7f04000e
+			public const int menu_edit = 2130968590;
+			
+			// aapt resource value: 0x7f040012
+			public const int menu_new = 2130968594;
+			
+			// aapt resource value: 0x7f040010
+			public const int menu_refresh = 2130968592;
 			
 			// aapt resource value: 0x7f040000
 			public const int none = 2130968576;
+			
+			// aapt resource value: 0x7f04000d
+			public const int search_text = 2130968589;
 			
 			// aapt resource value: 0x7f040006
 			public const int textView1 = 2130968582;
@@ -719,19 +722,22 @@ namespace TransitApp.Droid
 			public const int item_menu = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int page_followEdit_view = 2130903048;
+			public const int item_train = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int page_follows_view = 2130903049;
+			public const int page_followEdit_view = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int page_home_view = 2130903050;
+			public const int page_follows_view = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int page_search = 2130903051;
+			public const int page_home_view = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int SplashScreen = 2130903052;
+			public const int page_search = 2130903052;
+			
+			// aapt resource value: 0x7f03000d
+			public const int SplashScreen = 2130903053;
 			
 			static Layout()
 			{

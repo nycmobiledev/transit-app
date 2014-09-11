@@ -10,7 +10,7 @@ namespace TransitApp.Droid.Views.Fragments
 	{
 		public AlertsView ()
 		{
-			this.RetainInstance = true;
+			//this.RetainInstance = true;
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Android.OS.Bundle savedInstanceState)
