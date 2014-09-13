@@ -172,6 +172,10 @@ namespace TransitApp.Droid.Views
 
                 return true;
             }
+			catch(RemoteException ex) {
+				string str = ex.ToString ();
+				return false;
+			}
             finally
             {
                 this._drawer.CloseDrawer(this._drawerList);

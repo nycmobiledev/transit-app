@@ -79,6 +79,7 @@
     <Compile Include="ViewModels\FollowsViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="CoolTimer.cs" />
+    <Compile Include="Services\ITransitAppDataRefresh.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite">
