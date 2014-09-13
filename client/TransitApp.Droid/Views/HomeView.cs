@@ -157,7 +157,7 @@ namespace TransitApp.Droid.Views
                 }
 
                 var loaderService = Mvx.Resolve<IMvxViewModelLoader>();
-                var viewModel = loaderService.LoadViewModel(request, null /* saved state */);
+				var viewModel = loaderService.LoadViewModel(request, null /* saved state */);
 
                 frag.ViewModel = viewModel;
 
