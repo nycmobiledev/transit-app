@@ -50,7 +50,22 @@ namespace TransitApp.Core.Services
 			*/
             //todo 
 			//var resp1 = JsonConvert.DeserializeObject<ICollection<Train>> (json);
-			return null;
+
+			var list = new List<Alert>();
+
+			foreach (var follow in follows)
+			{
+				list.Add(new Alert()
+					{
+						TrainId = "1",
+						ArriveTime = DateTime.Now,
+						Station = new Station{Name = "union sq"},
+						Line = new Line{ Id = "1"}
+					});
+			}
+
+			return list;
+
         }
     }
 }

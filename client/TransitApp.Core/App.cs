@@ -5,6 +5,7 @@ using TransitApp.Core.ViewModels;
 
 namespace TransitApp.Core
 {
+
     /// <summary>
     /// Define the App type.
     /// </summary>
