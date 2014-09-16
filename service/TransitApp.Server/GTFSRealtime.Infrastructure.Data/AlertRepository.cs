@@ -8,11 +8,12 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
     public class AlertRepository : RepositoryBase<Alert>
     {
-        public AlertRepository(string connectionString)
-            : base(
-                connectionString, "dbo.realtime_alerts",
+        public AlertRepository()
+            : base("dbo.realtime_alerts",
                 new[] {new ColumnMapping("trip_id", typeof (string)), new ColumnMapping("alert_text", typeof (string))})
-        {}
+        {
+            
+        }
 
 
         public override void CreateDataTableFromItems(IEnumerable<Alert> items)

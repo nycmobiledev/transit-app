@@ -8,9 +8,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 {
     public class StopTimeRepository : RepositoryBase<StopTime>
     {
-        public StopTimeRepository(string connectionString)
-            : base(
-                connectionString, "dbo.stop_times",
+        public StopTimeRepository()
+            : base("dbo.stop_times",
                 new[]
                 {
                     new ColumnMapping("trip_id", typeof(string)), 
@@ -19,7 +18,9 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
                     new ColumnMapping("departure_time", typeof(string)),
                     new ColumnMapping("stop_sequence", typeof(int)),
                     new ColumnMapping("pickup_type", typeof(int)),
-                    new ColumnMapping("drop_off_type", typeof(int))
+                    new ColumnMapping("drop_off_type", typeof(int)),
+                    new ColumnMapping("arrival_time_span", typeof(int)), 
+                    new ColumnMapping("departure_time_span", typeof(int)),
                 })
         { }
 
@@ -31,7 +32,7 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
             foreach (var item in newItems)
             {
                 InsertDataTable.Rows.Add(item.TripId, item.StopId, item.ArrivalTime,
-                    item.DepartureTime);
+                    item.DepartureTime, item.StopSequence, item.PickupType, item.DropoffType);
             }
         }
     }

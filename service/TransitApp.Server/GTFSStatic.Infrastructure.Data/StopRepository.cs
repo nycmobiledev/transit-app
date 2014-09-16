@@ -8,9 +8,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 {
     public class StopRepository: RepositoryBase<Stop>
     {
-        public StopRepository(string connectionString)
-            : base(
-                connectionString, "dbo.stops",
+        public StopRepository()
+            : base("dbo.stops",
                 new[]
                 {
                     new ColumnMapping("stop_id", typeof(string)), 

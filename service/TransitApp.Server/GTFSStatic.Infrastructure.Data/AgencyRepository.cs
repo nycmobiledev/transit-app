@@ -8,8 +8,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 {
     public class AgencyRepository : RepositoryBase<Agency>
     {
-        public AgencyRepository(string connectionString)
-            : base(connectionString, "dbo.agency",
+        public AgencyRepository()
+            : base( "dbo.agency",
                 new[] {
                     new ColumnMapping("agency_id", typeof (string)),
                     new ColumnMapping("agency_name", typeof (string)),

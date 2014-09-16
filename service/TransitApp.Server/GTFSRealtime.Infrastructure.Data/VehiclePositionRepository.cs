@@ -8,9 +8,8 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
     public class VehiclePositionRepository : RepositoryBase<VehiclePosition>
     {
-        public VehiclePositionRepository(string connectionString)
-            : base(
-                connectionString, "dbo.realtime_vehicle_position",
+        public VehiclePositionRepository()
+            : base("dbo.realtime_vehicle_position",
                 new List<ColumnMapping>
                 {
                     new ColumnMapping("trip_id", typeof (string)),

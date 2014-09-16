@@ -56,15 +56,14 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
-            }
 
 
-            //Agency
-            using (var repository = new AgencyRepository(dbConnStr))
-            {
-                // Load Tables
-                repository.AddRange(await service.GetAgencies());
-            }
+                //Agency
+                using (var repository = new AgencyRepository() {Connection = conn})
+                {
+                    // Load Tables
+                    repository.AddRange(await service.GetAgencies());
+                }
 
 //            using (var repository = new CalendarDateRepository(dbConnStr))
 //            {
@@ -72,56 +71,54 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
 //                repository.AddRange(service.GetCalendarDates());
 //            }
 
-            //Calendars
-            using (var repository = new CalendarRepository(dbConnStr))
-            {
-                // Load Tables
-                repository.AddRange(await service.GetCalendars());
-            }
-            //Route
-            using (var repository = new RouteRepository(dbConnStr))
-            {
-                // Load Tables
-                repository.AddRange(await service.GetRoutes());
-            }
-            //Shape
-            using (var repository = new ShapeRepository(dbConnStr))
-            {
-                // Load Tables
-                repository.AddRange(await service.GetShapes());
-            }
-            //Stop
-            using (var repository = new StopRepository(dbConnStr))
-            {
-                // Load Tables
-                repository.AddRange(await service.GetStops());
-            }
-            //Stop Time
-            using (var repository = new StopTimeRepository(dbConnStr))
-            {
-                // Load Tables
-                repository.AddRange(await service.GetStopTimes());
-            }
-            //Transfer
-            using (var repository = new TransferRepository(dbConnStr))
-            {
-                // Load Tables
-                repository.AddRange(await service.GetTransfers());
-            }
-            //Trip
-            using (var repository = new TripRepository(dbConnStr))
-            {
-                // Load Tables
-                repository.AddRange(await service.GetTrips());
-            }
+                //Calendars
+                using (var repository = new CalendarRepository() {Connection = conn})
+                {
+                    // Load Tables
+                    repository.AddRange(await service.GetCalendars());
+                }
+                //Route
+                using (var repository = new RouteRepository() {Connection = conn})
+                {
+                    // Load Tables
+                    repository.AddRange(await service.GetRoutes());
+                }
+                //Shape
+                using (var repository = new ShapeRepository() {Connection = conn})
+                {
+                    // Load Tables
+                    repository.AddRange(await service.GetShapes());
+                }
+                //Stop
+                using (var repository = new StopRepository() {Connection = conn})
+                {
+                    // Load Tables
+                    repository.AddRange(await service.GetStops());
+                }
+                //Stop Time
+                using (var repository = new StopTimeRepository() {Connection = conn})
+                {
+                    // Load Tables
+                    repository.AddRange(await service.GetStopTimes());
+                }
+                //Transfer
+                using (var repository = new TransferRepository() {Connection = conn})
+                {
+                    // Load Tables
+                    repository.AddRange(await service.GetTransfers());
+                }
+                //Trip
+                using (var repository = new TripRepository() {Connection = conn})
+                {
+                    // Load Tables
+                    repository.AddRange(await service.GetTrips());
+                }
 
-            // Build Stations
-            using (var conn = new SqlConnection(dbConnStr))
-            {
+                // Build Stations
                 using (var cmd = new SqlCommand("sp_BuildStations", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    conn.Open();
+//                    conn.Open();
                     cmd.ExecuteNonQuery();
                 }
             }

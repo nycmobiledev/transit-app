@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using TransitApp.Server.GTFSRealtime.Core.Model;
@@ -42,49 +43,57 @@ namespace TransitApp.Server.GTFSRealtime.DataLoader
             var alertsIrt = alertFactory.CreateItemsFromFeedMessage(msgIrt);
             var alertsL = alertFactory.CreateItemsFromFeedMessage(msgL);
 
-            using (var alertRepos = new AlertRepository(dbConnStr)) {
-                // Clear Tables
-                alertRepos.ClearAll();
+            using (SqlConnection conn = new SqlConnection(dbConnStr))
+            {
 
-                // Load Tables
-                alertRepos.AddRange(alertsIrt);
-                alertRepos.AddRange(alertsL);
-            }
+                using (var alertRepos = new AlertRepository() {Connection = conn})
+                {
+                    // Clear Tables
+                    alertRepos.ClearAll();
 
-            var stopsIrt = stopTimeFactory.CreateItemsFromFeedMessage(msgIrt);
-            var stopsL = stopTimeFactory.CreateItemsFromFeedMessage(msgL);
+                    // Load Tables
+                    alertRepos.AddRange(alertsIrt);
+                    alertRepos.AddRange(alertsL);
+                }
 
-            using (var stopsRepos = new StopTimeUpdateRepository(dbConnStr)) {
-                // Clear Tables
-                stopsRepos.ClearAll();
+                var stopsIrt = stopTimeFactory.CreateItemsFromFeedMessage(msgIrt);
+                var stopsL = stopTimeFactory.CreateItemsFromFeedMessage(msgL);
 
-                // Load Tables
-                stopsRepos.AddRange(stopsIrt);
-                stopsRepos.AddRange(stopsL);
-            }
+                using (var stopsRepos = new StopTimeUpdateRepository() { Connection = conn })
+                {
+                    // Clear Tables
+                    stopsRepos.ClearAll();
 
-            var tripsIrt = tripFactory.CreateItemsFromFeedMessage(msgIrt);
-            var tripsL = tripFactory.CreateItemsFromFeedMessage(msgL);
+                    // Load Tables
+                    stopsRepos.AddRange(stopsIrt);
+                    stopsRepos.AddRange(stopsL);
+                }
 
-            using (var tripsRepos = new TripRepository(dbConnStr)) {
-                // Clear Tables
-                tripsRepos.ClearAll();
+                var tripsIrt = tripFactory.CreateItemsFromFeedMessage(msgIrt);
+                var tripsL = tripFactory.CreateItemsFromFeedMessage(msgL);
 
-                // Load Tables
-                tripsRepos.AddRange(tripsIrt);
-                tripsRepos.AddRange(tripsL);
-            }
+                using (var tripsRepos = new TripRepository() { Connection = conn })
+                {
+                    // Clear Tables
+                    tripsRepos.ClearAll();
 
-            var vehiclesIrt = vehicleFactory.CreateItemsFromFeedMessage(msgIrt);
-            var vehiclesL = vehicleFactory.CreateItemsFromFeedMessage(msgL);
+                    // Load Tables
+                    tripsRepos.AddRange(tripsIrt);
+                    tripsRepos.AddRange(tripsL);
+                }
 
-            using (var vehiclesRepos = new VehiclePositionRepository(dbConnStr)) {
-                // Clear Tables
-                vehiclesRepos.ClearAll();
+                var vehiclesIrt = vehicleFactory.CreateItemsFromFeedMessage(msgIrt);
+                var vehiclesL = vehicleFactory.CreateItemsFromFeedMessage(msgL);
 
-                // Load Tables
-                vehiclesRepos.AddRange(vehiclesIrt);
-                vehiclesRepos.AddRange(vehiclesL);
+                using (var vehiclesRepos = new VehiclePositionRepository() { Connection = conn })
+                {
+                    // Clear Tables
+                    vehiclesRepos.ClearAll();
+
+                    // Load Tables
+                    vehiclesRepos.AddRange(vehiclesIrt);
+                    vehiclesRepos.AddRange(vehiclesL);
+                }
             }
         }
     }

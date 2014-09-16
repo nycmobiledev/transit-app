@@ -8,9 +8,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 {
     public class RouteRepository : RepositoryBase<Route>
     {
-        public RouteRepository(string connectionString)
-            : base(
-                connectionString, "dbo.routes",
+        public RouteRepository()
+            : base("dbo.routes",
                 new[]
                 {
                     new ColumnMapping("agency_id", typeof (string)), new ColumnMapping("route_id", typeof (string)),

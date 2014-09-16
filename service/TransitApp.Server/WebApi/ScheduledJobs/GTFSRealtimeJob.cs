@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Mobile.Service;
 using TransitApp.Server.GTFSRealtime.Core.Model;
@@ -40,49 +41,59 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
             var alertsIrt = alertFactory.CreateItemsFromFeedMessage(msgIrt);
             var alertsL = alertFactory.CreateItemsFromFeedMessage(msgL);
 
-            using (var alertRepos = new AlertRepository(dbConnStr)) {
-                // Clear Tables
-                alertRepos.ClearAll();
+            using (SqlConnection conn = new SqlConnection(dbConnStr))
+            {
 
-                // Load Tables
-                alertRepos.AddRange(alertsIrt);
-                alertRepos.AddRange(alertsL);
-            }
+                    conn.Open();
 
-            var stopsIrt = stopTimeFactory.CreateItemsFromFeedMessage(msgIrt);
-            var stopsL = stopTimeFactory.CreateItemsFromFeedMessage(msgL);
+                using (var alertRepos = new AlertRepository() {Connection = conn})
+                {
+                    // Clear Tables
+                    alertRepos.ClearAll();
 
-            using (var stopsRepos = new StopTimeUpdateRepository(dbConnStr)) {
-                // Clear Tables
-                stopsRepos.ClearAll();
+                    // Load Tables
+                    alertRepos.AddRange(alertsIrt);
+                    alertRepos.AddRange(alertsL);
+                }
 
-                // Load Tables
-                stopsRepos.AddRange(stopsIrt);
-                stopsRepos.AddRange(stopsL);
-            }
+                var stopsIrt = stopTimeFactory.CreateItemsFromFeedMessage(msgIrt);
+                var stopsL = stopTimeFactory.CreateItemsFromFeedMessage(msgL);
 
-            var tripsIrt = tripFactory.CreateItemsFromFeedMessage(msgIrt);
-            var tripsL = tripFactory.CreateItemsFromFeedMessage(msgL);
+                using (var stopsRepos = new StopTimeUpdateRepository() { Connection = conn })
+                {
+                    // Clear Tables
+                    stopsRepos.ClearAll();
 
-            using (var tripsRepos = new TripRepository(dbConnStr)) {
-                // Clear Tables
-                tripsRepos.ClearAll();
+                    // Load Tables
+                    stopsRepos.AddRange(stopsIrt);
+                    stopsRepos.AddRange(stopsL);
+                }
 
-                // Load Tables
-                tripsRepos.AddRange(tripsIrt);
-                tripsRepos.AddRange(tripsL);
-            }
+                var tripsIrt = tripFactory.CreateItemsFromFeedMessage(msgIrt);
+                var tripsL = tripFactory.CreateItemsFromFeedMessage(msgL);
 
-            var vehiclesIrt = vehicleFactory.CreateItemsFromFeedMessage(msgIrt);
-            var vehiclesL = vehicleFactory.CreateItemsFromFeedMessage(msgL);
+                using (var tripsRepos = new TripRepository() { Connection = conn })
+                {
+                    // Clear Tables
+                    tripsRepos.ClearAll();
 
-            using (var vehiclesRepos = new VehiclePositionRepository(dbConnStr)) {
-                // Clear Tables
-                vehiclesRepos.ClearAll();
+                    // Load Tables
+                    tripsRepos.AddRange(tripsIrt);
+                    tripsRepos.AddRange(tripsL);
+                }
 
-                // Load Tables
-                vehiclesRepos.AddRange(vehiclesIrt);
-                vehiclesRepos.AddRange(vehiclesL);
+                var vehiclesIrt = vehicleFactory.CreateItemsFromFeedMessage(msgIrt);
+                var vehiclesL = vehicleFactory.CreateItemsFromFeedMessage(msgL);
+
+                using (var vehiclesRepos = new VehiclePositionRepository() { Connection = conn })
+                {
+                    // Clear Tables
+                    vehiclesRepos.ClearAll();
+
+                    // Load Tables
+                    vehiclesRepos.AddRange(vehiclesIrt);
+                    vehiclesRepos.AddRange(vehiclesL);
+                }
             }
 
             //return Task.FromResult(true);

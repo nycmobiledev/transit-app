@@ -8,9 +8,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 {
     public class ShapeRepository: RepositoryBase<Shape>
     {
-        public ShapeRepository(string connectionString)
-            : base(
-                connectionString, "dbo.shapes",
+        public ShapeRepository()
+            : base("dbo.shapes",
                 new[]
                 {
                     new ColumnMapping("shape_id", typeof(string)), 

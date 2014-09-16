@@ -13,17 +13,18 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
         private const int MaxRetry = 5;
         private const int DelayMs = 100;
 
-        private readonly string _connString;
+        private string _connectionString;
         private readonly Dictionary<string, string> _tableMap;
         private readonly string _tableName;
+        private SqlConnection _connection;
 
-        public BulkWriter(string tableName, Dictionary<string, string> tableMap, string connString)
+        public BulkWriter(string tableName, Dictionary<string, string> tableMap)
         {
             _tableName = tableName;
             _tableMap = tableMap;
 
             // get your connection string
-            _connString = connString;
+//            _connectionString = connectionString;
         }
 
         public void WriteWithRetries(DataTable datatable)
@@ -50,12 +51,12 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
         private void Write(DataTable datatable)
         {
             // connect to SQL
-            using (var connection = new SqlConnection(_connString))
+//            using (var connection = new SqlConnection(_connectionString))
             {
-                var bulkCopy = MakeSqlBulkCopy(connection);
+                var bulkCopy = MakeSqlBulkCopy(Connection);
 
                 // set the destination table name
-                connection.Open();
+//                connection.Open();
 
                 using (var dataTableReader = new DataTableReader(datatable))
                 {
@@ -86,5 +87,26 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
             _tableMap.ToList().ForEach(kp => bulkCopy.ColumnMappings.Add(kp.Key, kp.Value));
             return bulkCopy;
         }
+
+        public string ConnectionString
+        {
+            get { return _connectionString; }
+            set { _connectionString = value; }
+        }
+
+     
+        public SqlConnection Connection
+        {
+            get
+            {
+                if (null == _connection && null != _connectionString)
+                {
+                    _connection = new SqlConnection(_connectionString);
+                }
+                return _connection;
+            }
+            set { _connection = value; }
+        }
+
     }
 }

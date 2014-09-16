@@ -11,13 +11,13 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
     {
         private readonly IList<ColumnMapping> _columnMappings;
         private readonly string _connectionString;
+        private SqlConnection _connection;
         private readonly string _tableName;
         protected DataTable InsertDataTable;
         private bool _disposed;
 
-        protected RepositoryBase(string connectionString, string tableName, IList<ColumnMapping> columnMappings)
+        protected RepositoryBase(string tableName, IList<ColumnMapping> columnMappings)
         {
-            _connectionString = connectionString;
             _tableName = tableName;
             _columnMappings = columnMappings;
         }
@@ -56,6 +56,10 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
             if (disposing) {
                 // free other managed objects that implement
                 // IDisposable only
+                if (null != ConnectionString && null != _connection)
+                {
+                    _connection.Dispose();
+                }
             }
 
             // release any unmanaged objects
@@ -68,20 +72,41 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
         {
             CreateDataTableFromItems(items);
             var map = CreateMappingDictionary();
-            var bulk = new BulkWriter(_tableName, map, _connectionString);
+            var bulk = new BulkWriter(_tableName, map) {Connection = Connection};
             bulk.WriteWithRetries(InsertDataTable);
         }
 
         public void ClearAll()
         {
-            using (var conn = new SqlConnection(_connectionString))
+//            using (var conn = new SqlConnection(_connectionString))
             {
-                using (var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", _tableName), conn))
+                using (var cmd = new SqlCommand(string.Format("TRUNCATE TABLE {0}", _tableName), Connection))
                 {
-                    conn.Open();
+//                    conn.Open();
                     cmd.ExecuteNonQuery();
                 }
             }
         }
+
+        public string ConnectionString
+        {
+            get { return _connectionString; }
+        }
+
+        public SqlConnection Connection
+        {
+            get
+            {
+                if (null == _connection && null != _connectionString)
+                {
+                    _connection = new SqlConnection(_connectionString);
+                    _connection.Open();
+                }
+                return _connection;
+            }
+            set { _connection = value; }
+        }
+
+
     }
 }

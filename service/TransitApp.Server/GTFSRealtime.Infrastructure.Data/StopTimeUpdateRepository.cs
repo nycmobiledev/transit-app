@@ -8,9 +8,8 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.Data
 {
     public class StopTimeUpdateRepository : RepositoryBase<StopTimeUpdate>
     {
-        public StopTimeUpdateRepository(string connectionString)
-            : base(
-                connectionString, "dbo.realtime_stop_time_updates",
+        public StopTimeUpdateRepository()
+            : base("dbo.realtime_stop_time_updates",
                 new List<ColumnMapping>
                 {
                     new ColumnMapping("trip_id", typeof (string)),

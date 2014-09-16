@@ -8,8 +8,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 {
     public class TripRepository: RepositoryBase<Trip>
     {
-        public TripRepository(string connectionString)
-            : base(connectionString, "dbo.trips", new[] {
+        public TripRepository()
+            : base("dbo.trips", new[] {
                 new ColumnMapping("route_id", typeof(string)), 
                 new ColumnMapping("trip_id", typeof(string)), 
                 new ColumnMapping("service_id", typeof(string)), 

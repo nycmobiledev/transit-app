@@ -8,9 +8,8 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
 {
     public class CalendarRepository : RepositoryBase<Calendar>
     {
-        public CalendarRepository(string connectionString)
-            : base(
-                connectionString, "dbo.calendar",
+        public CalendarRepository()
+            : base("dbo.calendar",
                 new[]
                 {
                     new ColumnMapping("service_id", typeof (string)), new ColumnMapping("monday", typeof (string)),
