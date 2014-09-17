@@ -12,17 +12,15 @@ namespace TransitApp.Core.ViewModels
 {
     public class SearchViewModel : BaseViewModel
     {
-		private IWebService _webService;
 		private ILocalDataService _localDbService;
+		private ICollection<Station> searchResults;
+		private string _searchText;
 
-		public SearchViewModel(IWebService webService, ILocalDataService localDbService)
+		public SearchViewModel(ILocalDataService localDbService)
 		{
-			_webService = webService;
-
 			_localDbService = localDbService;
-		}
 
-        private string _searchText;
+		}
 
         public string SearchText
         {
@@ -32,43 +30,23 @@ namespace TransitApp.Core.ViewModels
         
         public void Search(string searchText)
         {
-			ObservableCollection<Station> stationResults = new ObservableCollection<Station> (_localDbService.GetStations(searchText));
-            stationsSearchResults = stationResults;
+			this.SearchResults = _localDbService.GetStations(searchText);
         }
 
-		private ObservableCollection<Station> stationsSearchResults;
-
-		public ObservableCollection<Station> StationsSearchResults
+		public ICollection<Station> SearchResults
 		{
-			get { return this.StationsSearchResults; }
-			set { this.stationsSearchResults = value; this.RaisePropertyChanged(() => this.StationsSearchResults); }
+			get { return this.searchResults; }
+			set { this.searchResults = value; this.RaisePropertyChanged(() => this.SearchResults); }
 		}
 
-        private MvxCommand<Station> _selectStationCommand;
-
-        public ICommand SelectStationCommand
+		public ICommand SelectCommand
         {
             get
             {
-                return _selectStationCommand ?? (_selectStationCommand = new MvxCommand<Station>(this.ExecuteSelectStationCommand));
+				return new MvxCommand<Station>((x)=>
+					ShowViewModel<FollowEditViewModel>(new {stationId = x.Id})
+				);
             }
-        }
-
-        private void ExecuteSelectStationCommand(Station station)
-        {
-            if (station.IsFollowing)
-            {
-                station.IsFollowing = false;
-            }
-            else
-            {
-                station.IsFollowing = true;
-            }
-        }
-
-
-
-
-
+        }      
     }
 }

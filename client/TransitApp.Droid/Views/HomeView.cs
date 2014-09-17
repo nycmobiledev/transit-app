@@ -157,7 +157,7 @@ namespace TransitApp.Droid.Views
                 }
 
                 var loaderService = Mvx.Resolve<IMvxViewModelLoader>();
-                var viewModel = loaderService.LoadViewModel(request, null /* saved state */);
+				var viewModel = loaderService.LoadViewModel(request, null /* saved state */);
 
                 frag.ViewModel = viewModel;
 
@@ -172,6 +172,10 @@ namespace TransitApp.Droid.Views
 
                 return true;
             }
+			catch(RemoteException ex) {
+				string str = ex.ToString ();
+				return false;
+			}
             finally
             {
                 this._drawer.CloseDrawer(this._drawerList);

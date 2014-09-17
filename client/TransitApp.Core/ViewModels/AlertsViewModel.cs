@@ -10,7 +10,7 @@ using Cirrious.MvvmCross.Plugins.Messenger;
 
 namespace TransitApp.Core.ViewModels
 {
-    public class AlertsViewModel : BaseViewModel
+	public class AlertsViewModel : BaseViewModel,ITransitAppDataRefresh
     {
         private readonly IAlertService _service;
         private readonly IMvxMessenger _messenger;
@@ -22,6 +22,7 @@ namespace TransitApp.Core.ViewModels
 		{
             _messenger = messenger;
             _service = service;
+
 			ExecuteRefreshCommand ();
 			_coolTimer = new CoolTimer (DataCallBack, null, 10000, -1);
             _messenger.Subscribe<FollowsChanged>(x => ExecuteRefreshCommand());

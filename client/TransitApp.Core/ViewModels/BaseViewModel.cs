@@ -16,6 +16,30 @@ namespace TransitApp.Core.ViewModels
     /// </summary>
     public abstract class BaseViewModel : MvxViewModel
     {
+
+		ITransitAppDataRefresh _appDataRefresh = null;
+		CoolTimer _coolTimer;
+
+		public ITransitAppDataRefresh AppDataRefresh 
+		{
+			set
+			{
+				_coolTimer = new CoolTimer (BaseDataCallBack, null, 10000, -1);
+				_appDataRefresh = value;
+			}
+			get
+			{
+				return _appDataRefresh;
+			}
+		}
+
+		private void BaseDataCallBack(object state)
+		{
+			_coolTimer = new CoolTimer (BaseDataCallBack, null, 10000, -1);
+			//_appDataRefresh.DataCallBack(state);
+
+		}
+
         /// <summary>
         /// Gets the service.
         /// </summary>
