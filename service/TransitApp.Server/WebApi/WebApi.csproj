@@ -207,13 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="Controllers\TransitAlertController.cs" />
-    <Compile Include="DataObjects\TodoItem.cs" />
-    <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="ScheduledJobs\GTFSRealtimeJob.cs" />
     <Compile Include="ScheduledJobs\GTFSStaticJob.cs" />
-    <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,7 +218,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -232,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
