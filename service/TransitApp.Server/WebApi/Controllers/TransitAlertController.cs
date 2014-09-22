@@ -83,7 +83,7 @@ namespace TransitApp.Server.WebApi.Controllers
                 using (var cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    string sql = "SELECT * FROM TripAlert WHERE ArrivalTime BETWEEN @from AND @to AND StationId IN ({0})";
+                    string sql = "SELECT * FROM SubwaySchedule WHERE ArrivalTime BETWEEN @from AND @to AND StationId IN ({0})";
                     string[] paramArray = stations.Select((x, i) => "@stn" + i).ToArray();
                     cmd.CommandText = string.Format(sql, string.Join(",", paramArray));
 

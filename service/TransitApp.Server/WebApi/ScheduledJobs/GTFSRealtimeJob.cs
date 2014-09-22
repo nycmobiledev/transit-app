@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Mobile.Service;
@@ -49,7 +50,7 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
                 using (var alertRepos = new AlertRepository() {Connection = conn})
                 {
                     // Clear Tables
-                    alertRepos.ClearAll();
+                    alertRepos.ClearAll(); 
 
                     // Load Tables
                     alertRepos.AddRange(alertsIrt);
@@ -93,6 +94,12 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
                     // Load Tables
                     vehiclesRepos.AddRange(vehiclesIrt);
                     vehiclesRepos.AddRange(vehiclesL);
+                }
+
+                using (var cmd = new SqlCommand("sp_CreateRealtimeSchedule", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
                 }
             }
 

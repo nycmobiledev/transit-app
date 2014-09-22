@@ -19,8 +19,6 @@ namespace TransitApp.Server.GTFSStatic.Infrastructure.Data
                     new ColumnMapping("stop_sequence", typeof(int)),
                     new ColumnMapping("pickup_type", typeof(int)),
                     new ColumnMapping("drop_off_type", typeof(int)),
-                    new ColumnMapping("arrival_time_span", typeof(int)), 
-                    new ColumnMapping("departure_time_span", typeof(int)),
                 })
         { }
 
