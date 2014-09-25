@@ -12,41 +12,50 @@ namespace TransitApp.Core.ViewModels
 {
     public class SearchViewModel : BaseViewModel
     {
-		private ILocalDataService _localDbService;
-		private ICollection<Station> searchResults;
-		private string _searchText;
+        private readonly ILocalDataService _localDbService;
+        private ICollection<Station> searchResults;
+        private string _searchText;
+        private CoolTimer _timer;
 
-		public SearchViewModel(ILocalDataService localDbService)
-		{
-			_localDbService = localDbService;
-
-		}
+        public SearchViewModel(ILocalDataService localDbService)
+        {
+            _localDbService = localDbService;
+        }
 
         public string SearchText
         {
             get { return _searchText; }
             set { _searchText = value; this.RaisePropertyChanged(() => this.SearchText); Search(value); }
         }
-        
+
         public void Search(string searchText)
         {
-			this.SearchResults = _localDbService.GetStations(searchText);
+            if (_timer != null)
+            {
+                _timer.Cancel();
+            }
+
+            _timer = new CoolTimer((x) =>
+            {
+                this.SearchResults = _localDbService.GetStations((string)x);
+                _timer = null;
+            }, searchText, 500);
         }
 
-		public ICollection<Station> SearchResults
-		{
-			get { return this.searchResults; }
-			set { this.searchResults = value; this.RaisePropertyChanged(() => this.SearchResults); }
-		}
+        public ICollection<Station> SearchResults
+        {
+            get { return this.searchResults; }
+            set { this.searchResults = value; this.RaisePropertyChanged(() => this.SearchResults); }
+        }
 
-		public ICommand SelectCommand
+        public ICommand SelectCommand
         {
             get
             {
-				return new MvxCommand<Station>((x)=>
-					ShowViewModel<FollowEditViewModel>(new {stationId = x.Id})
-				);
+                return new MvxCommand<Station>((x) =>
+                    ShowViewModel<FollowEditViewModel>(new { stationId = x.Id })
+                );
             }
-        }      
+        }
     }
 }

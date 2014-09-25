@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TransitApp.Droid.Controls.MvxSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    local:MvxBind="Refreshing IsBusy;RefreshCommand RefreshCommand">
     <Mvx.MvxListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:listSelector="@android:color/transparent"
         local:MvxBind="ItemsSource Alerts"
         local:MvxItemTemplate="@layout/item_alert" />
-</RelativeLayout>
+</TransitApp.Droid.Controls.MvxSwipeRefreshLayout>

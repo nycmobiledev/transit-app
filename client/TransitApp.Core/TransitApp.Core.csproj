@@ -59,7 +59,6 @@
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
     <EmbeddedResource Include="LocalData.json" />
-    <None Include="Services\_GtfsService.cs" />
     <Compile Include="Services\IFollowService.cs" />
     <Compile Include="Services\FollowService.cs" />
     <Compile Include="Services\ILocalDataService.cs" />
@@ -68,7 +67,6 @@
     <Compile Include="Models\Station.cs" />
     <Compile Include="Services\WebService.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
-    <None Include="Services\_IGtfsService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Models\Line.cs" />
     <Compile Include="Models\Follow.cs" />

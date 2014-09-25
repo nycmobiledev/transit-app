@@ -48,6 +48,8 @@ namespace TransitApp.Droid
 		}
         protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
         {
-            registry.RegisterCustomBindingFactory<ImageView>("Alpha", v => new ImageViewAlphaTargetBinding(v)); base.FillTargetFactories(registry);}
+            registry.RegisterCustomBindingFactory<ImageView>("Alpha", v => new ImageViewAlphaTargetBinding(v));
+            base.FillTargetFactories(registry);
+        }
     }
 }

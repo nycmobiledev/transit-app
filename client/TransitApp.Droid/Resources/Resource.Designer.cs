@@ -350,6 +350,18 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f050010
 			public const int default_underline_indicator_selected_color = 2131034128;
 			
+			// aapt resource value: 0x7f050013
+			public const int srl_1 = 2131034131;
+			
+			// aapt resource value: 0x7f050014
+			public const int srl_2 = 2131034132;
+			
+			// aapt resource value: 0x7f050015
+			public const int srl_3 = 2131034133;
+			
+			// aapt resource value: 0x7f050016
+			public const int srl_4 = 2131034134;
+			
 			// aapt resource value: 0x7f050011
 			public const int standard_background = 2131034129;
 			
@@ -377,11 +389,11 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f050007
 			public const int vpi__bright_foreground_inverse_holo_light = 2131034119;
 			
-			// aapt resource value: 0x7f050013
-			public const int vpi__dark_theme = 2131034131;
+			// aapt resource value: 0x7f050017
+			public const int vpi__dark_theme = 2131034135;
 			
-			// aapt resource value: 0x7f050014
-			public const int vpi__light_theme = 2131034132;
+			// aapt resource value: 0x7f050018
+			public const int vpi__light_theme = 2131034136;
 			
 			static Color()
 			{
