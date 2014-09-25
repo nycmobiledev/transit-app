@@ -9,6 +9,7 @@ namespace TransitApp.Core.Models
 	{
 		public string StationId { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("RouteId")]
 		public string LineId { get; set; }
 
 		public string TrainId { get; set; }
