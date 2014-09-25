@@ -12,10 +12,11 @@ namespace TransitApp.Core.Models
 		public string LineId { get; set; }
 
 		public string TrainId { get; set; }
+        public string DestinationStationId { get; set; }
 
 		public int Direction { get; set; }
 
-		public DateTime ArriveTime { get; set; }
+		public DateTime ArrivalTime { get; set; }
 
 		public Line Line { get; set; }
 
