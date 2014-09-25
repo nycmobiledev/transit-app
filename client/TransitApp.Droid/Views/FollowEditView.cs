@@ -9,7 +9,7 @@ using TransitApp.Core.ViewModels;
 
 namespace TransitApp.Droid.Views
 {
-    [Activity(Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
+    [Activity(Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
     [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.FollowsView")]
     public class FollowEditView : MvxActivity
     {

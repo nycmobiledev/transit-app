@@ -614,14 +614,17 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f040003
 			public const int bottom = 2130968579;
 			
+			// aapt resource value: 0x7f04000f
+			public const int content_frame = 2130968591;
+			
 			// aapt resource value: 0x7f04000e
-			public const int content_frame = 2130968590;
+			public const int drawer_layout = 2130968590;
+			
+			// aapt resource value: 0x7f040013
+			public const int empty = 2130968595;
 			
 			// aapt resource value: 0x7f04000d
-			public const int drawer_layout = 2130968589;
-			
-			// aapt resource value: 0x7f040012
-			public const int empty = 2130968594;
+			public const int icons = 2130968589;
 			
 			// aapt resource value: 0x7f040007
 			public const int image = 2130968583;
@@ -629,26 +632,26 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f04000c
 			public const int item_img = 2130968588;
 			
-			// aapt resource value: 0x7f04000f
-			public const int left_drawer = 2130968591;
-			
-			// aapt resource value: 0x7f040014
-			public const int menu_done = 2130968596;
-			
-			// aapt resource value: 0x7f040011
-			public const int menu_edit = 2130968593;
+			// aapt resource value: 0x7f040010
+			public const int left_drawer = 2130968592;
 			
 			// aapt resource value: 0x7f040015
-			public const int menu_new = 2130968597;
+			public const int menu_done = 2130968597;
 			
-			// aapt resource value: 0x7f040013
-			public const int menu_refresh = 2130968595;
+			// aapt resource value: 0x7f040012
+			public const int menu_edit = 2130968594;
+			
+			// aapt resource value: 0x7f040016
+			public const int menu_new = 2130968598;
+			
+			// aapt resource value: 0x7f040014
+			public const int menu_refresh = 2130968596;
 			
 			// aapt resource value: 0x7f040000
 			public const int none = 2130968576;
 			
-			// aapt resource value: 0x7f040010
-			public const int search_text = 2130968592;
+			// aapt resource value: 0x7f040011
+			public const int search_text = 2130968593;
 			
 			// aapt resource value: 0x7f040006
 			public const int textView1 = 2130968582;
@@ -820,20 +823,17 @@ namespace TransitApp.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f090005
-			public const int MyBaseTheme = 2131296261;
-			
-			// aapt resource value: 0x7f090006
-			public const int MyTheme = 2131296262;
-			
 			// aapt resource value: 0x7f090003
 			public const int TextAppearance_TabPageIndicator = 2131296259;
+			
+			// aapt resource value: 0x7f090005
+			public const int Theme = 2131296261;
 			
 			// aapt resource value: 0x7f090000
 			public const int Theme_PageIndicatorDefaults = 2131296256;
 			
-			// aapt resource value: 0x7f090007
-			public const int Theme_Splash = 2131296263;
+			// aapt resource value: 0x7f090006
+			public const int Theme_Splash = 2131296262;
 			
 			// aapt resource value: 0x7f090001
 			public const int Widget = 2131296257;

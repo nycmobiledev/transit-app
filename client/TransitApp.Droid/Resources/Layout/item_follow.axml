@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="140dp"
-    android:layout_height="140dp"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
     android:background="@drawable/border"
     android:descendantFocusability="blocksDescendants"
     android:padding="8dp">
@@ -16,8 +16,8 @@
         local:MvxBind="Text Station.Name"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/Area"
-        android:layout_marginBottom="3dp" />
+        android:singleLine="true"
+        android:layout_marginTop="10dp" />
     <TextView
         android:id="@+id/Area"
         android:text="StationArea"
@@ -25,9 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         local:MvxBind="Text Station.Area"
+        android:layout_below="@+id/StationName"
         android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_centerHorizontal="true" />
     <Mvx.MvxGridView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,5 +36,6 @@
         android:numColumns="6"
         android:layout_below="@+id/Area"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:focusable="false" />
 </RelativeLayout>

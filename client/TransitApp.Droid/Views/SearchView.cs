@@ -7,7 +7,7 @@ using Cirrious.MvvmCross.Droid.Views;
 
 namespace TransitApp.Droid.Views
 {
-    [Activity(Label = "Search", Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
+    [Activity(Label = "Search", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
     [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.FollowsView")]
     public class SearchView : MvxActivity
 	{

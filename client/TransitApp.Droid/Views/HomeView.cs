@@ -15,7 +15,7 @@ using TransitApp.Droid.Views.Fragments;
 
 namespace TransitApp.Droid.Views
 {
-	[Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop, Theme = "@style/MyTheme", Icon = "@drawable/Icon")]
+	[Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/Icon")]
     public class HomeView : MvxFragmentActivity, IFragmentHost
     {
         private DrawerLayout _drawer;
@@ -34,7 +34,7 @@ namespace TransitApp.Droid.Views
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            
             SetContentView(Resource.Layout.page_home_view);
 
             this._title = this._drawerTitle = this.Title;
