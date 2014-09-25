@@ -9,7 +9,7 @@ namespace TransitApp.Core
 	{
 		protected override string Convert(DateTime date, Type targetType, object parameter, CultureInfo culture)
 		{
-			return (date - DateTime.Now).TotalMinutes.ToString ("N0");
+			return (date - DateTime.UtcNow).TotalMinutes.ToString ("N0");
 		}
 	}
 }

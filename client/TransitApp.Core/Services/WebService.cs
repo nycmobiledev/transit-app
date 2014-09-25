@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using TransitApp.Core.Models;
 using System.Net.Http;
@@ -42,8 +44,18 @@ namespace TransitApp.Core.Services
 		public async Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows)
 		{
 
+            
 
 			var list = new List<Alert>();
+		    if (null == follows || follows.Count() == 0)
+		    {
+		        return list;
+		    }
+
+		   
+		   var stations = String.Join(",", follows.Select(follow => follow.StationId));
+		    
+            
 
 
 
@@ -53,7 +65,7 @@ namespace TransitApp.Core.Services
 
 			client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "HaFafTMWBtEycDgGAgJDvlPKibkQIK93");
 
-			var resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=640");
+            var resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
 				  
 			list = JsonConvert.DeserializeObject<List<Alert>>(resp);
 
@@ -62,7 +74,9 @@ namespace TransitApp.Core.Services
 				item.Station = _localDataService.GetStation(item.StationId);
 			}
 
-			return list;
+
+
+			return list.OrderBy(alert => alert.ArrivalTime).ToList();
 
 		}
 	}
