@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="140dp"
+    android:layout_height="140dp"
     android:background="@drawable/border"
-    android:minHeight="25px"
-    android:paddingTop="3dp"
-    android:paddingRight="3dp"
-    android:paddingBottom="3dp"
-    android:paddingLeft="3dp"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+    android:padding="8dp">
     <TextView
+        android:id="@+id/StationName"
         android:text="StationName"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/StationName"
         local:MvxBind="Text Station.Name"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/Area"
+        android:layout_marginBottom="3dp" />
     <TextView
+        android:id="@+id/Area"
         android:text="StationArea"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Area"
         local:MvxBind="Text Station.Area"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
     <Mvx.MvxGridView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         local:MvxBind="ItemsSource Lines"
         local:MvxItemTemplate="@layout/item_lineicon"
-        android:numColumns="6" />
-</LinearLayout>
+        android:numColumns="6"
+        android:layout_below="@+id/Area"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+</RelativeLayout>
