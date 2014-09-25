@@ -139,6 +139,7 @@ publish/
 packages/*
 service/TransitApp.Server/packages/*
 client/packages/*
+client/Components/*
 
 *.nupkg
 ## TODO: If the tool you use requires repositories.config
@@ -199,4 +200,4 @@ FakesAssemblies/
 /docs
 *.suo
 *.userprefs
-/client/packages
+

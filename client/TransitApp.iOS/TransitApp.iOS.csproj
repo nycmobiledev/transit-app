@@ -161,9 +161,12 @@
     <BundleResource Include="Resources\icons\Cog%402x.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="ToDo-MvvmCross\_ Touch UI.txt" />
     <None Include="AppDelegate.cs.txt" />
   </ItemGroup>

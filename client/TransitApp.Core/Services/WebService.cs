@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using ModernHttpClient;
 using TransitApp.Core.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
@@ -25,12 +26,12 @@ namespace TransitApp.Core.Services
 	{
 		private readonly ILocalDataService _localDataService;
 
-		public WebService(ILocalDataService localDataService)
-		{
-			_localDataService = localDataService;
-		}
+	    public WebService(ILocalDataService localDataService)
+        {
+            _localDataService = localDataService;
+        }
 
-		void TimerCallback(object state)
+	    void TimerCallback(object state)
 		{
 
 		}
@@ -54,27 +55,26 @@ namespace TransitApp.Core.Services
 
 		   
 		   var stations = String.Join(",", follows.Select(follow => follow.StationId));
-		    
-            
 
 
 
-			HttpClient client = new HttpClient();
+
+		    var client = new HttpClient( new NativeMessageHandler());
 
 
 
 			client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "HaFafTMWBtEycDgGAgJDvlPKibkQIK93");
 
-            var resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
-				  
-			list = JsonConvert.DeserializeObject<List<Alert>>(resp);
+		    string resp = null;
+
+		   
+		     resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
+		     list = JsonConvert.DeserializeObject<List<Alert>>(resp);
 
 			foreach (var item in list) {
 				item.Line = _localDataService.GetLine(item.LineId);
 				item.Station = _localDataService.GetStation(item.StationId);
 			}
-
-
 
 			return list.OrderBy(alert => alert.ArrivalTime).ToList();
 

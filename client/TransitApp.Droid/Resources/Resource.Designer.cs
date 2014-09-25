@@ -163,6 +163,7 @@ namespace TransitApp.Droid
 			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiTabPageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiTabPageIndicatorStyle;
 			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiTitlePageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiTitlePageIndicatorStyle;
 			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle;
+			global::ModernHttpClient.Resource.String.library_name = global::TransitApp.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Attribute
@@ -292,20 +293,20 @@ namespace TransitApp.Droid
 		public partial class Boolean
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int default_circle_indicator_centered = 2131099648;
+			// aapt resource value: 0x7f070000
+			public const int default_circle_indicator_centered = 2131165184;
 			
-			// aapt resource value: 0x7f060001
-			public const int default_circle_indicator_snap = 2131099649;
+			// aapt resource value: 0x7f070001
+			public const int default_circle_indicator_snap = 2131165185;
 			
-			// aapt resource value: 0x7f060002
-			public const int default_line_indicator_centered = 2131099650;
+			// aapt resource value: 0x7f070002
+			public const int default_line_indicator_centered = 2131165186;
 			
-			// aapt resource value: 0x7f060003
-			public const int default_title_indicator_selected_bold = 2131099651;
+			// aapt resource value: 0x7f070003
+			public const int default_title_indicator_selected_bold = 2131165187;
 			
-			// aapt resource value: 0x7f060004
-			public const int default_underline_indicator_fades = 2131099652;
+			// aapt resource value: 0x7f070004
+			public const int default_underline_indicator_fades = 2131165188;
 			
 			static Boolean()
 			{
@@ -320,68 +321,68 @@ namespace TransitApp.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f050012
-			public const int border = 2131034130;
+			// aapt resource value: 0x7f060012
+			public const int border = 2131099666;
 			
-			// aapt resource value: 0x7f050008
-			public const int default_circle_indicator_fill_color = 2131034120;
+			// aapt resource value: 0x7f060008
+			public const int default_circle_indicator_fill_color = 2131099656;
 			
-			// aapt resource value: 0x7f050009
-			public const int default_circle_indicator_page_color = 2131034121;
+			// aapt resource value: 0x7f060009
+			public const int default_circle_indicator_page_color = 2131099657;
 			
-			// aapt resource value: 0x7f05000a
-			public const int default_circle_indicator_stroke_color = 2131034122;
+			// aapt resource value: 0x7f06000a
+			public const int default_circle_indicator_stroke_color = 2131099658;
 			
-			// aapt resource value: 0x7f05000b
-			public const int default_line_indicator_selected_color = 2131034123;
+			// aapt resource value: 0x7f06000b
+			public const int default_line_indicator_selected_color = 2131099659;
 			
-			// aapt resource value: 0x7f05000c
-			public const int default_line_indicator_unselected_color = 2131034124;
+			// aapt resource value: 0x7f06000c
+			public const int default_line_indicator_unselected_color = 2131099660;
 			
-			// aapt resource value: 0x7f05000d
-			public const int default_title_indicator_footer_color = 2131034125;
+			// aapt resource value: 0x7f06000d
+			public const int default_title_indicator_footer_color = 2131099661;
 			
-			// aapt resource value: 0x7f05000e
-			public const int default_title_indicator_selected_color = 2131034126;
+			// aapt resource value: 0x7f06000e
+			public const int default_title_indicator_selected_color = 2131099662;
 			
-			// aapt resource value: 0x7f05000f
-			public const int default_title_indicator_text_color = 2131034127;
+			// aapt resource value: 0x7f06000f
+			public const int default_title_indicator_text_color = 2131099663;
 			
-			// aapt resource value: 0x7f050010
-			public const int default_underline_indicator_selected_color = 2131034128;
+			// aapt resource value: 0x7f060010
+			public const int default_underline_indicator_selected_color = 2131099664;
 			
-			// aapt resource value: 0x7f050011
-			public const int standard_background = 2131034129;
+			// aapt resource value: 0x7f060011
+			public const int standard_background = 2131099665;
 			
-			// aapt resource value: 0x7f050000
-			public const int vpi__background_holo_dark = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int vpi__background_holo_dark = 2131099648;
 			
-			// aapt resource value: 0x7f050001
-			public const int vpi__background_holo_light = 2131034113;
+			// aapt resource value: 0x7f060001
+			public const int vpi__background_holo_light = 2131099649;
 			
-			// aapt resource value: 0x7f050004
-			public const int vpi__bright_foreground_disabled_holo_dark = 2131034116;
+			// aapt resource value: 0x7f060004
+			public const int vpi__bright_foreground_disabled_holo_dark = 2131099652;
 			
-			// aapt resource value: 0x7f050005
-			public const int vpi__bright_foreground_disabled_holo_light = 2131034117;
+			// aapt resource value: 0x7f060005
+			public const int vpi__bright_foreground_disabled_holo_light = 2131099653;
 			
-			// aapt resource value: 0x7f050002
-			public const int vpi__bright_foreground_holo_dark = 2131034114;
+			// aapt resource value: 0x7f060002
+			public const int vpi__bright_foreground_holo_dark = 2131099650;
 			
-			// aapt resource value: 0x7f050003
-			public const int vpi__bright_foreground_holo_light = 2131034115;
+			// aapt resource value: 0x7f060003
+			public const int vpi__bright_foreground_holo_light = 2131099651;
 			
-			// aapt resource value: 0x7f050006
-			public const int vpi__bright_foreground_inverse_holo_dark = 2131034118;
+			// aapt resource value: 0x7f060006
+			public const int vpi__bright_foreground_inverse_holo_dark = 2131099654;
 			
-			// aapt resource value: 0x7f050007
-			public const int vpi__bright_foreground_inverse_holo_light = 2131034119;
+			// aapt resource value: 0x7f060007
+			public const int vpi__bright_foreground_inverse_holo_light = 2131099655;
 			
-			// aapt resource value: 0x7f050013
-			public const int vpi__dark_theme = 2131034131;
+			// aapt resource value: 0x7f060013
+			public const int vpi__dark_theme = 2131099667;
 			
-			// aapt resource value: 0x7f050014
-			public const int vpi__light_theme = 2131034132;
+			// aapt resource value: 0x7f060014
+			public const int vpi__light_theme = 2131099668;
 			
 			static Color()
 			{
@@ -396,44 +397,44 @@ namespace TransitApp.Droid
 		public partial class Dimension
 		{
 			
-			// aapt resource value: 0x7f080000
-			public const int default_circle_indicator_radius = 2131230720;
+			// aapt resource value: 0x7f090000
+			public const int default_circle_indicator_radius = 2131296256;
 			
-			// aapt resource value: 0x7f080001
-			public const int default_circle_indicator_stroke_width = 2131230721;
+			// aapt resource value: 0x7f090001
+			public const int default_circle_indicator_stroke_width = 2131296257;
 			
-			// aapt resource value: 0x7f080003
-			public const int default_line_indicator_gap_width = 2131230723;
+			// aapt resource value: 0x7f090003
+			public const int default_line_indicator_gap_width = 2131296259;
 			
-			// aapt resource value: 0x7f080002
-			public const int default_line_indicator_line_width = 2131230722;
+			// aapt resource value: 0x7f090002
+			public const int default_line_indicator_line_width = 2131296258;
 			
-			// aapt resource value: 0x7f080004
-			public const int default_line_indicator_stroke_width = 2131230724;
+			// aapt resource value: 0x7f090004
+			public const int default_line_indicator_stroke_width = 2131296260;
 			
-			// aapt resource value: 0x7f080005
-			public const int default_title_indicator_clip_padding = 2131230725;
+			// aapt resource value: 0x7f090005
+			public const int default_title_indicator_clip_padding = 2131296261;
 			
-			// aapt resource value: 0x7f080007
-			public const int default_title_indicator_footer_indicator_height = 2131230727;
+			// aapt resource value: 0x7f090007
+			public const int default_title_indicator_footer_indicator_height = 2131296263;
 			
-			// aapt resource value: 0x7f080008
-			public const int default_title_indicator_footer_indicator_underline_padding = 2131230728;
+			// aapt resource value: 0x7f090008
+			public const int default_title_indicator_footer_indicator_underline_padding = 2131296264;
 			
-			// aapt resource value: 0x7f080006
-			public const int default_title_indicator_footer_line_height = 2131230726;
+			// aapt resource value: 0x7f090006
+			public const int default_title_indicator_footer_line_height = 2131296262;
 			
-			// aapt resource value: 0x7f080009
-			public const int default_title_indicator_footer_padding = 2131230729;
+			// aapt resource value: 0x7f090009
+			public const int default_title_indicator_footer_padding = 2131296265;
 			
-			// aapt resource value: 0x7f08000a
-			public const int default_title_indicator_text_size = 2131230730;
+			// aapt resource value: 0x7f09000a
+			public const int default_title_indicator_text_size = 2131296266;
 			
-			// aapt resource value: 0x7f08000b
-			public const int default_title_indicator_title_padding = 2131230731;
+			// aapt resource value: 0x7f09000b
+			public const int default_title_indicator_title_padding = 2131296267;
 			
-			// aapt resource value: 0x7f08000c
-			public const int default_title_indicator_top_padding = 2131230732;
+			// aapt resource value: 0x7f09000c
+			public const int default_title_indicator_top_padding = 2131296268;
 			
 			static Dimension()
 			{
@@ -599,71 +600,71 @@ namespace TransitApp.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f04000b
-			public const int Area = 2130968587;
+			// aapt resource value: 0x7f05000b
+			public const int Area = 2131034123;
 			
-			// aapt resource value: 0x7f040009
-			public const int Destination = 2130968585;
+			// aapt resource value: 0x7f050009
+			public const int Destination = 2131034121;
 			
-			// aapt resource value: 0x7f040005
-			public const int MvxBindingTagUnique = 2130968581;
+			// aapt resource value: 0x7f050005
+			public const int MvxBindingTagUnique = 2131034117;
 			
-			// aapt resource value: 0x7f040008
-			public const int StationName = 2130968584;
+			// aapt resource value: 0x7f050008
+			public const int StationName = 2131034120;
 			
-			// aapt resource value: 0x7f040003
-			public const int bottom = 2130968579;
+			// aapt resource value: 0x7f050003
+			public const int bottom = 2131034115;
 			
-			// aapt resource value: 0x7f04000e
-			public const int content_frame = 2130968590;
+			// aapt resource value: 0x7f05000e
+			public const int content_frame = 2131034126;
 			
-			// aapt resource value: 0x7f04000d
-			public const int drawer_layout = 2130968589;
+			// aapt resource value: 0x7f05000d
+			public const int drawer_layout = 2131034125;
 			
-			// aapt resource value: 0x7f040012
-			public const int empty = 2130968594;
+			// aapt resource value: 0x7f050012
+			public const int empty = 2131034130;
 			
-			// aapt resource value: 0x7f040007
-			public const int image = 2130968583;
+			// aapt resource value: 0x7f050007
+			public const int image = 2131034119;
 			
-			// aapt resource value: 0x7f04000c
-			public const int item_img = 2130968588;
+			// aapt resource value: 0x7f05000c
+			public const int item_img = 2131034124;
 			
-			// aapt resource value: 0x7f04000f
-			public const int left_drawer = 2130968591;
+			// aapt resource value: 0x7f05000f
+			public const int left_drawer = 2131034127;
 			
-			// aapt resource value: 0x7f040014
-			public const int menu_done = 2130968596;
+			// aapt resource value: 0x7f050014
+			public const int menu_done = 2131034132;
 			
-			// aapt resource value: 0x7f040011
-			public const int menu_edit = 2130968593;
+			// aapt resource value: 0x7f050011
+			public const int menu_edit = 2131034129;
 			
-			// aapt resource value: 0x7f040015
-			public const int menu_new = 2130968597;
+			// aapt resource value: 0x7f050015
+			public const int menu_new = 2131034133;
 			
-			// aapt resource value: 0x7f040013
-			public const int menu_refresh = 2130968595;
+			// aapt resource value: 0x7f050013
+			public const int menu_refresh = 2131034131;
 			
-			// aapt resource value: 0x7f040000
-			public const int none = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int none = 2131034112;
 			
-			// aapt resource value: 0x7f040010
-			public const int search_text = 2130968592;
+			// aapt resource value: 0x7f050010
+			public const int search_text = 2131034128;
 			
-			// aapt resource value: 0x7f040006
-			public const int textView1 = 2130968582;
+			// aapt resource value: 0x7f050006
+			public const int textView1 = 2131034118;
 			
-			// aapt resource value: 0x7f04000a
-			public const int time = 2130968586;
+			// aapt resource value: 0x7f05000a
+			public const int time = 2131034122;
 			
-			// aapt resource value: 0x7f040004
-			public const int top = 2130968580;
+			// aapt resource value: 0x7f050004
+			public const int top = 2131034116;
 			
-			// aapt resource value: 0x7f040001
-			public const int triangle = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int triangle = 2131034113;
 			
-			// aapt resource value: 0x7f040002
-			public const int underline = 2130968578;
+			// aapt resource value: 0x7f050002
+			public const int underline = 2131034114;
 			
 			static Id()
 			{
@@ -678,23 +679,23 @@ namespace TransitApp.Droid
 		public partial class Integer
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int default_circle_indicator_orientation = 2131165184;
+			// aapt resource value: 0x7f080000
+			public const int default_circle_indicator_orientation = 2131230720;
 			
-			// aapt resource value: 0x7f070001
-			public const int default_title_indicator_footer_indicator_style = 2131165185;
+			// aapt resource value: 0x7f080001
+			public const int default_title_indicator_footer_indicator_style = 2131230721;
 			
-			// aapt resource value: 0x7f070002
-			public const int default_title_indicator_line_position = 2131165186;
+			// aapt resource value: 0x7f080002
+			public const int default_title_indicator_line_position = 2131230722;
 			
-			// aapt resource value: 0x7f070003
-			public const int default_underline_indicator_fade_delay = 2131165187;
+			// aapt resource value: 0x7f080003
+			public const int default_underline_indicator_fade_delay = 2131230723;
 			
-			// aapt resource value: 0x7f070004
-			public const int default_underline_indicator_fade_length = 2131165188;
+			// aapt resource value: 0x7f080004
+			public const int default_underline_indicator_fade_length = 2131230724;
 			
-			// aapt resource value: 0x7f070005
-			public const int item_columns = 2131165189;
+			// aapt resource value: 0x7f080005
+			public const int item_columns = 2131230725;
 			
 			static Integer()
 			{
@@ -786,26 +787,29 @@ namespace TransitApp.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f0a0000
-			public const int ApplicationName = 2131361792;
+			// aapt resource value: 0x7f040001
+			public const int ApplicationName = 2130968577;
 			
-			// aapt resource value: 0x7f0a0002
-			public const int drawer_close = 2131361794;
+			// aapt resource value: 0x7f040003
+			public const int drawer_close = 2130968579;
 			
-			// aapt resource value: 0x7f0a0001
-			public const int drawer_open = 2131361793;
+			// aapt resource value: 0x7f040002
+			public const int drawer_open = 2130968578;
 			
-			// aapt resource value: 0x7f0a0006
-			public const int menu_done = 2131361798;
+			// aapt resource value: 0x7f040000
+			public const int library_name = 2130968576;
 			
-			// aapt resource value: 0x7f0a0004
-			public const int menu_edit = 2131361796;
+			// aapt resource value: 0x7f040007
+			public const int menu_done = 2130968583;
 			
-			// aapt resource value: 0x7f0a0005
-			public const int menu_new = 2131361797;
+			// aapt resource value: 0x7f040005
+			public const int menu_edit = 2130968581;
 			
-			// aapt resource value: 0x7f0a0003
-			public const int menu_refresh = 2131361795;
+			// aapt resource value: 0x7f040006
+			public const int menu_new = 2130968582;
+			
+			// aapt resource value: 0x7f040004
+			public const int menu_refresh = 2130968580;
 			
 			static String()
 			{
@@ -820,29 +824,29 @@ namespace TransitApp.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f090005
-			public const int MyBaseTheme = 2131296261;
+			// aapt resource value: 0x7f0a0005
+			public const int MyBaseTheme = 2131361797;
 			
-			// aapt resource value: 0x7f090006
-			public const int MyTheme = 2131296262;
+			// aapt resource value: 0x7f0a0006
+			public const int MyTheme = 2131361798;
 			
-			// aapt resource value: 0x7f090003
-			public const int TextAppearance_TabPageIndicator = 2131296259;
+			// aapt resource value: 0x7f0a0003
+			public const int TextAppearance_TabPageIndicator = 2131361795;
 			
-			// aapt resource value: 0x7f090000
-			public const int Theme_PageIndicatorDefaults = 2131296256;
+			// aapt resource value: 0x7f0a0000
+			public const int Theme_PageIndicatorDefaults = 2131361792;
 			
-			// aapt resource value: 0x7f090007
-			public const int Theme_Splash = 2131296263;
+			// aapt resource value: 0x7f0a0007
+			public const int Theme_Splash = 2131361799;
 			
-			// aapt resource value: 0x7f090001
-			public const int Widget = 2131296257;
+			// aapt resource value: 0x7f0a0001
+			public const int Widget = 2131361793;
 			
-			// aapt resource value: 0x7f090004
-			public const int Widget_IconPageIndicator = 2131296260;
+			// aapt resource value: 0x7f0a0004
+			public const int Widget_IconPageIndicator = 2131361796;
 			
-			// aapt resource value: 0x7f090002
-			public const int Widget_TabPageIndicator = 2131296258;
+			// aapt resource value: 0x7f0a0002
+			public const int Widget_TabPageIndicator = 2131361794;
 			
 			static Style()
 			{

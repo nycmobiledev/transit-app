@@ -60,8 +60,15 @@
     <Optimize>false</Optimize>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ModernHttpClient, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Components\modernhttpclient-2.1.1\lib\android\ModernHttpClient.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="OkHttp">
+      <HintPath>..\Components\modernhttpclient-2.1.1\lib\android\OkHttp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -160,6 +167,7 @@
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Resources\AboutResources.txt" />
     <AndroidResource Include="Resources\Layout\SplashScreen.axml" />
     <None Include="packages.config" />
@@ -272,9 +280,13 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup>
-    <XamarinComponentReference Include="xamandroidsupportv4-18">
-      <Version>4.19.0.1</Version>
+    <XamarinComponentReference Include="modernhttpclient">
       <Visible>False</Visible>
+      <Version>2.1.1</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamandroidsupportv4-18">
+      <Visible>False</Visible>
+      <Version>20.0.0.4</Version>
     </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
