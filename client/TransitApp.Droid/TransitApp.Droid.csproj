@@ -214,6 +214,8 @@
     <AndroidResource Include="Resources\Layout\item_followLine.axml" />
     <AndroidResource Include="Resources\Layout\item_lineIcon.axml" />
     <AndroidResource Include="Resources\Layout\item_train.axml" />
+    <AndroidResource Include="Resources\Layout\item_lineIcon2.axml" />
+    <AndroidResource Include="Resources\Drawable\Train_GS.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
