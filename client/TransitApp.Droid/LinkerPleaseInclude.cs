@@ -96,5 +96,10 @@ namespace TransitApp.Droid
                     }
                 };
         }
+
+		public void Include(Switch @switch)
+		{
+			@switch.CheckedChange += (sender, args) => @switch.Checked = !@switch.Checked;
+		}
     }
 }

@@ -23,7 +23,13 @@ namespace TransitApp.Core.Models
 		public Station Station { get; set; }
 
 		public string Destination { 
-			get { 
+			get
+			{
+			    
+			    if (null == Line)
+			    {
+                    return null;
+			    }
 				if (Direction == 1) {
                     return String.Format("{0} To {1}", Line.Start, Line.End);
 				} else {
