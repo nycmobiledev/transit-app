@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:textSize="28dp"
         android:text="10"
-        local:MvxBind="Text ArriveTime, Converter=ArriveTime"
+        local:MvxBind="Text ArrivalTime, Converter=ArriveTime"
         android:layout_alignParentRight="true"
         android:gravity="center" />
     <TextView
