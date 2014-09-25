@@ -18,15 +18,14 @@ namespace TransitApp.Core.Services
 		public double Price {get;set;}
 		public int PortfolioQty {get;set;}
 	}
+
 	public class WebService : IWebService
 	{
-		private CoolTimer  _coolTimer ;
+		private readonly ILocalDataService _localDataService;
 
-
-		public WebService()
+		public WebService(ILocalDataService localDataService)
 		{
-			_coolTimer = new CoolTimer (TimerCallback,null,0,1000);
-
+			_localDataService = localDataService;
 		}
 
 		void TimerCallback(object state)
@@ -39,6 +38,7 @@ namespace TransitApp.Core.Services
 			//todo 
 			throw new NotImplementedException();
 		}
+
 		public async Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows)
 		{
 			/*
@@ -80,6 +80,10 @@ namespace TransitApp.Core.Services
 				  
 			list = JsonConvert.DeserializeObject<List<Alert>>(resp);
 
+			foreach (var item in list) {
+				item.Line = _localDataService.GetLine(item.LineId);
+				item.Station = _localDataService.GetStation(item.StationId);
+			}
 
 			return list;
 
