@@ -81,7 +81,8 @@ namespace TransitApp.Server.Shared.Infrastructure.Data
                 SqlBulkCopyOptions.UseInternalTransaction, null)
             {
                 DestinationTableName = _tableName,
-                EnableStreaming = true
+                EnableStreaming = true, 
+                BulkCopyTimeout = 0
             };
 
             _tableMap.ToList().ForEach(kp => bulkCopy.ColumnMappings.Add(kp.Key, kp.Value));

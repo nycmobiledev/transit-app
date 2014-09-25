@@ -121,6 +121,13 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
 //                    conn.Open();
                     cmd.ExecuteNonQuery();
                 }
+
+                using (var cmd = new SqlCommand("sp_CreateStaticSchedule", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
     }

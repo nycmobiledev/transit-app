@@ -11,7 +11,7 @@ namespace TransitApp.Core
 	{
 		internal CoolTimer(TimerCallback callback, object state, int dueTime, int period)
 		{
-			Contract.Assert(period == -1, "This stub implementation only supports dueTime.");
+//			Contract.Assert(period == -1, "This stub implementation only supports dueTime.");
 			Task.Delay(dueTime, Token).ContinueWith((t, s) =>
 				{
 					var tuple = (Tuple<TimerCallback, object>)s;

@@ -61,14 +61,16 @@ namespace TransitApp.Server.WebApi.Controllers
 //             return DeleteAsync(id);
 //        }
         
-        [HttpPost]
-        public IEnumerable<TransitAlert> GetAlertsForStations([FromBody] string [] stations)
+        public IEnumerable<TransitAlert> GetAlertsForStations( string stationsCsv)
         {
             var dbConnStr = ConfigurationManager.ConnectionStrings["MTA_DB"].ConnectionString;
 
             var alertsForStations = new List<TransitAlert>();
 
-            if (null == stations || stations.Length == 0)
+            List<string> stations = stationsCsv.Split(',').ToList();
+
+
+            if (null == stations || stations.Count == 0)
             {
                 return alertsForStations;
             }
@@ -83,7 +85,7 @@ namespace TransitApp.Server.WebApi.Controllers
                 using (var cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
-                    string sql = "SELECT * FROM TripAlert WHERE ArrivalTime BETWEEN @from AND @to AND StationId IN ({0})";
+                    string sql = "SELECT * FROM SubwaySchedule WHERE ArrivalTime BETWEEN @from AND @to AND StationId IN ({0})";
                     string[] paramArray = stations.Select((x, i) => "@stn" + i).ToArray();
                     cmd.CommandText = string.Format(sql, string.Join(",", paramArray));
 
@@ -91,7 +93,7 @@ namespace TransitApp.Server.WebApi.Controllers
                     cmd.Parameters.Add(new SqlParameter("@to", DateTime.Now.AddMinutes(30)));
 
 
-                    for (int i = 0; i < stations.Length; ++i)
+                    for (int i = 0; i < stations.Count; ++i)
                     {
                         cmd.Parameters.Add(new SqlParameter("@stn" + i, stations[i]));
                     }
