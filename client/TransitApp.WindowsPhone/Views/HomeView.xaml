@@ -6,8 +6,8 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"                                
-    xmlns:mvx="clr-namespace:mvx;assembly=Cirrous.MvvmCross.BindingEx.WindowsPhone"
+    xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"                                    
+    xmlns:mvx="clr-namespace:mvx;assembly=Cirrious.MvvmCross.BindingEx.WindowsPhone"    
     xmlns:local="clr-namespace:TransitApp.WindowsPhone.Views" 
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -19,17 +19,22 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <phone:Pivot Title="Where Is My Train">
+        <phone:Pivot Title="Where Is My Train" SelectionChanged="OnPivotSelectionChanged" >
             <!--Pivot item one-->
-            <phone:PivotItem Header="Alerts">
-                <local:AlertsView />
+            <phone:PivotItem Header="Alerts" Tag="AppBar">
+                <local:AlertsView DataContext="{Binding AlertsViewModel}" />
             </phone:PivotItem>
 
             <!--Pivot item two-->
             <phone:PivotItem Header="About">
-                <local:AboutView />
+                <local:AboutView DataContext="{Binding AboutViewModel}" />
             </phone:PivotItem>
         </phone:Pivot>
     </Grid>
-    
+    <views:MvxPhonePage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="False" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="AppBarEdit" IconUri="/Resources/edit.png" Text="Edit" Click="AppBarEdit_Click" />
+            <shell:ApplicationBarIconButton x:Name="AppBarRefresh" IconUri="/Resources/refresh.png" Text="Refresh" Click="AppBarRefresh_Click" />
+        </shell:ApplicationBar>
+    </views:MvxPhonePage.ApplicationBar>
 </views:MvxPhonePage>

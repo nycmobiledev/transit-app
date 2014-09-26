@@ -59,7 +59,6 @@
     <Compile Include="ViewModels\FollowEditViewModel.cs" />
     <Compile Include="Models\FollowsChanged.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
-    <Compile Include="ViewModels\SettingViewModel.cs" />
     <EmbeddedResource Include="LocalData.json" />
     <Compile Include="Services\IFollowService.cs" />
     <Compile Include="Services\FollowService.cs" />

@@ -13,13 +13,8 @@ namespace TransitApp.Core.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
-        public enum Section
-        {
-            Unknown,
-            Alarts,
-            About
-        }
-
+        private AboutViewModel _aboutViewModel;
+        private AlertsViewModel _alertsViewModel;
         private MvxCommand<MenuViewModel> selectMenuItemCommand;
 
         private List<MenuViewModel> menuItems;
@@ -28,8 +23,8 @@ namespace TransitApp.Core.ViewModels
         {
             this.menuItems = new List<MenuViewModel>
                               {
-								  new MenuViewModel{Section = Section.Alarts,Title = "Alerts"},
-				                  new MenuViewModel{Section = Section.About,Title = "About"}
+								  new MenuViewModel{Section = typeof(AlertsViewModel),Title = "Alerts"},
+				                  new MenuViewModel{Section = typeof(AboutViewModel),Title = "About"}
                               };
         }
 
@@ -39,37 +34,44 @@ namespace TransitApp.Core.ViewModels
             set { this.menuItems = value; this.RaisePropertyChanged(() => this.MenuItems); }
         }
 
+        public AlertsViewModel AlertsViewModel
+        {
+            get
+            {
+                if (_alertsViewModel==null)
+                {
+                    _alertsViewModel = new AlertsViewModel();
+                }
+                return _alertsViewModel;
+            }
+            set
+            {
+                _alertsViewModel = value;
+            }
+        }
+
+        public AboutViewModel AboutViewModel
+        {
+            get
+            {
+                if (_aboutViewModel == null)
+                {
+                    _aboutViewModel = new AboutViewModel();
+                }
+
+                return _aboutViewModel;
+            }
+            set
+            {
+                _aboutViewModel = value;
+            }
+        }
+
         public ICommand SelectMenuItemCommand
         {
             get
             {
-                return this.selectMenuItemCommand ?? (this.selectMenuItemCommand = new MvxCommand<MenuViewModel>(this.ExecuteSelectMenuItemCommand));
-            }
-        }
-
-        public Section GetSectionForViewModelType(Type type)
-        {
-
-            if (type == typeof(AboutViewModel))
-                return Section.About;
-
-            if (type == typeof(AlertsViewModel))
-                return Section.Alarts;
-
-            return Section.Unknown;
-        }
-
-        private void ExecuteSelectMenuItemCommand(MenuViewModel item)
-        {
-            switch (item.Section)
-            {
-                case Section.About:
-                    this.ShowViewModel<AboutViewModel>();
-                    break;
-                case Section.Alarts:
-                    this.ShowViewModel<AlertsViewModel>();
-                    break;
-
+                return this.selectMenuItemCommand ?? (this.selectMenuItemCommand = new MvxCommand<MenuViewModel>(x => this.ShowViewModel(x.Section)));
             }
         }
     }
