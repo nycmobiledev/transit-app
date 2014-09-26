@@ -7,4 +7,6 @@
 	<string name="menu_edit">Edit</string>
 	<string name="menu_new">New</string>
   <string name="menu_done">Done</string>
+  <string name="ok">OK</string>
+  <string name="cancel">Cancel</string>
 </resources>

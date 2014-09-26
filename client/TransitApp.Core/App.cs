@@ -28,14 +28,27 @@ namespace TransitApp.Core
             Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IFollowService, MockFollowService>();
 
 #else
-            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService,WebService>();   
-            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IFollowService,FollowService>();   
+            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService, WebService>();
+            Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IFollowService, FollowService>();
 #endif
 
-            //// Start the app with the First View Model.                       
-            this.RegisterAppStart<HomeViewModel>();
+            this.RegisterAppStart(new AppStart());
         }
 
-		public static string DatabasePath { get; set;}
+        private class AppStart : MvxNavigatingObject, IMvxAppStart
+        {
+            public void Start(object hint = null)
+            {                           
+                // thinking use setting, not Following is zero.
+                if (Cirrious.CrossCore.Mvx.Resolve<IFollowService>().GetFollows().Count == 0)
+                {
+                    this.ShowViewModel<SearchViewModel>(new { IsFirst = "true" });
+                }
+                else
+                {
+                    this.ShowViewModel<HomeViewModel>();
+                }
+            }
+        }
     }
 }

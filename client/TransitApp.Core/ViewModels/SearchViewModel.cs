@@ -22,6 +22,22 @@ namespace TransitApp.Core.ViewModels
             _localDbService = localDbService;
         }
 
+        protected override void InitFromBundle(IMvxBundle parameters)
+        {
+            IsStartViewModel = parameters.Data["IsFirst"] == "true";
+        }
+
+        public override void Start()
+        {
+            if (IsStartViewModel)
+            {
+                // or change to Image
+                Cirrious.CrossCore.Mvx.Resolve<IMessageDialog>().SendMessage("Welcome!\r\nAt first time use this app,\r\nyou can add some trains that you want to follow.");                            
+            }
+        }
+        
+        public bool IsStartViewModel { get; set; }
+
         public string SearchText
         {
             get { return _searchText; }
@@ -56,6 +72,11 @@ namespace TransitApp.Core.ViewModels
                     ShowViewModel<FollowEditViewModel>(new { stationId = x.Id })
                 );
             }
+        }
+
+        public void GoToHomeViewModel()
+        {
+            ShowViewModel<HomeViewModel>();
         }
     }
 }

@@ -28,6 +28,8 @@ namespace TransitApp.Core.ViewModels
 
             //TODO: andorid is refresh when view resume, so if windows and ios is the same, will delete it.
             _messenger.Subscribe<FollowsChanged>(x => ExecuteRefreshCommand());
+
+            ExecuteRefreshCommand();
         }
 
         public ICollection<Alert> Alerts

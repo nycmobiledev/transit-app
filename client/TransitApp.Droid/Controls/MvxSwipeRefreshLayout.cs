@@ -43,7 +43,6 @@ namespace TransitApp.Droid.Controls
         {
             base.OnFinishInflate();
             SetColorScheme(Resource.Color.srl_1, Resource.Color.srl_2, Resource.Color.srl_3, Resource.Color.srl_4);
-
         }
 	}
 }

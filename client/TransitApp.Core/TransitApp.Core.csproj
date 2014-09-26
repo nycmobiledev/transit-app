@@ -51,6 +51,7 @@
     <Compile Include="Models\FollowStation.cs" />
     <Compile Include="Services\IAlertService.cs" />
     <Compile Include="Services\AlertService.cs" />
+    <Compile Include="Services\IMessageDialog.cs" />
     <Compile Include="Services\LocalDataService.cs" />
     <Compile Include="Services\MockFollowService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />

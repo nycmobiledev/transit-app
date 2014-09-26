@@ -7,6 +7,7 @@ using TransitApp.Droid.Helpers;
 using Cirrious.CrossCore;
 using Cirrious.MvvmCross.Droid.Views;
 using Cirrious.MvvmCross.Binding.Bindings.Target.Construction;
+using TransitApp.Core;
 
 
 namespace TransitApp.Droid
@@ -37,7 +38,8 @@ namespace TransitApp.Droid
         /// <returns>An instance of IMvxApplication.</returns>
         protected override IMvxApplication CreateApp()
         {
-			return new Core.App();
+            Mvx.RegisterSingleton<IMessageDialog>(() => new MessageDialog());
+            return new Core.App();
         }
 
 		protected override IMvxAndroidViewPresenter CreateViewPresenter()
