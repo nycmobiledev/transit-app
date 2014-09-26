@@ -88,8 +88,6 @@ namespace TransitApp.Droid.Views
         {
             var customPresenter = Mvx.Resolve<ICustomPresenter>();
 			customPresenter.Register(typeof(AlertsViewModel), this);
-            //customPresenter.Register(typeof(SearchViewModel), this);
-			//customPresenter.Register(typeof(SettingViewModel), this);
 			customPresenter.Register(typeof(AboutViewModel), this);
         }
 
@@ -131,29 +129,7 @@ namespace TransitApp.Droid.Views
 							frag = new AlertsView();
                             title = "Alerts";
                         }
-                        break;
-                    //case HomeViewModel.Section.Search:
-                    //    {
-                    //    if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as SearchView != null)
-                    //        {
-                    //            return true;
-                    //        }
-
-                    //        frag = new SearchView();
-                    //        title = "Search";
-                    //    }
-                    //    break;
-                    //case HomeViewModel.Section.Setting:
-                    //    {
-                    //    if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as SettingView != null)
-                    //        {
-                    //            return true;
-                    //        }
-
-                    //        frag = new SettingView();
-                    //        title = "Setting";
-                    //    }
-                    //    break;
+                        break;                   
                 }
 
                 var loaderService = Mvx.Resolve<IMvxViewModelLoader>();

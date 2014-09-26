@@ -8,12 +8,13 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Cirrious.MvvmCross.WindowsPhone.Views;
+using TransitApp.Core.ViewModels;
 
 namespace TransitApp.WindowsPhone.Views
 {
-    public partial class HomeView : MvxPhonePage
+    public partial class SearchView : MvxPhonePage
     {
-        public HomeView()
+        public SearchView()
         {
             InitializeComponent();
         }

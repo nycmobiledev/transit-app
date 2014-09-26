@@ -32,22 +32,22 @@ namespace TransitApp.Core
             Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IFollowService, FollowService>();
 #endif
 
-            this.RegisterAppStart(new AppStart());
-        }
+            this.RegisterAppStart(new AppStart());            
+        }        
+    }
 
-        private class AppStart : MvxNavigatingObject, IMvxAppStart
+    public class AppStart : MvxNavigatingObject, IMvxAppStart
+    {
+        public void Start(object hint = null)
         {
-            public void Start(object hint = null)
-            {                           
-                // thinking use setting, not Following is zero.
-                if (Cirrious.CrossCore.Mvx.Resolve<IFollowService>().GetFollows().Count == 0)
-                {
-                    this.ShowViewModel<SearchViewModel>(new { IsFirst = "true" });
-                }
-                else
-                {
-                    this.ShowViewModel<HomeViewModel>();
-                }
+            // thinking use setting, not Following is zero.
+            if (Cirrious.CrossCore.Mvx.Resolve<IFollowService>().GetFollows().Count == 0)
+            {
+                this.ShowViewModel<SearchViewModel>(new { IsFirst = "true" });
+            }
+            else
+            {
+                this.ShowViewModel<HomeViewModel>();
             }
         }
     }

@@ -7,6 +7,7 @@ using TransitApp.Core.Services;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
 using Cirrious.MvvmCross.Plugins.Messenger;
+using Cirrious.CrossCore;
 
 namespace TransitApp.Core.ViewModels
 {
@@ -19,18 +20,15 @@ namespace TransitApp.Core.ViewModels
         private bool _isBusy;
         private MvxCommand _refreshCommand;
 
-        public AlertsViewModel(IAlertService service, IMvxMessenger messenger)
+        public AlertsViewModel()
         {
-            _messenger = messenger;
-            _service = service;
+            _messenger = Mvx.Resolve<IMvxMessenger>();
+            _service = Mvx.Resolve<IAlertService>();
 
-            //_coolTimer = new CoolTimer (DataCallBack, null, 10000, -1);
-
-            //TODO: andorid is refresh when view resume, so if windows and ios is the same, will delete it.
             _messenger.Subscribe<FollowsChanged>(x => ExecuteRefreshCommand());
 
             ExecuteRefreshCommand();
-        }
+        }        
 
         public ICollection<Alert> Alerts
         {

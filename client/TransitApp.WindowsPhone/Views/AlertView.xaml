@@ -1,0 +1,40 @@
+﻿<UserControl 
+    x:Class="TransitApp.WindowsPhone.Views.AlertsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:phone="clr-namespace:Microsoft.Phone;assembly=Microsoft.Phone" 
+    xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone" 
+    xmlns:mvx="clr-namespace:mvx;assembly=Cirrious.MvvmCross.BindingEx.WindowsPhone"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Controls:LongListSelector   
+        ItemsSource="{Binding Alerts}">
+        <Controls:LongListSelector.ItemTemplate>
+            <DataTemplate>
+                <Grid Height="52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="52"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Image mvx:Bi.nd="Source TrainIdToImagePath(Line.Id)" Width="42" Height="42" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Resources/Train_1.png"/>                    
+					<StackPanel Grid.Column="1" VerticalAlignment="Center">
+						<TextBlock Text="StationName" mvx:Bi.nd="Text Station.Name" FontSize="16" />
+						<TextBlock Text="Destination" mvx:Bi.nd="Text Destination" FontSize="10"/>	
+					</StackPanel>
+					<StackPanel Grid.Column="2" VerticalAlignment="Center">
+						<TextBlock Text="10" mvx:Bi.nd="Text ArriveTime(ArrivalTime)" HorizontalAlignment="Center"/>
+						<TextBlock Text="Mins" HorizontalAlignment="Center" FontSize="10"/>	
+					</StackPanel>                    
+                </Grid>
+            </DataTemplate>
+        </Controls:LongListSelector.ItemTemplate>
+    </Controls:LongListSelector>
+	
+</UserControl>
