@@ -251,9 +251,8 @@
     <AndroidResource Include="Resources\Drawable\Train_S.png" />
     <AndroidResource Include="Resources\Menu\follows.xml" />
     <AndroidResource Include="Resources\Menu\followEdit.xml" />
-    <AndroidResource Include="Resources\Values-hdpi\integers.xml" />
-    <AndroidResource Include="Resources\Values-xhdpi\integers.xml" />
-    <AndroidResource Include="Resources\Values-xxhdpi\integers.xml" />
+    <AndroidResource Include="Resources\Values-sw720dp\integers.xml" />
+    <AndroidResource Include="Resources\Values-sw600dp\integers.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TransitApp.Core\TransitApp.Core.csproj">

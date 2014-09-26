@@ -24,7 +24,11 @@ namespace TransitApp.Core.ViewModels
 
         protected override void InitFromBundle(IMvxBundle parameters)
         {
-            IsStartViewModel = parameters.Data["IsFirst"] == "true";
+            string value;
+            if (parameters.Data != null && parameters.Data.TryGetValue("IsFirst", out value))
+            {
+                IsStartViewModel = value == "true";                
+            }
         }
 
         public override void Start()
