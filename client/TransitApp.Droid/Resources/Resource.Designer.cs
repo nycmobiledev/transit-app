@@ -24,260 +24,26 @@ namespace TransitApp.Droid
 			global::Android.Runtime.ResourceIdManager.UpdateIdValues();
 		}
 		
-		public static void UpdateIdValues()
-		{
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.centered = global::TransitApp.Droid.Resource.Attribute.centered;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.clipPadding = global::TransitApp.Droid.Resource.Attribute.clipPadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.fadeDelay = global::TransitApp.Droid.Resource.Attribute.fadeDelay;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.fadeLength = global::TransitApp.Droid.Resource.Attribute.fadeLength;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.fades = global::TransitApp.Droid.Resource.Attribute.fades;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.fillColor = global::TransitApp.Droid.Resource.Attribute.fillColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerColor = global::TransitApp.Droid.Resource.Attribute.footerColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerIndicatorHeight = global::TransitApp.Droid.Resource.Attribute.footerIndicatorHeight;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerIndicatorStyle = global::TransitApp.Droid.Resource.Attribute.footerIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerIndicatorUnderlinePadding = global::TransitApp.Droid.Resource.Attribute.footerIndicatorUnderlinePadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerLineHeight = global::TransitApp.Droid.Resource.Attribute.footerLineHeight;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.footerPadding = global::TransitApp.Droid.Resource.Attribute.footerPadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.gapWidth = global::TransitApp.Droid.Resource.Attribute.gapWidth;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.linePosition = global::TransitApp.Droid.Resource.Attribute.linePosition;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.lineWidth = global::TransitApp.Droid.Resource.Attribute.lineWidth;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.pageColor = global::TransitApp.Droid.Resource.Attribute.pageColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.radius = global::TransitApp.Droid.Resource.Attribute.radius;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.selectedBold = global::TransitApp.Droid.Resource.Attribute.selectedBold;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.selectedColor = global::TransitApp.Droid.Resource.Attribute.selectedColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.snap = global::TransitApp.Droid.Resource.Attribute.snap;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.strokeColor = global::TransitApp.Droid.Resource.Attribute.strokeColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.strokeWidth = global::TransitApp.Droid.Resource.Attribute.strokeWidth;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.titlePadding = global::TransitApp.Droid.Resource.Attribute.titlePadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.topPadding = global::TransitApp.Droid.Resource.Attribute.topPadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.unselectedColor = global::TransitApp.Droid.Resource.Attribute.unselectedColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiCirclePageIndicatorStyle = global::TransitApp.Droid.Resource.Attribute.vpiCirclePageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiIconPageIndicatorStyle = global::TransitApp.Droid.Resource.Attribute.vpiIconPageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiLinePageIndicatorStyle = global::TransitApp.Droid.Resource.Attribute.vpiLinePageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiTabPageIndicatorStyle = global::TransitApp.Droid.Resource.Attribute.vpiTabPageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiTitlePageIndicatorStyle = global::TransitApp.Droid.Resource.Attribute.vpiTitlePageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Attribute.vpiUnderlinePageIndicatorStyle = global::TransitApp.Droid.Resource.Attribute.vpiUnderlinePageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_circle_indicator_centered = global::TransitApp.Droid.Resource.Boolean.default_circle_indicator_centered;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_circle_indicator_snap = global::TransitApp.Droid.Resource.Boolean.default_circle_indicator_snap;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_line_indicator_centered = global::TransitApp.Droid.Resource.Boolean.default_line_indicator_centered;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_title_indicator_selected_bold = global::TransitApp.Droid.Resource.Boolean.default_title_indicator_selected_bold;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Boolean.default_underline_indicator_fades = global::TransitApp.Droid.Resource.Boolean.default_underline_indicator_fades;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_circle_indicator_fill_color = global::TransitApp.Droid.Resource.Color.default_circle_indicator_fill_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_circle_indicator_page_color = global::TransitApp.Droid.Resource.Color.default_circle_indicator_page_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_circle_indicator_stroke_color = global::TransitApp.Droid.Resource.Color.default_circle_indicator_stroke_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_line_indicator_selected_color = global::TransitApp.Droid.Resource.Color.default_line_indicator_selected_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_line_indicator_unselected_color = global::TransitApp.Droid.Resource.Color.default_line_indicator_unselected_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_title_indicator_footer_color = global::TransitApp.Droid.Resource.Color.default_title_indicator_footer_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_title_indicator_selected_color = global::TransitApp.Droid.Resource.Color.default_title_indicator_selected_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_title_indicator_text_color = global::TransitApp.Droid.Resource.Color.default_title_indicator_text_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.default_underline_indicator_selected_color = global::TransitApp.Droid.Resource.Color.default_underline_indicator_selected_color;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__background_holo_dark = global::TransitApp.Droid.Resource.Color.vpi__background_holo_dark;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__background_holo_light = global::TransitApp.Droid.Resource.Color.vpi__background_holo_light;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_disabled_holo_dark = global::TransitApp.Droid.Resource.Color.vpi__bright_foreground_disabled_holo_dark;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_disabled_holo_light = global::TransitApp.Droid.Resource.Color.vpi__bright_foreground_disabled_holo_light;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_holo_dark = global::TransitApp.Droid.Resource.Color.vpi__bright_foreground_holo_dark;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_holo_light = global::TransitApp.Droid.Resource.Color.vpi__bright_foreground_holo_light;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_inverse_holo_dark = global::TransitApp.Droid.Resource.Color.vpi__bright_foreground_inverse_holo_dark;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__bright_foreground_inverse_holo_light = global::TransitApp.Droid.Resource.Color.vpi__bright_foreground_inverse_holo_light;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__dark_theme = global::TransitApp.Droid.Resource.Color.vpi__dark_theme;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Color.vpi__light_theme = global::TransitApp.Droid.Resource.Color.vpi__light_theme;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_circle_indicator_radius = global::TransitApp.Droid.Resource.Dimension.default_circle_indicator_radius;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_circle_indicator_stroke_width = global::TransitApp.Droid.Resource.Dimension.default_circle_indicator_stroke_width;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_line_indicator_gap_width = global::TransitApp.Droid.Resource.Dimension.default_line_indicator_gap_width;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_line_indicator_line_width = global::TransitApp.Droid.Resource.Dimension.default_line_indicator_line_width;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_line_indicator_stroke_width = global::TransitApp.Droid.Resource.Dimension.default_line_indicator_stroke_width;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_clip_padding = global::TransitApp.Droid.Resource.Dimension.default_title_indicator_clip_padding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_footer_indicator_height = global::TransitApp.Droid.Resource.Dimension.default_title_indicator_footer_indicator_height;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_footer_indicator_underline_padding = global::TransitApp.Droid.Resource.Dimension.default_title_indicator_footer_indicator_underline_padding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_footer_line_height = global::TransitApp.Droid.Resource.Dimension.default_title_indicator_footer_line_height;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_footer_padding = global::TransitApp.Droid.Resource.Dimension.default_title_indicator_footer_padding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_text_size = global::TransitApp.Droid.Resource.Dimension.default_title_indicator_text_size;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_title_padding = global::TransitApp.Droid.Resource.Dimension.default_title_indicator_title_padding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Dimension.default_title_indicator_top_padding = global::TransitApp.Droid.Resource.Dimension.default_title_indicator_top_padding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_indicator = global::TransitApp.Droid.Resource.Drawable.vpi__tab_indicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_selected_focused_holo = global::TransitApp.Droid.Resource.Drawable.vpi__tab_selected_focused_holo;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_selected_holo = global::TransitApp.Droid.Resource.Drawable.vpi__tab_selected_holo;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_selected_pressed_holo = global::TransitApp.Droid.Resource.Drawable.vpi__tab_selected_pressed_holo;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_unselected_focused_holo = global::TransitApp.Droid.Resource.Drawable.vpi__tab_unselected_focused_holo;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_unselected_holo = global::TransitApp.Droid.Resource.Drawable.vpi__tab_unselected_holo;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Drawable.vpi__tab_unselected_pressed_holo = global::TransitApp.Droid.Resource.Drawable.vpi__tab_unselected_pressed_holo;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.bottom = global::TransitApp.Droid.Resource.Id.bottom;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.none = global::TransitApp.Droid.Resource.Id.none;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.top = global::TransitApp.Droid.Resource.Id.top;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.triangle = global::TransitApp.Droid.Resource.Id.triangle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Id.underline = global::TransitApp.Droid.Resource.Id.underline;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_circle_indicator_orientation = global::TransitApp.Droid.Resource.Integer.default_circle_indicator_orientation;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_title_indicator_footer_indicator_style = global::TransitApp.Droid.Resource.Integer.default_title_indicator_footer_indicator_style;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_title_indicator_line_position = global::TransitApp.Droid.Resource.Integer.default_title_indicator_line_position;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_underline_indicator_fade_delay = global::TransitApp.Droid.Resource.Integer.default_underline_indicator_fade_delay;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Integer.default_underline_indicator_fade_length = global::TransitApp.Droid.Resource.Integer.default_underline_indicator_fade_length;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.TextAppearance_TabPageIndicator = global::TransitApp.Droid.Resource.Style.TextAppearance_TabPageIndicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.Theme_PageIndicatorDefaults = global::TransitApp.Droid.Resource.Style.Theme_PageIndicatorDefaults;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.Widget = global::TransitApp.Droid.Resource.Style.Widget;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.Widget_IconPageIndicator = global::TransitApp.Droid.Resource.Style.Widget_IconPageIndicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Style.Widget_TabPageIndicator = global::TransitApp.Droid.Resource.Style.Widget_TabPageIndicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_android_background = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_android_background;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_android_orientation = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_android_orientation;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_centered = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_centered;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_fillColor = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_fillColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_pageColor = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_pageColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_radius = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_radius;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_snap = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_snap;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_strokeColor = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_strokeColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.CirclePageIndicator_strokeWidth = global::TransitApp.Droid.Resource.Styleable.CirclePageIndicator_strokeWidth;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator = global::TransitApp.Droid.Resource.Styleable.LinePageIndicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_android_background = global::TransitApp.Droid.Resource.Styleable.LinePageIndicator_android_background;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_centered = global::TransitApp.Droid.Resource.Styleable.LinePageIndicator_centered;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_gapWidth = global::TransitApp.Droid.Resource.Styleable.LinePageIndicator_gapWidth;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_lineWidth = global::TransitApp.Droid.Resource.Styleable.LinePageIndicator_lineWidth;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_selectedColor = global::TransitApp.Droid.Resource.Styleable.LinePageIndicator_selectedColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_strokeWidth = global::TransitApp.Droid.Resource.Styleable.LinePageIndicator_strokeWidth;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.LinePageIndicator_unselectedColor = global::TransitApp.Droid.Resource.Styleable.LinePageIndicator_unselectedColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_android_background = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_android_background;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_android_textColor = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_android_textColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_android_textSize = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_android_textSize;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_clipPadding = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_clipPadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerColor = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_footerColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerIndicatorHeight = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_footerIndicatorHeight;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_footerIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerIndicatorUnderlinePadding = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_footerIndicatorUnderlinePadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerLineHeight = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_footerLineHeight;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_footerPadding = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_footerPadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_linePosition = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_linePosition;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_selectedBold = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_selectedBold;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_selectedColor = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_selectedColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_titlePadding = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_titlePadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.TitlePageIndicator_topPadding = global::TransitApp.Droid.Resource.Styleable.TitlePageIndicator_topPadding;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator = global::TransitApp.Droid.Resource.Styleable.UnderlinePageIndicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_android_background = global::TransitApp.Droid.Resource.Styleable.UnderlinePageIndicator_android_background;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_fadeDelay = global::TransitApp.Droid.Resource.Styleable.UnderlinePageIndicator_fadeDelay;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_fadeLength = global::TransitApp.Droid.Resource.Styleable.UnderlinePageIndicator_fadeLength;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_fades = global::TransitApp.Droid.Resource.Styleable.UnderlinePageIndicator_fades;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.UnderlinePageIndicator_selectedColor = global::TransitApp.Droid.Resource.Styleable.UnderlinePageIndicator_selectedColor;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiCirclePageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiCirclePageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiIconPageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiIconPageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiLinePageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiLinePageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiTabPageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiTabPageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiTitlePageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiTitlePageIndicatorStyle;
-			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle;
-		}
-		
 		public partial class Attribute
 		{
 			
-			// aapt resource value: 0x7f01001f
-			public const int MvxBind = 2130771999;
-			
-			// aapt resource value: 0x7f010023
-			public const int MvxDropDownItemTemplate = 2130772003;
-			
-			// aapt resource value: 0x7f010022
-			public const int MvxItemTemplate = 2130772002;
-			
-			// aapt resource value: 0x7f010020
-			public const int MvxLang = 2130772000;
-			
-			// aapt resource value: 0x7f010024
-			public const int MvxSource = 2130772004;
-			
-			// aapt resource value: 0x7f010021
-			public const int MvxTemplate = 2130772001;
-			
-			// aapt resource value: 0x7f010006
-			public const int centered = 2130771974;
-			
-			// aapt resource value: 0x7f010011
-			public const int clipPadding = 2130771985;
-			
-			// aapt resource value: 0x7f01001d
-			public const int fadeDelay = 2130771997;
-			
-			// aapt resource value: 0x7f01001e
-			public const int fadeLength = 2130771998;
-			
-			// aapt resource value: 0x7f01001c
-			public const int fades = 2130771996;
-			
-			// aapt resource value: 0x7f01000a
-			public const int fillColor = 2130771978;
-			
-			// aapt resource value: 0x7f010012
-			public const int footerColor = 2130771986;
-			
-			// aapt resource value: 0x7f010015
-			public const int footerIndicatorHeight = 2130771989;
-			
-			// aapt resource value: 0x7f010014
-			public const int footerIndicatorStyle = 2130771988;
-			
-			// aapt resource value: 0x7f010016
-			public const int footerIndicatorUnderlinePadding = 2130771990;
-			
-			// aapt resource value: 0x7f010013
-			public const int footerLineHeight = 2130771987;
-			
-			// aapt resource value: 0x7f010017
-			public const int footerPadding = 2130771991;
-			
-			// aapt resource value: 0x7f010010
-			public const int gapWidth = 2130771984;
-			
-			// aapt resource value: 0x7f010018
-			public const int linePosition = 2130771992;
-			
-			// aapt resource value: 0x7f01000f
-			public const int lineWidth = 2130771983;
-			
-			// aapt resource value: 0x7f01000b
-			public const int pageColor = 2130771979;
-			
-			// aapt resource value: 0x7f01000c
-			public const int radius = 2130771980;
-			
-			// aapt resource value: 0x7f010019
-			public const int selectedBold = 2130771993;
-			
-			// aapt resource value: 0x7f010007
-			public const int selectedColor = 2130771975;
-			
-			// aapt resource value: 0x7f01000d
-			public const int snap = 2130771981;
-			
-			// aapt resource value: 0x7f01000e
-			public const int strokeColor = 2130771982;
-			
-			// aapt resource value: 0x7f010008
-			public const int strokeWidth = 2130771976;
-			
-			// aapt resource value: 0x7f01001a
-			public const int titlePadding = 2130771994;
-			
-			// aapt resource value: 0x7f01001b
-			public const int topPadding = 2130771995;
-			
-			// aapt resource value: 0x7f010009
-			public const int unselectedColor = 2130771977;
-			
 			// aapt resource value: 0x7f010000
-			public const int vpiCirclePageIndicatorStyle = 2130771968;
-			
-			// aapt resource value: 0x7f010001
-			public const int vpiIconPageIndicatorStyle = 2130771969;
-			
-			// aapt resource value: 0x7f010002
-			public const int vpiLinePageIndicatorStyle = 2130771970;
+			public const int MvxBind = 2130771968;
 			
 			// aapt resource value: 0x7f010004
-			public const int vpiTabPageIndicatorStyle = 2130771972;
+			public const int MvxDropDownItemTemplate = 2130771972;
 			
 			// aapt resource value: 0x7f010003
-			public const int vpiTitlePageIndicatorStyle = 2130771971;
+			public const int MvxItemTemplate = 2130771971;
+			
+			// aapt resource value: 0x7f010001
+			public const int MvxLang = 2130771969;
 			
 			// aapt resource value: 0x7f010005
-			public const int vpiUnderlinePageIndicatorStyle = 2130771973;
+			public const int MvxSource = 2130771973;
+			
+			// aapt resource value: 0x7f010002
+			public const int MvxTemplate = 2130771970;
 			
 			static Attribute()
 			{
@@ -289,111 +55,26 @@ namespace TransitApp.Droid
 			}
 		}
 		
-		public partial class Boolean
-		{
-			
-			// aapt resource value: 0x7f060000
-			public const int default_circle_indicator_centered = 2131099648;
-			
-			// aapt resource value: 0x7f060001
-			public const int default_circle_indicator_snap = 2131099649;
-			
-			// aapt resource value: 0x7f060002
-			public const int default_line_indicator_centered = 2131099650;
-			
-			// aapt resource value: 0x7f060003
-			public const int default_title_indicator_selected_bold = 2131099651;
-			
-			// aapt resource value: 0x7f060004
-			public const int default_underline_indicator_fades = 2131099652;
-			
-			static Boolean()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Boolean()
-			{
-			}
-		}
-		
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f050012
-			public const int border = 2131034130;
+			// aapt resource value: 0x7f040001
+			public const int border = 2130968577;
 			
-			// aapt resource value: 0x7f050008
-			public const int default_circle_indicator_fill_color = 2131034120;
+			// aapt resource value: 0x7f040002
+			public const int srl_1 = 2130968578;
 			
-			// aapt resource value: 0x7f050009
-			public const int default_circle_indicator_page_color = 2131034121;
+			// aapt resource value: 0x7f040003
+			public const int srl_2 = 2130968579;
 			
-			// aapt resource value: 0x7f05000a
-			public const int default_circle_indicator_stroke_color = 2131034122;
+			// aapt resource value: 0x7f040004
+			public const int srl_3 = 2130968580;
 			
-			// aapt resource value: 0x7f05000b
-			public const int default_line_indicator_selected_color = 2131034123;
+			// aapt resource value: 0x7f040005
+			public const int srl_4 = 2130968581;
 			
-			// aapt resource value: 0x7f05000c
-			public const int default_line_indicator_unselected_color = 2131034124;
-			
-			// aapt resource value: 0x7f05000d
-			public const int default_title_indicator_footer_color = 2131034125;
-			
-			// aapt resource value: 0x7f05000e
-			public const int default_title_indicator_selected_color = 2131034126;
-			
-			// aapt resource value: 0x7f05000f
-			public const int default_title_indicator_text_color = 2131034127;
-			
-			// aapt resource value: 0x7f050010
-			public const int default_underline_indicator_selected_color = 2131034128;
-			
-			// aapt resource value: 0x7f050013
-			public const int srl_1 = 2131034131;
-			
-			// aapt resource value: 0x7f050014
-			public const int srl_2 = 2131034132;
-			
-			// aapt resource value: 0x7f050015
-			public const int srl_3 = 2131034133;
-			
-			// aapt resource value: 0x7f050016
-			public const int srl_4 = 2131034134;
-			
-			// aapt resource value: 0x7f050011
-			public const int standard_background = 2131034129;
-			
-			// aapt resource value: 0x7f050000
-			public const int vpi__background_holo_dark = 2131034112;
-			
-			// aapt resource value: 0x7f050001
-			public const int vpi__background_holo_light = 2131034113;
-			
-			// aapt resource value: 0x7f050004
-			public const int vpi__bright_foreground_disabled_holo_dark = 2131034116;
-			
-			// aapt resource value: 0x7f050005
-			public const int vpi__bright_foreground_disabled_holo_light = 2131034117;
-			
-			// aapt resource value: 0x7f050002
-			public const int vpi__bright_foreground_holo_dark = 2131034114;
-			
-			// aapt resource value: 0x7f050003
-			public const int vpi__bright_foreground_holo_light = 2131034115;
-			
-			// aapt resource value: 0x7f050006
-			public const int vpi__bright_foreground_inverse_holo_dark = 2131034118;
-			
-			// aapt resource value: 0x7f050007
-			public const int vpi__bright_foreground_inverse_holo_light = 2131034119;
-			
-			// aapt resource value: 0x7f050017
-			public const int vpi__dark_theme = 2131034135;
-			
-			// aapt resource value: 0x7f050018
-			public const int vpi__light_theme = 2131034136;
+			// aapt resource value: 0x7f040000
+			public const int standard_background = 2130968576;
 			
 			static Color()
 			{
@@ -401,58 +82,6 @@ namespace TransitApp.Droid
 			}
 			
 			private Color()
-			{
-			}
-		}
-		
-		public partial class Dimension
-		{
-			
-			// aapt resource value: 0x7f080000
-			public const int default_circle_indicator_radius = 2131230720;
-			
-			// aapt resource value: 0x7f080001
-			public const int default_circle_indicator_stroke_width = 2131230721;
-			
-			// aapt resource value: 0x7f080003
-			public const int default_line_indicator_gap_width = 2131230723;
-			
-			// aapt resource value: 0x7f080002
-			public const int default_line_indicator_line_width = 2131230722;
-			
-			// aapt resource value: 0x7f080004
-			public const int default_line_indicator_stroke_width = 2131230724;
-			
-			// aapt resource value: 0x7f080005
-			public const int default_title_indicator_clip_padding = 2131230725;
-			
-			// aapt resource value: 0x7f080007
-			public const int default_title_indicator_footer_indicator_height = 2131230727;
-			
-			// aapt resource value: 0x7f080008
-			public const int default_title_indicator_footer_indicator_underline_padding = 2131230728;
-			
-			// aapt resource value: 0x7f080006
-			public const int default_title_indicator_footer_line_height = 2131230726;
-			
-			// aapt resource value: 0x7f080009
-			public const int default_title_indicator_footer_padding = 2131230729;
-			
-			// aapt resource value: 0x7f08000a
-			public const int default_title_indicator_text_size = 2131230730;
-			
-			// aapt resource value: 0x7f08000b
-			public const int default_title_indicator_title_padding = 2131230731;
-			
-			// aapt resource value: 0x7f08000c
-			public const int default_title_indicator_top_padding = 2131230732;
-			
-			static Dimension()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Dimension()
 			{
 			}
 		}
@@ -568,27 +197,6 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f020023
 			public const int Train_Z = 2130837539;
 			
-			// aapt resource value: 0x7f020024
-			public const int vpi__tab_indicator = 2130837540;
-			
-			// aapt resource value: 0x7f020025
-			public const int vpi__tab_selected_focused_holo = 2130837541;
-			
-			// aapt resource value: 0x7f020026
-			public const int vpi__tab_selected_holo = 2130837542;
-			
-			// aapt resource value: 0x7f020027
-			public const int vpi__tab_selected_pressed_holo = 2130837543;
-			
-			// aapt resource value: 0x7f020028
-			public const int vpi__tab_unselected_focused_holo = 2130837544;
-			
-			// aapt resource value: 0x7f020029
-			public const int vpi__tab_unselected_holo = 2130837545;
-			
-			// aapt resource value: 0x7f02002a
-			public const int vpi__tab_unselected_pressed_holo = 2130837546;
-			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -602,74 +210,59 @@ namespace TransitApp.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f04000b
-			public const int Area = 2130968587;
+			// aapt resource value: 0x7f060006
+			public const int Area = 2131099654;
 			
-			// aapt resource value: 0x7f040009
-			public const int Destination = 2130968585;
+			// aapt resource value: 0x7f060004
+			public const int Destination = 2131099652;
 			
-			// aapt resource value: 0x7f040005
-			public const int MvxBindingTagUnique = 2130968581;
+			// aapt resource value: 0x7f060000
+			public const int MvxBindingTagUnique = 2131099648;
 			
-			// aapt resource value: 0x7f040008
-			public const int StationName = 2130968584;
+			// aapt resource value: 0x7f060003
+			public const int StationName = 2131099651;
 			
-			// aapt resource value: 0x7f040003
-			public const int bottom = 2130968579;
+			// aapt resource value: 0x7f06000a
+			public const int content_frame = 2131099658;
 			
-			// aapt resource value: 0x7f04000f
-			public const int content_frame = 2130968591;
+			// aapt resource value: 0x7f060009
+			public const int drawer_layout = 2131099657;
 			
-			// aapt resource value: 0x7f04000e
-			public const int drawer_layout = 2130968590;
+			// aapt resource value: 0x7f06000e
+			public const int empty = 2131099662;
 			
-			// aapt resource value: 0x7f040013
-			public const int empty = 2130968595;
+			// aapt resource value: 0x7f060008
+			public const int icons = 2131099656;
 			
-			// aapt resource value: 0x7f04000d
-			public const int icons = 2130968589;
+			// aapt resource value: 0x7f060002
+			public const int image = 2131099650;
 			
-			// aapt resource value: 0x7f040007
-			public const int image = 2130968583;
+			// aapt resource value: 0x7f060007
+			public const int item_img = 2131099655;
 			
-			// aapt resource value: 0x7f04000c
-			public const int item_img = 2130968588;
+			// aapt resource value: 0x7f06000b
+			public const int left_drawer = 2131099659;
 			
-			// aapt resource value: 0x7f040010
-			public const int left_drawer = 2130968592;
+			// aapt resource value: 0x7f060010
+			public const int menu_done = 2131099664;
 			
-			// aapt resource value: 0x7f040015
-			public const int menu_done = 2130968597;
+			// aapt resource value: 0x7f06000d
+			public const int menu_edit = 2131099661;
 			
-			// aapt resource value: 0x7f040012
-			public const int menu_edit = 2130968594;
+			// aapt resource value: 0x7f060011
+			public const int menu_new = 2131099665;
 			
-			// aapt resource value: 0x7f040016
-			public const int menu_new = 2130968598;
+			// aapt resource value: 0x7f06000f
+			public const int menu_refresh = 2131099663;
 			
-			// aapt resource value: 0x7f040014
-			public const int menu_refresh = 2130968596;
+			// aapt resource value: 0x7f06000c
+			public const int search_text = 2131099660;
 			
-			// aapt resource value: 0x7f040000
-			public const int none = 2130968576;
+			// aapt resource value: 0x7f060001
+			public const int textView1 = 2131099649;
 			
-			// aapt resource value: 0x7f040011
-			public const int search_text = 2130968593;
-			
-			// aapt resource value: 0x7f040006
-			public const int textView1 = 2130968582;
-			
-			// aapt resource value: 0x7f04000a
-			public const int time = 2130968586;
-			
-			// aapt resource value: 0x7f040004
-			public const int top = 2130968580;
-			
-			// aapt resource value: 0x7f040001
-			public const int triangle = 2130968577;
-			
-			// aapt resource value: 0x7f040002
-			public const int underline = 2130968578;
+			// aapt resource value: 0x7f060005
+			public const int time = 2131099653;
 			
 			static Id()
 			{
@@ -684,23 +277,8 @@ namespace TransitApp.Droid
 		public partial class Integer
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int default_circle_indicator_orientation = 2131165184;
-			
-			// aapt resource value: 0x7f070001
-			public const int default_title_indicator_footer_indicator_style = 2131165185;
-			
-			// aapt resource value: 0x7f070002
-			public const int default_title_indicator_line_position = 2131165186;
-			
-			// aapt resource value: 0x7f070003
-			public const int default_underline_indicator_fade_delay = 2131165187;
-			
-			// aapt resource value: 0x7f070004
-			public const int default_underline_indicator_fade_length = 2131165188;
-			
-			// aapt resource value: 0x7f070005
-			public const int item_columns = 2131165189;
+			// aapt resource value: 0x7f050000
+			public const int item_columns = 2131034112;
 			
 			static Integer()
 			{
@@ -770,14 +348,14 @@ namespace TransitApp.Droid
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f0b0000
-			public const int alert = 2131427328;
+			// aapt resource value: 0x7f090000
+			public const int alert = 2131296256;
 			
-			// aapt resource value: 0x7f0b0001
-			public const int followEdit = 2131427329;
+			// aapt resource value: 0x7f090001
+			public const int followEdit = 2131296257;
 			
-			// aapt resource value: 0x7f0b0002
-			public const int follows = 2131427330;
+			// aapt resource value: 0x7f090002
+			public const int follows = 2131296258;
 			
 			static Menu()
 			{
@@ -792,32 +370,32 @@ namespace TransitApp.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f0a0000
-			public const int ApplicationName = 2131361792;
+			// aapt resource value: 0x7f070000
+			public const int ApplicationName = 2131165184;
 			
-			// aapt resource value: 0x7f0a0008
-			public const int cancel = 2131361800;
+			// aapt resource value: 0x7f070008
+			public const int cancel = 2131165192;
 			
-			// aapt resource value: 0x7f0a0002
-			public const int drawer_close = 2131361794;
+			// aapt resource value: 0x7f070002
+			public const int drawer_close = 2131165186;
 			
-			// aapt resource value: 0x7f0a0001
-			public const int drawer_open = 2131361793;
+			// aapt resource value: 0x7f070001
+			public const int drawer_open = 2131165185;
 			
-			// aapt resource value: 0x7f0a0006
-			public const int menu_done = 2131361798;
+			// aapt resource value: 0x7f070006
+			public const int menu_done = 2131165190;
 			
-			// aapt resource value: 0x7f0a0004
-			public const int menu_edit = 2131361796;
+			// aapt resource value: 0x7f070004
+			public const int menu_edit = 2131165188;
 			
-			// aapt resource value: 0x7f0a0005
-			public const int menu_new = 2131361797;
+			// aapt resource value: 0x7f070005
+			public const int menu_new = 2131165189;
 			
-			// aapt resource value: 0x7f0a0003
-			public const int menu_refresh = 2131361795;
+			// aapt resource value: 0x7f070003
+			public const int menu_refresh = 2131165187;
 			
-			// aapt resource value: 0x7f0a0007
-			public const int ok = 2131361799;
+			// aapt resource value: 0x7f070007
+			public const int ok = 2131165191;
 			
 			static String()
 			{
@@ -832,26 +410,11 @@ namespace TransitApp.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f090003
-			public const int TextAppearance_TabPageIndicator = 2131296259;
+			// aapt resource value: 0x7f080000
+			public const int Theme = 2131230720;
 			
-			// aapt resource value: 0x7f090005
-			public const int Theme = 2131296261;
-			
-			// aapt resource value: 0x7f090000
-			public const int Theme_PageIndicatorDefaults = 2131296256;
-			
-			// aapt resource value: 0x7f090006
-			public const int Theme_Splash = 2131296262;
-			
-			// aapt resource value: 0x7f090001
-			public const int Widget = 2131296257;
-			
-			// aapt resource value: 0x7f090004
-			public const int Widget_IconPageIndicator = 2131296260;
-			
-			// aapt resource value: 0x7f090002
-			public const int Widget_TabPageIndicator = 2131296258;
+			// aapt resource value: 0x7f080001
+			public const int Theme_Splash = 2131230721;
 			
 			static Style()
 			{
@@ -866,77 +429,9 @@ namespace TransitApp.Droid
 		public partial class Styleable
 		{
 			
-			public static int[] CirclePageIndicator = new int[] {
-					16842948,
-					16842964,
-					2130771974,
-					2130771976,
-					2130771978,
-					2130771979,
-					2130771980,
-					2130771981,
-					2130771982};
-			
-			// aapt resource value: 1
-			public const int CirclePageIndicator_android_background = 1;
-			
-			// aapt resource value: 0
-			public const int CirclePageIndicator_android_orientation = 0;
-			
-			// aapt resource value: 2
-			public const int CirclePageIndicator_centered = 2;
-			
-			// aapt resource value: 4
-			public const int CirclePageIndicator_fillColor = 4;
-			
-			// aapt resource value: 5
-			public const int CirclePageIndicator_pageColor = 5;
-			
-			// aapt resource value: 6
-			public const int CirclePageIndicator_radius = 6;
-			
-			// aapt resource value: 7
-			public const int CirclePageIndicator_snap = 7;
-			
-			// aapt resource value: 8
-			public const int CirclePageIndicator_strokeColor = 8;
-			
-			// aapt resource value: 3
-			public const int CirclePageIndicator_strokeWidth = 3;
-			
-			public static int[] LinePageIndicator = new int[] {
-					16842964,
-					2130771974,
-					2130771975,
-					2130771976,
-					2130771977,
-					2130771983,
-					2130771984};
-			
-			// aapt resource value: 0
-			public const int LinePageIndicator_android_background = 0;
-			
-			// aapt resource value: 1
-			public const int LinePageIndicator_centered = 1;
-			
-			// aapt resource value: 6
-			public const int LinePageIndicator_gapWidth = 6;
-			
-			// aapt resource value: 5
-			public const int LinePageIndicator_lineWidth = 5;
-			
-			// aapt resource value: 2
-			public const int LinePageIndicator_selectedColor = 2;
-			
-			// aapt resource value: 3
-			public const int LinePageIndicator_strokeWidth = 3;
-			
-			// aapt resource value: 4
-			public const int LinePageIndicator_unselectedColor = 4;
-			
 			public static int[] MvxBinding = new int[] {
-					2130771999,
-					2130772000};
+					2130771968,
+					2130771969};
 			
 			// aapt resource value: 0
 			public const int MvxBinding_MvxBind = 0;
@@ -945,136 +440,26 @@ namespace TransitApp.Droid
 			public const int MvxBinding_MvxLang = 1;
 			
 			public static int[] MvxControl = new int[] {
-					2130772001};
+					2130771970};
 			
 			// aapt resource value: 0
 			public const int MvxControl_MvxTemplate = 0;
 			
 			public static int[] MvxImageView = new int[] {
-					2130772004};
+					2130771973};
 			
 			// aapt resource value: 0
 			public const int MvxImageView_MvxSource = 0;
 			
 			public static int[] MvxListView = new int[] {
-					2130772002,
-					2130772003};
+					2130771971,
+					2130771972};
 			
 			// aapt resource value: 1
 			public const int MvxListView_MvxDropDownItemTemplate = 1;
 			
 			// aapt resource value: 0
 			public const int MvxListView_MvxItemTemplate = 0;
-			
-			public static int[] TitlePageIndicator = new int[] {
-					16842901,
-					16842904,
-					16842964,
-					2130771975,
-					2130771985,
-					2130771986,
-					2130771987,
-					2130771988,
-					2130771989,
-					2130771990,
-					2130771991,
-					2130771992,
-					2130771993,
-					2130771994,
-					2130771995};
-			
-			// aapt resource value: 2
-			public const int TitlePageIndicator_android_background = 2;
-			
-			// aapt resource value: 1
-			public const int TitlePageIndicator_android_textColor = 1;
-			
-			// aapt resource value: 0
-			public const int TitlePageIndicator_android_textSize = 0;
-			
-			// aapt resource value: 4
-			public const int TitlePageIndicator_clipPadding = 4;
-			
-			// aapt resource value: 5
-			public const int TitlePageIndicator_footerColor = 5;
-			
-			// aapt resource value: 8
-			public const int TitlePageIndicator_footerIndicatorHeight = 8;
-			
-			// aapt resource value: 7
-			public const int TitlePageIndicator_footerIndicatorStyle = 7;
-			
-			// aapt resource value: 9
-			public const int TitlePageIndicator_footerIndicatorUnderlinePadding = 9;
-			
-			// aapt resource value: 6
-			public const int TitlePageIndicator_footerLineHeight = 6;
-			
-			// aapt resource value: 10
-			public const int TitlePageIndicator_footerPadding = 10;
-			
-			// aapt resource value: 11
-			public const int TitlePageIndicator_linePosition = 11;
-			
-			// aapt resource value: 12
-			public const int TitlePageIndicator_selectedBold = 12;
-			
-			// aapt resource value: 3
-			public const int TitlePageIndicator_selectedColor = 3;
-			
-			// aapt resource value: 13
-			public const int TitlePageIndicator_titlePadding = 13;
-			
-			// aapt resource value: 14
-			public const int TitlePageIndicator_topPadding = 14;
-			
-			public static int[] UnderlinePageIndicator = new int[] {
-					16842964,
-					2130771975,
-					2130771996,
-					2130771997,
-					2130771998};
-			
-			// aapt resource value: 0
-			public const int UnderlinePageIndicator_android_background = 0;
-			
-			// aapt resource value: 3
-			public const int UnderlinePageIndicator_fadeDelay = 3;
-			
-			// aapt resource value: 4
-			public const int UnderlinePageIndicator_fadeLength = 4;
-			
-			// aapt resource value: 2
-			public const int UnderlinePageIndicator_fades = 2;
-			
-			// aapt resource value: 1
-			public const int UnderlinePageIndicator_selectedColor = 1;
-			
-			public static int[] ViewPagerIndicator = new int[] {
-					2130771968,
-					2130771969,
-					2130771970,
-					2130771971,
-					2130771972,
-					2130771973};
-			
-			// aapt resource value: 0
-			public const int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
-			
-			// aapt resource value: 1
-			public const int ViewPagerIndicator_vpiIconPageIndicatorStyle = 1;
-			
-			// aapt resource value: 2
-			public const int ViewPagerIndicator_vpiLinePageIndicatorStyle = 2;
-			
-			// aapt resource value: 4
-			public const int ViewPagerIndicator_vpiTabPageIndicatorStyle = 4;
-			
-			// aapt resource value: 3
-			public const int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 3;
-			
-			// aapt resource value: 5
-			public const int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 5;
 			
 			static Styleable()
 			{

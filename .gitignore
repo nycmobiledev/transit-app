@@ -200,3 +200,4 @@ FakesAssemblies/
 *.suo
 *.userprefs
 /client/packages
+/client/Components

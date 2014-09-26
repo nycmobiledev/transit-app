@@ -36,7 +36,7 @@ namespace TransitApp.Core.ViewModels
             if (IsStartViewModel)
             {
                 // or change to Image
-                Cirrious.CrossCore.Mvx.Resolve<IMessageDialog>().SendMessage("Welcome!\r\nAt first time use this app,\r\nyou can add some trains that you want to follow.");                            
+                Cirrious.CrossCore.Mvx.Resolve<IMessageDialog>().SendMessage("At first time use this app,\r\nyou can add some trains that you want to follow.", "Welcome!");                            
             }
         }
         
