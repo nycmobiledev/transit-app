@@ -12,7 +12,7 @@ namespace TransitApp.Droid
 	{
 		protected override int Convert(bool isFollow, Type targetType, object parameter, CultureInfo culture)
 		{
-            return isFollow ? 255 : 127;
+            return isFollow ? 255 : 64;
 		}
 	}
 }

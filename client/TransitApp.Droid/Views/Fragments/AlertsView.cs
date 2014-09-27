@@ -8,7 +8,7 @@ namespace TransitApp.Droid.Views.Fragments
 {
 	public class AlertsView : MvxFragment
 	{
-        private bool _isFirstTime = true;
+        //private bool _isFirstTime = true;
 
         public AlertsView ()
 		{
@@ -22,19 +22,19 @@ namespace TransitApp.Droid.Views.Fragments
 			return this.BindingInflate (Resource.Layout.fragment_alerts, null);
 		}
 
-        public override void OnResume()
-        {
-            base.OnResume();
+        //public override void OnResume()
+        //{
+        //    base.OnResume();
 
-            if (_isFirstTime)
-            {
-                _isFirstTime = false;                
-            }
-            else
-            {
-                ((AlertsViewModel)this.ViewModel).RefreshCommand.Execute(null);
-            }
-        }
+        //    if (_isFirstTime)
+        //    {
+        //        _isFirstTime = false;                
+        //    }
+        //    else
+        //    {
+        //        ((AlertsViewModel)this.ViewModel).RefreshCommand.Execute(null);
+        //    }
+        //}
 
 		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
 		{

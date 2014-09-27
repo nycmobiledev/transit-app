@@ -5,8 +5,12 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"    
+    xmlns:commands="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Commands;assembly=Cirrious.MvvmCross.WindowsPhone"
     xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"    
+    xmlns:mvx="clr-namespace:mvx;assembly=Cirrious.MvvmCross.BindingEx.WindowsPhone"        
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -23,14 +27,46 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Search" Style="{StaticResource PhoneTextNormalStyle}"/>            
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
-        </Grid>
+        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <toolkit:PhoneTextBox Hint="Station Name" TextChanged="PhoneTextBox_TextChanged"/>
+            <phone:LongListSelector Grid.Row="1" Margin="12,0,12,0" ItemsSource="{Binding SearchResults}">
+                <phone:LongListSelector.ItemTemplate>
+                    <DataTemplate>
+                        <Grid toolkit:TiltEffect.IsTiltEnabled="True" Margin="{StaticResource PhoneVerticalMargin}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="132"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="StationName" mvx:Bi.nd="Text Name"  />
+                                <TextBlock Text="Area" mvx:Bi.nd="Text Area"/>
+                            </StackPanel>
+                            <ListBox ItemsSource="{Binding Lines}" Grid.Column="1">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <toolkit:WrapPanel></toolkit:WrapPanel>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image mvx:Bi.nd="Source TrainIdToImagePath(Id);" Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Tap">
+                                    <commands:MvxEventToCommand Command="{Binding DataContext.SelectCommand, ElementName=LayoutRoot}" CommandParameter="{Binding}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Grid>
+                    </DataTemplate>
+                </phone:LongListSelector.ItemTemplate>
+            </phone:LongListSelector>
+        </StackPanel>
     </Grid>
 
 </views:MvxPhonePage>

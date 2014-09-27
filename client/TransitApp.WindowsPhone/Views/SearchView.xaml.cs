@@ -13,10 +13,15 @@ using TransitApp.Core.ViewModels;
 namespace TransitApp.WindowsPhone.Views
 {
     public partial class SearchView : MvxPhonePage
-    {
+    {        
         public SearchView()
         {
             InitializeComponent();
+        }
+
+        private void PhoneTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            (ViewModel as SearchViewModel).SearchText = (sender as TextBox).Text;
         }
     }
 }

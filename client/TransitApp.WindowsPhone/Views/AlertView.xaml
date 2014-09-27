@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
+    FontSize="{StaticResource PhoneFontSizeMedium}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
 
@@ -17,7 +17,7 @@
         ItemsSource="{Binding Alerts}">
         <Controls:LongListSelector.ItemTemplate>
             <DataTemplate>
-                <Grid Height="52">
+                <Grid Margin="{StaticResource PhoneVerticalMargin}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="52"/>
                         <ColumnDefinition Width="*"/>
@@ -25,12 +25,12 @@
                     </Grid.ColumnDefinitions>
                     <Image mvx:Bi.nd="Source TrainIdToImagePath(Line.Id)" Width="42" Height="42" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Resources/Train_1.png"/>                    
 					<StackPanel Grid.Column="1" VerticalAlignment="Center">
-						<TextBlock Text="StationName" mvx:Bi.nd="Text Station.Name" FontSize="16" />
-						<TextBlock Text="Destination" mvx:Bi.nd="Text Destination" FontSize="10"/>	
+						<TextBlock Text="StationName" mvx:Bi.nd="Text Station.Name" />
+						<TextBlock Text="Destination" mvx:Bi.nd="Text Destination" FontSize="{StaticResource PhoneFontSizeSmall}"/>	
 					</StackPanel>
 					<StackPanel Grid.Column="2" VerticalAlignment="Center">
-						<TextBlock Text="10" mvx:Bi.nd="Text ArriveTime(ArrivalTime)" HorizontalAlignment="Center"/>
-						<TextBlock Text="Mins" HorizontalAlignment="Center" FontSize="10"/>	
+						<TextBlock Text="10" mvx:Bi.nd="Text ArriveTime(ArrivalTime)" HorizontalAlignment="Center" />
+						<TextBlock Text="Mins" HorizontalAlignment="Center" FontSize="{StaticResource PhoneFontSizeSmall}"/>	
 					</StackPanel>                    
                 </Grid>
             </DataTemplate>

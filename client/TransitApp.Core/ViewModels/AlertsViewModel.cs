@@ -11,7 +11,7 @@ using Cirrious.CrossCore;
 
 namespace TransitApp.Core.ViewModels
 {
-	public class AlertsViewModel : BaseViewModel
+    public class AlertsViewModel : BaseViewModel
     {
         private readonly IMvxMessenger _messenger;
         private readonly IAlertService _service;
@@ -25,10 +25,13 @@ namespace TransitApp.Core.ViewModels
             _messenger = Mvx.Resolve<IMvxMessenger>();
             _service = Mvx.Resolve<IAlertService>();
 
-            _messenger.Subscribe<FollowsChanged>(x => ExecuteRefreshCommand());
+            _messenger.Subscribe<FollowsChanged>(x =>
+            {
+                ExecuteRefreshCommand();
+            }, MvxReference.Strong);
 
             ExecuteRefreshCommand();
-        }        
+        }
 
         public ICollection<Alert> Alerts
         {
@@ -61,7 +64,7 @@ namespace TransitApp.Core.ViewModels
             {
                 return new MvxCommand(() => ShowViewModel<FollowsViewModel>());
             }
-        }        
+        }
 
         public ICommand RefreshCommand
         {
@@ -71,7 +74,7 @@ namespace TransitApp.Core.ViewModels
             }
         }
 
-		private async void ExecuteRefreshCommand()
+        private async void ExecuteRefreshCommand()
         {
             if (IsBusy)
                 return;

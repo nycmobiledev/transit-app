@@ -10,8 +10,9 @@
     xmlns:commands="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Commands;assembly=Cirrious.MvvmCross.WindowsPhone"
     xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"    
     xmlns:mvx="clr-namespace:mvx;assembly=Cirrious.MvvmCross.BindingEx.WindowsPhone"        
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
+    FontSize="{StaticResource PhoneFontSizeMedium}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
@@ -32,13 +33,27 @@
         <phone:LongListSelector Grid.Row="1" Margin="12,0,12,0" ItemsSource="{Binding Follows}">
             <phone:LongListSelector.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="52">
+                    <Grid toolkit:TiltEffect.IsTiltEnabled="True" Margin="{StaticResource PhoneVerticalMargin}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="132"/>
                         </Grid.ColumnDefinitions>
-
-                        <TextBlock Text="StationName" mvx:Bi.nd="Text Station.Name" FontSize="16" Grid.Column="0" />
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="StationName" mvx:Bi.nd="Text Station.Name"  />
+                            <TextBlock Text="Area" mvx:Bi.nd="Text Station.Area"/>
+                        </StackPanel>
+                        <ListBox ItemsSource="{Binding Lines}" Grid.Column="1">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <toolkit:WrapPanel></toolkit:WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Image mvx:Bi.nd="Source TrainIdToImagePath(Line.Id);Opacity IsFollowedToOpacity(IsFollowed)" Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>                            
+                        </ListBox>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Tap">
                                 <commands:MvxEventToCommand Command="{Binding DataContext.GoToEditCommand, ElementName=LayoutRoot}" CommandParameter="{Binding}" />

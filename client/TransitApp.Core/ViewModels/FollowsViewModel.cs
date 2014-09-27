@@ -10,53 +10,63 @@ using TransitApp.Core.Services;
 
 namespace TransitApp.Core.ViewModels
 {
-	public class FollowsViewModel : BaseViewModel
-	{
+    public class FollowsViewModel : BaseViewModel
+    {
 
-		private readonly IMvxMessenger _messenger;
-		private readonly IFollowService _service;
-		private ICollection<FollowStation> _follows;
-		private MvxCommand<FollowStation> _goToEditCommandg;
+        private readonly IMvxMessenger _messenger;
+        private readonly IFollowService _service;
+        private ICollection<FollowStation> _follows;
+        private MvxCommand<FollowStation> _goToEditCommandg;
 
-		public FollowsViewModel (IFollowService service, IMvxMessenger messenger)
-		{
-			_messenger = messenger;
-			_service = service;
-			RefleshFollows ();
-			_messenger.Subscribe<FollowsChanged> (x => RefleshFollows ());
-		}
+        public FollowsViewModel(IFollowService service, IMvxMessenger messenger)
+        {
+            _messenger = messenger;
+            _service = service;
+            RefleshFollows();
+            _messenger.Subscribe<FollowsChanged>(x =>
+            {
+                RefleshFollows();
+            }, MvxReference.Strong);
+        }
 
-		public ICollection<FollowStation> Follows {
-			get {
-				return _follows;
-			}
-			set {
-				this._follows = value;
-				this.RaisePropertyChanged (() => this.Follows);
-			}
-		}
+        public ICollection<FollowStation> Follows
+        {
+            get
+            {
+                return _follows;
+            }
+            set
+            {
+                this._follows = value;
+                this.RaisePropertyChanged(() => this.Follows);
+            }
+        }
 
-  
-		public ICommand GoToEditCommand {
-			get {
-				_goToEditCommandg = _goToEditCommandg ?? new MvxCommand<FollowStation> ((x) => 
-					ShowViewModel<FollowEditViewModel> (new {stationId = x.Station.Id})
-				);
 
-				return _goToEditCommandg;
-			}
-		}
+        public ICommand GoToEditCommand
+        {
+            get
+            {
+                _goToEditCommandg = _goToEditCommandg ?? new MvxCommand<FollowStation>((x) =>
+                    ShowViewModel<FollowEditViewModel>(new { stationId = x.Station.Id })
+                );
 
-		public ICommand GoToAddCommand {
-			get {
-				return new MvxCommand (() => ShowViewModel<SearchViewModel> ());
-			}
-		}
+                return _goToEditCommandg;
+            }
+        }
 
-		private void RefleshFollows ()
-		{
-			Follows = _service.GetFollowsStations ();
-		}
+        public ICommand GoToAddCommand
+        {
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<SearchViewModel>());
+            }
+        }
 
-	}
+        private void RefleshFollows()
+        {
+            Follows = _service.GetFollowsStations();
+        }
+
+    }
 }
