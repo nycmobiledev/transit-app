@@ -15,7 +15,7 @@ namespace TransitApp.Core.Models
 		public string TrainId { get; set; }
         public string DestinationStationId { get; set; }
 
-		public int Direction { get; set; }
+		public string Direction { get; set; }
 
 		public DateTime ArrivalTime { get; set; }
 
@@ -31,10 +31,10 @@ namespace TransitApp.Core.Models
 			    {
                     return null;
 			    }
-				if (Direction == 1) {
-                    return String.Format("{0} To {1}", Line.Start, Line.End);
+				if (Direction == "N") {
+                    return String.Format("Uptown");
 				} else {
-                    return String.Format("{0} To {1}", Line.End, Line.Start);
+                    return String.Format("Downtown");
 				}
 			}
 		}

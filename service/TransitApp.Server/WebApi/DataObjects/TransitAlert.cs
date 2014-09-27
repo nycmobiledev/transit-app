@@ -15,5 +15,6 @@ namespace TransitApp.Server.WebApi.DataObjects
         public DateTime ArrivalTime { get; set; }
         public String DestinationStationId { get; set; }
         public bool IsRealtime { get; set; }
+        public string Direction { get; set; }
     }
 }

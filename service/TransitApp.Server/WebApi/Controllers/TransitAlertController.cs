@@ -110,6 +110,7 @@ namespace TransitApp.Server.WebApi.Controllers
                                 RouteName = reader.GetFieldValue<string>(reader.GetOrdinal("RouteName")),
                                 StationName = reader.GetFieldValue<string>(reader.GetOrdinal("StationName")),
                                 ArrivalTime = reader.GetFieldValue<DateTime>(reader.GetOrdinal("ArrivalTime")),
+                                Direction = reader.GetFieldValue<string>(reader.GetOrdinal("Direction")),
                                 DestinationStationId = reader.GetFieldValue<string>(reader.GetOrdinal("DestinationStationId")),
                                 IsRealtime = reader.GetFieldValue<bool>(reader.GetOrdinal("IsRealtime")),
 
