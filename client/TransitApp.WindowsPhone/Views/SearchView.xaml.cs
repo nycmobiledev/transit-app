@@ -23,5 +23,10 @@ namespace TransitApp.WindowsPhone.Views
         {
             (ViewModel as SearchViewModel).SearchText = (sender as TextBox).Text;
         }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            (this.ViewModel as SearchViewModel).GoBack();
+        }
     }
 }
