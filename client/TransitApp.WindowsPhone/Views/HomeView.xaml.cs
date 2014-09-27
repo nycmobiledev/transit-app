@@ -1,24 +1,41 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <summary>
-//    Defines the HomeView.xaml type.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
 using Cirrious.MvvmCross.WindowsPhone.Views;
+using TransitApp.Core.ViewModels;
 
 namespace TransitApp.WindowsPhone.Views
 {
-    /// <summary>
-    ///    Defines the HomeView.xaml type.
-    /// </summary>
-    public partial class HomeView:BaseView
+    public partial class HomeView : MvxPhonePage
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HomeView"/> class.
-        /// </summary>
         public HomeView()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+        }
+
+        private void AppBarRefresh_Click(object sender, EventArgs e)
+        {
+            (ViewModel as HomeViewModel).AlertsViewModel.RefreshCommand.Execute(null);
+        }
+
+        private void AppBarEdit_Click(object sender, EventArgs e)
+        {
+            (ViewModel as HomeViewModel).AlertsViewModel.GoToEditCommand.Execute(null);
+        }
+
+        private void OnPivotSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var target = sender as Pivot;
+            if (target.SelectedIndex >= 0)
+            {
+                this.ApplicationBar.IsVisible = "AppBar".Equals((target.Items[target.SelectedIndex] as PivotItem).Tag);
+            }
         }
     }
 }

@@ -4,53 +4,44 @@ using Android.Views;
 using Cirrious.MvvmCross.Binding.Droid.BindingContext;
 using Cirrious.MvvmCross.Droid.Fragging.Fragments;
 using Cirrious.MvvmCross.Droid.Views;
+using TransitApp.Core.ViewModels;
 
 namespace TransitApp.Droid.Views
 {
-    [Activity(Label = "Search", Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
+    [Activity(Label = "Search", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
     [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.FollowsView")]
     public class SearchView : MvxActivity
-	{
-        protected override void OnViewModelSet()
+    {
+        protected override void OnCreate(Android.OS.Bundle bundle)
         {
-            base.OnViewModelSet();
+            base.OnCreate(bundle);
+
             SetContentView(Resource.Layout.page_search);
 
             ActionBar.SetDisplayHomeAsUpEnabled(true);
-            ActionBar.SetHomeButtonEnabled(true);            
-        }
+            ActionBar.SetHomeButtonEnabled(true);
+        }        
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
-            {                
+            {
                 case Android.Resource.Id.Home:
-                    //Wrong:
-                    //var intent = new Intent(this, typeof(HomeView));
-                    //intent.AddFlags(ActivityFlags.ClearTop);
-                    //StartActivity(intent);
-                    NavUtils.NavigateUpFromSameTask(this);
-
-                    //if this could be launched externally:
-                    /*
-                     var upIntent = NavUtils.GetParentActivityIntent(this);
-                    if (NavUtils.ShouldUpRecreateTask(this, upIntent))
+                    var viewModel = this.ViewModel as SearchViewModel;
+                    if (viewModel.IsStartViewModel)
                     {
-                        Android.Support.V4.App.TaskStackBuilder.Create(this).
-                            AddNextIntentWithParentStack(upIntent).
-                            StartActivities();
+                        viewModel.GoToHomeViewModel();
                     }
                     else
                     {
-                        NavUtils.NavigateUpTo(this, upIntent);  
+                        NavUtils.NavigateUpFromSameTask(this);
                     }
-                     */
                     break;
             }
 
             return base.OnOptionsItemSelected(item);
         }
 
-	}
+    }
 }
 

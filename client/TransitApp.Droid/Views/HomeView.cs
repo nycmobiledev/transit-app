@@ -15,7 +15,7 @@ using TransitApp.Droid.Views.Fragments;
 
 namespace TransitApp.Droid.Views
 {
-	[Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop, Theme = "@style/MyTheme", Icon = "@drawable/Icon")]
+    [Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/Icon")]
     public class HomeView : MvxFragmentActivity, IFragmentHost
     {
         private DrawerLayout _drawer;
@@ -41,7 +41,7 @@ namespace TransitApp.Droid.Views
             this._drawer = this.FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             this._drawerList = this.FindViewById<MvxListView>(Resource.Id.left_drawer);
 
-			this._drawer.SetDrawerShadow(Resource.Drawable.drawer_shadow_dark, (int)GravityFlags.Start);
+            this._drawer.SetDrawerShadow(Resource.Drawable.drawer_shadow_dark, (int)GravityFlags.Start);
 
             this.ActionBar.SetDisplayHomeAsUpEnabled(true);
             this.ActionBar.SetHomeButtonEnabled(true);
@@ -87,10 +87,8 @@ namespace TransitApp.Droid.Views
         private void RegisterForDetailsRequests()
         {
             var customPresenter = Mvx.Resolve<ICustomPresenter>();
-			customPresenter.Register(typeof(AlertsViewModel), this);
-            //customPresenter.Register(typeof(SearchViewModel), this);
-			//customPresenter.Register(typeof(SettingViewModel), this);
-			customPresenter.Register(typeof(AboutViewModel), this);
+            customPresenter.Register(typeof(AlertsViewModel), this);
+            customPresenter.Register(typeof(AboutViewModel), this);
         }
 
         /// <summary>
@@ -104,78 +102,42 @@ namespace TransitApp.Droid.Views
         {
             try
             {
-                MvxFragment frag = null;
-                var title = string.Empty;
-                var section = this.ViewModel.GetSectionForViewModelType(request.ViewModelType);
-
-                switch (section)
+                MvxFragment frag = this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as MvxFragment;
+                if (frag != null && frag.ViewModel.GetType() == request.ViewModelType)
                 {
-                    case HomeViewModel.Section.About:
-                        {
-						if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as AboutView != null)
-                            {
-                                return true;
-                            }
-
-						frag = new AboutView();
-						title = "About";
-                        }
-                        break;
-                    case HomeViewModel.Section.Alarts:
-                        {
-                            if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as AlertsView != null)
-                            {
-                                return true;
-                            }
-
-							frag = new AlertsView();
-                            title = "Alerts";
-                        }
-                        break;
-                    //case HomeViewModel.Section.Search:
-                    //    {
-                    //    if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as SearchView != null)
-                    //        {
-                    //            return true;
-                    //        }
-
-                    //        frag = new SearchView();
-                    //        title = "Search";
-                    //    }
-                    //    break;
-                    //case HomeViewModel.Section.Setting:
-                    //    {
-                    //    if (this.SupportFragmentManager.FindFragmentById(Resource.Id.content_frame) as SettingView != null)
-                    //        {
-                    //            return true;
-                    //        }
-
-                    //        frag = new SettingView();
-                    //        title = "Setting";
-                    //    }
-                    //    break;
+                    return true;
                 }
 
-                var loaderService = Mvx.Resolve<IMvxViewModelLoader>();
-				var viewModel = loaderService.LoadViewModel(request, null /* saved state */);
+                string title;
 
-                frag.ViewModel = viewModel;
-
-                // TODO - replace this with extension method when available
+                if (request.ViewModelType == typeof(AlertsViewModel))
+                {
+                    frag = new AlertsView();
+                    frag.ViewModel = ViewModel.AlertsViewModel;
+                    title = "Alerts";
+                }
+                else if (request.ViewModelType == typeof(AboutViewModel))
+                {
+                    frag = new AboutView();
+                    frag.ViewModel = ViewModel.AboutViewModel;
+                    title = "About";
+                }
+                else
+                {
+                    return false;
+                }               
 
                 //Normally we would do this, but we already have it
                 this.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.content_frame, frag).Commit();
-                this._drawerList.SetItemChecked(this.ViewModel.MenuItems.FindIndex(m => m.Id == (int)section), true);
+                this._drawerList.SetItemChecked(this.ViewModel.MenuItems.FindIndex(m => m.Section == request.ViewModelType), true);
                 this.ActionBar.Title = this._title = title;
-
-                this._drawer.CloseDrawer(this._drawerList);
 
                 return true;
             }
-			catch(RemoteException ex) {
-				string str = ex.ToString ();
-				return false;
-			}
+            catch
+            {                
+                return false;
+            }
             finally
             {
                 this._drawer.CloseDrawer(this._drawerList);

@@ -2,11 +2,26 @@
     x:Class="TransitApp.WindowsPhone.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mvx="clr-namespace:mvx;assembly=Cirrious.MvvmCross.BindingEx.WindowsPhone"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
-
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:local="clr-namespace:TransitApp.WindowsPhone;assembly=TransitApp.WindowsPhone"
+    xmlns:core="clr-namespace:TransitApp.Core;assembly=TransitApp.Core"
+    >
     <!--Application Resources-->
     <Application.Resources>
+        <ResourceDictionary>
+            <mvx:Import x:Key="ImportCoreProject">
+                <mvx:Import.From>
+                    <core:ResourceLoaderHelper></core:ResourceLoaderHelper>
+                </mvx:Import.From>
+            </mvx:Import>
+            <mvx:Import x:Key="ImportWPProject">
+                <mvx:Import.From>
+                    <local:ResourceLoaderHelper></local:ResourceLoaderHelper>
+                </mvx:Import.From>
+            </mvx:Import>
+        </ResourceDictionary>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

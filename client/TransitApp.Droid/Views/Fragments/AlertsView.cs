@@ -8,17 +8,33 @@ namespace TransitApp.Droid.Views.Fragments
 {
 	public class AlertsView : MvxFragment
 	{
-		public AlertsView ()
+        private bool _isFirstTime = true;
+
+        public AlertsView ()
 		{
-			//this.RetainInstance = true;
+			this.RetainInstance = true;
 		}
 
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Android.OS.Bundle savedInstanceState)
 		{
 			this.HasOptionsMenu = true;
-			var ignored = base.OnCreateView (inflater, container, savedInstanceState);
+			base.OnCreateView (inflater, container, savedInstanceState);
 			return this.BindingInflate (Resource.Layout.fragment_alerts, null);
 		}
+
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            if (_isFirstTime)
+            {
+                _isFirstTime = false;                
+            }
+            else
+            {
+                ((AlertsViewModel)this.ViewModel).RefreshCommand.Execute(null);
+            }
+        }
 
 		public override void OnCreateOptionsMenu (IMenu menu, MenuInflater inflater)
 		{

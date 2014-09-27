@@ -28,6 +28,7 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>5ee484f4</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -137,16 +138,33 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\LocationPluginBootstrap.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
-    <Compile Include="Bootstrap\CommunitySqlitePluginBootstrap.cs" />
     <!--<Compile Include="Infrastructure\FastApplicationSwitchingService.cs" />-->
+    <Compile Include="Converters\TrainIdToImagePathConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceLoaderHelper.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Views\BaseView.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlertView.xaml.cs">
+      <DependentUpon>AlertView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FollowEditView.xaml.cs">
+      <DependentUpon>FollowEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FollowsView.xaml.cs">
+      <DependentUpon>FollowsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\WP8MessageDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -156,13 +174,96 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationIcon.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_1.png">
+      <Link>Resources\Train_1.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_2.png">
+      <Link>Resources\Train_2.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_3.png">
+      <Link>Resources\Train_3.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_4.png">
+      <Link>Resources\Train_4.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_5.png">
+      <Link>Resources\Train_5.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_5X.png">
+      <Link>Resources\Train_5X.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_6.png">
+      <Link>Resources\Train_6.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_6X.png">
+      <Link>Resources\Train_6X.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_7.png">
+      <Link>Resources\Train_7.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_7x.png">
+      <Link>Resources\Train_7x.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_A.png">
+      <Link>Resources\Train_A.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_B.png">
+      <Link>Resources\Train_B.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_C.png">
+      <Link>Resources\Train_C.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_D.png">
+      <Link>Resources\Train_D.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_E.png">
+      <Link>Resources\Train_E.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_F.png">
+      <Link>Resources\Train_F.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_G.png">
+      <Link>Resources\Train_G.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_GS.png">
+      <Link>Resources\Train_GS.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_J.png">
+      <Link>Resources\Train_J.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_L.png">
+      <Link>Resources\Train_L.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_M.png">
+      <Link>Resources\Train_M.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_N.png">
+      <Link>Resources\Train_N.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_Q.png">
+      <Link>Resources\Train_Q.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_R.png">
+      <Link>Resources\Train_R.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_S.png">
+      <Link>Resources\Train_S.png</Link>
+    </Content>
+    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_Z.png">
+      <Link>Resources\Train_Z.png</Link>
+    </Content>
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Background.png">
+    <Content Include="Resources\Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Resources\edit.png" />
+    <Content Include="Resources\refresh.png" />
+    <Content Include="Resources\SplashScreenImage.jpg" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TransitApp.Core\TransitApp.Core.csproj">
@@ -171,48 +272,95 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Cirrious.CrossCore">
-      <HintPath>..\..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\wp8\Cirrious.CrossCore.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.CrossCore.WindowsPhone">
-      <HintPath>..\..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\wp8\Cirrious.CrossCore.WindowsPhone.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross">
-      <HintPath>..\..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\wp8\Cirrious.MvvmCross.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Cirrious.CrossCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e16445fd9b451819, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\MvvmCross.Community.Plugin.Sqlite.3.1.1\lib\wp8\Cirrious.MvvmCross.Community.Plugins.Sqlite.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.2.1\lib\wp8\Cirrious.CrossCore.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Community.Plugins.Sqlite.WindowsPhone">
-      <HintPath>..\..\packages\MvvmCross.Community.Plugin.Sqlite.3.1.1\lib\wp8\Cirrious.MvvmCross.Community.Plugins.Sqlite.WindowsPhone.dll</HintPath>
+    <Reference Include="Cirrious.CrossCore.WindowsPhone, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.2.1\lib\wp8\Cirrious.CrossCore.WindowsPhone.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Localization">
-      <HintPath>..\..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\wp8\Cirrious.MvvmCross.Localization.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e16445fd9b451819, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.2.1\lib\wp8\Cirrious.MvvmCross.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Binding">
+      <HintPath>..\packages\MvvmCross.BindingEx.3.2.1\lib\wp8\Cirrious.MvvmCross.Binding.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.BindingEx.WindowsPhone">
+      <HintPath>..\packages\MvvmCross.BindingEx.3.2.1\lib\wp8\Cirrious.MvvmCross.BindingEx.WindowsPhone.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Localization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.2.1\lib\wp8\Cirrious.MvvmCross.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.3.2.1\lib\wp8\Cirrious.MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.File.WindowsPhone">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.3.2.1\lib\wp8\Cirrious.MvvmCross.Plugins.File.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Plugins.Location, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\MvvmCross.HotTuna.Plugin.Location.3.1.1\lib\wp8\Cirrious.MvvmCross.Plugins.Location.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Location.3.2.1\lib\wp8\Cirrious.MvvmCross.Plugins.Location.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.Location.WindowsPhone">
-      <HintPath>..\..\packages\MvvmCross.HotTuna.Plugin.Location.3.1.1\lib\wp8\Cirrious.MvvmCross.Plugins.Location.WindowsPhone.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Location.WindowsPhone, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Location.3.2.1\lib\wp8\Cirrious.MvvmCross.Plugins.Location.WindowsPhone.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.Messenger">
-      <HintPath>..\..\packages\MvvmCross.HotTuna.Plugin.Messenger.3.1.1\lib\wp8\Cirrious.MvvmCross.Plugins.Messenger.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Messenger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Messenger.3.2.1\lib\wp8\Cirrious.MvvmCross.Plugins.Messenger.dll</HintPath>
     </Reference>
-    <Reference Include="Cirrious.MvvmCross.WindowsPhone">
-      <HintPath>..\..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\wp8\Cirrious.MvvmCross.WindowsPhone.dll</HintPath>
+    <Reference Include="Cirrious.MvvmCross.WindowsPhone, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.2.1\lib\wp8\Cirrious.MvvmCross.WindowsPhone.dll</HintPath>
     </Reference>
-    <Reference Include="Community.CsharpSqlite.WP7">
-      <HintPath>..\..\packages\MvvmCross.Community.Plugin.Sqlite.3.1.1\lib\wp8\Community.CsharpSqlite.WP7.dll</HintPath>
+    <Reference Include="Coding4Fun.Toolkit.Controls">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.7\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\sl4-windowsphone71\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AlertView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FollowEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FollowsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -229,5 +377,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>

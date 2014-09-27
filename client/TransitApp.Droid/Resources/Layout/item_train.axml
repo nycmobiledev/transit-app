@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:descendantFocusability="blocksDescendants"
-    android:layout_height="?android:attr/listPreferredItemHeight">
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="5dp">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="22dp"
         android:text="StationName"
         android:layout_margin="5dp"
         android:singleLine="true"
         local:MvxBind="Text Name"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/icons" />
     <Mvx.MvxGridView
-        android:layout_width="150dp"
+        android:id="@+id/icons"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         local:MvxBind="ItemsSource Lines"
         local:MvxItemTemplate="@layout/item_lineicon2"
         android:numColumns="6"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:horizontalSpacing="1dp"
+        android:verticalSpacing="1dp" />
 </RelativeLayout>

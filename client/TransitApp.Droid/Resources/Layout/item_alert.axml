@@ -17,6 +17,7 @@
         android:text="StationName"
         local:MvxBind="Text Station.Name"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="55dp"
         android:singleLine="true"
         android:layout_toRightOf="@+id/image"
         android:id="@+id/StationName" />
@@ -37,9 +38,10 @@
         android:layout_height="wrap_content"
         android:textSize="28dp"
         android:text="10"
-        local:MvxBind="Text ArrivalTime, Converter=ArriveTime"
+        local:MvxBind="Text ArriveTime(ArrivalTime)"
         android:layout_alignParentRight="true"
-        android:gravity="center" />
+        android:gravity="center"
+        android:singleLine="true" />
     <TextView
         android:layout_width="50dp"
         android:layout_height="wrap_content"

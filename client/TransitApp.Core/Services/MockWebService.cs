@@ -33,7 +33,7 @@ namespace TransitApp.Core.Services
                 list.Add(new Alert()
                 {
                     TrainId = _random.Next(20).ToString(),
-                    ArrivalTime = DateTime.Now.AddMinutes(_random.Next(20)),
+                    ArrivalTime = DateTime.UtcNow.AddMinutes(_random.Next(20)),
                     Station = _localDbService.GetStation(follow.StationId),
                     Line = _localDbService.GetLine(follow.LineId)
                 });

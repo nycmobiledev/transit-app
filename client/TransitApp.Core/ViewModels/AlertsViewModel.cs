@@ -7,38 +7,28 @@ using TransitApp.Core.Services;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
 using Cirrious.MvvmCross.Plugins.Messenger;
+using Cirrious.CrossCore;
 
 namespace TransitApp.Core.ViewModels
 {
-	public class AlertsViewModel : BaseViewModel,ITransitAppDataRefresh
+	public class AlertsViewModel : BaseViewModel
     {
-        private readonly IAlertService _service;
         private readonly IMvxMessenger _messenger;
+        private readonly IAlertService _service;
         private ICollection<Alert> _alerts;
+        //private CoolTimer _coolTimer;
+        private bool _isBusy;
         private MvxCommand _refreshCommand;
-		private CoolTimer _coolTimer;
 
-        public AlertsViewModel(IAlertService service, IMvxMessenger messenger)
-		{
-            _messenger = messenger;
-            _service = service;
+        public AlertsViewModel()
+        {
+            _messenger = Mvx.Resolve<IMvxMessenger>();
+            _service = Mvx.Resolve<IAlertService>();
 
-
-			//_coolTimer = new CoolTimer (DataCallBack, null, 10000, -1);
             _messenger.Subscribe<FollowsChanged>(x => ExecuteRefreshCommand());
-		}
 
-		public override void Start ()
-		{
-			base.Start ();
-			ExecuteRefreshCommand ();
-		}
-
-		public void DataCallBack(object state)
-		{
-			 ExecuteRefreshCommand();
-			//_coolTimer = new CoolTimer (DataCallBack, null, 10000, -1);
-		}
+            ExecuteRefreshCommand();
+        }        
 
         public ICollection<Alert> Alerts
         {
@@ -53,11 +43,15 @@ namespace TransitApp.Core.ViewModels
             }
         }
 
-        public ICommand RefreshCommand
+        public bool IsBusy
         {
             get
             {
-                return _refreshCommand ?? (_refreshCommand = new MvxCommand(this.ExecuteRefreshCommand));
+                return _isBusy;
+            }
+            set
+            {
+                _isBusy = value; RaisePropertyChanged(() => IsBusy);
             }
         }
 
@@ -67,11 +61,24 @@ namespace TransitApp.Core.ViewModels
             {
                 return new MvxCommand(() => ShowViewModel<FollowsViewModel>());
             }
+        }        
+
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return _refreshCommand ?? (_refreshCommand = new MvxCommand(this.ExecuteRefreshCommand));
+            }
         }
 
 		private async void ExecuteRefreshCommand()
         {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
             Alerts = await _service.GetAlerts();
+            IsBusy = false;
         }
     }
 }

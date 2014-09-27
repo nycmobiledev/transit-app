@@ -12,7 +12,7 @@ using System.Runtime.Remoting.Contexts;
 
 namespace TransitApp.Droid.Views
 {
-    [Activity(Label = "Follows", Theme = "@style/MyTheme", Icon = "@android:color/transparent", ParentActivity = typeof(HomeView))]
+    [Activity(Label = "Follows", Icon = "@android:color/transparent", ParentActivity = typeof(HomeView))]
 	[MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.HomeView")]
     public class FollowsView : MvxActivity
     {

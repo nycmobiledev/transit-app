@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <Mvx.MvxGridView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        local:MvxBind="ItemsSource Follows; ItemClick GoToEditCommand"
-        local:MvxItemTemplate="@layout/item_follow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:numColumns="@integer/item_columns"
         android:stretchMode="columnWidth"
         android:horizontalSpacing="5dp"
         android:verticalSpacing="5dp"
-        android:gravity="center"
         android:fastScrollEnabled="true"
-        android:scrollbars="vertical"
-        android:scrollbarStyle="outsideInset"
         android:smoothScrollbar="true"
-        android:paddingTop="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="5dp"
-        android:drawSelectorOnTop="true"
-        android:clipChildren="false"
-        android:clipToPadding="false" />
-</LinearLayout>
+        android:padding="5dp"
+        android:gravity="center"
+        local:MvxBind="ItemsSource Follows; ItemClick GoToEditCommand"
+        local:MvxItemTemplate="@layout/item_follow" />
+</FrameLayout>

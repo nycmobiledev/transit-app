@@ -2,4 +2,8 @@
 <resources>
   <color name="standard_background">#ffd9d9d9</color>
   <color name="border">#9E9FA1</color>
+  <color name="srl_1">#E21E3C</color>
+  <color name="srl_2">#B455B6</color>
+  <color name="srl_3">#3498DB</color>
+  <color name="srl_4">#77D065</color>
 </resources>

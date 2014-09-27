@@ -9,8 +9,6 @@ namespace TransitApp.Core.Services
 {
     public interface IWebService
     {
-       Task<ICollection<Station>> FindStationsByName(string name);
-
        Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows);
     }
 }

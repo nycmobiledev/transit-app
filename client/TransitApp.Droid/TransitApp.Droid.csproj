@@ -73,9 +73,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
-    <Reference Include="Xamarin.Android.Support.v4">
-      <HintPath>..\Components\xamandroidsupportv4-18-4.19.0.1\lib\android\Xamarin.Android.Support.v4.dll</HintPath>
-    </Reference>
     <Reference Include="DK.Ostebaronen.Droid.ViewPagerIndicator">
       <HintPath>..\packages\DK.Ostebaronen.Droid.ViewPagerIndicator.dll</HintPath>
     </Reference>
@@ -141,9 +138,15 @@
     <Reference Include="Cirrious.MvvmCross.Droid.Fragging">
       <HintPath>..\packages\MvvmCross.HotTuna.Droid.Fragging.3.2.1\lib\MonoAndroid\Cirrious.MvvmCross.Droid.Fragging.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Components\xamandroidsupportv4-18-20.0.0.4\lib\android\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\MvxSwipeRefreshLayout.cs" />
     <Compile Include="Helpers\ImageViewAlphaTargetBinding.cs" />
+    <Compile Include="Helpers\MessageDialog.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setup.cs" />
@@ -177,9 +180,6 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_drawer_dark.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_drawer_light.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_menu_refresh.png" />
-    <AndroidResource Include="Resources\Drawable\background_card.9.png" />
-    <AndroidResource Include="Resources\Drawable\background_card_inverse.9.png" />
-    <AndroidResource Include="Resources\Drawable\splash.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\drawer_shadow_dark.9.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\drawer_shadow_light.9.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_drawer_dark.png" />
@@ -194,8 +194,6 @@
     <AndroidResource Include="Resources\Values\integers.xml" />
     <AndroidResource Include="Resources\Values\styles.xml" />
     <AndroidResource Include="Resources\Values-land\integers.xml" />
-    <AndroidResource Include="Resources\Values-v11\styles.xml" />
-    <AndroidResource Include="Resources\Values-v14\styles.xml" />
     <AndroidResource Include="Resources\Layout\fragment_about.axml" />
     <AndroidResource Include="Resources\Layout\page_search.axml" />
     <AndroidResource Include="Resources\Layout\fragment_alerts.axml" />
@@ -261,6 +259,8 @@
     <AndroidResource Include="Resources\Drawable\Train_S.png" />
     <AndroidResource Include="Resources\Menu\follows.xml" />
     <AndroidResource Include="Resources\Menu\followEdit.xml" />
+    <AndroidResource Include="Resources\Values-sw720dp\integers.xml" />
+    <AndroidResource Include="Resources\Values-sw600dp\integers.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TransitApp.Core\TransitApp.Core.csproj">
@@ -276,9 +276,6 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup />
-  <ItemGroup />
-  <ItemGroup />
   <ItemGroup>
     <XamarinComponentReference Include="modernhttpclient">
       <Visible>False</Visible>
@@ -289,6 +286,7 @@
       <Version>20.0.0.4</Version>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
