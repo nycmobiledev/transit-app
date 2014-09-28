@@ -657,9 +657,6 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f050011
 			public const int search_text = 2131034129;
 			
-			// aapt resource value: 0x7f050006
-			public const int textView1 = 2131034118;
-			
 			// aapt resource value: 0x7f05000a
 			public const int time = 2131034122;
 			
@@ -668,6 +665,9 @@ namespace TransitApp.Droid
 			
 			// aapt resource value: 0x7f050001
 			public const int triangle = 2131034113;
+			
+			// aapt resource value: 0x7f050006
+			public const int txt_about = 2131034118;
 			
 			// aapt resource value: 0x7f050002
 			public const int underline = 2131034114;

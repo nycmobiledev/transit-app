@@ -33,13 +33,16 @@ namespace TransitApp.Core.Services
                 .Where(x => x.EndsWith("LocalData.json", StringComparison.CurrentCultureIgnoreCase))
                 .ToArray();
 
-            var json = new StreamReader(assembly.GetManifestResourceStream(resourcePaths.Single())).ReadToEnd();
-
-            _localData = JsonConvert.DeserializeObject<LocalData>(json);
-
-            foreach (var station in _localData.Stations)
+            using (StreamReader streamReader = new StreamReader(assembly.GetManifestResourceStream(resourcePaths.Single())))
             {
-                station.Lines = _localData.Lines.Where(x => station.Lines.Any(y => y.Id == x.Id)).ToList();
+                var json = streamReader.ReadToEnd();
+
+                _localData = JsonConvert.DeserializeObject<LocalData>(json);
+
+                foreach (var station in _localData.Stations)
+                {
+                    station.Lines = _localData.Lines.Where(x => station.Lines.Any(y => y.Id == x.Id)).ToList();
+                }
             }
         }
 
