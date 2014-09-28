@@ -36,10 +36,11 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="52"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <toolkit:ToggleSwitch Content="{Binding Line.Name}" IsChecked="{Binding IsFollowed, Mode=TwoWay}" Grid.Column="0"/>
+                        <Image mvx:Bi.nd="Source TrainIdToImagePath(Line.Id)" Width="42" Height="42" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <toolkit:ToggleSwitch Content="{Binding Line.Name}" IsChecked="{Binding IsFollowed, Mode=TwoWay}" Grid.Column="1"/>
                     </Grid>
                 </DataTemplate>
             </phone:LongListSelector.ItemTemplate>
