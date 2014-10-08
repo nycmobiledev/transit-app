@@ -89,7 +89,7 @@ namespace TransitApp.Server.WebApi.Controllers
                     string[] paramArray = stations.Select((x, i) => "@stn" + i).ToArray();
                     cmd.CommandText = string.Format(sql, string.Join(",", paramArray));
 
-                    cmd.Parameters.Add(new SqlParameter("@from", DateTime.Now));
+                    cmd.Parameters.Add(new SqlParameter("@from", DateTime.Parse("09/01/2014")));
                     cmd.Parameters.Add(new SqlParameter("@to", DateTime.Now.AddMinutes(30)));
 
 

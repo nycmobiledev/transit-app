@@ -10,7 +10,7 @@ using TransitApp.Core.Models;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using TransitApp.Core.Models;
+
 
 namespace TransitApp.Core.Services
 {
@@ -36,13 +36,12 @@ namespace TransitApp.Core.Services
 
                 var client = new HttpClient(new NativeMessageHandler());
 
-                client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "HaFafTMWBtEycDgGAgJDvlPKibkQIK93");
-
-                var resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
+                
+				client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "HaFafTMWBtEycDgGAgJDvlPKibkQIK93");
+				var resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
 
                 var alerts = JsonConvert.DeserializeObject<List<Alert>>(resp);
-
-
+			
                 //Remove extra trains until the sever side supports.
                 foreach (var item in alerts.OrderBy(alert => alert.ArrivalTime))
                 {

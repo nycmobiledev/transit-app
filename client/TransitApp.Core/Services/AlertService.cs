@@ -5,13 +5,18 @@ using System.Text;
 using TransitApp.Core.Models;
 using System.Threading.Tasks;
 
+
 namespace TransitApp.Core.Services
 {
     public class AlertService : IAlertService
     {
         private readonly IFollowService _followService;
         private readonly IWebService _WebService;
-        public AlertService(IFollowService followService, IWebService webService)
+
+
+
+
+		public AlertService(IFollowService followService, IWebService webService)
         {
             _WebService = webService;
             _followService = followService;
