@@ -132,10 +132,18 @@ namespace TransitApp.Core.ViewModels
 
 		private void ReadAlertDetailsFromFile()
 		{
+			try
+			{
 			string json;
 			if (_fileService.TryReadTextFile(_customerAlertFilePath, out json))
 			{
-				_alerts = JsonConvert.DeserializeObject<HashSet<Alert>>(json);
+					if(json.Length>0){
+						_alerts = JsonConvert.DeserializeObject<HashSet<Alert>>(json);
+					}
+					else{
+						_alerts = new HashSet<Alert>();
+					}
+
 			}
 			else
 			{
@@ -145,6 +153,10 @@ namespace TransitApp.Core.ViewModels
 			string time;
 			if (_fileService.TryReadTextFile (_customerAlertAddnlData, out time)) {
 				UpdateTime = DateTime.Parse( time);
+			}
+			}
+			catch(Exception ex) {
+				string str = ex.Message;
 			}
 		}
 
