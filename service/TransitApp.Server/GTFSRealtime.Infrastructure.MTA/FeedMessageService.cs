@@ -22,7 +22,7 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.MTA
         public async Task<FeedMessage> GetCurrentRealtimeFeedMessage(SubwayLines lines)
         {
             var requestUrl = _baseUrl + (int) lines;
-            using (var client = new HttpClient {MaxResponseContentBufferSize = 1000000}) {
+            using (var client = new HttpClient()) {
                 var resultStream = client.GetStreamAsync(requestUrl);
                 return Serializer.Deserialize<FeedMessage>(await resultStream);
             }
