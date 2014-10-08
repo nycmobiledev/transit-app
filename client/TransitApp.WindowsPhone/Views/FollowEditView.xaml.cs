@@ -19,8 +19,9 @@ namespace TransitApp.WindowsPhone.Views
             InitializeComponent();            
         }
 
-
-        
-
+        private void AppBarSave_Click(object sender, EventArgs e)
+        {
+            (ViewModel as FollowEditViewModel).SaveCommand.Execute(null);            
+        }       
     }
 }

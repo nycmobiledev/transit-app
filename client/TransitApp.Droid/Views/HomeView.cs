@@ -13,6 +13,8 @@ using TransitApp.Core.ViewModels;
 using TransitApp.Droid.Helpers;
 using TransitApp.Droid.Views.Fragments;
 
+
+
 namespace TransitApp.Droid.Views
 {
     [Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/Icon")]
@@ -34,7 +36,8 @@ namespace TransitApp.Droid.Views
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+			Android.Content.Context ctx = this.ApplicationContext;
+			Java.Lang.Object svc = ctx.GetSystemService (ConnectivityService);
             SetContentView(Resource.Layout.page_home_view);
 
             this._title = this._drawerTitle = this.Title;
@@ -59,6 +62,7 @@ namespace TransitApp.Droid.Views
                 this.ActionBar.Title = this._title;
                 this.InvalidateOptionsMenu();
             };
+
 
 
             //You can alternatively use _drawer.DrawerOpened here
@@ -134,8 +138,9 @@ namespace TransitApp.Droid.Views
 
                 return true;
             }
-            catch
+			catch (RemoteException ex)
             {                
+				string str = ex.Message;
                 return false;
             }
             finally

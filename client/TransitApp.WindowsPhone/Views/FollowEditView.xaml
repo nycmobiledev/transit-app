@@ -9,7 +9,8 @@
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"    
     xmlns:commands="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Commands;assembly=Cirrious.MvvmCross.WindowsPhone"
     xmlns:views="clr-namespace:Cirrious.MvvmCross.WindowsPhone.Views;assembly=Cirrious.MvvmCross.WindowsPhone"    
-    xmlns:mvx="clr-namespace:mvx;assembly=Cirrious.MvvmCross.BindingEx.WindowsPhone"        
+    xmlns:mvx="clr-namespace:mvx;assembly=Cirrious.MvvmCross.BindingEx.WindowsPhone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"    
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -26,28 +27,28 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock mvx:Bi.nd="Text Station.Name" Text="Follow Station" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Where Is My Train" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding Station.Name}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
-        <phone:LongListSelector Grid.Row="1" Margin="12,0,12,0" ItemsSource="{Binding Follows}">
+        <phone:LongListSelector Grid.Row="1" Margin="12,0,12,0" ItemsSource="{Binding Lines}">
             <phone:LongListSelector.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="52">
+                    <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="52"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
-
-                        <TextBlock Text="StationName" mvx:Bi.nd="Text Station.Name" FontSize="16" Grid.Column="0" />
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Tap">
-                                <commands:MvxEventToCommand Command="{Binding DataContext.GoToEditCommand, ElementName=LayoutRoot}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
+                        <Image mvx:Bi.nd="Source TrainIdToImagePath(Line.Id)" Width="42" Height="42" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <toolkit:ToggleSwitch Content="{Binding Line.Name}" IsChecked="{Binding IsFollowed, Mode=TwoWay}" Grid.Column="1"/>
                     </Grid>
                 </DataTemplate>
             </phone:LongListSelector.ItemTemplate>
         </phone:LongListSelector>
     </Grid>
-
+    <views:MvxPhonePage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="AppBarSave" IconUri="/Resources/save.png" Text="Save" Click="AppBarSave_Click" />
+        </shell:ApplicationBar>
+    </views:MvxPhonePage.ApplicationBar>
 </views:MvxPhonePage>

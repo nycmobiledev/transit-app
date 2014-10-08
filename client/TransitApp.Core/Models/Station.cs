@@ -19,9 +19,6 @@ namespace TransitApp.Core.Models
                  
         public ICollection<Line> Lines { get; set; }
 
-        [Obsolete]
-        public bool IsFollowing { get; set; }
-
         public override int GetHashCode()
         {
             return ("Station-" + Id).GetHashCode();

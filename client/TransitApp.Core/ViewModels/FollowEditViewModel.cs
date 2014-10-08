@@ -56,6 +56,7 @@ namespace TransitApp.Core.ViewModels
         {
             var lineIds = this.Lines.Where(x => x.IsFollowed).Select(x => x.Line.Id).ToArray();
             _followService.AddFollows(Station.Id, lineIds);
+            Close(this);
         }
     }
 }

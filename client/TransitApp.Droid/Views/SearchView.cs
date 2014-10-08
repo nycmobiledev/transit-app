@@ -26,22 +26,18 @@ namespace TransitApp.Droid.Views
         {
             switch (item.ItemId)
             {
-                case Android.Resource.Id.Home:
-                    var viewModel = this.ViewModel as SearchViewModel;
-                    if (viewModel.IsStartViewModel)
-                    {
-                        viewModel.GoToHomeViewModel();
-                    }
-                    else
-                    {
-                        NavUtils.NavigateUpFromSameTask(this);
-                    }
+                case Android.Resource.Id.Home:                    
+                    (this.ViewModel as SearchViewModel).GoBack();                    
                     break;
             }
 
             return base.OnOptionsItemSelected(item);
         }
 
+        public override void OnBackPressed()
+        {
+            (this.ViewModel as SearchViewModel).GoBack();
+        }
     }
 }
 

@@ -36,7 +36,7 @@ namespace TransitApp.Droid.Views
             {
                 case Resource.Id.menu_done:
                     ((FollowEditViewModel)this.ViewModel).SaveCommand.Execute(null);
-                    NavUtils.NavigateUpFromSameTask(this);
+                    //NavUtils.NavigateUpFromSameTask(this);
                     break;
                 case Android.Resource.Id.Home:
                     //Wrong:

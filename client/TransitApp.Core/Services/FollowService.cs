@@ -15,7 +15,7 @@ namespace TransitApp.Core.Services
         private readonly ILocalDataService _localDbService;
         private IMvxFileStore _fileService;
         private HashSet<Follow> _follows;
-        private const string _customerFollowFilePath = "CustomerFollow.json";
+        private const string _customerFollowFilePath = "CustomerFollows.json";
         private readonly IMvxMessenger _messenger;
 
         public FollowService(IMvxFileStore fileService, ILocalDataService localDbService, IMvxMessenger messenger)

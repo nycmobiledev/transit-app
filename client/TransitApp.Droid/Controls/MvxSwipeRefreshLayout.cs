@@ -5,7 +5,7 @@ using System.Windows.Input;
 using Android.Content;
 
 namespace TransitApp.Droid.Controls
-{
+{ 
 	public class MvxSwipeRefreshLayout : SwipeRefreshLayout
 	{
 		/// <summary>

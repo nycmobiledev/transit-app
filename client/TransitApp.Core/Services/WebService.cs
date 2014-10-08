@@ -10,11 +10,10 @@ using TransitApp.Core.Models;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using TransitApp.Core.Models;
+
 
 namespace TransitApp.Core.Services
-
-{   
+{
     public class WebService : IWebService
     {
         private SemaphoreSlim _syncLock = new SemaphoreSlim(1);
@@ -30,31 +29,34 @@ namespace TransitApp.Core.Services
         {
             await _syncLock.WaitAsync();
 
-            var list = new List<Alert>();
+            var result = new List<Alert>();
             if (null != follows && follows.Count() != 0)
             {
                 var stations = String.Join(",", follows.Select(follow => follow.StationId));
 
-               var client = new HttpClient(new NativeMessageHandler());
+                var client = new HttpClient(new NativeMessageHandler());
 
-                client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "HaFafTMWBtEycDgGAgJDvlPKibkQIK93");
+                
+				client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "HaFafTMWBtEycDgGAgJDvlPKibkQIK93");
+				var resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
 
-                var resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
-
-                list = JsonConvert.DeserializeObject<List<Alert>>(resp);
-
-                foreach (var item in list)
+                var alerts = JsonConvert.DeserializeObject<List<Alert>>(resp);
+			
+                //Remove extra trains until the sever side supports.
+                foreach (var item in alerts.OrderBy(alert => alert.ArrivalTime))
                 {
-                    item.Line = _localDataService.GetLine(item.LineId);
-                    item.Station = _localDataService.GetStation(item.StationId);
+                    if (item.ArrivalTime > DateTime.UtcNow && follows.Any(x => x.LineId == item.LineId && x.StationId == item.StationId))
+                    {
+                        item.Line = _localDataService.GetLine(item.LineId);
+                        item.Station = _localDataService.GetStation(item.StationId);
+                        result.Add(item);
+                    }
                 }
-
-                list = list.OrderBy(alert => alert.ArrivalTime).ToList();
-            }                        
+            }
 
             _syncLock.Release();
 
-            return list;
+            return result;
         }
     }
 }

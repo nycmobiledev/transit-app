@@ -28,7 +28,11 @@ namespace TransitApp.Core
             Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IFollowService, MockFollowService>();
 
 #else
+			#if __RAMM_
+			Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService, WebService1>();
+			#else
             Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IWebService, WebService>();
+			#endif
             Cirrious.CrossCore.Mvx.LazyConstructAndRegisterSingleton<IFollowService, FollowService>();
 #endif
 
