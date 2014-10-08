@@ -37,8 +37,8 @@ namespace TransitApp.Core.Services
                 var client = new HttpClient(new NativeMessageHandler());
 
                 
-				client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "HaFafTMWBtEycDgGAgJDvlPKibkQIK93");
-				var resp = await client.GetStringAsync("http://transitapp.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
+                client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "EPeYbipHNSFHMFJDrVcDlYVrxyUNzf38");
+                var resp = await client.GetStringAsync("http://wheresmytrain.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
 
                 var alerts = JsonConvert.DeserializeObject<List<Alert>>(resp);
 			

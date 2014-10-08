@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/border"
-    android:descendantFocusability="blocksDescendants"
-    android:padding="8dp">
+    android:descendantFocusability="blocksDescendants">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +13,6 @@
         android:text="NetworkAlert"
         local:MvxBind="Text ConnectionAlertText"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="55dp"
         android:singleLine="false"
         android:id="@+id/NetworkConnAlert" />
     <TransitApp.Droid.Controls.MvxSwipeRefreshLayout

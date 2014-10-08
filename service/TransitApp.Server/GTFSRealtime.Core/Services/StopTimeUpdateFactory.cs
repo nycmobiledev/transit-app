@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TransitApp.Server.GTFSRealtime.Core.DTO;
@@ -38,8 +39,39 @@ namespace TransitApp.Server.GTFSRealtime.Core.Services
                     results.Add(stopUpdate);
                 }
             }
+            // TODO Validate this.
+            return results.Distinct(new StopTimeUpdateComparer());
+        }
+    }
 
-            return results;
+    class StopTimeUpdateComparer : IEqualityComparer <StopTimeUpdate>
+    {
+        public bool Equals(StopTimeUpdate x, StopTimeUpdate y)
+        {
+            //Check whether the compared objects reference the same data.
+            if (Object.ReferenceEquals(x, y)) return true;
+
+            //Check whether any of the compared objects is null.
+            if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null))
+                return false;
+
+            //Check whether the StopTimeUpdate's properties are equal.
+            return x.TripId == y.TripId && x.StopId == y.StopId;
+        }
+
+        public int GetHashCode(StopTimeUpdate stopTimeUpdate)
+        {
+            //Check whether the object is null
+            if (Object.ReferenceEquals(stopTimeUpdate, null)) return 0;
+
+            //Get hash code for the Name field if it is not null.
+            int hashTripId = stopTimeUpdate.TripId.GetHashCode();
+
+            //Get hash code for the Code field.
+            int hashStopId = stopTimeUpdate.StopId.GetHashCode();
+
+            //Calculate the hash code for the stopTimeUpdate.
+            return hashTripId ^ hashStopId;
         }
     }
 }
