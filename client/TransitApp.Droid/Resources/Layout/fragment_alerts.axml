@@ -11,13 +11,14 @@
         android:layout_height="wrap_content"
         android:textSize="12dp"
         android:text="NetworkAlert"
-        local:MvxBind="Text ConnectionAlertText"
+        local:MvxBind="Text ConnectionAlertText; Visibility IsNotConnected, Converter=Visibility;"
         android:layout_marginLeft="5dp"
         android:singleLine="false"
         android:id="@+id/NetworkConnAlert" />
     <TransitApp.Droid.Controls.MvxSwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/NetworkConnAlert"
         local:MvxBind="Refreshing IsBusy;RefreshCommand RefreshCommand">
         <Mvx.MvxListView
             android:layout_width="fill_parent"
