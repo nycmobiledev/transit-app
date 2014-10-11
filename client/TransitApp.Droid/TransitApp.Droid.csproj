@@ -234,6 +234,7 @@
     <AndroidResource Include="Resources\Layout\item_train.axml" />
     <AndroidResource Include="Resources\Layout\item_lineIcon2.axml" />
     <AndroidResource Include="Resources\Drawable\Train_GS.png" />
+    <AndroidResource Include="Resources\Drawable\shape_rounded_blue_rect.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
