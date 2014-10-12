@@ -19,7 +19,7 @@ namespace TransitApp.Core.Services
 		private SemaphoreSlim _syncLock = new SemaphoreSlim(1);
 
 		private readonly ILocalDataService _localDataService;
-		private const string ALERTS_URL = "http://10.0.3.2/transit-app-svc/api/TransitAlert?stationsCsv=";
+		private const string ALERTS_URL = "http://192.168.56.1/transit-app-svc/api/TransitAlert?stationsCsv=";
 
 		public WebService1(ILocalDataService localDataService)
 		{

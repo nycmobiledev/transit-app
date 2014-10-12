@@ -12,7 +12,7 @@ namespace TransitApp.WindowsPhone.Helpers
     {
         public bool IsConnected()
         {
-            return DeviceNetworkInformation.IsNetworkAvailable;
+            return DeviceNetworkInformation.IsWiFiEnabled || DeviceNetworkInformation.IsCellularDataEnabled || DeviceNetworkInformation.IsCellularDataRoamingEnabled;
         }
     }
 }
