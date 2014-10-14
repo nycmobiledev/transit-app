@@ -17,7 +17,7 @@ using TransitApp.Droid.Views.Fragments;
 
 namespace TransitApp.Droid.Views
 {
-    [Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/Icon")]
+    [Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/Icon", ScreenOrientation = ScreenOrientation.Portrait)]
     public class HomeView : MvxFragmentActivity, IFragmentHost
     {
         private DrawerLayout _drawer;
