@@ -7,6 +7,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:local="clr-namespace:TransitApp.WindowsPhone;assembly=TransitApp.WindowsPhone"
     xmlns:core="clr-namespace:TransitApp.Core;assembly=TransitApp.Core"
+    xmlns:cnv="clr-namespace:TransitApp.WindowsPhone.Converters"
     >
     <!--Application Resources-->
     <Application.Resources>
@@ -21,6 +22,7 @@
                     <local:ResourceLoaderHelper></local:ResourceLoaderHelper>
                 </mvx:Import.From>
             </mvx:Import>
+            <cnv:VisibilityConverter  x:Key="VisiConv"></cnv:VisibilityConverter>
         </ResourceDictionary>
     </Application.Resources>
 

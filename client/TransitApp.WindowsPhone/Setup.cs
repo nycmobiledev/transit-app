@@ -11,6 +11,7 @@ namespace TransitApp.WindowsPhone
     using Cirrious.MvvmCross.WindowsPhone.Platform;
     using Microsoft.Phone.Controls;
     using TransitApp.Core;
+    using TransitApp.Core.Interfaces;
 
     /// <summary>
     ///    Defines the Setup type.
@@ -33,6 +34,7 @@ namespace TransitApp.WindowsPhone
         protected override IMvxApplication CreateApp()
         {
             Mvx.RegisterSingleton<IMessageDialog>(() => new WP8MessageDialog());
+            Mvx.RegisterSingleton<IConnectivity>(() => new TransitApp.WindowsPhone.Helpers.NetworkConnectivityHelper());
             return new Core.App();
         }
 

@@ -15,7 +15,7 @@ namespace TransitApp.Droid
 
 		public NetworkConnectionHelperDroid () 
 		{
-
+			_networkHelper = (ConnectivityManager) Application.Context.GetSystemService (Android.Content.Context.ConnectivityService);
 		}
 
 		public bool IsConnected()
@@ -40,17 +40,15 @@ namespace TransitApp.Droid
 
 		private void GetConnectivityDetails()
 		{
-			if (_networkHelper == null) {
-				_networkHelper = (ConnectivityManager) Application.Context.GetSystemService (Android.Content.Context.ConnectivityService);
-			}
 
 			var activeConnection = _networkHelper.ActiveNetworkInfo;
 
-			if ((activeConnection != null) && activeConnection.IsConnected)
-			{
+			if ((activeConnection != null) && activeConnection.IsConnected) {
 				// we are connected to a network.
 				_isConnected = true;
 
+			} else {
+				_isConnected = false;
 			}
 
 			if (_isConnected) {
@@ -58,12 +56,19 @@ namespace TransitApp.Droid
 				if (mobileConn != null && mobileConn.GetState () == NetworkInfo.State.Connected) {
 					_isDataConn = true;
 
+				} else {
+					_isDataConn = false;
 				}
 
 				var wifiConn = _networkHelper.GetNetworkInfo (ConnectivityType.Wifi);
 				if (wifiConn != null && wifiConn.GetState () == NetworkInfo.State.Connected) {
 					_isWifiConn = true;
+				} else {
+					_isWifiConn = false;
 				}
+			} else {
+				_isDataConn = false;
+				_isWifiConn = false;
 			}
 		}
 

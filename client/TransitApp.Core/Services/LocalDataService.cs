@@ -70,7 +70,11 @@ namespace TransitApp.Core.Services
 
         public ICollection<Station> GetStations(string searchQuery)
         {            
-			return _localData.Stations.Where(t => t.Name.IndexOf(searchQuery,StringComparison.CurrentCultureIgnoreCase)>=0).ToList();
+			if (string.IsNullOrWhiteSpace (searchQuery)) {
+				return _localData.Stations.OrderBy(st => st.Name).ToList ();
+			} else {
+				return _localData.Stations.Where (t => t.Name.IndexOf (searchQuery, StringComparison.CurrentCultureIgnoreCase) >= 0).ToList ();
+			}
         }
     }
 }

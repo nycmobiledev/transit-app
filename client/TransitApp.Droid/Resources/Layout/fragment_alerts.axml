@@ -2,22 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/border"
     android:descendantFocusability="blocksDescendants">
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="12dp"
         android:text="NetworkAlert"
-        local:MvxBind="Text ConnectionAlertText"
-        android:layout_marginLeft="5dp"
+        local:MvxBind="Text ConnectionAlertText; Visibility IsNotConnected, Converter=Visibility;"
         android:singleLine="false"
+        android:background="@drawable/shape_rounded_blue_rect"
         android:id="@+id/NetworkConnAlert" />
     <TransitApp.Droid.Controls.MvxSwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/NetworkConnAlert"
         local:MvxBind="Refreshing IsBusy;RefreshCommand RefreshCommand">
         <Mvx.MvxListView
             android:layout_width="fill_parent"

@@ -148,6 +148,12 @@
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\Components\xamandroidsupportv4-18-20.0.0.4\lib\android\Xamarin.Android.Support.v4.dll</HintPath>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Visibility">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.2.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Visibility.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Visibility.Droid">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Visibility.3.2.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Visibility.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\MvxSwipeRefreshLayout.cs" />
@@ -175,6 +181,7 @@
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\DownloadCachePluginBootstrap.cs" />
     <Compile Include="Helpers\NetworkConnectionHelper.cs" />
+    <Compile Include="Bootstrap\VisibilityPluginBootstrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -227,6 +234,7 @@
     <AndroidResource Include="Resources\Layout\item_train.axml" />
     <AndroidResource Include="Resources\Layout\item_lineIcon2.axml" />
     <AndroidResource Include="Resources\Drawable\Train_GS.png" />
+    <AndroidResource Include="Resources\Drawable\shape_rounded_blue_rect.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

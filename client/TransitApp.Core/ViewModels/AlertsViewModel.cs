@@ -26,9 +26,25 @@ namespace TransitApp.Core.ViewModels
 		private readonly ILocalDataService _localDbService;
 		private IMvxFileStore _fileService;
 		private const string _customerAlertFilePath = "CustomerAlerts.json";
-		private const string _customerAlertAddnlData = "CustomerAlerts.json";
+		private const string _customerAlertAddnlData = "CustomerAlertsData.json";
 
-		public bool IsConnected { get; private set;}
+		private bool _isConnected;
+
+		public bool IsConnected { 
+			get{ 
+				return _isConnected;
+			}
+			private set{ _isConnected = value;
+				IsNotConnected = !value;
+			}
+		}
+		private bool _isNotConnected;
+		public bool IsNotConnected { get { return _isNotConnected; }
+			private set{ 
+				_isNotConnected = value;
+				this.RaisePropertyChanged(() => this.IsNotConnected);
+			}
+		}
 		public DateTime UpdateTime { get; private set; }
 		public string ConnectionAlertText { 
 			get{ return _connectionAlertText;}
@@ -132,10 +148,18 @@ namespace TransitApp.Core.ViewModels
 
 		private void ReadAlertDetailsFromFile()
 		{
+			try
+			{
 			string json;
 			if (_fileService.TryReadTextFile(_customerAlertFilePath, out json))
 			{
-				_alerts = JsonConvert.DeserializeObject<HashSet<Alert>>(json);
+					if(json.Length>0){
+						_alerts = JsonConvert.DeserializeObject<HashSet<Alert>>(json);
+					}
+					else{
+						_alerts = new HashSet<Alert>();
+					}
+
 			}
 			else
 			{
@@ -145,6 +169,10 @@ namespace TransitApp.Core.ViewModels
 			string time;
 			if (_fileService.TryReadTextFile (_customerAlertAddnlData, out time)) {
 				UpdateTime = DateTime.Parse( time);
+			}
+			}
+			catch(Exception ex) {
+				string str = ex.Message;
 			}
 		}
 
