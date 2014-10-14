@@ -45,7 +45,7 @@ namespace TransitApp.Core.Services
                 //Remove extra trains until the sever side supports.
                 foreach (var item in alerts.OrderBy(alert => alert.ArrivalTime))
                 {
-                    if (item.ArrivalTime > DateTime.UtcNow && follows.Any(x => x.LineId == item.LineId && x.StationId == item.StationId))
+//                    if (item.ArrivalTime > DateTime.UtcNow && follows.Any(x => x.LineId == item.LineId && x.StationId == item.StationId))
                     {
                         item.Line = _localDataService.GetLine(item.LineId);
                         item.Station = _localDataService.GetStation(item.StationId);
