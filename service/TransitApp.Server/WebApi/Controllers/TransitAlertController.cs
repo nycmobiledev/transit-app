@@ -123,5 +123,64 @@ namespace TransitApp.Server.WebApi.Controllers
            
             return alertsForStations;
         }
+        [HttpPost]
+        public IEnumerable<TransitAlert> GetSchedule([FromBody] List<Follow> follows)
+        {
+             var dbConnStr = ConfigurationManager.ConnectionStrings["MTA_DB"].ConnectionString;
+
+            var schedule = new List<TransitAlert>();
+
+
+            if (null == follows || follows.Count == 0)
+            {
+                return schedule;
+            }
+
+            var query = new DataTable();
+
+            query.Columns.Add("StationId", typeof (string));
+            query.Columns.Add("RouteId", typeof(string));
+
+            foreach (var follow in follows)
+            {
+                query.Rows.Add(follow.StationId, follow.LineId);
+            }
+
+            using (SqlConnection conn = new SqlConnection(dbConnStr))
+            {
+
+                conn.Open();
+
+                using (var cmd = new SqlCommand("sp_GetSubwaySchedule", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter tvpParam = cmd.Parameters.AddWithValue("@query", query); //Needed TVP
+                    tvpParam.SqlDbType = SqlDbType.Structured; //tells ADO.NET we are passing TVP
+                    
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            schedule.Add(new TransitAlert()
+                            {
+                                TripId = reader.GetFieldValue<string>(reader.GetOrdinal("TripId")),
+                                StationId = reader.GetFieldValue<string>(reader.GetOrdinal("StationId")),
+                                RouteId = reader.GetFieldValue<string>(reader.GetOrdinal("RouteId")),
+                                RouteName = reader.GetFieldValue<string>(reader.GetOrdinal("RouteName")),
+                                StationName = reader.GetFieldValue<string>(reader.GetOrdinal("StationName")),
+                                ArrivalTime = reader.GetFieldValue<DateTime>(reader.GetOrdinal("ArrivalTime")),
+                                Direction = reader.GetFieldValue<string>(reader.GetOrdinal("Direction")),
+                                DestinationStationId = reader.GetFieldValue<string>(reader.GetOrdinal("DestinationStationId")),
+                                IsRealtime = reader.GetFieldValue<bool>(reader.GetOrdinal("IsRealtime")),
+
+                            });
+                        }
+                    }
+                }
+            }
+            return schedule;
+        }
     }
 }
