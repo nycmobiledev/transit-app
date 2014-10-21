@@ -14,49 +14,49 @@ using System.Threading.Tasks;
 
 namespace TransitApp.Core.Services
 {
-    public class WebService : IWebService
-    {
-        private SemaphoreSlim _syncLock = new SemaphoreSlim(1);
+	public class WebService : IWebService
+	{
+		private SemaphoreSlim _syncLock = new SemaphoreSlim(1);
 
-        private readonly ILocalDataService _localDataService;
+		private readonly ILocalDataService _localDataService;
 
-        public WebService(ILocalDataService localDataService)
-        {
-            _localDataService = localDataService;
-        }
+		public WebService(ILocalDataService localDataService)
+		{
+			_localDataService = localDataService;
+		}
 
-        public async Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows)
-        {
-            await _syncLock.WaitAsync();
+		public async Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows)
+		{
+			var result = new List<Alert>();
+			if (null != follows && follows.Count() != 0)
+			{
+				var stations = String.Join(",", follows.Select(follow => follow.StationId));
 
-            var result = new List<Alert>();
-            if (null != follows && follows.Count() != 0)
-            {
-                var stations = String.Join(",", follows.Select(follow => follow.StationId));
+				var client = new HttpClient(new NativeMessageHandler());
 
-                var client = new HttpClient(new NativeMessageHandler());
+				
+				client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "EPeYbipHNSFHMFJDrVcDlYVrxyUNzf38");
 
-                
-                client.DefaultRequestHeaders.Add("X-ZUMO-APPLICATION", "EPeYbipHNSFHMFJDrVcDlYVrxyUNzf38");
-                var resp = await client.GetStringAsync("http://wheresmytrain.azure-mobile.net/api/TransitAlert?stationsCsv=" + stations);
+				var content = new StringContent( JsonConvert.SerializeObject(follows), Encoding.UTF8, "application/json") ;
 
-                var alerts = JsonConvert.DeserializeObject<List<Alert>>(resp);
+			   var resp = await client.PostAsync("http://wheresmytrain.azure-mobile.net/api/TransitAlert", content);
+
+
+				var value = await resp.Content.ReadAsStringAsync();
+				var alerts = JsonConvert.DeserializeObject<List<Alert>>(value);
 			
-                //Remove extra trains until the sever side supports.
-                foreach (var item in alerts.OrderBy(alert => alert.ArrivalTime))
-                {
-//                    if (item.ArrivalTime > DateTime.UtcNow && follows.Any(x => x.LineId == item.LineId && x.StationId == item.StationId))
-                    {
-                        item.Line = _localDataService.GetLine(item.LineId);
-                        item.Station = _localDataService.GetStation(item.StationId);
-                        result.Add(item);
-                    }
-                }
-            }
+				//Remove extra trains until the sever side supports.
+				foreach (var item in alerts.OrderBy(alert => alert.ArrivalTime))
+				{
+					{
+						item.Line = _localDataService.GetLine(item.LineId);
+						item.Station = _localDataService.GetStation(item.StationId);
+						result.Add(item);
+					}
+				}
+			}
 
-            _syncLock.Release();
-
-            return result;
-        }
-    }
+			return result;
+		}
+	}
 }
