@@ -51,6 +51,7 @@ namespace TransitApp.Core.Services
 					{
 						item.Line = _localDataService.GetLine(item.LineId);
 						item.Station = _localDataService.GetStation(item.StationId);
+					    item.DestinationStation = _localDataService.GetStation(item.DestinationStationId);
 						result.Add(item);
 					}
 				}

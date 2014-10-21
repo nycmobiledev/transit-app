@@ -22,16 +22,21 @@ namespace TransitApp.Core.Models
 		public Line Line { get; set; }
 
 		public Station Station { get; set; }
+        public Station DestinationStation { get; set; }
 
-		public string Destination { 
-			get
-			{
-			    
-			    if (null == Line)
-			    {
-                    return null;
-			    }
-				if (Direction == "N") {
+		public string Destination {
+		    get
+		    {
+
+		        if (null == Line)
+		        {
+		            return null;
+		        }
+		        if (null != DestinationStation)
+		        {
+		            return ((Direction == "N") ? "Uptown to " : "Downtown to ") + DestinationStation.Name ;
+		        }
+		        if ( Direction == "N") {
                     return String.Format("Uptown");
 				} else {
                     return String.Format("Downtown");

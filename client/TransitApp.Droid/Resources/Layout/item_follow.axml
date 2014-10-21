@@ -36,6 +36,5 @@
         android:numColumns="6"
         android:layout_below="@+id/Area"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:focusable="false" />
 </RelativeLayout>

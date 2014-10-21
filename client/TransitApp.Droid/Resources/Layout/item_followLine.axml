@@ -6,8 +6,8 @@
     android:padding="5dp">
     <MvxImageView
         android:id="@+id/item_img"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         local:MvxBind="DrawableName Line.Id, Converter=TrainIdToImagePath"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true" />
@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:text="Line Name"
         local:MvxBind="Text Line.Name;Checked IsFollowed"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="58dp"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/item_img" />
 </RelativeLayout>

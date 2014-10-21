@@ -2,52 +2,64 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
-    android:padding="5dp">
+    android:layout_height="?android:attr/listPreferredItemHeight">
     <MvxImageView
         android:id="@+id/image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_margin="8dp"
         local:MvxBind="DrawableName Line.Id, Converter=TrainIdToImagePath"
         android:layout_centerVertical="true" />
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="22dp"
-        android:text="StationName"
-        local:MvxBind="Text Station.Name"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="55dp"
-        android:singleLine="true"
-        android:layout_toRightOf="@+id/image"
-        android:id="@+id/StationName" />
-    <TextView
+        android:id="@+id/time_layout"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28dp"
+            android:text="10"
+            local:MvxBind="Text ArriveTime(ArrivalTime)"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Min"
+            android:layout_below="@+id/time"
+            android:textSize="10dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Destination"
-        android:textSize="15dp"
-        local:MvxBind="Text Destination"
-        android:layout_marginLeft="5dp"
-        android:singleLine="true"
-        android:layout_toRightOf="@+id/image"
-        android:id="@+id/Destination"
-        android:layout_below="@id/StationName" />
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:textSize="28dp"
-        android:text="10"
-        local:MvxBind="Text ArriveTime(ArrivalTime)"
-        android:layout_alignParentRight="true"
-        android:gravity="center"
-        android:singleLine="true" />
-    <TextView
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:text="Min"
-        android:layout_below="@+id/time"
-        android:textSize="10dp"
-        android:layout_alignParentRight="true"
-        android:gravity="center" />
+        android:layout_toRightOf="@id/image"
+        android:layout_toLeftOf="@id/time_layout"
+        android:id="@+id/linearLayout2"
+        android:layout_centerVertical="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="StationName"
+            local:MvxBind="Text Station.Name"
+            android:singleLine="true"
+            android:id="@+id/StationName" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Destination"
+            android:textSize="14dp"
+            local:MvxBind="Text Destination"
+            android:id="@+id/Destination"
+            android:maxLines="2" />
+    </LinearLayout>
 </RelativeLayout>
