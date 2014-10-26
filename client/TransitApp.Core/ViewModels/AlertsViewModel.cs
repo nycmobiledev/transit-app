@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TransitApp.Core.Models;
 using TransitApp.Core.Services;
 using System.Windows.Input;
@@ -60,7 +61,7 @@ namespace TransitApp.Core.ViewModels
             _service = Mvx.Resolve<IAlertService>();
 			_fileService = Mvx.Resolve<IMvxFileStore> ();
 			_localDbService = Mvx.Resolve<ILocalDataService> ();
-			NetworkConnectionHelper = Mvx.Resolve<IConnectivity> ();
+//			NetworkConnectionHelper = Mvx.Resolve<IConnectivity> ();
             _messenger.Subscribe<FollowsChanged>(x =>
             {
                 ExecuteRefreshCommand();
@@ -108,31 +109,31 @@ namespace TransitApp.Core.ViewModels
         {
             get
             {
-                return _refreshCommand ?? (_refreshCommand = new MvxCommand(this.ExecuteRefreshCommand));
+                return _refreshCommand ?? (_refreshCommand = new MvxCommand(async () => await ExecuteRefreshCommand()));
             }
         }
 
-		private IConnectivity NetworkConnectionHelper ;
+//		private IConnectivity NetworkConnectionHelper ;
 
-        private async void ExecuteRefreshCommand()
+        private async Task ExecuteRefreshCommand()
         {
             if (IsBusy)
                 return;
 
             IsBusy = true;
 
-			if (NetworkConnectionHelper != null ) 
+//			if (NetworkConnectionHelper != null ) 
 			{
-				IsConnected = NetworkConnectionHelper.IsConnected ();
-				if (IsConnected) {
+//				IsConnected = NetworkConnectionHelper.IsConnected ();
+//				if (IsConnected) {
 					Alerts = await _service.GetAlerts ();
 					UpdateTime = System.DateTime.Now;
-					WriteAlertDetailsToFile ();
+//					WriteAlertDetailsToFile ();
 					ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString ();;
-				} else {
-					ReadAlertDetailsFromFile ();
-					ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString () + ". Not connected to network...";
-				}
+//				} else {
+//					ReadAlertDetailsFromFile ();
+//					ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString () + ". Not connected to network...";
+//				}
 			}
 
 

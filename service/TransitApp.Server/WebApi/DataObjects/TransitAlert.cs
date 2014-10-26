@@ -13,6 +13,7 @@ namespace TransitApp.Server.WebApi.DataObjects
         public string StationName { get; set; }
         public string RouteName { get; set; }
         public DateTime ArrivalTime { get; set; }
+        public int ArrivalTimeSeconds { get; set; }
         public String DestinationStationId { get; set; }
         public bool IsRealtime { get; set; }
         public string Direction { get; set; }

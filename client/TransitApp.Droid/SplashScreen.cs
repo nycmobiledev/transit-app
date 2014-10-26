@@ -13,7 +13,7 @@ namespace TransitApp.Droid
     /// <summary> 
     /// Defines the SplashScreen type.
     /// </summary>
-	[Activity(Label = "Where Is My Subway", MainLauncher = true, Icon = "@drawable/icon", NoHistory = true)]
+    [Activity(Label = "Where Is My Subway", MainLauncher = true, Icon = "@drawable/icon", NoHistory = true, Theme = "@style/Theme.Splash")]
     public class SplashScreen : MvxSplashScreenActivity
     {
         /// <summary>

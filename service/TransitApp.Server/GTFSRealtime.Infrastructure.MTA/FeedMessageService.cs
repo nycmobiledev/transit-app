@@ -24,7 +24,16 @@ namespace TransitApp.Server.GTFSRealtime.Infrastructure.MTA
             var requestUrl = _baseUrl + (int) lines;
             using (var client = new HttpClient()) {
                 var resultStream = client.GetStreamAsync(requestUrl);
-                return Serializer.Deserialize<FeedMessage>(await resultStream);
+                try
+                {
+                    return Serializer.Deserialize<FeedMessage>(await resultStream);
+                }
+                catch (Exception e)
+                {
+                    // TODO Save the stream so we can debug it.
+                    Console.WriteLine(e);
+                    throw;
+                }
             }
         }
     }

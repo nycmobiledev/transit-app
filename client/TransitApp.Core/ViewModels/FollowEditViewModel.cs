@@ -25,7 +25,7 @@ namespace TransitApp.Core.ViewModels
         {
             // because when it transfer, it serializes and deserializes,
             // it loses some property, I need to reget data.            
-            _followStation = _followService.GetFollowStation(stationId);
+			if (stationId.ToString().Length > 0) _followStation = _followService.GetFollowStation(stationId);
         }
 
         public Station Station
