@@ -211,6 +211,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\TransitAlertController.cs" />
     <Compile Include="DataObjects\Follow.cs" />
+    <Compile Include="ScheduledJobs\CreateStaticScheduleJob.cs" />
     <Compile Include="ScheduledJobs\GTFSRealtimeJob.cs" />
     <Compile Include="ScheduledJobs\GTFSStaticJob.cs" />
     <Compile Include="Global.asax.cs">
