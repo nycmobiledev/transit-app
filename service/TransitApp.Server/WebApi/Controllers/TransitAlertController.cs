@@ -102,19 +102,7 @@ namespace TransitApp.Server.WebApi.Controllers
                     {
                         while (reader.Read())
                         {
-                            alertsForStations.Add(new TransitAlert()
-                            {
-                                TripId =  reader.GetFieldValue<string>(reader.GetOrdinal("TripId")),
-                                StationId = reader.GetFieldValue<string>(reader.GetOrdinal("StationId")),
-                                RouteId = reader.GetFieldValue<string>(reader.GetOrdinal("RouteId")),
-                                RouteName = reader.GetFieldValue<string>(reader.GetOrdinal("RouteName")),
-                                StationName = reader.GetFieldValue<string>(reader.GetOrdinal("StationName")),
-                                ArrivalTime = reader.GetFieldValue<DateTime>(reader.GetOrdinal("ArrivalTime")),
-                                Direction = reader.GetFieldValue<string>(reader.GetOrdinal("Direction")),
-                                DestinationStationId = reader.GetFieldValue<string>(reader.GetOrdinal("DestinationStationId")),
-                                IsRealtime = reader.GetFieldValue<bool>(reader.GetOrdinal("IsRealtime")),
-
-                            });
+                            alertsForStations.Add(ReadTransitAlert(reader));
                         }
                     }
                 }
@@ -123,6 +111,25 @@ namespace TransitApp.Server.WebApi.Controllers
            
             return alertsForStations;
         }
+
+        private static TransitAlert ReadTransitAlert(SqlDataReader reader)
+        {
+            return new TransitAlert()
+            {
+                TripId =  reader.GetFieldValue<string>(reader.GetOrdinal("TripId")),
+                StationId = reader.GetFieldValue<string>(reader.GetOrdinal("StationId")),
+                RouteId = reader.GetFieldValue<string>(reader.GetOrdinal("RouteId")),
+                RouteName = reader.GetFieldValue<string>(reader.GetOrdinal("RouteName")),
+                StationName = reader.GetFieldValue<string>(reader.GetOrdinal("StationName")),
+                ArrivalTime = reader.GetFieldValue<DateTime>(reader.GetOrdinal("ArrivalTime")),
+                ArrivalTimeSeconds = reader.GetFieldValue<int>(reader.GetOrdinal("ArrivalTimeSeconds")),
+                Direction = reader.GetFieldValue<string>(reader.GetOrdinal("Direction")),
+                DestinationStationId = reader.GetFieldValue<string>(reader.GetOrdinal("DestinationStationId")),
+                IsRealtime = reader.GetFieldValue<bool>(reader.GetOrdinal("IsRealtime")),
+
+            };
+        }
+
         [HttpPost]
         public IEnumerable<TransitAlert> GetSchedule([FromBody] List<Follow> follows)
         {
@@ -163,19 +170,7 @@ namespace TransitApp.Server.WebApi.Controllers
                     {
                         while (reader.Read())
                         {
-                            schedule.Add(new TransitAlert()
-                            {
-                                TripId = reader.GetFieldValue<string>(reader.GetOrdinal("TripId")),
-                                StationId = reader.GetFieldValue<string>(reader.GetOrdinal("StationId")),
-                                RouteId = reader.GetFieldValue<string>(reader.GetOrdinal("RouteId")),
-                                RouteName = reader.GetFieldValue<string>(reader.GetOrdinal("RouteName")),
-                                StationName = reader.GetFieldValue<string>(reader.GetOrdinal("StationName")),
-                                ArrivalTime = reader.GetFieldValue<DateTime>(reader.GetOrdinal("ArrivalTime")),
-                                Direction = reader.GetFieldValue<string>(reader.GetOrdinal("Direction")),
-                                DestinationStationId = reader.GetFieldValue<string>(reader.GetOrdinal("DestinationStationId")),
-                                IsRealtime = reader.GetFieldValue<bool>(reader.GetOrdinal("IsRealtime")),
-
-                            });
+                            schedule.Add(ReadTransitAlert(reader));
                         }
                     }
                 }

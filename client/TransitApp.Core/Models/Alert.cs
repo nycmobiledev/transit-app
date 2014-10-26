@@ -18,6 +18,7 @@ namespace TransitApp.Core.Models
 		public string Direction { get; set; }
 
 		public DateTime ArrivalTime { get; set; }
+		public int ArrivalTimeSeconds { get; set; }
 
 		public Line Line { get; set; }
 
