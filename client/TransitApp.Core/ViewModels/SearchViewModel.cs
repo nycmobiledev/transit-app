@@ -66,7 +66,7 @@ namespace TransitApp.Core.ViewModels
         public ICollection<Station> SearchResults
         {
             get { return this.searchResults; }
-            set { this.searchResults = value; this.RaisePropertyChanged(() => this.SearchResults); }
+			set { if ( value.ToString().Length > 0 ) { this.searchResults = value; }; this.RaisePropertyChanged(() => this.SearchResults); }
         }
 
         public ICommand SelectCommand
