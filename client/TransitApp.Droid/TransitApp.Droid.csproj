@@ -48,6 +48,14 @@
     </JavaMaximumHeapSize>
     <JavaOptions>
     </JavaOptions>
+    <AndroidLinkSkip />
+    <AndroidLinkMode>Full</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <MandroidI18n />
+    <MonoDroidExtraArgs />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Mock|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -206,7 +214,9 @@
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_menu_refresh.png" />
     <AndroidResource Include="Resources\Values\colors.xml" />
     <AndroidResource Include="Resources\Values\integers.xml" />
-    <AndroidResource Include="Resources\Values\styles.xml" />
+    <AndroidResource Include="Resources\Values\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\Values-land\integers.xml" />
     <AndroidResource Include="Resources\Layout\fragment_about.axml" />
     <AndroidResource Include="Resources\Layout\page_search.axml" />

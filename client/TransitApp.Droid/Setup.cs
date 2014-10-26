@@ -38,10 +38,10 @@ namespace TransitApp.Droid
         /// <returns>An instance of IMvxApplication.</returns>
         protected override IMvxApplication CreateApp()
         {
-            Mvx.RegisterSingleton<IMessageDialog>(() => new MessageDialog());
-
-			NetworkConnectionHelperDroid networkHelperDroid = new NetworkConnectionHelperDroid ();
-			Mvx.RegisterSingleton<IConnectivity>(networkHelperDroid);
+//            Mvx.RegisterSingleton<IMessageDialog>(() => new MessageDialog());
+//
+//			NetworkConnectionHelperDroid networkHelperDroid = new NetworkConnectionHelperDroid ();
+//			Mvx.RegisterSingleton<IConnectivity>(networkHelperDroid);
 
 
 
