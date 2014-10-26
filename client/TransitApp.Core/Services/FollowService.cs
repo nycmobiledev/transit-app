@@ -34,15 +34,21 @@ namespace TransitApp.Core.Services
 
         public FollowStation GetFollowStation(string stationId)
         {
-            var fs = new FollowStation() { Station = _localDbService.GetStation(stationId), 
-                Lines = new List<FollowLine>() };
+            var fs = new FollowStation()
+            {
+                Station = _localDbService.GetStation(stationId),
+                Lines = new List<FollowLine>()
+            };
 
             foreach (var line in fs.Station.Lines)
             {
+                //if the station is no setting, default value is true for following;
+                bool defaultValue = !_follows.Any(x => x.StationId == stationId);
+
                 fs.Lines.Add(new FollowLine()
                 {
                     Line = line,
-                    IsFollowed = _follows.Any(x => x.StationId == stationId && x.LineId == line.Id)
+                    IsFollowed = defaultValue || _follows.Any(x => x.StationId == stationId && x.LineId == line.Id)
                 });
             }
 
