@@ -46,14 +46,15 @@ namespace TransitApp.Core.Services
 				var alerts = JsonConvert.DeserializeObject<List<Alert>>(value);
 			
 				//Remove extra trains until the sever side supports.
-				foreach (var item in alerts.OrderBy(alert => alert.ArrivalTime))
+				foreach (var item in alerts.OrderBy(alert => alert.ArrivalTimeSeconds))
 				{
-					{
+                    // Set the Arrival Time based on local clock
+				    item.ArrivalTime = DateTime.UtcNow.AddSeconds(item.ArrivalTimeSeconds);
 						item.Line = _localDataService.GetLine(item.LineId);
 						item.Station = _localDataService.GetStation(item.StationId);
 					    item.DestinationStation = _localDataService.GetStation(item.DestinationStationId);
 						result.Add(item);
-					}
+					
 				}
 			}
 
