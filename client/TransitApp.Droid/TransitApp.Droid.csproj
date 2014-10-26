@@ -48,14 +48,12 @@
     </JavaMaximumHeapSize>
     <JavaOptions>
     </JavaOptions>
-    <AndroidLinkSkip />
+    <AndroidLinkSkip>
+    </AndroidLinkSkip>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <BundleAssemblies>False</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
-    <MandroidI18n />
-    <MonoDroidExtraArgs />
+    <MonoDroidExtraArgs>
+    </MonoDroidExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Mock|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -248,6 +246,11 @@
     <AndroidResource Include="Resources\Layout\item_lineIcon2.axml" />
     <AndroidResource Include="Resources\Drawable\Train_GS.png" />
     <AndroidResource Include="Resources\Drawable\shape_rounded_blue_rect.xml" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -325,4 +328,8 @@
   </Target>
   <ItemGroup />
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\drawable-xxhdpi\" />
+    <Folder Include="Resources\drawable-xxxhdpi\" />
+  </ItemGroup>
 </Project>
