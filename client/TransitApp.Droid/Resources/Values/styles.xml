@@ -6,4 +6,26 @@
   <style name="Theme.Splash" parent="@android:style/Theme.Holo.Light.DarkActionBar">
     <item name="android:windowNoTitle">true</item>
   </style>
+
+  <style name="Time"  >
+        <item name="android:textSize">30sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+ 	<style name="Station"  >
+        <item name="android:textSize">24sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Label"  >
+        <item name="android:textSize">8sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Destination"  >
+        <item name="android:textSize">12sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+
 </resources>

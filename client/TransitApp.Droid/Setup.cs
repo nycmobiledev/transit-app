@@ -9,7 +9,6 @@ using Cirrious.MvvmCross.Droid.Views;
 using Cirrious.MvvmCross.Binding.Bindings.Target.Construction;
 using TransitApp.Core;
 using TransitApp.Core.Interfaces;
-using Xamarin;
 
 namespace TransitApp.Droid
 {
@@ -44,7 +43,7 @@ namespace TransitApp.Droid
 //			NetworkConnectionHelperDroid networkHelperDroid = new NetworkConnectionHelperDroid ();
 //			Mvx.RegisterSingleton<IConnectivity>(networkHelperDroid);
 
-			Insights.Initialize("43ebfb1c25cbb2d71e0d40af354f6a790d5f111e", this.ApplicationContext);
+//			Insights.Initialize("43ebfb1c25cbb2d71e0d40af354f6a790d5f111e", this.ApplicationContext);
 
             return new Core.App();
         }

@@ -35,7 +35,7 @@ namespace TransitApp.Core.Models
 		        }
 		        if (null != DestinationStation)
 		        {
-		            return ((Direction == "N") ? "Uptown to " : "Downtown to ") + DestinationStation.Name ;
+		            return DestinationStation.Name ;
 		        }
 		        if ( Direction == "N") {
                     return String.Format("Uptown");

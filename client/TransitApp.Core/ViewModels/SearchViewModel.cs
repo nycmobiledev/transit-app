@@ -20,10 +20,8 @@ namespace TransitApp.Core.ViewModels
         public SearchViewModel(ILocalDataService localDbService)
         {
             _localDbService = localDbService;
-<<<<<<< HEAD
-=======
+
             this.SearchResults = _localDbService.GetStations("");
->>>>>>> f2e6c0906aeb2f377cdad0f856735ae3b2316b5c
         }
 
         protected override void InitFromBundle(IMvxBundle parameters)
@@ -41,10 +39,7 @@ namespace TransitApp.Core.ViewModels
             {
                 // or change to Image
                 Cirrious.CrossCore.Mvx.Resolve<IMessageDialog>().SendMessage("At first time use this app,\r\nyou can add some trains that you want to follow.", "Welcome!");                            
-<<<<<<< HEAD
-				Search ("");
-=======
->>>>>>> f2e6c0906aeb2f377cdad0f856735ae3b2316b5c
+
             }
         }
         
