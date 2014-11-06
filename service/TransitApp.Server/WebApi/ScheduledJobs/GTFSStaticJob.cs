@@ -124,8 +124,15 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
 
                 using (var cmd = new SqlCommand("sp_CreateStaticSchedule", conn))
                 {
+                    cmd.CommandTimeout = 120;
                     cmd.CommandType = CommandType.StoredProcedure;
                     //                    conn.Open();
+
+                    TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+                    DateTime easternTimeNow = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.Utc,
+                                                                    easternZone);
+                    cmd.Parameters.AddWithValue("@today", easternTimeNow);
+
                     cmd.ExecuteNonQuery();
                 }
             }
