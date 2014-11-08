@@ -21,11 +21,13 @@ namespace TransitApp.Core.ViewModels
             _followService = followService;
         }
 
-        public void Init(string stationId)
+        protected override void InitFromBundle(IMvxBundle parameters)
         {
-            // because when it transfer, it serializes and deserializes,
-            // it loses some property, I need to reget data.            
-			if (stationId.ToString().Length > 0) _followStation = _followService.GetFollowStation(stationId);
+            string value;
+            if (parameters.Data != null && parameters.Data.TryGetValue("StationId", out value))
+            {
+                _followStation = _followService.GetFollowStation(value);
+            }
         }
 
         public Station Station

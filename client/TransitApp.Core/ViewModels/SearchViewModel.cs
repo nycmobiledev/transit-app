@@ -7,6 +7,7 @@ using TransitApp.Core.Models;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
 using System.Collections.ObjectModel;
+using Cirrious.CrossCore;
 
 namespace TransitApp.Core.ViewModels
 {
@@ -28,7 +29,7 @@ namespace TransitApp.Core.ViewModels
             string value;
             if (parameters.Data != null && parameters.Data.TryGetValue("IsFirst", out value))
             {
-                IsStartViewModel = value == "true";                
+                IsStartViewModel = value == "true";
             }
         }
 
@@ -37,10 +38,10 @@ namespace TransitApp.Core.ViewModels
             if (IsStartViewModel)
             {
                 // or change to Image
-                Cirrious.CrossCore.Mvx.Resolve<IMessageDialog>().SendMessage("At first time use this app,\r\nyou can add some trains that you want to follow.", "Welcome!");                            
+                Cirrious.CrossCore.Mvx.Resolve<IMessageDialog>().SendMessage("At first time use this app,\r\nyou can add some trains that you want to follow.", "Welcome!");
             }
         }
-        
+
         public bool IsStartViewModel { get; set; }
 
         public string SearchText
@@ -66,7 +67,7 @@ namespace TransitApp.Core.ViewModels
         public ICollection<Station> SearchResults
         {
             get { return this.searchResults; }
-			set { if ( value.ToString().Length > 0 ) { this.searchResults = value; }; this.RaisePropertyChanged(() => this.SearchResults); }
+            set { if (value.ToString().Length > 0) { this.searchResults = value; }; this.RaisePropertyChanged(() => this.SearchResults); }
         }
 
         public ICommand SelectCommand
@@ -74,7 +75,7 @@ namespace TransitApp.Core.ViewModels
             get
             {
                 return new MvxCommand<Station>((x) =>
-                    ShowViewModel<FollowEditViewModel>(new { stationId = x.Id })
+                    Mvx.Resolve<IViewModelDialog>().Show<FollowEditViewModel>(new Dictionary<string, string> { { "StationId", x.Id } })
                 );
             }
         }

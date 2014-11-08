@@ -39,7 +39,8 @@ namespace TransitApp.Droid
         /// <returns>An instance of IMvxApplication.</returns>
         protected override IMvxApplication CreateApp()
         {
-//            Mvx.RegisterSingleton<IMessageDialog>(() => new MessageDialog());
+            Mvx.RegisterSingleton<IMessageDialog>(() => new MessageDialog());
+            Mvx.RegisterSingleton<IViewModelDialog>(() => new ViewModelDialog());
 //
 //			NetworkConnectionHelperDroid networkHelperDroid = new NetworkConnectionHelperDroid ();
 //			Mvx.RegisterSingleton<IConnectivity>(networkHelperDroid);
@@ -55,6 +56,7 @@ namespace TransitApp.Droid
 			Mvx.RegisterSingleton<ICustomPresenter>(customPresenter);
 			return customPresenter;
 		}
+
         protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
         {
             registry.RegisterCustomBindingFactory<ImageView>("Alpha", v => new ImageViewAlphaTargetBinding(v));

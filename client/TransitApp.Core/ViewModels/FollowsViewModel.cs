@@ -1,4 +1,5 @@
-﻿using Cirrious.MvvmCross.Plugins.Messenger;
+﻿using Cirrious.CrossCore;
+using Cirrious.MvvmCross.Plugins.Messenger;
 using Cirrious.MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace TransitApp.Core.ViewModels
             get
             {
                 _goToEditCommandg = _goToEditCommandg ?? new MvxCommand<FollowStation>((x) =>
-                    ShowViewModel<FollowEditViewModel>(new { stationId = x.Station.Id })
+                     Mvx.Resolve<IViewModelDialog>().Show<FollowEditViewModel>(new Dictionary<string, string> { { "StationId", x.Station.Id } })
                 );
 
                 return _goToEditCommandg;
