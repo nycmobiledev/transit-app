@@ -43,9 +43,13 @@ namespace TransitApp.Droid
             Mvx.RegisterSingleton<IViewModelDialog>(() => new ViewModelDialog());
 //
 //			NetworkConnectionHelperDroid networkHelperDroid = new NetworkConnectionHelperDroid ();
-//			Mvx.RegisterSingleton<IConnectivity>(networkHelperDroid);
+            //			Mvx.RegisterSingleton<IConnectivity>(networkHelperDroid);
 
-			Insights.Initialize("43ebfb1c25cbb2d71e0d40af354f6a790d5f111e", this.ApplicationContext);
+#if RELEASE
+            // it makes the app crash, when debugging.
+            Insights.Initialize("43ebfb1c25cbb2d71e0d40af354f6a790d5f111e", this.ApplicationContext);
+#endif
+
 
             return new Core.App();
         }

@@ -1,3 +1,4 @@
+using Cirrious.CrossCore;
 using Cirrious.MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,9 @@ namespace TransitApp.Core.ViewModels
         private FollowStation _followStation;
         private MvxCommand _saveCommand;
 
-
-        public FollowEditViewModel(IFollowService followService)
+        public FollowEditViewModel()
         {
-            _followService = followService;
+            _followService = Mvx.Resolve<IFollowService>();
         }
 
         protected override void InitFromBundle(IMvxBundle parameters)
@@ -51,6 +51,16 @@ namespace TransitApp.Core.ViewModels
             get
             {
                 return _saveCommand ?? (_saveCommand = new MvxCommand(this.ExecuteSaveCommand));
+            }
+        }
+
+        public ICommand SwitchCommand
+        {
+            get
+            {
+                return new MvxCommand<FollowLine>((x) => {
+                    x.IsFollowed = !x.IsFollowed;
+                });
             }
         }
 

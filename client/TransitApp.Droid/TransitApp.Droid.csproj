@@ -38,7 +38,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
@@ -170,6 +170,7 @@
   <ItemGroup>
     <Compile Include="Controls\MvxSwipeRefreshLayout.cs" />
     <Compile Include="Helpers\ImageViewAlphaTargetBinding.cs" />
+    <Compile Include="Helpers\ViewModelDialog.cs" />
     <Compile Include="Helpers\MessageDialog.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
