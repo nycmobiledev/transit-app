@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -31,8 +32,13 @@ namespace TransitApp.Server.WebApi.ScheduledJobs
                
                 using (var cmd = new SqlCommand("sp_CreateStaticSchedule", conn))
                 {
+                    cmd.CommandTimeout = 120;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.ExecuteNonQuery();
+
+                    TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+                    DateTime easternTimeNow = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.Utc,
+                                                                    easternZone);
+                    cmd.Parameters.AddWithValue("@today", easternTimeNow);
                 }
             }
         }

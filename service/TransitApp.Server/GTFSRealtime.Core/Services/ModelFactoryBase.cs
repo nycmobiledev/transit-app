@@ -8,7 +8,13 @@ namespace TransitApp.Server.GTFSRealtime.Core.Services
         {
             // Unix timestamp is seconds past epoch
             var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            return dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            var utcTime = dtDateTime.AddSeconds(unixTimeStamp);
+
+            TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+            DateTime easternTimeNow = TimeZoneInfo.ConvertTime(utcTime, TimeZoneInfo.Utc,
+                                                            easternZone);
+   
+            return easternTimeNow;
         }
     }
 }

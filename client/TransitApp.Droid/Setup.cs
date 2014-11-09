@@ -9,7 +9,6 @@ using Cirrious.MvvmCross.Droid.Views;
 using Cirrious.MvvmCross.Binding.Bindings.Target.Construction;
 using TransitApp.Core;
 using TransitApp.Core.Interfaces;
-using Xamarin;
 
 namespace TransitApp.Droid
 {

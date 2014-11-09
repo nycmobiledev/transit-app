@@ -23,7 +23,7 @@
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="28dp"
+            android:textAppearance="@style/Time"
             android:text="10"
             local:MvxBind="Text ArriveTime(ArrivalTime)"
             android:gravity="center"
@@ -33,33 +33,57 @@
             android:layout_height="wrap_content"
             android:text="Min"
             android:layout_below="@+id/time"
-            android:textSize="10dp"
+            android:textAppearance="@style/Label"
             android:gravity="center"
             android:layout_gravity="center_horizontal" />
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/image"
         android:layout_toLeftOf="@id/time_layout"
-        android:id="@+id/linearLayout2"
+        android:id="@+id/layout_trains"
         android:layout_centerVertical="true">
-        <TextView
+        <ImageView
+            android:id="@+id/Direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            local:MvxBind="DrawableId Direction, Converter=DirectionToImageResId"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
+        <LinearLayout
+            android:id="@+id/layout_subway_text"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="StationName"
-            local:MvxBind="Text Station.Name"
-            android:singleLine="true"
-            android:id="@+id/StationName" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Destination"
-            android:textSize="14dp"
-            local:MvxBind="Text Destination"
-            android:id="@+id/Destination"
-            android:maxLines="2" />
-    </LinearLayout>
+            android:layout_toLeftOf="@id/Direction">
+            <TextView
+                android:id="@+id/StationName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Station"
+                android:text="StationName"
+                local:MvxBind="Text Station.Name"
+                android:singleLine="true" />
+            <TextView
+                android:id="@+id/DestinationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:textAppearance="@style/Label"
+                android:text="DESTINATION"
+                android:maxLines="1" />
+            <TextView
+                android:id="@+id/Destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="Destination Name"
+                android:textAppearance="@style/Destination"
+                local:MvxBind="Text Destination"
+                android:maxLines="1" />
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

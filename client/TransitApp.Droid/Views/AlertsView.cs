@@ -60,9 +60,9 @@ namespace TransitApp.Droid.Views.Fragments
 		public override bool OnOptionsItemSelected (IMenuItem item)
 		{
 			switch (item.ItemId) {
-			case Resource.Id.menu_refresh:
-				((AlertsViewModel)this.ViewModel).RefreshCommand.Execute (null);
-				return true;
+//			case Resource.Id.menu_refresh:
+//				((AlertsViewModel)this.ViewModel).RefreshCommand.Execute (null);
+//				return true;
 			case Resource.Id.menu_edit:
 				((AlertsViewModel)this.ViewModel).GoToEditCommand.Execute (null);
 				return true;

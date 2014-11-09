@@ -162,8 +162,21 @@ namespace TransitApp.Server.WebApi.Controllers
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
+
+
+                    TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+                    DateTime easternTimeNow = TimeZoneInfo.ConvertTime(DateTime.UtcNow, TimeZoneInfo.Utc,
+                                                                    easternZone);
+
+
                     SqlParameter tvpParam = cmd.Parameters.AddWithValue("@query", query); //Needed TVP
                     tvpParam.SqlDbType = SqlDbType.Structured; //tells ADO.NET we are passing TVP
+
+
+                    cmd.Parameters.AddWithValue("@startTime", easternTimeNow);
+                    cmd.Parameters.AddWithValue("@endtime", easternTimeNow.AddMinutes(30));
+
+
                     
 
                     using (var reader = cmd.ExecuteReader())

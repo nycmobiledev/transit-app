@@ -10,7 +10,7 @@ using TransitApp.Core.ViewModels;
 namespace TransitApp.Droid.Views
 {
     [Activity(Label = "Search", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
-    [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.FollowsView")]
+    [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.FollowsView")]    
     public class SearchView : MvxFragmentActivity
     {
         protected override void OnCreate(Android.OS.Bundle bundle)

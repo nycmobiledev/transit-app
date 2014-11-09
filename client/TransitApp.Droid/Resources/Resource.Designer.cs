@@ -164,8 +164,6 @@ namespace TransitApp.Droid
 			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiTitlePageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiTitlePageIndicatorStyle;
 			global::DK.Ostebaronen.Droid.ViewPagerIndicator.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = global::TransitApp.Droid.Resource.Styleable.ViewPagerIndicator_vpiUnderlinePageIndicatorStyle;
 			global::ModernHttpClient.Resource.String.library_name = global::TransitApp.Droid.Resource.String.library_name;
-			global::Xamarin.InsightsCore.Resource.String.ApplicationName = global::TransitApp.Droid.Resource.String.ApplicationName;
-			global::Xamarin.InsightsCore.Resource.String.Hello = global::TransitApp.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -485,115 +483,118 @@ namespace TransitApp.Droid
 			public const int ic_drawer_light = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int ic_menu_edit = 2130837511;
+			public const int ic_launcher = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int ic_menu_refresh = 2130837512;
+			public const int ic_menu_edit = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int Icon = 2130837513;
+			public const int ic_menu_refresh = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int shape_rounded_blue_rect = 2130837514;
+			public const int Icon = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int Train_1 = 2130837515;
+			public const int shape_rounded_blue_rect = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int Train_2 = 2130837516;
+			public const int Train_1 = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int Train_3 = 2130837517;
+			public const int Train_2 = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int Train_4 = 2130837518;
+			public const int Train_3 = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int Train_5 = 2130837519;
+			public const int Train_4 = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int Train_5X = 2130837520;
+			public const int Train_5 = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int Train_6 = 2130837521;
+			public const int Train_5X = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int Train_6X = 2130837522;
+			public const int Train_6 = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int Train_7 = 2130837523;
+			public const int Train_6X = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int Train_7x = 2130837524;
+			public const int Train_7 = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int Train_A = 2130837525;
+			public const int Train_7x = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int Train_B = 2130837526;
+			public const int Train_A = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int Train_C = 2130837527;
+			public const int Train_B = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int Train_D = 2130837528;
+			public const int Train_C = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int Train_E = 2130837529;
+			public const int Train_D = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int Train_F = 2130837530;
+			public const int Train_E = 2130837530;
 			
 			// aapt resource value: 0x7f02001b
-			public const int Train_G = 2130837531;
+			public const int Train_F = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int Train_GS = 2130837532;
+			public const int Train_G = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int Train_J = 2130837533;
+			public const int Train_GS = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int Train_L = 2130837534;
+			public const int Train_J = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int Train_M = 2130837535;
+			public const int Train_L = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int Train_N = 2130837536;
+			public const int Train_M = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int Train_Q = 2130837537;
+			public const int Train_N = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int Train_R = 2130837538;
+			public const int Train_Q = 2130837538;
 			
 			// aapt resource value: 0x7f020023
-			public const int Train_S = 2130837539;
+			public const int Train_R = 2130837539;
 			
 			// aapt resource value: 0x7f020024
-			public const int Train_Z = 2130837540;
+			public const int Train_S = 2130837540;
 			
 			// aapt resource value: 0x7f020025
-			public const int vpi__tab_indicator = 2130837541;
+			public const int Train_Z = 2130837541;
 			
 			// aapt resource value: 0x7f020026
-			public const int vpi__tab_selected_focused_holo = 2130837542;
+			public const int vpi__tab_indicator = 2130837542;
 			
 			// aapt resource value: 0x7f020027
-			public const int vpi__tab_selected_holo = 2130837543;
+			public const int vpi__tab_selected_focused_holo = 2130837543;
 			
 			// aapt resource value: 0x7f020028
-			public const int vpi__tab_selected_pressed_holo = 2130837544;
+			public const int vpi__tab_selected_holo = 2130837544;
 			
 			// aapt resource value: 0x7f020029
-			public const int vpi__tab_unselected_focused_holo = 2130837545;
+			public const int vpi__tab_selected_pressed_holo = 2130837545;
 			
 			// aapt resource value: 0x7f02002a
-			public const int vpi__tab_unselected_holo = 2130837546;
+			public const int vpi__tab_unselected_focused_holo = 2130837546;
 			
 			// aapt resource value: 0x7f02002b
-			public const int vpi__tab_unselected_pressed_holo = 2130837547;
+			public const int vpi__tab_unselected_holo = 2130837547;
+			
+			// aapt resource value: 0x7f02002c
+			public const int vpi__tab_unselected_pressed_holo = 2130837548;
 			
 			static Drawable()
 			{
@@ -608,11 +609,17 @@ namespace TransitApp.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05000e
-			public const int Area = 2131034126;
+			// aapt resource value: 0x7f050011
+			public const int Area = 2131034129;
 			
-			// aapt resource value: 0x7f05000d
-			public const int Destination = 2131034125;
+			// aapt resource value: 0x7f050010
+			public const int Destination = 2131034128;
+			
+			// aapt resource value: 0x7f05000f
+			public const int DestinationLabel = 2131034127;
+			
+			// aapt resource value: 0x7f05000c
+			public const int Direction = 2131034124;
 			
 			// aapt resource value: 0x7f050005
 			public const int MvxBindingTagUnique = 2131034117;
@@ -620,53 +627,50 @@ namespace TransitApp.Droid
 			// aapt resource value: 0x7f050007
 			public const int NetworkConnAlert = 2131034119;
 			
-			// aapt resource value: 0x7f05000c
-			public const int StationName = 2131034124;
+			// aapt resource value: 0x7f05000e
+			public const int StationName = 2131034126;
 			
 			// aapt resource value: 0x7f050003
 			public const int bottom = 2131034115;
 			
-			// aapt resource value: 0x7f050012
-			public const int content_frame = 2131034130;
+			// aapt resource value: 0x7f050015
+			public const int content_frame = 2131034133;
 			
-			// aapt resource value: 0x7f050011
-			public const int drawer_layout = 2131034129;
+			// aapt resource value: 0x7f050014
+			public const int drawer_layout = 2131034132;
 			
-			// aapt resource value: 0x7f050016
-			public const int empty = 2131034134;
-			
-			// aapt resource value: 0x7f050010
-			public const int icons = 2131034128;
+			// aapt resource value: 0x7f050013
+			public const int icons = 2131034131;
 			
 			// aapt resource value: 0x7f050008
 			public const int image = 2131034120;
 			
-			// aapt resource value: 0x7f05000f
-			public const int item_img = 2131034127;
+			// aapt resource value: 0x7f050012
+			public const int item_img = 2131034130;
 			
-			// aapt resource value: 0x7f050013
-			public const int left_drawer = 2131034131;
+			// aapt resource value: 0x7f05000d
+			public const int layout_subway_text = 2131034125;
 			
 			// aapt resource value: 0x7f05000b
-			public const int linearLayout2 = 2131034123;
+			public const int layout_trains = 2131034123;
 			
-			// aapt resource value: 0x7f050018
-			public const int menu_done = 2131034136;
-			
-			// aapt resource value: 0x7f050015
-			public const int menu_edit = 2131034133;
+			// aapt resource value: 0x7f050016
+			public const int left_drawer = 2131034134;
 			
 			// aapt resource value: 0x7f050019
-			public const int menu_new = 2131034137;
+			public const int menu_done = 2131034137;
 			
-			// aapt resource value: 0x7f050017
-			public const int menu_refresh = 2131034135;
+			// aapt resource value: 0x7f050018
+			public const int menu_edit = 2131034136;
+			
+			// aapt resource value: 0x7f05001a
+			public const int menu_new = 2131034138;
 			
 			// aapt resource value: 0x7f050000
 			public const int none = 2131034112;
 			
-			// aapt resource value: 0x7f050014
-			public const int search_text = 2131034132;
+			// aapt resource value: 0x7f050017
+			public const int search_text = 2131034135;
 			
 			// aapt resource value: 0x7f05000a
 			public const int time = 2131034122;
@@ -810,38 +814,35 @@ namespace TransitApp.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040002
-			public const int ApplicationName = 2130968578;
-			
 			// aapt resource value: 0x7f040001
-			public const int Hello = 2130968577;
+			public const int ApplicationName = 2130968577;
 			
-			// aapt resource value: 0x7f04000a
-			public const int cancel = 2130968586;
-			
-			// aapt resource value: 0x7f040004
-			public const int drawer_close = 2130968580;
+			// aapt resource value: 0x7f040009
+			public const int cancel = 2130968585;
 			
 			// aapt resource value: 0x7f040003
-			public const int drawer_open = 2130968579;
+			public const int drawer_close = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int drawer_open = 2130968578;
 			
 			// aapt resource value: 0x7f040000
 			public const int library_name = 2130968576;
 			
-			// aapt resource value: 0x7f040008
-			public const int menu_done = 2130968584;
-			
-			// aapt resource value: 0x7f040006
-			public const int menu_edit = 2130968582;
-			
 			// aapt resource value: 0x7f040007
-			public const int menu_new = 2130968583;
+			public const int menu_done = 2130968583;
 			
 			// aapt resource value: 0x7f040005
-			public const int menu_refresh = 2130968581;
+			public const int menu_edit = 2130968581;
 			
-			// aapt resource value: 0x7f040009
-			public const int ok = 2130968585;
+			// aapt resource value: 0x7f040006
+			public const int menu_new = 2130968582;
+			
+			// aapt resource value: 0x7f040004
+			public const int menu_refresh = 2130968580;
+			
+			// aapt resource value: 0x7f040008
+			public const int ok = 2130968584;
 			
 			static String()
 			{
@@ -856,6 +857,15 @@ namespace TransitApp.Droid
 		public partial class Style
 		{
 			
+			// aapt resource value: 0x7f0a000a
+			public const int Destination = 2131361802;
+			
+			// aapt resource value: 0x7f0a0009
+			public const int Label = 2131361801;
+			
+			// aapt resource value: 0x7f0a0008
+			public const int Station = 2131361800;
+			
 			// aapt resource value: 0x7f0a0003
 			public const int TextAppearance_TabPageIndicator = 2131361795;
 			
@@ -867,6 +877,9 @@ namespace TransitApp.Droid
 			
 			// aapt resource value: 0x7f0a0006
 			public const int Theme_Splash = 2131361798;
+			
+			// aapt resource value: 0x7f0a0007
+			public const int Time = 2131361799;
 			
 			// aapt resource value: 0x7f0a0001
 			public const int Widget = 2131361793;

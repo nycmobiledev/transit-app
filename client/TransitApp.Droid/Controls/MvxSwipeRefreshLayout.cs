@@ -39,11 +39,11 @@ namespace TransitApp.Droid.Controls
 			};
 		}
 
-        protected override void OnFinishInflate()
-        {
-            base.OnFinishInflate();
-            SetColorScheme(Resource.Color.srl_1, Resource.Color.srl_2, Resource.Color.srl_3, Resource.Color.srl_4);
-        }
+//        protected override void OnFinishInflate()
+//        {
+//            base.OnFinishInflate();
+////			SetColorSchemeResources(Resource.Color.srl_1, Resource.Color.srl_2, Resource.Color.srl_3, Resource.Color.srl_4);
+//        }
 	}
 }
 

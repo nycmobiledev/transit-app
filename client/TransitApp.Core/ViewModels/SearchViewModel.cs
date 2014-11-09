@@ -75,8 +75,8 @@ namespace TransitApp.Core.ViewModels
             get
             {
                 return new MvxCommand<Station>((x) =>
-                    Mvx.Resolve<IViewModelDialog>().Show<FollowEditViewModel>(new Dictionary<string, string> { { "StationId", x.Id } })
-                );
+					Mvx.Resolve<IViewModelDialog>().Show<FollowEditViewModel>(new Dictionary<string, string> { { "StationId", x.Id } })
+				);
             }
         }
 
