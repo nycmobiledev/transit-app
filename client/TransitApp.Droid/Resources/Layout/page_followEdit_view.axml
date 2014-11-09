@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <Mvx.MvxListView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:listSelector="@android:color/transparent"
-        local:MvxBind="ItemsSource Lines"
-        local:MvxItemTemplate="@layout/item_followline" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+    <Mvx.MvxGridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="ItemsSource Lines;ItemClick SwitchCommand"
+        local:MvxItemTemplate="@layout/item_lineicon_foredit"
+        android:numColumns="4"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:id="@+id/icons" />
+    <TextView
+        android:layout_below="@+id/icons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="*Tap train to change following" />
 </RelativeLayout>

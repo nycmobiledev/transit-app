@@ -20,7 +20,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,14 +48,12 @@
     </JavaMaximumHeapSize>
     <JavaOptions>
     </JavaOptions>
-    <AndroidLinkSkip />
+    <AndroidLinkSkip>
+    </AndroidLinkSkip>
     <AndroidLinkMode>Full</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <BundleAssemblies>False</BundleAssemblies>
-    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
-    <MandroidI18n />
-    <MonoDroidExtraArgs />
+    <MonoDroidExtraArgs>
+    </MonoDroidExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Mock|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -250,6 +248,7 @@
     <AndroidResource Include="Resources\Layout\item_lineIcon2.axml" />
     <AndroidResource Include="Resources\Drawable\Train_GS.png" />
     <AndroidResource Include="Resources\Drawable\shape_rounded_blue_rect.xml" />
+    <AndroidResource Include="Resources\Layout\item_lineIcon_forEdit.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

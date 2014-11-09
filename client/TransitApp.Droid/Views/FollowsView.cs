@@ -41,26 +41,7 @@ namespace TransitApp.Droid.Views
                     ((FollowsViewModel)this.ViewModel).GoToAddCommand.Execute(null);
                     return true;                    
                 case Android.Resource.Id.Home:
-                    //Wrong:
-                    //var intent = new Intent(this, typeof(HomeView));
-                    //intent.AddFlags(ActivityFlags.ClearTop);
-                    //StartActivity(intent);
-                    NavUtils.NavigateUpFromSameTask(this);
-
-                    //if this could be launched externally:
-                    /*
-                     var upIntent = NavUtils.GetParentActivityIntent(this);
-                    if (NavUtils.ShouldUpRecreateTask(this, upIntent))
-                    {
-                        Android.Support.V4.App.TaskStackBuilder.Create(this).
-                            AddNextIntentWithParentStack(upIntent).
-                            StartActivities();
-                    }
-                    else
-                    {
-                        NavUtils.NavigateUpTo(this, upIntent);  
-                    }
-                     */
+                    NavUtils.NavigateUpFromSameTask(this);                    
                     break;
             }
 

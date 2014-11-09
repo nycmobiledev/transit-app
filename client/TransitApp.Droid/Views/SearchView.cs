@@ -2,6 +2,7 @@
 using Android.Support.V4.App;
 using Android.Views;
 using Cirrious.MvvmCross.Binding.Droid.BindingContext;
+using Cirrious.MvvmCross.Droid.Fragging;
 using Cirrious.MvvmCross.Droid.Fragging.Fragments;
 using Cirrious.MvvmCross.Droid.Views;
 using TransitApp.Core.ViewModels;
@@ -10,7 +11,7 @@ namespace TransitApp.Droid.Views
 {
     [Activity(Label = "Search", Icon = "@android:color/transparent", ParentActivity = typeof(FollowsView))]
     [MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.FollowsView")]
-    public class SearchView : MvxActivity
+    public class SearchView : MvxFragmentActivity
     {
         protected override void OnCreate(Android.OS.Bundle bundle)
         {
