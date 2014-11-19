@@ -23,8 +23,8 @@
                    VerticalAlignment="Top"
                    mvx:Bi.nd="ConnectionAlertText"
                    Visibility="{Binding IsNotConnected,Converter={StaticResource ResourceKey=VisiConv }}"/>
-        <Controls:LongListSelector   
-        ItemsSource="{Binding Alerts}">
+        <Controls:LongListSelector    
+        ItemsSource="{Binding Alerts}" Grid.Row="1">
             <Controls:LongListSelector.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="{StaticResource PhoneVerticalMargin}">

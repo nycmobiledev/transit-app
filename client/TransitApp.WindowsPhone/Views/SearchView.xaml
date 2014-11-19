@@ -22,6 +22,7 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -32,42 +33,40 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <toolkit:PhoneTextBox Hint="Station Name" TextChanged="PhoneTextBox_TextChanged"/>
-            <phone:LongListSelector Grid.Row="1" Margin="12,0,12,0" ItemsSource="{Binding SearchResults}">
-                <phone:LongListSelector.ItemTemplate>
-                    <DataTemplate>
-                        <Grid toolkit:TiltEffect.IsTiltEnabled="True" Margin="{StaticResource PhoneVerticalMargin}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="132"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0">
-                                <TextBlock Text="StationName" mvx:Bi.nd="Text Name"  />
-                                <TextBlock Text="Area" mvx:Bi.nd="Text Area"/>
-                            </StackPanel>
-                            <ListBox ItemsSource="{Binding Lines}" Grid.Column="1">
-                                <ListBox.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <toolkit:WrapPanel></toolkit:WrapPanel>
-                                    </ItemsPanelTemplate>
-                                </ListBox.ItemsPanel>
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <Image mvx:Bi.nd="Source TrainIdToImagePath(Id);" Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Tap">
-                                    <commands:MvxEventToCommand Command="{Binding DataContext.SelectCommand, ElementName=LayoutRoot}" CommandParameter="{Binding}" />
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </Grid>
-                    </DataTemplate>
-                </phone:LongListSelector.ItemTemplate>
-            </phone:LongListSelector>
-        </StackPanel>
-    </Grid>
 
+        <toolkit:PhoneTextBox  Grid.Row="1" Hint="Station Name" TextChanged="PhoneTextBox_TextChanged"/>
+        <phone:LongListSelector Grid.Row="2" Margin="12,0,12,0" ItemsSource="{Binding SearchResults}">
+            <phone:LongListSelector.ItemTemplate>
+                <DataTemplate>
+                    <Grid toolkit:TiltEffect.IsTiltEnabled="True" Margin="{StaticResource PhoneVerticalMargin}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="132"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="StationName" mvx:Bi.nd="Text Name"  />
+                            <TextBlock Text="Area" mvx:Bi.nd="Text Area"/>
+                        </StackPanel>
+                        <ListBox ItemsSource="{Binding Lines}" Grid.Column="1">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <toolkit:WrapPanel></toolkit:WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Image mvx:Bi.nd="Source TrainIdToImagePath(Id);" Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Tap">
+                                <commands:MvxEventToCommand Command="{Binding DataContext.SelectCommand, ElementName=LayoutRoot}" CommandParameter="{Binding}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Grid>
+                </DataTemplate>
+            </phone:LongListSelector.ItemTemplate>
+        </phone:LongListSelector>
+    </Grid>
 </views:MvxPhonePage>

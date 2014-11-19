@@ -147,6 +147,7 @@
     <Compile Include="Converters\TrainIdToImagePathConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
     <Compile Include="Helpers\NetworkConnectivityHelper.cs" />
+    <Compile Include="Helpers\ViewModelDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceLoaderHelper.cs" />
     <Compile Include="Setup.cs" />
