@@ -12,6 +12,8 @@ using Cirrious.CrossCore;
 using TransitApp.Core.Interfaces;
 using Cirrious.MvvmCross.Plugins.File;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace TransitApp.Core.ViewModels
 {
@@ -19,15 +21,16 @@ namespace TransitApp.Core.ViewModels
     {
         private readonly IMvxMessenger _messenger;
         private readonly IAlertService _service;
-        private ICollection<Alert> _alerts;
+		private ObservableCollection<Alert> _alerts;
         private CoolTimer _coolTimer;
-        private bool _isBusy;
+		private bool _isBusy = false;
         private MvxCommand _refreshCommand;
         private string _connectionAlertText;
         private readonly ILocalDataService _localDbService;
         private IMvxFileStore _fileService;
-        private const string _customerAlertFilePath = "CustomerAlerts.json";
-        private const string _customerAlertAddnlData = "CustomerAlertsData.json";
+//        private const string _customerAlertFilePath = "CustomerAlerts.json";
+//        private const string _customerAlertAddnlData = "CustomerAlertsData.json";
+
 
         private bool _isConnected;
 
@@ -43,6 +46,7 @@ namespace TransitApp.Core.ViewModels
                 IsNotConnected = !value;
             }
         }
+
         private bool _isNotConnected;
         public bool IsNotConnected
         {
@@ -53,6 +57,7 @@ namespace TransitApp.Core.ViewModels
                 this.RaisePropertyChanged(() => this.IsNotConnected);
             }
         }
+
         public DateTime UpdateTime { get; private set; }
         public string ConnectionAlertText
         {
@@ -71,18 +76,24 @@ namespace TransitApp.Core.ViewModels
             _fileService = Mvx.Resolve<IMvxFileStore>();
             _localDbService = Mvx.Resolve<ILocalDataService>();
             //			NetworkConnectionHelper = Mvx.Resolve<IConnectivity> ();
-            _messenger.Subscribe<FollowsChanged>(x =>
-            {
-                Task.Run(new Func<Task>(ExecuteRefreshCommand));
-            }, MvxReference.Strong);
-            _coolTimer = new CoolTimer(DataCallBack, null, 10000, -1);
+            _messenger.Subscribe<FollowsChanged>( async x => await ExecuteRefreshCommand(), MvxReference.Strong);
 
-            Task.Run(new Func<Task>(ExecuteRefreshCommand));
         }
 
+		public override async void Start()
+    	{
+    		base.Start();
+			await ExecuteRefreshCommand();
+			_coolTimer = new CoolTimer(DataCallBack, null, 10000, -1);
+    	}
+
+		public void Stop()
+		{
+			_coolTimer.Cancel();
+		}
 
 
-        public ICollection<Alert> Alerts
+		public ObservableCollection<Alert> Alerts
         {
             get
             {
@@ -127,8 +138,8 @@ namespace TransitApp.Core.ViewModels
 
         private async Task ExecuteRefreshCommand()
         {
-            if (IsBusy)
-                return;
+//            if (IsBusy)
+//                return;
 
             IsBusy = true;
 
@@ -136,10 +147,40 @@ namespace TransitApp.Core.ViewModels
             {
                 //				IsConnected = NetworkConnectionHelper.IsConnected ();
                 //				if (IsConnected) {
-                Alerts = await _service.GetAlerts();
-                UpdateTime = System.DateTime.Now;
-                //					WriteAlertDetailsToFile ();
-                ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString(); ;
+//                Alerts = await ;
+
+				int timeout = 3000;
+				var task = _service.GetAlerts();
+				if (await Task.WhenAny(task, Task.Delay(timeout)) == task)
+				{
+					// Task completed within timeout.
+					// Consider that the task may have faulted or been canceled.
+					// We re-await the task so that any exceptions/cancellation is rethrown.
+
+					if ( !task.IsFaulted )
+					{
+						Alerts =  new ObservableCollection<Alert>( await task);
+						UpdateTime = System.DateTime.Now;
+						ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString(); 
+						IsConnected = true;
+					}
+					else
+					{
+						Debug.WriteLine("Task Exception: " + task.Exception);
+						IsConnected = false;
+						UpdateAlerts();
+					}
+
+				}
+				else
+				{
+					// timeout/cancellation logic
+					// Remove any completed Alerts
+					IsConnected = false;
+					UpdateAlerts();
+				}
+
+                
                 //				} else {
                 //					ReadAlertDetailsFromFile ();
                 //					ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString () + ". Not connected to network...";
@@ -150,46 +191,60 @@ namespace TransitApp.Core.ViewModels
             IsBusy = false;
         }
 
-        private void WriteAlertDetailsToFile()
-        {
-            var json = JsonConvert.SerializeObject(_alerts);
-            _fileService.WriteFile(_customerAlertFilePath, json);
-            _fileService.WriteFile(_customerAlertAddnlData, UpdateTime.ToString());
-        }
+		void UpdateAlerts()
+		{
+			if ( null != Alerts )
+			{
+				var expired = Alerts.Where( ( Alert arg ) => arg.ArrivalTime < DateTime.UtcNow);
 
-        private void ReadAlertDetailsFromFile()
-        {
-            try
-            {
-                string json;
-                if (_fileService.TryReadTextFile(_customerAlertFilePath, out json))
-                {
-                    if (json.Length > 0)
-                    {
-                        _alerts = JsonConvert.DeserializeObject<HashSet<Alert>>(json);
-                    }
-                    else
-                    {
-                        _alerts = new HashSet<Alert>();
-                    }
+				foreach(Alert alert in expired)
+				{
+					Alerts.Remove(alert);
+				}
 
-                }
-                else
-                {
-                    _alerts = new HashSet<Alert>();
-                }
+			}
+		}
 
-                string time;
-                if (_fileService.TryReadTextFile(_customerAlertAddnlData, out time))
-                {
-                    UpdateTime = DateTime.Parse(time);
-                }
-            }
-            catch (Exception ex)
-            {
-                string str = ex.Message;
-            }
-        }
+//        private void WriteAlertDetailsToFile()
+//        {
+//            var json = JsonConvert.SerializeObject(_alerts);
+//            _fileService.WriteFile(_customerAlertFilePath, json);
+//            _fileService.WriteFile(_customerAlertAddnlData, UpdateTime.ToString());
+//        }
+//
+//        private void ReadAlertDetailsFromFile()
+//        {
+//            try
+//            {
+//                string json;
+//                if (_fileService.TryReadTextFile(_customerAlertFilePath, out json))
+//                {
+//                    if (json.Length > 0)
+//                    {
+//                        _alerts = JsonConvert.DeserializeObject<HashSet<Alert>>(json);
+//                    }
+//                    else
+//                    {
+//                        _alerts = new HashSet<Alert>();
+//                    }
+//
+//                }
+//                else
+//                {
+//                    _alerts = new HashSet<Alert>();
+//                }
+//
+//                string time;
+//                if (_fileService.TryReadTextFile(_customerAlertAddnlData, out time))
+//                {
+//                    UpdateTime = DateTime.Parse(time);
+//                }
+//            }
+//            catch (Exception ex)
+//            {
+//                string str = ex.Message;
+//            }
+//        }
 
         public void DataCallBack(object state)
         {

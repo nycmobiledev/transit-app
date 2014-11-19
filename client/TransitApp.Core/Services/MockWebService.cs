@@ -24,7 +24,7 @@ namespace TransitApp.Core.Services
 			return list;
         }
 
-		public  async Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows)
+		public  async Task<List<Alert>> GetAlerts(IEnumerable<Follow> follows)
         {
             var list = new List<Alert>();
 

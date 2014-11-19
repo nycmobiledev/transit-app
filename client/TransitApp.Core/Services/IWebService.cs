@@ -9,6 +9,6 @@ namespace TransitApp.Core.Services
 {
     public interface IWebService
     {
-       Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows);
+		Task<List<Alert>> GetAlerts(IEnumerable<Follow> follows);
     }
 }

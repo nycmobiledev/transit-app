@@ -38,6 +38,19 @@ namespace TransitApp.Droid.Views.Fragments
 			return this.BindingInflate (Resource.Layout.fragment_alerts, null);
 		}
 
+		public override void OnPause()
+		{
+			base.OnPause();
+			( (AlertsViewModel) this.ViewModel ).Stop();
+
+		}
+
+		public override void OnResume()
+		{
+			base.OnResume();
+			this.ViewModel.Start();
+		}
+
         //public override void OnResume()
         //{
         //    base.OnResume();

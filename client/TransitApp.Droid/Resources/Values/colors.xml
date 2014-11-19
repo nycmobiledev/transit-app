@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <color name="standard_background">#ffd9d9d9</color>
+  <color name="red">#FF0000</color>
   <color name="border">#9E9FA1</color>
   <color name="srl_1">#E21E3C</color>
   <color name="srl_2">#B455B6</color>

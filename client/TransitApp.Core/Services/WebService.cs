@@ -25,7 +25,7 @@ namespace TransitApp.Core.Services
 			_localDataService = localDataService;
 		}
 
-		public async Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows)
+		public async Task<List<Alert>> GetAlerts(IEnumerable<Follow> follows)
 		{
 			var result = new List<Alert>();
 			if (null != follows && follows.Count() != 0)

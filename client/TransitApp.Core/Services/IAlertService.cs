@@ -9,6 +9,6 @@ namespace TransitApp.Core.Services
 {
     public interface IAlertService
     {
-        Task<ICollection<Alert>> GetAlerts();
+        Task<List<Alert>> GetAlerts();
     }
 }

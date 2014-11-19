@@ -13,8 +13,10 @@
         android:text="NetworkAlert"
         local:MvxBind="Text ConnectionAlertText; Visibility IsNotConnected, Converter=Visibility;"
         android:singleLine="false"
-        android:background="@drawable/shape_rounded_blue_rect"
-        android:id="@+id/NetworkConnAlert" />
+        android:background="@color/red"
+        android:id="@+id/NetworkConnAlert"
+        android:padding="8dp"
+        android:textColor="#ffffffff" />
     <TransitApp.Droid.Controls.MvxSwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

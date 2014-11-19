@@ -22,7 +22,7 @@ namespace TransitApp.Core.Services
             _followService = followService;
         }
 
-        public async Task<ICollection<Alert>> GetAlerts()
+		public async Task<List<Alert>> GetAlerts()
         {            
             var follows = _followService.GetFollows();            
          

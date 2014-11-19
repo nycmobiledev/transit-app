@@ -26,7 +26,7 @@ namespace TransitApp.Core.Services
 			_localDataService = localDataService;
 		}
 
-		public async Task<ICollection<Alert>> GetAlerts(IEnumerable<Follow> follows)
+		public async Task<List<Alert>> GetAlerts(IEnumerable<Follow> follows)
 		{
 			await _syncLock.WaitAsync();
 
