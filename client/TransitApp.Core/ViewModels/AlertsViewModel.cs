@@ -21,7 +21,7 @@ namespace TransitApp.Core.ViewModels
     {
         private readonly IMvxMessenger _messenger;
         private readonly IAlertService _service;
-		private ObservableCollection<Alert> _alerts;
+        private ObservableCollection<Alert> _alerts;
         private CoolTimer _coolTimer;
 		private bool _isBusy = false;
         private MvxCommand _refreshCommand;
@@ -134,56 +134,80 @@ namespace TransitApp.Core.ViewModels
 
         private async Task ExecuteRefreshCommand()
         {
-//            if (IsBusy)
-//                return;
+            if (IsBusy)
+                return;
 
-            IsBusy = true;
+            try
+            {
+
+
+                IsBusy = true;
+
+
+                int timeout = 3000;
+                var task = _service.GetAlerts();
+                if (await Task.WhenAny(task, Task.Delay(timeout)) == task)
+                {
+                    // Task completed within timeout.
+                    // Consider that the task may have faulted or been canceled.
+                    // We re-await the task so that any exceptions/cancellation is rethrown.
+
+                    if (!task.IsFaulted)
+                    {
+                        Alerts = new ObservableCollection<Alert>(await task);
+                        UpdateTime = System.DateTime.Now;
+                        
+                        IsConnected = true;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Task Exception: " + task.Exception);
+                        IsConnected = false;
+                        
+                        UpdateStaleAlerts();
+                    }
+
+                }
+                else
+                {
+                    IsConnected = false;
+                    // Remove any completed Alerts
+                    UpdateStaleAlerts();
+                }
+            }
+            finally
+            {
+                IsBusy = false;
+            }
 
            
-			int timeout = 3000;
-			var task = _service.GetAlerts();
-			if ( await Task.WhenAny( task, Task.Delay( timeout ) ) == task )
-			{
-				// Task completed within timeout.
-				// Consider that the task may have faulted or been canceled.
-				// We re-await the task so that any exceptions/cancellation is rethrown.
-
-				if ( !task.IsFaulted )
-				{
-					Alerts = new ObservableCollection<Alert>( await task );
-					UpdateTime = System.DateTime.Now;
-					ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString(); 
-					IsConnected = true;
-				} else
-				{
-					Debug.WriteLine( "Task Exception: " + task.Exception );
-					IsConnected = false;
-					UpdateAlerts();
-				}
-
-			} 
-			else
-			{
-				IsConnected = false;
-				// Remove any completed Alerts
-				UpdateAlerts();
-			}
-
-                
-
-            IsBusy = false;
         }
 
-		void UpdateAlerts()
+		void UpdateStaleAlerts()
 		{
+            ConnectionAlertText =
+                          String.Format("Connection Lost : {0}s ago", (int) DateTime.Now.Subtract(UpdateTime).TotalSeconds);
+                  
 			if ( null != Alerts )
 			{
 				var expired = Alerts.Where( ( Alert arg ) => arg.ArrivalTime < DateTime.UtcNow);
 
-				foreach(Alert alert in expired)
-				{
-					Alerts.Remove(alert);
-				}
+			    foreach (var alert in Alerts)
+			    {
+			        alert.IsRealtime = false;
+			    }
+
+                 InvokeOnMainThread(() =>
+                 {
+                     lock (expired)
+                     {
+                         foreach (var alert in expired)
+                         {
+                             Alerts.Remove(alert);
+                         }
+                     }
+                     
+                 });
 
 			}
 		}

@@ -19,6 +19,7 @@ namespace TransitApp.Core.Models
 
 		public DateTime ArrivalTime { get; set; }
 		public int ArrivalTimeSeconds { get; set; }
+		public bool IsRealtime { get; set; }
 
 		public Line Line { get; set; }
 
@@ -42,7 +43,7 @@ namespace TransitApp.Core.Models
 	    {
 	        get
 	        {
-	            return String.Format("{0} TO",Direction == "N" ? "Uptown" : "Downtown").ToUpper();
+	            return String.Format("{0}",Direction == "N" ? "Up\ntown" : "Down\ntown").ToUpper();
 	        }
 	    }
 	}
