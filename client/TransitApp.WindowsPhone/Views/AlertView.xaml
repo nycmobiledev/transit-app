@@ -17,14 +17,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <TextBox Text="Network status" 
+        <TextBlock Text="Network status" 
                    Margin="9,-7,0,0" 
                    VerticalAlignment="Top"
-                   mvx:Bi.nd="ConnectionAlertText"
-                   Visibility="{Binding IsNotConnected,Converter={StaticResource ResourceKey=VisiConv }}"/>
-        <Controls:LongListSelector   
-        ItemsSource="{Binding Alerts}">
+                   mvx:Bi.nd="Text ConnectionAlertText; Visible IsNotConnected"/>
+        <Controls:LongListSelector    
+        ItemsSource="{Binding Alerts}" Grid.Row="1">
             <Controls:LongListSelector.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="{StaticResource PhoneVerticalMargin}">

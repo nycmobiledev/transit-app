@@ -12,6 +12,7 @@ namespace TransitApp.WindowsPhone
     using Microsoft.Phone.Controls;
     using TransitApp.Core;
     using TransitApp.Core.Interfaces;
+    using TransitApp.WindowsPhone.Helpers;
 
     /// <summary>
     ///    Defines the Setup type.
@@ -33,8 +34,9 @@ namespace TransitApp.WindowsPhone
         /// <returns>An instance of IMvxApplication.</returns>
         protected override IMvxApplication CreateApp()
         {
+            Mvx.RegisterSingleton<IViewModelDialog>(() => new ViewModelDialog());
             Mvx.RegisterSingleton<IMessageDialog>(() => new WP8MessageDialog());
-            Mvx.RegisterSingleton<IConnectivity>(() => new TransitApp.WindowsPhone.Helpers.NetworkConnectivityHelper());
+            Mvx.RegisterSingleton<IConnectivity>(() => new NetworkConnectivityHelper());
             return new Core.App();
         }
 

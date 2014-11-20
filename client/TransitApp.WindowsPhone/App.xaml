@@ -21,8 +21,7 @@
                 <mvx:Import.From>
                     <local:ResourceLoaderHelper></local:ResourceLoaderHelper>
                 </mvx:Import.From>
-            </mvx:Import>
-            <cnv:VisibilityConverter  x:Key="VisiConv"></cnv:VisibilityConverter>
+            </mvx:Import>            
         </ResourceDictionary>
     </Application.Resources>
 

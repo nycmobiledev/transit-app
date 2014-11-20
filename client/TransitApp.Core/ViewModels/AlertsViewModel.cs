@@ -25,7 +25,7 @@ namespace TransitApp.Core.ViewModels
         private CoolTimer _coolTimer;
 		private bool _isBusy = false;
         private MvxCommand _refreshCommand;
-        private string _connectionAlertText;
+        private string _connectionAlertText="No Connection";
         private readonly ILocalDataService _localDbService;
         private IMvxFileStore _fileService;
 

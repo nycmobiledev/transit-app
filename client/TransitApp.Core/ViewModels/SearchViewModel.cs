@@ -82,14 +82,7 @@ namespace TransitApp.Core.ViewModels
 
         public void GoBack()
         {
-            if (IsStartViewModel)
-            {
-                ShowViewModel<HomeViewModel>();
-            }
-            else
-            {
-                Close(this);
-            }
+            ShowViewModel<HomeViewModel>();            
         }
     }
 }
