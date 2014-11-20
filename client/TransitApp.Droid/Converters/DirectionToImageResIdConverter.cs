@@ -12,7 +12,7 @@ namespace TransitApp.Droid
 
 		protected override int Convert(string aDirection, Type targetType, object parameter, CultureInfo culture)
 		{
-			return NORTH == aDirection ? Android.Resource.Drawable.ArrowUpFloat : Android.Resource.Drawable.ArrowDownFloat ;
+			return NORTH == aDirection ? Resource.Drawable.ic_arrow_up : Resource.Drawable.ic_arrow_down ;
 		}
 	}
 }

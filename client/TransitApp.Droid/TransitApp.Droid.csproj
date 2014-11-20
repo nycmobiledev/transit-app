@@ -255,6 +255,12 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_arrow_down.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_arrow_up.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_arrow_down.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_arrow_up.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_arrow_down.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_arrow_up.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

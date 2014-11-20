@@ -28,8 +28,6 @@ namespace TransitApp.Core.ViewModels
         private string _connectionAlertText;
         private readonly ILocalDataService _localDbService;
         private IMvxFileStore _fileService;
-//        private const string _customerAlertFilePath = "CustomerAlerts.json";
-//        private const string _customerAlertAddnlData = "CustomerAlertsData.json";
 
 
         private bool _isConnected;
@@ -134,8 +132,6 @@ namespace TransitApp.Core.ViewModels
             }
         }
 
-        //		private IConnectivity NetworkConnectionHelper ;
-
         private async Task ExecuteRefreshCommand()
         {
 //            if (IsBusy)
@@ -143,50 +139,37 @@ namespace TransitApp.Core.ViewModels
 
             IsBusy = true;
 
-            //			if (NetworkConnectionHelper != null ) 
-            {
-                //				IsConnected = NetworkConnectionHelper.IsConnected ();
-                //				if (IsConnected) {
-//                Alerts = await ;
+           
+			int timeout = 3000;
+			var task = _service.GetAlerts();
+			if ( await Task.WhenAny( task, Task.Delay( timeout ) ) == task )
+			{
+				// Task completed within timeout.
+				// Consider that the task may have faulted or been canceled.
+				// We re-await the task so that any exceptions/cancellation is rethrown.
 
-				int timeout = 3000;
-				var task = _service.GetAlerts();
-				if (await Task.WhenAny(task, Task.Delay(timeout)) == task)
+				if ( !task.IsFaulted )
 				{
-					// Task completed within timeout.
-					// Consider that the task may have faulted or been canceled.
-					// We re-await the task so that any exceptions/cancellation is rethrown.
-
-					if ( !task.IsFaulted )
-					{
-						Alerts =  new ObservableCollection<Alert>( await task);
-						UpdateTime = System.DateTime.Now;
-						ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString(); 
-						IsConnected = true;
-					}
-					else
-					{
-						Debug.WriteLine("Task Exception: " + task.Exception);
-						IsConnected = false;
-						UpdateAlerts();
-					}
-
-				}
-				else
+					Alerts = new ObservableCollection<Alert>( await task );
+					UpdateTime = System.DateTime.Now;
+					ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString(); 
+					IsConnected = true;
+				} else
 				{
-					// timeout/cancellation logic
-					// Remove any completed Alerts
+					Debug.WriteLine( "Task Exception: " + task.Exception );
 					IsConnected = false;
 					UpdateAlerts();
 				}
 
-                
-                //				} else {
-                //					ReadAlertDetailsFromFile ();
-                //					ConnectionAlertText = "Refreshed time : " + UpdateTime.ToString () + ". Not connected to network...";
-                //				}
-            }
+			} 
+			else
+			{
+				IsConnected = false;
+				// Remove any completed Alerts
+				UpdateAlerts();
+			}
 
+                
 
             IsBusy = false;
         }
@@ -204,47 +187,6 @@ namespace TransitApp.Core.ViewModels
 
 			}
 		}
-
-//        private void WriteAlertDetailsToFile()
-//        {
-//            var json = JsonConvert.SerializeObject(_alerts);
-//            _fileService.WriteFile(_customerAlertFilePath, json);
-//            _fileService.WriteFile(_customerAlertAddnlData, UpdateTime.ToString());
-//        }
-//
-//        private void ReadAlertDetailsFromFile()
-//        {
-//            try
-//            {
-//                string json;
-//                if (_fileService.TryReadTextFile(_customerAlertFilePath, out json))
-//                {
-//                    if (json.Length > 0)
-//                    {
-//                        _alerts = JsonConvert.DeserializeObject<HashSet<Alert>>(json);
-//                    }
-//                    else
-//                    {
-//                        _alerts = new HashSet<Alert>();
-//                    }
-//
-//                }
-//                else
-//                {
-//                    _alerts = new HashSet<Alert>();
-//                }
-//
-//                string time;
-//                if (_fileService.TryReadTextFile(_customerAlertAddnlData, out time))
-//                {
-//                    UpdateTime = DateTime.Parse(time);
-//                }
-//            }
-//            catch (Exception ex)
-//            {
-//                string str = ex.Message;
-//            }
-//        }
 
         public void DataCallBack(object state)
         {
