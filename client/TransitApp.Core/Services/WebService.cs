@@ -30,8 +30,7 @@ namespace TransitApp.Core.Services
 			var result = new List<Alert>();
 			if (null != follows && follows.Count() != 0)
 			{
-				var stations = String.Join(",", follows.Select(follow => follow.StationId));
-
+			
 				var client = new HttpClient(new NativeMessageHandler());
 
 				

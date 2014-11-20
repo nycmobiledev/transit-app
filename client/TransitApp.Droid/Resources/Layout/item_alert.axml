@@ -74,6 +74,7 @@
                 android:includeFontPadding="false"
                 android:textAppearance="@style/Label"
                 android:text="DESTINATION"
+                local:MvxBind="Text DirectionLabel"
                 android:maxLines="1" />
             <TextView
                 android:id="@+id/Destination"

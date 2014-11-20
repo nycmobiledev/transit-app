@@ -29,20 +29,21 @@ namespace TransitApp.Core.Models
 		    get
 		    {
 
-		        if (null == Line)
-		        {
-		            return null;
-		        }
+		       
 		        if (null != DestinationStation)
 		        {
 		            return DestinationStation.Name ;
 		        }
-		        if ( Direction == "N") {
-                    return String.Format("Uptown");
-				} else {
-                    return String.Format("Downtown");
-				}
-			}
+		        return "";
+		    }
 		}
+
+	    public string DirectionLabel
+	    {
+	        get
+	        {
+	            return String.Format("{0} TO",Direction == "N" ? "Uptown" : "Downtown").ToUpper();
+	        }
+	    }
 	}
 }
