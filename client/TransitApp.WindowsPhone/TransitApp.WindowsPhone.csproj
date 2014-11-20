@@ -259,13 +259,11 @@
     </Content>
     <Content Include="README_FIRST.txt" />
     <Content Include="Resources\add.png" />
-    <Content Include="Resources\ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\edit.png" />
+    <Content Include="Resources\ApplicationIcon.png" />
     <Content Include="Resources\refresh.png" />
     <Content Include="Resources\save.png" />
     <Content Include="Resources\SplashScreenImage.jpg" />

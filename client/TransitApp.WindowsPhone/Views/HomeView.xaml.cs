@@ -29,6 +29,18 @@ namespace TransitApp.WindowsPhone.Views
             (ViewModel as HomeViewModel).AlertsViewModel.GoToEditCommand.Execute(null);
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            (ViewModel as HomeViewModel).AlertsViewModel.Stop();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            (ViewModel as HomeViewModel).AlertsViewModel.Start();
+        }
+
         private void OnPivotSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var target = sender as Pivot;
