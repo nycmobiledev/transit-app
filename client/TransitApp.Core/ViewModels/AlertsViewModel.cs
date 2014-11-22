@@ -29,6 +29,9 @@ namespace TransitApp.Core.ViewModels
         private readonly ILocalDataService _localDbService;
         private IMvxFileStore _fileService;
 
+		const int REFRESH_DELAY = 15000;
+
+		const int RESPONSE_TIMEOUT = 5000;
 
         private bool _isConnected;
 
@@ -82,7 +85,7 @@ namespace TransitApp.Core.ViewModels
     	{
     		base.Start();
 			await ExecuteRefreshCommand();
-			_coolTimer = new CoolTimer(DataCallBack, null, 10000, -1);
+			_coolTimer = new CoolTimer(DataCallBack, null, REFRESH_DELAY, -1);
     	}
 
 		public void Stop()
@@ -144,7 +147,7 @@ namespace TransitApp.Core.ViewModels
                 IsBusy = true;
 
 
-                int timeout = 3000;
+				int timeout = RESPONSE_TIMEOUT;
                 var task = _service.GetAlerts();
                 if (await Task.WhenAny(task, Task.Delay(timeout)) == task)
                 {
@@ -215,7 +218,7 @@ namespace TransitApp.Core.ViewModels
         public void DataCallBack(object state)
         {
             Task.Run(new Func<Task>(ExecuteRefreshCommand));
-            _coolTimer = new CoolTimer(DataCallBack, null, 10000, -1);
+			_coolTimer = new CoolTimer( DataCallBack, null, REFRESH_DELAY, -1 );
         }
     }
 }

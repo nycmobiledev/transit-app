@@ -1,29 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <style name="Theme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+	<item name="android:actionBarStyle">@style/MyActionBar</item>
   </style>
+
+   <style name="MyActionBar"
+           parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/light_blue</item>
+    </style>
 
   <style name="Theme.Splash" parent="@android:style/Theme.Holo.Light.DarkActionBar">
     <item name="android:windowNoTitle">true</item>
   </style>
 
   <style name="Time"  >
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#333</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
  	<style name="Station"  >
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#333</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="Label"  >
         <item name="android:textSize">8sp</item>
+        <item name="android:textColor">#333</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="Destination"  >
         <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#333</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 

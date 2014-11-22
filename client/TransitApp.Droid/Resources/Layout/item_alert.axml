@@ -3,76 +3,102 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight">
-    <MvxImageView
-        android:id="@+id/image"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:layout_margin="8dp"
-        local:MvxBind="DrawableName Line.Id, Converter=TrainIdToImagePath"
-        android:layout_centerVertical="true" />
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
+        android:id="@+id/layout_line_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/light_gray">
+        <ImageView
+            android:id="@+id/image"
+            android:src="@drawable/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            local:MvxBind="DrawableName Line.Id, Converter=TrainIdToImagePath"
+            android:layout_centerVertical="true" />
+    </FrameLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/time_layout"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="8dp"
-        android:layout_centerVertical="true">
-        <TextView
-            android:id="@+id/txt_live"
-            android:layout_width="wrap_content"
+        android:layout_marginRight="16dp">
+        <ImageView
+            android:id="@+id/img_direction"
+            android:layout_width="24dp"
+            android:layout_marginRight="4dp"
             android:layout_height="wrap_content"
-            android:text="LIVE"
-            android:textColor="@color/red"
-            android:textAppearance="@style/Label"
-            android:gravity="center"
-            android:layout_gravity="center_horizontal"
-            android:includeFontPadding="false"
-            local:MvxBind="Visibility IsRealtime, Converter=Visibility;" />
-        <TextView
-            android:id="@+id/time"
+            local:MvxBind="DrawableName Direction, Converter=DirectionToImageResId"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_launcher" />
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/Time"
-            android:text="10"
-            local:MvxBind="Text ArriveTime(ArrivalTime)"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:layout_gravity="center_horizontal" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Min"
-            android:layout_below="@+id/time"
-            android:textAppearance="@style/Label"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:layout_gravity="center_horizontal" />
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/img_direction">
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Time"
+                android:layout_centerHorizontal="true"
+                android:text="88"
+                local:MvxBind="Text ArriveTime(ArrivalTime)"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:layout_centerVertical="true" />
+            <TextView
+                android:id="@+id/txt_live"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LIVE"
+                android:textColor="@color/red"
+                android:textAppearance="@style/Label"
+                android:layout_centerHorizontal="true"
+                android:includeFontPadding="false"
+                local:MvxBind="Visibility IsRealtime, Converter=Visibility;"
+                android:layout_above="@+id/time" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Min"
+                android:layout_below="@+id/time"
+                android:textAppearance="@style/Label"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/layout_subway_text"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toRightOf="@id/image"
-        android:layout_toLeftOf="@id/time_layout">
-        <TextView
-            android:id="@+id/DestinationLabel"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:textAppearance="@style/Destination"
-            android:gravity="center"
-            android:text="UP\nTOWN"
-            android:layout_marginRight="8dp"
-            local:MvxBind="Text DirectionLabel" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/layout_line_image"
+        android:layout_toLeftOf="@id/time_layout"
+        android:layout_centerVertical="true">
         <TextView
             android:id="@+id/StationName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Station"
             android:layout_gravity="center_vertical"
             android:text="StationName"
             local:MvxBind="Text Station.Name"
-            android:lines="1" />
-    </LinearLayout>
+            android:lines="1"
+            android:layout_alignParentLeft="true" />
+        <TextView
+            android:id="@+id/DestinationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Destination"
+            android:layout_below="@id/StationName"
+            android:text="UPTOWN"
+            android:layout_marginRight="8dp"
+            local:MvxBind="Text DirectionLabel" />
+    </RelativeLayout>
 </RelativeLayout>

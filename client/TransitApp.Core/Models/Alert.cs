@@ -43,7 +43,7 @@ namespace TransitApp.Core.Models
 	    {
 	        get
 	        {
-	            return String.Format("{0}",Direction == "N" ? "Up\ntown" : "Down\ntown").ToUpper();
+	            return String.Format("{0}",Direction == "N" ? "Uptown" : "Downtown").ToUpper();
 	        }
 	    }
 	}

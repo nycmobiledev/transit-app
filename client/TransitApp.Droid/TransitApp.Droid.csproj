@@ -76,14 +76,8 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ModernHttpClient">
-      <HintPath>..\Components\modernhttpclient-2.1.1\lib\android\ModernHttpClient.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
-    <Reference Include="OkHttp">
-      <HintPath>..\Components\modernhttpclient-2.1.1\lib\android\OkHttp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -164,6 +158,12 @@
     </Reference>
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\packages\Xamarin.Android.Support.v4.20.0.0.4\lib\MonoAndroid32\Xamarin.Android.Support.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\packages\modernhttpclient.2.1.4\lib\MonoAndroid\ModernHttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="OkHttp">
+      <HintPath>..\packages\modernhttpclient.2.1.4\lib\MonoAndroid\OkHttp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -248,7 +248,6 @@
     <AndroidResource Include="Resources\Layout\item_lineIcon.axml" />
     <AndroidResource Include="Resources\Layout\item_train.axml" />
     <AndroidResource Include="Resources\Layout\item_lineIcon2.axml" />
-    <AndroidResource Include="Resources\Drawable\Train_GS.png" />
     <AndroidResource Include="Resources\Drawable\shape_rounded_blue_rect.xml" />
     <AndroidResource Include="Resources\Layout\item_lineIcon_forEdit.axml" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
@@ -262,6 +261,108 @@
     <AndroidResource Include="Resources\Drawable-mdpi\ic_arrow_up.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_arrow_down.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_arrow_up.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_1.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_2.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_3.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_4.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_5.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_5X.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_6.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_6X.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_7.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_7x.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_A.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_B.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_C.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_D.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_E.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_F.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_G.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_GS.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_J.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_L.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_M.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_N.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_Q.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_R.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_S.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\Train_Z.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_1.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_2.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_3.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_4.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_5.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_5X.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_6.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_6X.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_7.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_7x.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_A.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_B.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_C.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_D.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_E.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_F.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_G.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_GS.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_J.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_L.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_M.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_N.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_Q.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_R.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_S.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\Train_Z.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_1.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_2.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_3.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_4.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_5.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_5X.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_6.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_6X.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_7.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_7x.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_A.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_B.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_C.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_D.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_E.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_F.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_G.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_GS.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_J.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_L.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_M.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_N.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_Q.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_R.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_S.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\Train_Z.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_file_download_grey600_48dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_file_download_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_file_upload_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_file_download_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_file_upload_grey600_36dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_file_upload_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_file_upload_grey600_48dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_file_download_grey600_36dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_file_download_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_file_download_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_file_download_grey600_36dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_file_download_grey600_48dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_file_upload_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_file_upload_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_file_upload_grey600_36dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_file_upload_grey600_48dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_file_download_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_file_download_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_file_download_grey600_36dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_file_download_grey600_48dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_file_upload_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_file_upload_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_file_upload_grey600_36dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_file_upload_grey600_48dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -274,31 +375,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
-    <AndroidResource Include="Resources\Drawable\Train_7x.png" />
-    <AndroidResource Include="Resources\Drawable\Train_A.png" />
-    <AndroidResource Include="Resources\Drawable\Train_C.png" />
-    <AndroidResource Include="Resources\Drawable\Train_E.png" />
-    <AndroidResource Include="Resources\Drawable\Train_F.png" />
-    <AndroidResource Include="Resources\Drawable\Train_1.png" />
-    <AndroidResource Include="Resources\Drawable\Train_Z.png" />
-    <AndroidResource Include="Resources\Drawable\Train_2.png" />
-    <AndroidResource Include="Resources\Drawable\Train_3.png" />
-    <AndroidResource Include="Resources\Drawable\Train_4.png" />
-    <AndroidResource Include="Resources\Drawable\Train_5.png" />
-    <AndroidResource Include="Resources\Drawable\Train_5X.png" />
-    <AndroidResource Include="Resources\Drawable\Train_6.png" />
-    <AndroidResource Include="Resources\Drawable\Train_6X.png" />
-    <AndroidResource Include="Resources\Drawable\Train_7.png" />
-    <AndroidResource Include="Resources\Drawable\Train_B.png" />
-    <AndroidResource Include="Resources\Drawable\Train_D.png" />
-    <AndroidResource Include="Resources\Drawable\Train_G.png" />
-    <AndroidResource Include="Resources\Drawable\Train_J.png" />
-    <AndroidResource Include="Resources\Drawable\Train_L.png" />
-    <AndroidResource Include="Resources\Drawable\Train_M.png" />
-    <AndroidResource Include="Resources\Drawable\Train_N.png" />
-    <AndroidResource Include="Resources\Drawable\Train_Q.png" />
-    <AndroidResource Include="Resources\Drawable\Train_R.png" />
-    <AndroidResource Include="Resources\Drawable\Train_S.png" />
     <AndroidResource Include="Resources\Menu\follows.xml" />
     <AndroidResource Include="Resources\Menu\followEdit.xml" />
     <AndroidResource Include="Resources\Values-sw720dp\integers.xml" />
@@ -319,10 +395,6 @@
   </Target>
   -->
   <ItemGroup>
-    <XamarinComponentReference Include="modernhttpclient">
-      <Version>2.1.1</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
     <XamarinComponentReference Include="xamandroidsupportv4-18">
       <Version>20.0.0.4</Version>
       <Visible>False</Visible>

@@ -16,7 +16,6 @@ namespace TransitApp.Core.Services
 {
 	public class WebService : IWebService
 	{
-		private SemaphoreSlim _syncLock = new SemaphoreSlim(1);
 
 		private readonly ILocalDataService _localDataService;
 
