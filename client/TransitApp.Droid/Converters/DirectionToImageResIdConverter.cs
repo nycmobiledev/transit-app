@@ -12,7 +12,7 @@ namespace TransitApp.Droid
 
 		protected override int Convert(string aDirection, Type targetType, object parameter, CultureInfo culture)
 		{
-			return NORTH == aDirection ? Resource.Drawable.ic_file_upload_grey600_24dp : Resource.Drawable.ic_file_download_grey600_24dp ;
+			return NORTH == aDirection ? Resource.Drawable.ic_publish_grey600_24dp : Resource.Drawable.ic_file_download_grey600_24dp ;
 		}
 	}
 }

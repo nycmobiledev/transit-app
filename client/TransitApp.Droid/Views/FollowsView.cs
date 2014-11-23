@@ -13,7 +13,7 @@ using Cirrious.MvvmCross.Droid.Fragging;
 
 namespace TransitApp.Droid.Views
 {
-    [Activity(Label = "Follows", Icon = "@android:color/transparent", ParentActivity = typeof(HomeView))]
+	[Activity(Label = "Stations Followed", Icon = "@android:color/transparent", ParentActivity = typeof(HomeView))]
 	[MetaData("android.support.PARENT_ACTIVITY", Value = "transitapp.droid.views.HomeView")]
     public class FollowsView : MvxFragmentActivity
     {

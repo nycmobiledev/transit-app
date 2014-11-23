@@ -118,7 +118,7 @@ namespace TransitApp.Droid.Views
                 {
                     frag = new AlertsView();
                     frag.ViewModel = ViewModel.AlertsViewModel;
-                    title = "Alerts";
+                    title = "Schedule";
                 }
                 else if (request.ViewModelType == typeof(AboutViewModel))
                 {
