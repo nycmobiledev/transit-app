@@ -88,6 +88,24 @@ namespace TransitApp.Core.ViewModels
 			_coolTimer = new CoolTimer(DataCallBack, null, REFRESH_DELAY, -1);
     	}
 
+		protected override void InitFromBundle(IMvxBundle parameters)
+    	{
+    		base.InitFromBundle(parameters);
+			if (parameters.Data.ContainsKey("UpdateTime"))
+			{
+				UpdateTime = new DateTime( long.Parse( parameters.Data["UpdateTime"]), DateTimeKind.Utc  );
+			}
+    	}
+
+    	protected override void SaveStateToBundle(IMvxBundle bundle)
+    	{
+    		base.SaveStateToBundle(bundle);
+			if ( DateTime.MinValue != UpdateTime )
+			{
+				bundle.Data["UpdateTime"] = UpdateTime.Ticks.ToString();
+			}
+    	}
+
 		public void Stop()
 		{
 			_coolTimer.Cancel();
@@ -188,31 +206,31 @@ namespace TransitApp.Core.ViewModels
 
 		void UpdateStaleAlerts()
 		{
-            ConnectionAlertText =
-                          String.Format("Connection Lost : {0}s ago", (int) DateTime.Now.Subtract(UpdateTime).TotalSeconds);
-                  
-			if ( null != Alerts )
+			ConnectionAlertText =
+                          String.Format( 
+				"Connection Lost : {0}s ago",
+					(int) DateTime.Now.Subtract( UpdateTime == DateTime.MinValue ? DateTime.Now : UpdateTime ).TotalSeconds);
+
+			InvokeOnMainThread( () =>
 			{
-				var expired = Alerts.Where( ( Alert arg ) => arg.ArrivalTime < DateTime.UtcNow);
+				if ( null != Alerts )
+				{
+					lock( Alerts )
+					{
+						var expired = Alerts.Where( ( Alert arg ) => arg.ArrivalTime < DateTime.UtcNow );
 
-			    foreach (var alert in Alerts)
-			    {
-			        alert.IsRealtime = false;
-			    }
+						foreach( var alert in Alerts )
+						{
+							alert.IsRealtime = false;
+						}
 
-                 InvokeOnMainThread(() =>
-                 {
-                     lock (expired)
-                     {
-                         foreach (var alert in expired)
-                         {
-                             Alerts.Remove(alert);
-                         }
-                     }
-                     
-                 });
-
-			}
+						foreach( var alert in expired )
+						{
+							Alerts.Remove( alert );
+						}
+					}
+				}
+			} );
 		}
 
         public void DataCallBack(object state)
