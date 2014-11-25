@@ -366,6 +366,9 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_publish_grey600_24dp.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_publish_grey600_36dp.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_publish_grey600_48dp.png" />
+    <AndroidResource Include="Resources\Anim\slide_in_bottom.xml" />
+    <AndroidResource Include="Resources\Anim\slide_out_bottom.xml" />
+    <AndroidResource Include="Resources\Drawable\background_splash.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -417,5 +420,6 @@
   <ItemGroup>
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
+    <Folder Include="Resources\Anim\" />
   </ItemGroup>
 </Project>

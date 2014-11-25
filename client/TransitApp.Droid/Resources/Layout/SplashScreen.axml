@@ -1,32 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@color/light_blue">
+    android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/img_logo"
+        android:src="@drawable/background_splash"
         android:layout_width="match_parent"
-        android:src="@drawable/artwork"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="Where is my Subway"
-        android:textSize="50dp"
-        android:textColor="#ffffffff"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_weight="1" />
-    <TextView
+        android:layout_height="match_parent"
+        android:id="@+id/imageView1" />
+    <LinearLayout
+        android:id="@+id/layout_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Built by NYC Mobile .NET Developers Group"
-        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Where's my Subway?"
+            android:textSize="24dp"
+            android:textColor="#ffffffff"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Built by NYC Mobile .NET Developers Group"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:layout_gravity="center_horizontal"
+            android:textSize="12dp"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:src="@drawable/artwork"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@id/layout_title"
         android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textColor="#ffffffff"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        android:layout_margin="16dp"
+        android:background="@android:color/transparent" />
+</RelativeLayout>

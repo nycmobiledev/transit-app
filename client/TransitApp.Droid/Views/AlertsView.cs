@@ -48,7 +48,15 @@ namespace TransitApp.Droid.Views.Fragments
 		public override void OnResume()
 		{
 			base.OnResume();
+
 			this.ViewModel.Start();
+			if ( IsAdded  )
+			{
+				Activity.ActionBar.Title = Activity.Title = "Schedule";
+				Activity.ActionBar.SetHomeButtonEnabled( true );
+				//				Activity.ActionBar.SetDisplayHomeAsUpEnabled( true );
+				//				Activity.ActionBar.SetHomeButtonEnabled( true );   
+			}
 		}
 
         //public override void OnResume()

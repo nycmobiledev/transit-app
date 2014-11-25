@@ -12,6 +12,8 @@ using Cirrious.MvvmCross.ViewModels;
 using TransitApp.Core.ViewModels;
 using TransitApp.Droid.Helpers;
 using TransitApp.Droid.Views.Fragments;
+using TransitApp.Core.Services;
+using Cirrious.MvvmCross.Plugins.Messenger;
 
 
 
@@ -93,6 +95,7 @@ namespace TransitApp.Droid.Views
             var customPresenter = Mvx.Resolve<ICustomPresenter>();
             customPresenter.Register(typeof(AlertsViewModel), this);
             customPresenter.Register(typeof(AboutViewModel), this);
+            customPresenter.Register(typeof(FollowsViewModel), this);
         }
 
         /// <summary>
@@ -113,17 +116,33 @@ namespace TransitApp.Droid.Views
                 }
 
                 string title;
-
+				var fragmentTransaction = this.SupportFragmentManager.BeginTransaction();
                 if (request.ViewModelType == typeof(AlertsViewModel))
                 {
                     frag = new AlertsView();
                     frag.ViewModel = ViewModel.AlertsViewModel;
+					this._drawerList.SetItemChecked(this.ViewModel.MenuItems.FindIndex(m => m.Section == request.ViewModelType), true);
+					fragmentTransaction = fragmentTransaction.Replace( Resource.Id.content_frame, frag );
                     title = "Schedule";
                 }
+				else if (request.ViewModelType == typeof(FollowsViewModel))
+				{
+					title = "Stations Followed";
+					frag = new FollowsView();
+					frag.ViewModel = new FollowsViewModel(Mvx.Resolve<IFollowService>(), Mvx.Resolve<IMvxMessenger>());
+					fragmentTransaction = fragmentTransaction
+						.SetCustomAnimations(Resource.Animation.slide_in_bottom,Android.Resource.Animation.FadeOut,Android.Resource.Animation.FadeIn, Resource.Animation.slide_out_bottom)
+						.Replace(Resource.Id.content_frame, frag)
+						.AddToBackStack(title);
+					ActionBar.SetDisplayHomeAsUpEnabled(true);
+
+				}
                 else if (request.ViewModelType == typeof(AboutViewModel))
                 {
                     frag = new AboutView();
                     frag.ViewModel = ViewModel.AboutViewModel;
+					this._drawerList.SetItemChecked(this.ViewModel.MenuItems.FindIndex(m => m.Section == request.ViewModelType), true);
+					fragmentTransaction = fragmentTransaction.Replace( Resource.Id.content_frame, frag );
                     title = "About";
                 }
                 else
@@ -132,8 +151,10 @@ namespace TransitApp.Droid.Views
                 }               
 
                 //Normally we would do this, but we already have it
-                this.SupportFragmentManager.BeginTransaction().Replace(Resource.Id.content_frame, frag).Commit();
-                this._drawerList.SetItemChecked(this.ViewModel.MenuItems.FindIndex(m => m.Section == request.ViewModelType), true);
+
+
+                fragmentTransaction.Commit();
+                
                 this.ActionBar.Title = this._title = title;
 
                 return true;
@@ -148,6 +169,8 @@ namespace TransitApp.Droid.Views
                 this._drawer.CloseDrawer(this._drawerList);
             }
         }
+
+
 
         protected override void OnPostCreate(Bundle savedInstanceState)
         {
