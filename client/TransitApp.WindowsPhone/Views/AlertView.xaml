@@ -17,32 +17,39 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Network status" 
-                   Margin="9,-7,0,0" 
-                   VerticalAlignment="Top"
-                   mvx:Bi.nd="Text ConnectionAlertText; Visible IsNotConnected"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Grid.RowSpan="2" VerticalAlignment="Top" Background="Red">
+        	<TextBlock Text="Connection Lost" 
+        		Margin="0,0,-373,0" 
+        		VerticalAlignment="Top"
+        		mvx:Bi.nd="Text ConnectionAlertText; Visible IsNotConnected"/>
+        </Border>
         <Controls:LongListSelector    
         ItemsSource="{Binding Alerts}" Grid.Row="1">
             <Controls:LongListSelector.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="{StaticResource PhoneVerticalMargin}">
+                    <Grid d:DesignWidth="257.384" d:DesignHeight="60.421">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="52"/>
+                            <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
-                        <Image mvx:Bi.nd="Source TrainIdToImagePath(Line.Id)" Width="42" Height="42" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                            <TextBlock Text="StationName" mvx:Bi.nd="Text Station.Name" />
-                            <TextBlock Text="Destination" mvx:Bi.nd="Text Destination" FontSize="{StaticResource PhoneFontSizeSmall}"/>
+                        <Border BorderBrush="Black" Background="#FF383838">
+                        	<Image mvx:Bi.nd="Source TrainIdToImagePath(Line.Id)" Source="/Resources/Train_3.png" Margin="12"/>
+                        </Border>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                            <TextBlock Text="51 st" mvx:Bi.nd="Text Station.Name" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="#FFF9F7F7" />
+                            <TextBlock Text="UPTOWN" mvx:Bi.nd="Text DirectionLabel" Foreground="#FFF9F7F7" FontSize="16"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                            <TextBlock Text="10" mvx:Bi.nd="Text ArriveTime(ArrivalTime)" HorizontalAlignment="Center" />
-                            <TextBlock Text="Mins" HorizontalAlignment="Center" FontSize="{StaticResource PhoneFontSizeSmall}"/>
+                            <TextBlock Text="LIVE" HorizontalAlignment="Center"  Foreground="Red" 
+                                       mvx:Bi.nd="Visibility IsRealtime, Converter=Visibility;" FontSize="12"/>
+
+                            <TextBlock Text="10" mvx:Bi.nd="Text ArriveTime(ArrivalTime)" HorizontalAlignment="Center" Foreground="#FFF9F7F7" FontSize="{StaticResource PhoneFontSizeLarge}" VerticalAlignment="Center" />
+                            <TextBlock Text="Min" HorizontalAlignment="Center" FontSize="12" Foreground="#FFF9F7F7"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </Controls:LongListSelector.ItemTemplate>
-        </Controls:LongListSelector>
+        </Controls:LongListSelector>  
     </Grid>
 </UserControl>

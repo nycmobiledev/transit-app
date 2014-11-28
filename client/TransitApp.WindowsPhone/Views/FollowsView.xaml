@@ -27,8 +27,8 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Where Is My Train" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Follows" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Where's My Subway?" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Stations Followed" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <phone:LongListSelector Grid.Row="1" Margin="12,0,12,0" ItemsSource="{Binding Follows}">

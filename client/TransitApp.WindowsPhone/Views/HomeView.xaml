@@ -19,7 +19,7 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <!--Pivot Control-->
-        <phone:Pivot Title="Where Is My Train" SelectionChanged="OnPivotSelectionChanged" >
+        <phone:Pivot Title="Where's My Subway?" SelectionChanged="OnPivotSelectionChanged" >
             <!--Pivot item one-->
             <phone:PivotItem Header="Alerts" Tag="AppBar">
                 <local:AlertsView DataContext="{Binding AlertsViewModel}" />

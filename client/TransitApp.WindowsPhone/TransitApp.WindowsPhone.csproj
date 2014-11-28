@@ -179,82 +179,82 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_1.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_1.png">
       <Link>Resources\Train_1.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_2.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_2.png">
       <Link>Resources\Train_2.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_3.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_3.png">
       <Link>Resources\Train_3.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_4.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_4.png">
       <Link>Resources\Train_4.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_5.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_5.png">
       <Link>Resources\Train_5.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_5X.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_5X.png">
       <Link>Resources\Train_5X.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_6.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_6.png">
       <Link>Resources\Train_6.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_6X.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_6X.png">
       <Link>Resources\Train_6X.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_7.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_7.png">
       <Link>Resources\Train_7.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_7x.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_7x.png">
       <Link>Resources\Train_7x.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_A.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_A.png">
       <Link>Resources\Train_A.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_B.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_B.png">
       <Link>Resources\Train_B.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_C.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_C.png">
       <Link>Resources\Train_C.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_D.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_D.png">
       <Link>Resources\Train_D.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_E.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_E.png">
       <Link>Resources\Train_E.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_F.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_F.png">
       <Link>Resources\Train_F.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_G.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_G.png">
       <Link>Resources\Train_G.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_GS.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_GS.png">
       <Link>Resources\Train_GS.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_J.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_J.png">
       <Link>Resources\Train_J.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_L.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_L.png">
       <Link>Resources\Train_L.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_M.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_M.png">
       <Link>Resources\Train_M.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_N.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_N.png">
       <Link>Resources\Train_N.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_Q.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_Q.png">
       <Link>Resources\Train_Q.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_R.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_R.png">
       <Link>Resources\Train_R.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_S.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_S.png">
       <Link>Resources\Train_S.png</Link>
     </Content>
-    <Content Include="..\TransitApp.Droid\Resources\Drawable\Train_Z.png">
+    <Content Include="..\TransitApp.Droid\Resources\Drawable-xhdpi\Train_Z.png">
       <Link>Resources\Train_Z.png</Link>
     </Content>
     <Content Include="README_FIRST.txt" />

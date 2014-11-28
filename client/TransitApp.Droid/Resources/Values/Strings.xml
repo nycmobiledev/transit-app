@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="ApplicationName">Where Is My Train</string>
+	<string name="ApplicationName">Where's My Subway?</string>
 	<string name="drawer_open">Open</string>
 	<string name="drawer_close">Close</string>
 	<string name="menu_refresh">Refresh</string>

@@ -55,10 +55,12 @@ namespace TransitApp.WindowsPhone
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
 
-                Setup setup = new Setup(RootFrame);
-
-                setup.Initialize();
+               
             }
+
+            Setup setup = new Setup(RootFrame);
+
+            setup.Initialize();
 
             //// TODO : doesnt seem to work - adrian :-(
             ////FastApplicationSwitchingService.Initialize();
