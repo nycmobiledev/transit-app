@@ -165,6 +165,9 @@
     <Reference Include="OkHttp">
       <HintPath>..\packages\modernhttpclient.2.1.4\lib\MonoAndroid\OkHttp.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Insights">
+      <HintPath>..\packages\Xamarin.Insights.1.7.3.98\lib\MonoAndroid10\Xamarin.Insights.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\MvxSwipeRefreshLayout.cs" />
