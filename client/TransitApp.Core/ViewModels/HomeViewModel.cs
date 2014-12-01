@@ -8,6 +8,7 @@ using TransitApp.Core.Services;
 using Cirrious.MvvmCross.Plugins.Location;
 using TransitApp.Core.Models;
 using System.Windows.Input;
+using Cirrious.MvvmCross.Plugins.WebBrowser;
 
 namespace TransitApp.Core.ViewModels
 {
@@ -18,13 +19,16 @@ namespace TransitApp.Core.ViewModels
         private MvxCommand<MenuViewModel> selectMenuItemCommand;
 
         private List<MenuViewModel> menuItems;
+        private readonly IMvxWebBrowserTask _webBrowser;
 
-        public HomeViewModel()
+        public HomeViewModel(IMvxWebBrowserTask webBrowser)
         {
+            _webBrowser = webBrowser;
             this.menuItems = new List<MenuViewModel>
                               {
 								  new MenuViewModel{Section = typeof(AlertsViewModel),Title = "Alerts"},
-				                  new MenuViewModel{Section = typeof(AboutViewModel),Title = "About"}
+				                  new MenuViewModel{Section = typeof(AboutViewModel),Title = "About"},
+                                  new MenuViewModel{Title = "Feedback"}
                               };
         }
 
@@ -38,7 +42,7 @@ namespace TransitApp.Core.ViewModels
         {
             get
             {
-                if (_alertsViewModel==null)
+                if (_alertsViewModel == null)
                 {
                     _alertsViewModel = new AlertsViewModel();
                 }
@@ -71,7 +75,25 @@ namespace TransitApp.Core.ViewModels
         {
             get
             {
-                return this.selectMenuItemCommand ?? (this.selectMenuItemCommand = new MvxCommand<MenuViewModel>(x => this.ShowViewModel(x.Section)));
+                return this.selectMenuItemCommand ?? (this.selectMenuItemCommand = new MvxCommand<MenuViewModel>(x =>
+                {
+                    if (x.Title=="Feedback")
+                    {
+                        FeedbackCommand.Execute(null);
+                    }
+                    else
+                    {
+                        this.ShowViewModel(x.Section);
+                    }
+                }));
+            }
+        }
+
+        public ICommand FeedbackCommand
+        {
+            get
+            {
+                return new MvxCommand(() => { _webBrowser.ShowWebPage("http://www.google.com"); });
             }
         }
     }

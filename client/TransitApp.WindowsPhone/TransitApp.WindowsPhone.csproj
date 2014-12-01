@@ -143,6 +143,7 @@
     <Compile Include="Bootstrap\LocationPluginBootstrap.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <!--<Compile Include="Infrastructure\FastApplicationSwitchingService.cs" />-->
+    <Compile Include="Bootstrap\WebBrowserPluginBootstrap.cs" />
     <Compile Include="Converters\IsFollowedToOpacityConverter.cs" />
     <Compile Include="Converters\TrainIdToImagePathConverter.cs" />
     <Compile Include="Converters\VisibilityConverter.cs" />
@@ -320,6 +321,12 @@
     <Reference Include="Cirrious.MvvmCross.Plugins.Messenger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Messenger.3.2.1\lib\wp8\Cirrious.MvvmCross.Plugins.Messenger.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.WebBrowser">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.WebBrowser.3.2.1\lib\wp8\Cirrious.MvvmCross.Plugins.WebBrowser.dll</HintPath>
+    </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.WebBrowser.WindowsPhone">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.WebBrowser.3.2.1\lib\wp8\Cirrious.MvvmCross.Plugins.WebBrowser.WindowsPhone.dll</HintPath>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.WindowsPhone, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
