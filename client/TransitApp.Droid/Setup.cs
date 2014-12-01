@@ -9,6 +9,8 @@ using Cirrious.MvvmCross.Droid.Views;
 using Cirrious.MvvmCross.Binding.Bindings.Target.Construction;
 using TransitApp.Core;
 using TransitApp.Core.Interfaces;
+using Xamarin;
+
 
 namespace TransitApp.Droid
 {
@@ -44,10 +46,10 @@ namespace TransitApp.Droid
 //			NetworkConnectionHelperDroid networkHelperDroid = new NetworkConnectionHelperDroid ();
             //			Mvx.RegisterSingleton<IConnectivity>(networkHelperDroid);
 
-#if RELEASE
+//if RELEASE
             // it makes the app crash, when debugging.
             Insights.Initialize("43ebfb1c25cbb2d71e0d40af354f6a790d5f111e", this.ApplicationContext);
-#endif
+//#endif
 
 
             return new Core.App();
