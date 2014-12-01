@@ -182,6 +182,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Helpers\Base64ImageGetter.cs" />
+    <Compile Include="Views\FeedbackView.cs" />
     <Compile Include="Views\HomeView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Helpers\CustomPresenter.cs" />
@@ -262,6 +263,7 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\Layout\fragment_feedback.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

@@ -28,7 +28,7 @@ namespace TransitApp.Core.ViewModels
                               {
 								  new MenuViewModel{Section = typeof(AlertsViewModel),Title = "Alerts"},
 				                  new MenuViewModel{Section = typeof(AboutViewModel),Title = "About"},
-                                  new MenuViewModel{Title = "Feedback"}
+                                  new MenuViewModel{Section = typeof(FeedbackViewModel),Title = "Feedback"}
                               };
         }
 
@@ -76,25 +76,10 @@ namespace TransitApp.Core.ViewModels
             get
             {
                 return this.selectMenuItemCommand ?? (this.selectMenuItemCommand = new MvxCommand<MenuViewModel>(x =>
-                {
-                    if (x.Title=="Feedback")
-                    {
-                        FeedbackCommand.Execute(null);
-                    }
-                    else
-                    {
-                        this.ShowViewModel(x.Section);
-                    }
+                {   
+                    this.ShowViewModel(x.Section);                    
                 }));
             }
-        }
-
-        public ICommand FeedbackCommand
-        {
-            get
-            {
-                return new MvxCommand(() => { _webBrowser.ShowWebPage("http://www.google.com"); });
-            }
-        }
+        }  
     }
 }
