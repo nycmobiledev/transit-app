@@ -12,6 +12,7 @@ using Cirrious.MvvmCross.ViewModels;
 using TransitApp.Core.ViewModels;
 using TransitApp.Droid.Helpers;
 using TransitApp.Droid.Views.Fragments;
+using Com.Uservoice.Uservoicesdk;
 
 namespace TransitApp.Droid.Views
 {
@@ -76,6 +77,8 @@ namespace TransitApp.Droid.Views
             {
                 this.ViewModel.SelectMenuItemCommand.Execute(this.ViewModel.MenuItems[0]);
             }
+
+            UserVoice.Init(new Com.Uservoice.Uservoicesdk.Config("nycmobiledev.uservoice.com"), this);
         }
 
         /// <summary>
@@ -86,7 +89,7 @@ namespace TransitApp.Droid.Views
             var customPresenter = Mvx.Resolve<ICustomPresenter>();
             customPresenter.Register(typeof(AlertsViewModel), this);
             customPresenter.Register(typeof(AboutViewModel), this);
-            customPresenter.Register(typeof(FeedbackViewModel), this);
+            customPresenter.Register(typeof(HelpViewModel), this);
         }
 
         /// <summary>
@@ -119,11 +122,11 @@ namespace TransitApp.Droid.Views
                     frag = new AboutView();
                     frag.ViewModel = ViewModel.AboutViewModel;
                     title = "About";
-                }else if (request.ViewModelType == typeof(FeedbackViewModel))
-                {
-                    frag = new FeedbackView();
-                    frag.ViewModel = ViewModel.AboutViewModel;
-                    title = "Feedback";
+                }else if (request.ViewModelType == typeof(HelpViewModel))
+                {			
+                    //Break rule, HelpViewModel doesn't have Android View.
+					UserVoice.LaunchUserVoice(this);
+					return true;
                 }
                 else
                 {

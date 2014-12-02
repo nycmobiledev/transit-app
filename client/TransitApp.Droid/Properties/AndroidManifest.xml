@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1" android:installLocation="auto">
 	<uses-sdk />
 	<application android:label="Where Is My Subway" android:theme="@style/Theme" android:icon="@drawable/ic_launcher">
+	<activity android:name="com.uservoice.uservoicesdk.activity.PortalActivity" />
+        <activity android:name="com.uservoice.uservoicesdk.activity.ForumActivity" /> 
+        <activity android:name="com.uservoice.uservoicesdk.activity.ArticleActivity" />
+        <activity android:name="com.uservoice.uservoicesdk.activity.TopicActivity" />
+        <activity android:name="com.uservoice.uservoicesdk.activity.ContactActivity" android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name="com.uservoice.uservoicesdk.activity.PostIdeaActivity" android:configChanges="orientation|keyboardHidden|screenSize" />
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />

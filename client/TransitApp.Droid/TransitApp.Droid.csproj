@@ -75,12 +75,6 @@
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cirrious.MvvmCross.Plugins.WebBrowser">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.WebBrowser.3.2.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.WebBrowser.dll</HintPath>
-    </Reference>
-    <Reference Include="Cirrious.MvvmCross.Plugins.WebBrowser.Droid">
-      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.WebBrowser.3.2.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.WebBrowser.Droid.dll</HintPath>
-    </Reference>
     <Reference Include="ModernHttpClient">
       <HintPath>..\Components\modernhttpclient-2.1.1\lib\android\ModernHttpClient.dll</HintPath>
     </Reference>
@@ -170,9 +164,11 @@
     <Reference Include="Xamarin.Android.Support.v4">
       <HintPath>..\packages\Xamarin.Android.Support.v4.20.0.0.4\lib\MonoAndroid32\Xamarin.Android.Support.v4.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Android.UserVoice">
+      <HintPath>Lib\Xamarin.Android.UserVoice.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrap\WebBrowserPluginBootstrap.cs" />
     <Compile Include="Controls\MvxSwipeRefreshLayout.cs" />
     <Compile Include="Helpers\ImageViewAlphaTargetBinding.cs" />
     <Compile Include="Helpers\ViewModelDialog.cs" />
@@ -182,7 +178,6 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Helpers\Base64ImageGetter.cs" />
-    <Compile Include="Views\FeedbackView.cs" />
     <Compile Include="Views\HomeView.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Helpers\CustomPresenter.cs" />
@@ -263,7 +258,6 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-mdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_launcher.png" />
-    <AndroidResource Include="Resources\Layout\fragment_feedback.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace TransitApp.Core.ViewModels
 {
-    public class FeedbackViewModel : BaseViewModel
+    public class HelpViewModel : BaseViewModel
     {
     }
 }

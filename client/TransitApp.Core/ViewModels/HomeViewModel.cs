@@ -8,7 +8,6 @@ using TransitApp.Core.Services;
 using Cirrious.MvvmCross.Plugins.Location;
 using TransitApp.Core.Models;
 using System.Windows.Input;
-using Cirrious.MvvmCross.Plugins.WebBrowser;
 
 namespace TransitApp.Core.ViewModels
 {
@@ -18,17 +17,15 @@ namespace TransitApp.Core.ViewModels
         private AlertsViewModel _alertsViewModel;
         private MvxCommand<MenuViewModel> selectMenuItemCommand;
 
-        private List<MenuViewModel> menuItems;
-        private readonly IMvxWebBrowserTask _webBrowser;
+        private List<MenuViewModel> menuItems;        
 
-        public HomeViewModel(IMvxWebBrowserTask webBrowser)
-        {
-            _webBrowser = webBrowser;
+        public HomeViewModel()
+        {            
             this.menuItems = new List<MenuViewModel>
                               {
 								  new MenuViewModel{Section = typeof(AlertsViewModel),Title = "Alerts"},
 				                  new MenuViewModel{Section = typeof(AboutViewModel),Title = "About"},
-                                  new MenuViewModel{Section = typeof(FeedbackViewModel),Title = "Feedback"}
+                                  new MenuViewModel{Section = typeof(HelpViewModel),Title = "Help"}
                               };
         }
 
