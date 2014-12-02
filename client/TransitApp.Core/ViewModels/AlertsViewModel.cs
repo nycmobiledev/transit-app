@@ -217,7 +217,7 @@ namespace TransitApp.Core.ViewModels
 				{
 					lock( Alerts )
 					{
-						var expired = Alerts.Where( ( Alert arg ) => arg.ArrivalTime < DateTime.UtcNow );
+						var expired = Alerts.Where( ( Alert arg ) => arg.ArrivalTime < DateTime.UtcNow ).ToList();
 
 						foreach( var alert in Alerts )
 						{
