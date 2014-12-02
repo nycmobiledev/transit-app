@@ -17,14 +17,15 @@ namespace TransitApp.Core.ViewModels
         private AlertsViewModel _alertsViewModel;
         private MvxCommand<MenuViewModel> selectMenuItemCommand;
 
-        private List<MenuViewModel> menuItems;
+        private List<MenuViewModel> menuItems;        
 
         public HomeViewModel()
-        {
+        {            
             this.menuItems = new List<MenuViewModel>
                               {
 								  new MenuViewModel{Section = typeof(AlertsViewModel),Title = "Alerts"},
-				                  new MenuViewModel{Section = typeof(AboutViewModel),Title = "About"}
+				                  new MenuViewModel{Section = typeof(AboutViewModel),Title = "About"},
+                                  new MenuViewModel{Section = typeof(HelpViewModel),Title = "Help"}
                               };
         }
 
@@ -38,7 +39,7 @@ namespace TransitApp.Core.ViewModels
         {
             get
             {
-                if (_alertsViewModel==null)
+                if (_alertsViewModel == null)
                 {
                     _alertsViewModel = new AlertsViewModel();
                 }
@@ -71,8 +72,11 @@ namespace TransitApp.Core.ViewModels
         {
             get
             {
-                return this.selectMenuItemCommand ?? (this.selectMenuItemCommand = new MvxCommand<MenuViewModel>(x => this.ShowViewModel(x.Section)));
+                return this.selectMenuItemCommand ?? (this.selectMenuItemCommand = new MvxCommand<MenuViewModel>(x =>
+                {   
+                    this.ShowViewModel(x.Section);                    
+                }));
             }
-        }
+        }  
     }
 }

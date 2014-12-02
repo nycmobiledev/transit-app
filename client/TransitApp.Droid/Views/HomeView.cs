@@ -12,14 +12,13 @@ using Cirrious.MvvmCross.ViewModels;
 using TransitApp.Core.ViewModels;
 using TransitApp.Droid.Helpers;
 using TransitApp.Droid.Views.Fragments;
+using Com.Uservoice.Uservoicesdk;
 using TransitApp.Core.Services;
 using Cirrious.MvvmCross.Plugins.Messenger;
 
-
-
 namespace TransitApp.Droid.Views
 {
-    [Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop,  ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "Home", LaunchMode = LaunchMode.SingleTop, ScreenOrientation = ScreenOrientation.Portrait)]
     public class HomeView : MvxFragmentActivity, IFragmentHost
     {
         private DrawerLayout _drawer;
@@ -27,19 +26,18 @@ namespace TransitApp.Droid.Views
         private string _drawerTitle;
         private string _title;
         private MvxListView _drawerList;
-
         private HomeViewModel m_ViewModel;
+
         public new HomeViewModel ViewModel
         {
             get { return this.m_ViewModel ?? (this.m_ViewModel = base.ViewModel as HomeViewModel); }
         }
 
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-			Android.Content.Context ctx = this.ApplicationContext;
-			Java.Lang.Object svc = ctx.GetSystemService (ConnectivityService);
+            Android.Content.Context ctx = this.ApplicationContext;
+            Java.Lang.Object svc = ctx.GetSystemService(ConnectivityService);
             SetContentView(Resource.Layout.page_home_view);
 
             this._title = this._drawerTitle = this.Title;
@@ -65,8 +63,6 @@ namespace TransitApp.Droid.Views
                 this.InvalidateOptionsMenu();
             };
 
-
-
             //You can alternatively use _drawer.DrawerOpened here
             this._drawerToggle.DrawerOpened += delegate
             {
@@ -76,7 +72,6 @@ namespace TransitApp.Droid.Views
 
             this._drawer.SetDrawerListener(this._drawerToggle);
 
-
             this.RegisterForDetailsRequests();
 
             if (null == savedInstanceState)
@@ -84,8 +79,8 @@ namespace TransitApp.Droid.Views
                 this.ViewModel.SelectMenuItemCommand.Execute(this.ViewModel.MenuItems[0]);
             }
 
+            UserVoice.Init(new Com.Uservoice.Uservoicesdk.Config("nycmobiledev.uservoice.com"), this);
         }
-
 
         /// <summary>
         /// Use the custom presenter to determine if we can navigate forward.
@@ -95,6 +90,7 @@ namespace TransitApp.Droid.Views
             var customPresenter = Mvx.Resolve<ICustomPresenter>();
             customPresenter.Register(typeof(AlertsViewModel), this);
             customPresenter.Register(typeof(AboutViewModel), this);
+            customPresenter.Register(typeof(HelpViewModel), this);
             customPresenter.Register(typeof(FollowsViewModel), this);
         }
 
@@ -144,11 +140,16 @@ namespace TransitApp.Droid.Views
 					this._drawerList.SetItemChecked(this.ViewModel.MenuItems.FindIndex(m => m.Section == request.ViewModelType), true);
 					fragmentTransaction = fragmentTransaction.Replace( Resource.Id.content_frame, frag );
                     title = "About";
+                }else if (request.ViewModelType == typeof(HelpViewModel))
+                {			
+                    //Break rule, HelpViewModel doesn't have Android View.
+					UserVoice.LaunchUserVoice(this);
+					return true;
                 }
                 else
                 {
                     return false;
-                }               
+                }
 
                 //Normally we would do this, but we already have it
 
@@ -159,9 +160,9 @@ namespace TransitApp.Droid.Views
 
                 return true;
             }
-			catch (RemoteException ex)
-            {                
-				string str = ex.Message;
+            catch (RemoteException ex)
+            {
+                string str = ex.Message;
                 return false;
             }
             finally
@@ -177,7 +178,6 @@ namespace TransitApp.Droid.Views
             base.OnPostCreate(savedInstanceState);
             this._drawerToggle.SyncState();
         }
-
 
         public override void OnConfigurationChanged(Configuration newConfig)
         {
@@ -198,7 +198,6 @@ namespace TransitApp.Droid.Views
             for (int i = 0; i < menu.Size(); i++)
                 menu.GetItem(i).SetVisible(!drawerOpen);
 
-
             return base.OnPrepareOptionsMenu(menu);
         }
 
@@ -209,6 +208,5 @@ namespace TransitApp.Droid.Views
 
             return base.OnOptionsItemSelected(item);
         }
-
     }
 }

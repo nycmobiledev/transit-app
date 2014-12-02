@@ -59,6 +59,7 @@
     <Compile Include="Services\LocalDataService.cs" />
     <Compile Include="Services\MockFollowService.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
+    <Compile Include="ViewModels\HelpViewModel.cs" />
     <Compile Include="ViewModels\FollowEditViewModel.cs" />
     <Compile Include="Models\FollowsChanged.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
