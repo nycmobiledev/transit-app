@@ -42,19 +42,12 @@
     <DefineConstants>TRACE;RELEASE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidStoreUncompressedFileExtensions>
-    </AndroidStoreUncompressedFileExtensions>
-    <JavaMaximumHeapSize>
-    </JavaMaximumHeapSize>
-    <JavaOptions>
-    </JavaOptions>
-    <AndroidLinkSkip>
-    </AndroidLinkSkip>
-    <AndroidLinkMode>Full</AndroidLinkMode>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <MonoDroidExtraArgs>
     </MonoDroidExtraArgs>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
+    <AndroidLinkSkip>Xamarin.Android.Support.v4</AndroidLinkSkip>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Mock|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
