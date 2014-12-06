@@ -4,22 +4,8 @@
   <App xmlns="" ProductID="{7c4ab594-59b6-4dd9-8223-6bd82701dec2}" Title="Where's My Subway?" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="NYC Mobile .NET Developers Group" Description="Find your next subway fast!" Publisher="NYC Mobile .NET Developers Group" PublisherID="{5df8ab00-870a-42ef-80f6-b15dab25ca9a}">
     <IconPath IsRelative="true" IsResource="false">Resources\ApplicationIcon.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_GAMERSERVICES" />
-      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
-      <Capability Name="ID_CAP_IDENTITY_USER" />
-      <Capability Name="ID_CAP_LOCATION" />
-      <Capability Name="ID_CAP_MICROPHONE" />
-      <Capability Name="ID_CAP_NETWORKING" />
-      <Capability Name="ID_CAP_PHONEDIALER" />
-      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
-      <Capability Name="ID_CAP_SENSORS" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
-      <Capability Name="ID_CAP_ISV_CAMERA" />
-      <Capability Name="ID_CAP_CONTACTS" />
-      <Capability Name="ID_CAP_APPOINTMENTS" />
-      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
-      <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
-      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
+      <Capability Name="ID_CAP_NETWORKING" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
